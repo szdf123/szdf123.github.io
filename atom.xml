@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-02-24T12:57:50.351Z</updated>
+  <updated>2021-02-24T14:25:33.256Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/"/>
     <id>http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-24T12:57:50.351Z</updated>
+    <updated>2021-02-24T14:25:33.256Z</updated>
     
     
       
@@ -51,23 +51,24 @@
     <link href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/"/>
     <id>http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-24T07:05:39.865Z</updated>
+    <updated>2021-02-24T14:25:51.555Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;引用自：&lt;a</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文引用改编自：&lt;a</summary>
         
       
     
     
     
-    <category term="随笔" scheme="http://szdf123.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
     
     
-    <category term="测试标签" scheme="http://szdf123.github.io/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
+    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
@@ -76,7 +77,7 @@
     <link href="http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/"/>
     <id>http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-24T08:12:48.536Z</updated>
+    <updated>2021-02-24T14:25:44.775Z</updated>
     
     
       
@@ -89,24 +90,12 @@
     
     
     
-    <category term="随笔" scheme="http://szdf123.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
-    
     <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    
-    <category term="其他" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E5%85%B6%E4%BB%96/"/>
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/categories/UNSW/COMP9020/"/>
-    
-    <category term="COMP9021" scheme="http://szdf123.github.io/categories/UNSW/COMP9021/"/>
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/categories/UNSW/COMP9311/"/>
     
     
     <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
-    <category term="数学" scheme="http://szdf123.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Java" scheme="http://szdf123.github.io/tags/Java/"/>
     
