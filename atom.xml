@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Benjamin的技术博客</title>
+  <icon>https://www.gravatar.com/avatar/9f273fce4c4b6e439b7bf169085069b6</icon>
+  <subtitle>致力于成为技术大佬</subtitle>
+  <link href="http://szdf123.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://szdf123.github.io/"/>
+  <updated>2021-02-24T12:57:50.351Z</updated>
+  <id>http://szdf123.github.io/</id>
+  
+  <author>
+    <name>Benjamin</name>
+    <email>BenjaminUNSW@163.com</email>
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo个人博客搭建教程</title>
+    <link href="http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/"/>
+    <id>http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/</id>
+    <published>2021-02-24T07:33:43.000Z</published>
+    <updated>2021-02-24T12:57:50.351Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;&lt;p&gt;本教程为使用Mac搭建Hexo个人博客&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://hexo.io/docs/&quot;&gt;Hexo官方安装部署文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LaTeX 符号命令大全</title>
+    <link href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/"/>
+    <id>http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</id>
+    <published>2021-02-24T04:31:07.000Z</published>
+    <updated>2021-02-24T07:05:39.865Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;引用自：&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="http://szdf123.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+    <category term="测试标签" scheme="http://szdf123.github.io/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>博客配置及图片引用方法</title>
+    <link href="http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/"/>
+    <id>http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/</id>
+    <published>2021-02-24T04:31:07.000Z</published>
+    <updated>2021-02-24T08:12:48.536Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;引用&quot;&gt;&lt;a href=&quot;#引用&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="随笔" scheme="http://szdf123.github.io/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="其他" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/%E5%85%B6%E4%BB%96/"/>
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/categories/UNSW/COMP9020/"/>
+    
+    <category term="COMP9021" scheme="http://szdf123.github.io/categories/UNSW/COMP9021/"/>
+    
+    <category term="COMP9311" scheme="http://szdf123.github.io/categories/UNSW/COMP9311/"/>
+    
+    
+    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="数学" scheme="http://szdf123.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="Java" scheme="http://szdf123.github.io/tags/Java/"/>
+    
+    <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
+    
+  </entry>
+  
+</feed>
