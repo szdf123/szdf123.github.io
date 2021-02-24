@@ -93,7 +93,7 @@
             <section class="inner">
                 <section class="inner-main">
                     <div class="post">
-    <article id="post-cklj707ge0001rzlw8vbj0k7p" class="article article-type-post" itemscope
+    <article id="post-cklj7dbo10001zolw0a07h1yz" class="article article-type-post" itemscope
     itemprop="blogPost">
 
     <div class="article-inner">
@@ -139,7 +139,47 @@
         </div>
 
         <div class="article-entry post-inner-html hairline" itemprop="articleBody">
-            
+            <blockquote><p>本教程为使用Mac搭建Hexo个人博客</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo官方安装部署文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo官方中文安装部署文档</a></p>
+<h4 id="1-下载安装Nodejs"><a href="#1-下载安装Nodejs" class="headerlink" title="1. 下载安装Nodejs"></a>1. 下载安装Nodejs</h4><p>在Nodejs官网，下载最新版Node.js，并安装至/usr/local/bin/node</p>
+<p>安装npm至/usr/local/bin/npm</p>
+<h4 id="2-启动iterm，安装cnpm，安装"><a href="#2-启动iterm，安装cnpm，安装" class="headerlink" title="2. 启动iterm，安装cnpm，安装"></a>2. 启动iterm，安装cnpm，安装</h4><p>进入Mac 命令行中，输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">node -v     # 查看node版本  查看node</span><br><span class="line">npm -v      # 查看npm版本</span><br></pre></td></tr></table></figure>
+<p>安装cnpm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry=https://registry.npm.taobao.org    # 安装cnpm</span><br><span class="line">cnpm -v     # 查看cnpm版本版本</span><br></pre></td></tr></table></figure>
+<h4 id="3-安装hexo"><a href="#3-安装hexo" class="headerlink" title="3.安装hexo"></a>3.安装hexo</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli    # 安装hexo</span><br><span class="line">hexo -v                     # 查看hexo的版本</span><br></pre></td></tr></table></figure>
+<h4 id="4-在本地创建博客目录"><a href="#4-在本地创建博客目录" class="headerlink" title="4. 在本地创建博客目录"></a>4. 在本地创建博客目录</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd 【本地目录】 # 该目录用于存放未来全部的博客内容</span><br><span class="line">mkdir blog</span><br><span class="line">cd blog</span><br><span class="line">hexo init   # 初始化博客</span><br><span class="line">hexo s      # 启动hexo</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> 默认启动本地4000端口<br> <a target="_blank" rel="noopener" href="http://localhost:4000">http://localhost:4000</a></p>
+</blockquote>
+<p>在blog目录下<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo n &quot;我的第一篇博客&quot;  # 创建博客</span><br><span class="line">hexo clean 清空缓存</span><br><span class="line">hexo g 自动创建静态文件</span><br></pre></td></tr></table></figure></p>
+<h4 id="5-创建github的repository"><a href="#5-创建github的repository" class="headerlink" title="5. 创建github的repository"></a>5. 创建github的repository</h4><p>进入github，创建与登录账号同名的repository</p>
+<blockquote>
+<p>xxx.github.io</p>
+</blockquote>
+<p>并生成token：【Token】<br><strong> Token极其私密，请牢记，勿分享！ </strong></p>
+<h4 id="6-本地安装hexo-git插件"><a href="#6-本地安装hexo-git插件" class="headerlink" title="6. 本地安装hexo-git插件"></a>6. 本地安装hexo-git插件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<p>在blog目录下，修改_config.yml文件</p>
+<p>Deployment下，修改为以下内容</p>
+<blockquote>
+<p>deploy:<br>type: git<br>repo: <a target="_blank" rel="noopener" href="https://github.com/xxx/xxx.github.io.git">https://github.com/xxx/xxx.github.io.git</a><br>branch: master<br>token: <em>*</em></p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d    # 部署Hexo服务到远端</span><br></pre></td></tr></table></figure>
+<h4 id="7-访问在线博客"><a href="#7-访问在线博客" class="headerlink" title="7. 访问在线博客"></a>7. 访问在线博客</h4><blockquote>
+<p>xxx.github.io</p>
+</blockquote>
+<h4 id="8-定制主题"><a href="#8-定制主题" class="headerlink" title="8. 定制主题"></a>8. 定制主题</h4><p>Hexo的主题有很多，如</p>
+<blockquote>
+<p>github.com/litten/hexo-theme-yilia<br><a target="_blank" rel="noopener" href="https://github.com/cendeal/hexo-theme-aomori">https://github.com/cendeal/hexo-theme-aomori</a></p>
+</blockquote>
+<p>将主题克隆至本地<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone http://github.com/litten/hexo-theme-yilia.git themes/yilia</span><br><span class="line">git clone https://github.com/cendeal/hexo-theme-aomori.git themes/aomori</span><br><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure><br>将 theme: landscape 修改为 theme: <strong>yilia</strong>或<strong>aomori</strong><br>在本地编译，部署服务<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><br>或<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d -g</span><br></pre></td></tr></table></figure></p>
+<h4 id="9-修复模板缺失问题"><a href="#9-修复模板缺失问题" class="headerlink" title="9. 修复模板缺失问题"></a>9. 修复模板缺失问题</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i hexo-generator-json-content --save</span><br></pre></td></tr></table></figure>
+<p>修改_config.yml，增加以下配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">jsonContent:</span><br><span class="line">  meta: false</span><br><span class="line">  pages: false</span><br><span class="line">  posts:</span><br><span class="line">   title: true</span><br><span class="line">   date: true</span><br><span class="line">   path: true</span><br><span class="line">   text: false</span><br><span class="line">   raw: false</span><br><span class="line">   content: false</span><br><span class="line">   slug: false</span><br><span class="line">   updated: false</span><br><span class="line">   comments: false</span><br><span class="line">   link: false</span><br><span class="line">   permalink: false</span><br><span class="line">   excerpt: false</span><br><span class="line">   categories: false</span><br><span class="line">   tags: true</span><br></pre></td></tr></table></figure>
+<h4 id="10-使用LaTeX"><a href="#10-使用LaTeX" class="headerlink" title="10. 使用LaTeX"></a>10. 使用LaTeX</h4><p>可参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44191286/article/details/102702479">Hexo博客中使用Latex</a></p>
+
         </div>
 
     </div>
@@ -299,22 +339,6 @@
 
 
 
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
