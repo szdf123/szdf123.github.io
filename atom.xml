@@ -47,11 +47,41 @@
   </entry>
   
   <entry>
+    <title>COMP9020课程笔记</title>
+    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji/"/>
+    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji/</id>
+    <published>2021-02-24T07:33:43.000Z</published>
+    <updated>2021-02-26T17:53:12.683Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Week-1&quot;&gt;&lt;a href=&quot;#Week-1&quot; class=&quot;headerlink&quot; title=&quot;Week 1&quot;&gt;&lt;/a&gt;Week 1&lt;/h2&gt;&lt;p&gt;一般地，以下表达式成立：&lt;/p&gt;
+&lt;p&gt;$|B| &amp;lt; | Pow(B)| \\ A \cap B</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LaTeX 符号命令大全</title>
     <link href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/"/>
     <id>http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-24T14:25:51.555Z</updated>
+    <updated>2021-02-26T14:26:27.517Z</updated>
     
     
       
@@ -100,6 +130,38 @@
     <category term="Java" scheme="http://szdf123.github.io/tags/Java/"/>
     
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Python3教程笔记</title>
+    <link href="http://szdf123.github.io/2021/02/24/python3-jiao-cheng-bi-ji/"/>
+    <id>http://szdf123.github.io/2021/02/24/python3-jiao-cheng-bi-ji/</id>
+    <published>2021-02-24T04:31:07.000Z</published>
+    <updated>2021-02-26T18:02:02.482Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文根据&lt;a href=&quot;https://www.runoob.com/python3&quot;&gt;菜鸟教程&lt;/a&gt;整理&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;语法&quot;&gt;&lt;a href=&quot;#语法&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
