@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-02-26T18:10:03.154Z</updated>
+  <updated>2021-02-27T07:17:11.200Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Python3教程笔记</title>
+    <title>Python3教程笔记（一）</title>
     <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/"/>
     <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/</id>
     <published>2021-02-26T14:18:55.000Z</published>
-    <updated>2021-02-26T18:10:03.154Z</updated>
+    <updated>2021-02-27T07:17:11.200Z</updated>
     
     
       
@@ -79,19 +79,18 @@
   </entry>
   
   <entry>
-    <title>COMP9020课程笔记</title>
-    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji/"/>
-    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji/</id>
+    <title>COMP9020课程笔记（Week2）</title>
+    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
+    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-26T17:53:12.683Z</updated>
+    <updated>2021-02-27T17:20:47.222Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Week-1&quot;&gt;&lt;a href=&quot;#Week-1&quot; class=&quot;headerlink&quot; title=&quot;Week 1&quot;&gt;&lt;/a&gt;Week 1&lt;/h2&gt;&lt;p&gt;一般地，以下表达式成立：&lt;/p&gt;
-&lt;p&gt;$|B| &amp;lt; | Pow(B)| \\ A \cap B</summary>
+    <summary type="html">&lt;h2 id=&quot;Week-2&quot;&gt;&lt;a href=&quot;#Week-2&quot; class=&quot;headerlink&quot; title=&quot;Week 2&quot;&gt;&lt;/a&gt;Week 2&lt;/h2&gt;&lt;h4 id=&quot;逻辑等价-Logical-Equivalence&quot;&gt;&lt;a</summary>
         
       
     
@@ -113,7 +112,7 @@
     <link href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/"/>
     <id>http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-26T14:26:27.517Z</updated>
+    <updated>2021-02-27T13:54:10.859Z</updated>
     
     
       
@@ -162,6 +161,36 @@
     <category term="Java" scheme="http://szdf123.github.io/tags/Java/"/>
     
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>COMP9020课程笔记（Week1）</title>
+    <link href="http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/"/>
+    <id>http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/</id>
+    <published>2021-02-20T07:19:32.000Z</published>
+    <updated>2021-02-27T07:32:14.517Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Week-1&quot;&gt;&lt;a href=&quot;#Week-1&quot; class=&quot;headerlink&quot; title=&quot;Week 1&quot;&gt;&lt;/a&gt;Week 1&lt;/h2&gt;&lt;p&gt;一般地，以下表达式成立：&lt;/p&gt;
+&lt;p&gt;$|B| &amp;lt; | Pow(B)| \\ A \cap B</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
