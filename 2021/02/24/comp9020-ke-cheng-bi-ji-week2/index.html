@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Benjamin的技术博客" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Benjamin的技术博客" type="application/atom+xml">
 </head>
 
 
@@ -448,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -473,7 +473,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h4 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h4><script type="math/tex; mode=display">
+                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h3 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h3><script type="math/tex; mode=display">
 \begin{align} \mbox{Excluded Middle} \qquad p\lor \lnot p & \equiv \top \\
 \mbox{Contradiction} \qquad p\wedge \lnot p & \equiv \bot \\
 \mbox{Idempotence} \qquad \quad p\lor p & \equiv p \\
@@ -585,7 +585,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
 <p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
 <p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
-<h4 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h4><p>argument n.论点  </p>
+<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p>argument n.论点  </p>
 <p>declarative sentences 陈述句</p>
 <p>permises n.前提：包含一些论点的陈述句</p>
 <p>conclusion n. 结论 </p>
@@ -600,7 +600,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>propositional logic 命题逻辑 </p>
 <p>formulae n.公式</p>
 <p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
-<h3 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h3><p>formalised vi. 使形式化，使正式</p>
+<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><p>formalised vi. 使形式化，使正式</p>
 <p>implementation n. 实施，履行</p>
 <ul>
 <li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
@@ -610,11 +610,11 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
 </li>
 </ul>
-<h4 id="公式的有效性-Validity-of-Formulas"><a href="#公式的有效性-Validity-of-Formulas" class="headerlink" title="公式的有效性 Validity of Formulas"></a>公式的有效性 Validity of Formulas</h4><p>valid a. 有效的，合理的</p>
-<p>tautology n.同意反复</p>
+<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><p><em>valid</em> a. 有效的，合理的</p>
+<p><em>tautology</em> n.同意反复</p>
 <p>detote vt. 表示</p>
-<p>evaluate </p>
-<h4 id="有效性，等价性和蕴含性-Validity-Equivalence-and-Entailment"><a href="#有效性，等价性和蕴含性-Validity-Equivalence-and-Entailment" class="headerlink" title="有效性，等价性和蕴含性 Validity, Equivalence and Entailment"></a>有效性，等价性和蕴含性 Validity, Equivalence and Entailment</h4><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
+<p><em>evaluate</em>  vt. 评价；估价</p>
+<h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
 <ul>
 <li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
 </li>
@@ -625,7 +625,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li><p>$\phi \equiv \psi \ \mbox{if and only if} \vDash \phi \Leftrightarrow \psi$</p>
 </li>
 </ul>
-<h4 id="证明规则与方法"><a href="#证明规则与方法" class="headerlink" title="证明规则与方法"></a>证明规则与方法</h4><h5 id="按案例证明-Proof-Roles-and-Methods-Proof-by-Cases"><a href="#按案例证明-Proof-Roles-and-Methods-Proof-by-Cases" class="headerlink" title="按案例证明 Proof Roles and Methods: Proof by Cases"></a>按案例证明 Proof Roles and Methods: Proof by Cases</h5><p>To prove A, we have</p>
+<h2 id="Proof-Roles-and-Methods-证明规则与方法"><a href="#Proof-Roles-and-Methods-证明规则与方法" class="headerlink" title="Proof Roles and Methods 证明规则与方法"></a>Proof Roles and Methods 证明规则与方法</h2><h3 id="Proof-Roles-and-Methods-Proof-by-Cases-按案例证明"><a href="#Proof-Roles-and-Methods-Proof-by-Cases-按案例证明" class="headerlink" title="Proof Roles and Methods: Proof by Cases 按案例证明"></a>Proof Roles and Methods: Proof by Cases 按案例证明</h3><p>To prove A, we have</p>
 <ul>
 <li><p>$B_1 \lor \dots \lor B_n$</p>
 </li>
@@ -638,9 +638,9 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$</p>
 <p>tautology </p>
 <h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
-<p>$\forall x(\exists y( P(x,y))) \Rightarrow \exist y(\forall x (P(x,y)))\color {Red} \times$</p>
-<p>$ \exist y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
-<h5 id="证明逆否命题-Proof-of-the-Contrapositive"><a href="#证明逆否命题-Proof-of-the-Contrapositive" class="headerlink" title="证明逆否命题 Proof of the Contrapositive"></a>证明逆否命题 Proof of the Contrapositive</h5><p>We want to prove $ A \Rightarrow B$</p>
+<p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
+<p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
+<h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
 <p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
 <p><em>irrational</em> adj. 不合理的；无理性的；荒谬的 n. [数] 无理数</p>
 <p><strong>Example</strong></p>
@@ -649,7 +649,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>To prove this, we can prove:</p>
 <p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
 <p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
-<h5 id="反证法-Proof-by-Contradiction"><a href="#反证法-Proof-by-Contradiction" class="headerlink" title="反证法 Proof by Contradiction"></a>反证法 Proof by Contradiction</h5><p><em>Contradiction</em> n. 矛盾；否认；反驳</p>
+<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p><em>Contradiction</em> n. 矛盾；否认；反驳</p>
 <p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
 <p>(Hard part: working out what $B$ should be.)</p>
 <p><strong>Example</strong></p>
@@ -666,17 +666,17 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>$\Rightarrow q^2 = 2 r^2$</p>
 <p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
 <p>but $p,q$ must relative prime, so there is a contradiction</p>
-<h3 id="substitution"><a href="#substitution" class="headerlink" title="substitution"></a>substitution</h3><p><em>substitution</em> n. 代替；[数] 置换；代替物</p>
+<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p><em>substitution</em> n. 代替；[数] 置换；代替物</p>
 <p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
 <p>We can substitute logical expressions for logical variables.</p>
 <p><em>tautology</em>  n. 同义反复</p>
-<h4 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h4><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
+<h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
 <p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
-<h3 id="Boolean-Functions"><a href="#Boolean-Functions" class="headerlink" title="Boolean Functions"></a>Boolean Functions</h3><p><em>valuation</em> n. 评价，估价；计算</p>
+<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p><em>valuation</em> n. 评价，估价；计算</p>
 <p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
 <p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
 <p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
-<h4 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h4><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
+<h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
 <p>$\mathbb{B}={0,1}$ with ‘Boolean’ arithmetic</p>
 <p>$a\cdot b, a+b,a^\prime = 1-a$</p>
 <ul>
@@ -685,7 +685,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
 </ul>
 <p><em>parenthese</em> n. 括号；圆括号</p>
-<h2 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h2><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
+<h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
 <h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
 <p>$ x \cdot y = y \cdot x$</p>
 <p><strong>associative:</strong> $(x + y) + z = x + (y + z)$ </p>
@@ -696,8 +696,8 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p><strong>complementation:</strong> $x + x^\prime = 1, \ x\cdot x^\prime =0$</p>
 <p>2-bit vectors $\mathbb{B}^2$:</p>
 <script type="math/tex; mode=display">
-0 \xlongequal{def}(0,0) \\
-1 \xlongequal{def}(1,1) \\
+0 \overset {def}{=}(0,0) \\
+1 \overset {def}{=}(1,1) \\
 \mbox{join: } (a_1,a_2)+(b_1,b_2) \mapsto (a_1 = b_1, a_2 + b_2) \\
 \mbox{join: } (a_1,a_2)\cdot(b_1,b_2) \mapsto (a_1 \cdot b_1, a_2 \cdot b_2) \\
 \mbox{complementation: } (a_1,a_2)^\prime \mapsto(a_1^\prime,a_2^\prime)</script><p>$T={(0,0),(0,1),(1,0),(1,1)}$</p>
@@ -734,7 +734,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 </tbody>
 </table>
 </div>
-<h4 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h4><ul>
+<h3 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h3><ul>
 <li><p>a <strong>literal</strong> is an expression $p$ or $p^\prime$, where $p$ is a propositonal atom</p>
 </li>
 <li><p>An expression is in <strong>CNF</strong> (conjunctive normal form,合取范式) is it has the form</p>
@@ -772,7 +772,7 @@ xy + xy^\prime & = x \quad \mbox{(combining the opposites)}
 <script type="math/tex; mode=display">
 (x+y)^\prime = x^\prime \cdot y^\prime \\
 (x \cdot y )^\prime = x^\prime + y^\prime \\
-(x^\prime)^\prime = x</script><h4 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h4><script type="math/tex; mode=display">
+(x^\prime)^\prime = x</script><h3 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h3><script type="math/tex; mode=display">
 \mathcal{l}=\begin{cases} X_i \quad if\ \pi(x_i)=1 \\
 x_i^\prime \quad if \ \pi(x_i)=0
 \end{cases} \\
@@ -817,13 +817,13 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 </div>
 <p>Then $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
 <p>it can be simplified to  $x+{y}’$</p>
-<h3 id="Karnaugh-Maps"><a href="#Karnaugh-Maps" class="headerlink" title="Karnaugh Maps"></a>Karnaugh Maps</h3><ul>
+<h3 id="Karnaugh-Maps-卡诺图"><a href="#Karnaugh-Maps-卡诺图" class="headerlink" title="Karnaugh Maps 卡诺图"></a>Karnaugh Maps 卡诺图</h3><ul>
 <li><p>The rectangles can go ‘around the corner’/the actual map should be seen as a <em>torus</em>.</p>
 </li>
 <li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
 <p><em>本图由freakyuito整理</em></p>
 
@@ -1588,22 +1588,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
