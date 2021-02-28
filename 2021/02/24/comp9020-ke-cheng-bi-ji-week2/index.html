@@ -823,7 +823,9 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 <li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
 </li>
 </ul>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="image-20210227223730365"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
+<p><em>本图由freakyuito整理</em></p>
 
                 
             </div>
@@ -1578,6 +1580,22 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 

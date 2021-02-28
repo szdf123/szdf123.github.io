@@ -382,7 +382,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                UNSW COMP9020 课堂笔记
+                                离散数学Logical相关内容
                             
                         </div>
                         <div class="publish-info">
@@ -436,7 +436,7 @@
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                UNSW COMP9020 课堂笔记，内容为Numbers, sets, formal languages
+                                离散数学Numbers, sets, formal languages相关内容
                             
                         </div>
                         <div class="publish-info">
@@ -766,6 +766,22 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
