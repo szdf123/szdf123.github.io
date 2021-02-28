@@ -40,11 +40,40 @@
     <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
     <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
+  </entry>
+  
+  <entry>
+    <title>COMP9020课程笔记（Week2）</title>
+    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
+    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
+    <published>2021-02-24T07:33:43.000Z</published>
+    <updated>2021-02-28T05:55:52.519Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Week-2&quot;&gt;&lt;a href=&quot;#Week-2&quot; class=&quot;headerlink&quot; title=&quot;Week 2&quot;&gt;&lt;/a&gt;Week 2&lt;/h2&gt;&lt;h4 id=&quot;逻辑等价-Logical-Equivalence&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
+    
     <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
@@ -75,35 +104,6 @@
     <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
     <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>COMP9020课程笔记（Week2）</title>
-    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
-    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
-    <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-28T05:55:52.519Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Week-2&quot;&gt;&lt;a href=&quot;#Week-2&quot; class=&quot;headerlink&quot; title=&quot;Week 2&quot;&gt;&lt;/a&gt;Week 2&lt;/h2&gt;&lt;h4 id=&quot;逻辑等价-Logical-Equivalence&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
-    
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
     
   </entry>
   
