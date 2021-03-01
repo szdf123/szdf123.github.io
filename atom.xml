@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Benjamin的技术博客</title>
+  <title>本杰明技术栈</title>
   <icon>https://www.gravatar.com/avatar/9f273fce4c4b6e439b7bf169085069b6</icon>
   <subtitle>致力于成为技术大佬</subtitle>
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-02-28T16:25:23.299Z</updated>
+  <updated>2021-02-28T17:18:56.280Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库SQL命令</title>
+    <link href="http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/"/>
+    <id>http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/</id>
+    <published>2021-02-28T17:06:01.000Z</published>
+    <updated>2021-02-28T17:18:56.280Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;SQL（Structured-Query-Language）&quot;&gt;&lt;a href=&quot;#SQL（Structured-Query-Language）&quot; class=&quot;headerlink&quot; title=&quot;SQL（Structured Query</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
+    
+    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
+    
+    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
+    
+  </entry>
   
   <entry>
     <title>COMP9311课程笔记（Week2）</title>
@@ -52,7 +85,7 @@
     <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/"/>
     <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/</id>
     <published>2021-02-26T14:18:55.000Z</published>
-    <updated>2021-02-27T07:17:11.200Z</updated>
+    <updated>2021-03-01T06:49:23.348Z</updated>
     
     
       
@@ -71,11 +104,41 @@
     <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo个人博客搭建教程</title>
+    <link href="http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/"/>
+    <id>http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/</id>
+    <published>2021-02-24T07:33:43.000Z</published>
+    <updated>2021-02-24T14:25:33.256Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;&lt;p&gt;本教程为使用Mac搭建Hexo个人博客&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;https://hexo.io/docs/&quot;&gt;Hexo官方安装部署文档&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
@@ -107,36 +170,6 @@
     <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
     
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo个人博客搭建教程</title>
-    <link href="http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/"/>
-    <id>http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/</id>
-    <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-24T14:25:33.256Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;&lt;p&gt;本教程为使用Mac搭建Hexo个人博客&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&quot;https://hexo.io/docs/&quot;&gt;Hexo官方安装部署文档&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
-    
-    
-    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
-    
-    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
