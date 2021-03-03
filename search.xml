@@ -4,6 +4,89 @@
   
     
     <entry>
+      <title>COMP9311 Lab笔记（Week 2）</title>
+      <link href="2021/03/03/comp9311-lab-bi-ji-week2/"/>
+      <url>2021/03/03/comp9311-lab-bi-ji-week2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul><li>设置虚拟主机</li><li>在虚拟主机上安装PostgreSQL数据库服务器</li><li>创建、填充和检查一个非常小的数据库</li></ul><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>学校的CSE服务器名字为<code>grieg</code>，使用它可以创建私有数据库PostgreSQL</p><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="场景一：建立一个虚拟机"><a href="#场景一：建立一个虚拟机" class="headerlink" title="场景一：建立一个虚拟机"></a>场景一：建立一个虚拟机</h3><h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh grieg# 使用学校网络登录ssh CSEUsername@grieg.cse.unsw.edu.au# 使用外网登录  CSEUsername为 z学号hostname# 查看主机名称priv srvr# 创建私有目录# 创建完成后，私有目录位置在/srvr/YOU/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="场景二：建立PostgreSQL服务"><a href="#场景二：建立PostgreSQL服务" class="headerlink" title="场景二：建立PostgreSQL服务"></a>场景二：建立PostgreSQL服务</h3><p>运行已编写完成的脚本，安装PostgreSQL服务</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~cs9311/bin/pginit# 初始化PostgreSQL服务，仅运行一次即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>运行此命令后，将在/srvr/YOU/目录下创建一个名为pgsql的子目录，同时在/srvr/YOU/目录下生成一个名为env的文件。</p><p>pginit脚本已经检查了一些可能的错误，一般情况下能够正确安装服务。如果安装时出现警告提示，忽略即可。但如果有错误ERROR，一定要关注并解决。</p><p>安装完成后，根据脚本提示，运行以下命令，启动或关闭PostgreSQL服务</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env# 载入环境变量pgs start# 启动PostSQL服务pgs stop# 停止PostSQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p>PostgreSQL的日志文件在</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgsql/pg_xlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>注意，此目录和pgsql/base目录文件下的内容切勿手动修改，否则可能导致PostgreSQL无法正常运行。</p><p>如果想重新安装PostgreSQL，可使用以下方法</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -rf /srvr/*YOU*/pgsql# 删除pgsql目录下的全部内容pginit# 重新安装pgsql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>以后每次进入grieg，都应先载入env环境变量。因此，可以将以下代码粘贴到<code>.bash_profile</code> 或 <code>.bashrc</code> 或 <code>.profile</code> 文件中，使登录系统后，自动载入。</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ `hostname` = "grieg" ]then    source /srvr/YOU/envfi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="场景三：使用PostgreSQL服务器"><a href="#场景三：使用PostgreSQL服务器" class="headerlink" title="场景三：使用PostgreSQL服务器"></a>场景三：使用PostgreSQL服务器</h3><p>一般地，每次使用PostgreSQL服务器，应按照以下流程操作：</p><ul><li>登录Grieg</li><li>启动PostgreSQL服务器</li><li>进行工作</li><li>停止PostgreSQL服务器</li><li>退出Grieg</li></ul><p><strong>注意，不要离开之前，使PostgreSQL服务始终运行！</strong></p><p>操作PostgreSQL的命令有：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env# 载入环境变量pgs start # 启动pgs服务pgs status# 查看pgs运行状态pgs stop# 关闭pgs服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>进入PostgreSQL的命令为：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql MyDatabase# 进入指定数据库中，其中，MyDatabase名字为要进入的数据库名称psql -l# 查看已有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h4><p>输入以下命令，可查看PostsqlSQL当前是否正在运行</p><pre class="line-numbers language-none"><code class="language-none">psql -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>进入到PostgreSQL中的某个数据库后，命令提示符为</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dbName=## 管理员命令提示符dbName=&gt;# 其他用户命令提示符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>此处为PostgreSQL的<a href="http://www.postgresql.org/docs/">官网使用手册</a></p><p>PostgreSQL的运行日志文件在</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/srvr/YOU/pgsql/Log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="小练习-1"><a href="#小练习-1" class="headerlink" title="小练习"></a>小练习</h4><p>尝试启动和停止服务器几次，并在服务器运行和不运行时运行psql，然后分别查看屏幕显示的消息，查看内容有和区别。</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>典型的操作虚拟主机和PostgreSQL服务器的会话是这样的:</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">... on any CSE workstation ...$ ssh grieg... grieg login stuff ...... the following are all on grieg ...$ source /srvr/YOU/env $ pgs start$ psql MyDatabase... use another xterm for editting ...$ pgs stop$ logout... back to your original workstation ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="练习1：创建一个数据库"><a href="#练习1：创建一个数据库" class="headerlink" title="练习1：创建一个数据库"></a>练习1：创建一个数据库</h3><p>登录服务器并启动PostgreSQL服务后，输入以下命令，创建数据库</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb mydb# 创建指定名称的数据库，mydb为要创建的数据库命令psql mydb# 进入到mydb数据库中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>在PostgreSQL控制台，输入以下命令，控制数据库</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mydb=# \d# 查看已有关系（数据库表）mydb=# \q# 退出数据库控制台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="练习2：填充数据库"><a href="#练习2：填充数据库" class="headerlink" title="练习2：填充数据库"></a>练习2：填充数据库</h3><p>使用现有SQL创建数据库表及数据</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql  # 使用现有SQL文件向数据库导入数据psql mydb -f -q 文件名                                  # 开启静默模式( psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql 2&gt;&amp;1 ) | grep ERROR    # 导入数据时仅显示ERROR信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="练习3：检查数据库"><a href="#练习3：检查数据库" class="headerlink" title="练习3：检查数据库"></a>练习3：检查数据库</h3><p>在SQL标准中，标识符将忽略大小写。</p><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mydb=# \d Staff# 查看指定数据库表定义mydb=# \q# 退出数据库控制台mydb=# select * from Staff;     # 查看指定数据库表中的全部数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h4 id="小练习-2"><a href="#小练习-2" class="headerlink" title="小练习"></a>小练习</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Students where degree=3978;    # 查询degree为3978的全部学生select count(*) from Students where degree=3978;# 查询degree为3978的学生总数select * from Staff where position like '%Professor%';# 查询全部教授数据select course,count(*) from Enrolment group by course;# 查询每种课程的选课人数select c.code, c.title# 查询指定姓名教师的授课名称from   Courses c, Staff swhere  s.name='Andrew Taylor' and c.lecturer=s.userid;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><h4 id="无法重启PostgreSQL服务器"><a href="#无法重启PostgreSQL服务器" class="headerlink" title="无法重启PostgreSQL服务器"></a>无法重启PostgreSQL服务器</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgs stop# 正常关闭PostgreSQL服务器的命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>解决思路</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tail -2 /srvr/YOU/logfile# 查看日志psql -l# 查看当前服务状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><p>PostgreSQL运行时生成的PID为位置在<code>/srvr/YOU/pgsql/postmaster.pid</code></p><p>正常关闭时，PostgreSQL将自动删除此文件。若上次PostgreSQL未正常关闭，需要手动删除此文件</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm /srvr/YOU/pgsql/postmaster.pid# 手动删除pid文件rm /srvr/YOU/pgsql/.s*# 删除socket文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 数据库 </tag>
+            
+            <tag> 实践操作 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>pygame游戏开发基础教程</title>
+      <link href="2021/03/02/pygame-you-xi-kai-fa-ji-chu-jiao-cheng/"/>
+      <url>2021/03/02/pygame-you-xi-kai-fa-ji-chu-jiao-cheng/</url>
+      
+        <content type="html"><![CDATA[<h3 id="pygame基础使用规则"><a href="#pygame基础使用规则" class="headerlink" title="pygame基础使用规则"></a>pygame基础使用规则</h3><h3 id="关于初始化"><a href="#关于初始化" class="headerlink" title="关于初始化"></a>关于初始化</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygame# 引入pygame模块pygame.init()# 初始化pygamepygame.quit()# 退出pygame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><pre class="line-numbers language-python" data-language="python"><code class="language-python">screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))# 创建游戏窗口pygame.display.update()# 更新窗口显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="关于时钟与刷新帧率"><a href="#关于时钟与刷新帧率" class="headerlink" title="关于时钟与刷新帧率"></a>关于时钟与刷新帧率</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">clock = pygame.time.Clock()# 获取pygame时钟clock.tick(60)# 数字为刷新帧率<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="关于绘制图像"><a href="#关于绘制图像" class="headerlink" title="关于绘制图像"></a>关于绘制图像</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">bg = pygame.image.load("background.png")# 加载背景图像screen.blit(bg, (0, 0))# 绘制图像到窗口rect = pygame.Rect(200, 800, 140, 178)  # 定义元素矩形，参数依次为X，Y，width，height<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h3 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.event.get()# 获取pygame的全部事件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h4 id="pygame定义的事件常量"><a href="#pygame定义的事件常量" class="headerlink" title="pygame定义的事件常量"></a>pygame定义的事件常量</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.QUIT# 退出事件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><h3 id="精灵和精灵组"><a href="#精灵和精灵组" class="headerlink" title="精灵和精灵组"></a>精灵和精灵组</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.sprite.Sprite# 精灵类pygame.sprite.Group# 精灵组类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h4 id="继承精灵类"><a href="#继承精灵类" class="headerlink" title="继承精灵类"></a>继承精灵类</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygameclass MySprite(pygame.sprite.Sprite):    """自定义游戏精灵"""    def __init__(self, image_name, speed=1):        super().__init__()        self.image = pygame.image.load(image_name)        self.rect = self.image.get_rect()        self.speed = speed# speed为自定义的精灵属性    def update(self):        self.rect.y += self.speed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="使用精灵类和精灵组"><a href="#使用精灵类和精灵组" class="headerlink" title="使用精灵类和精灵组"></a>使用精灵类和精灵组</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sprites.my_sprites import *# 引用自定义精灵组类my_sprite = PlaneSprite("sprite.png")# 实例化精灵sprite_group = pygame.sprite.Group(my_sprite)# 实例化精灵组enemy_group.update()# 调用精灵组中的精灵的全部update方法enemy_group.draw(screen)# 绘制精灵组到屏幕<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="游戏循环"><a href="#游戏循环" class="headerlink" title="游戏循环"></a>游戏循环</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph TDH[游戏初始化]H --&gt; I[设置游戏窗口]I --&gt; J[创建游戏时钟]J --&gt; K[创建精灵/精灵组]F[游戏循环]F --&gt; A[设置刷新帧率]A --&gt; B[事件监听]B --&gt; C[碰撞检测]C --&gt;  D[更新/绘制精灵组]D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+            <tag> Python </tag>
+            
+            <tag> 游戏 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>英语生词本</title>
+      <link href="2021/03/01/ying-yu-sheng-ci/"/>
+      <url>2021/03/01/ying-yu-sheng-ci/</url>
+      
+        <content type="html"><![CDATA[<h2 id="2021-03-01"><a href="#2021-03-01" class="headerlink" title="2021-03-01"></a>2021-03-01</h2><h4 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h4><p><strong><em>anomaly</em></strong> n. 异常；不规则；反常事物</p><p><strong><em>update anomalies</em></strong> 更新异常</p><p><strong><em>insertion anomalies</em></strong> 插入异常</p><p><strong><em>deletion anomalies</em></strong> 删除异常</p><p><strong><em>semantic</em></strong> adj. 语义的；语义学的</p><p><strong><em>modification</em></strong>  n. 修改，修正；改变</p><p><strong><em>inconsistent</em></strong> adj. 不一致的；前后矛盾的</p><p><strong><em>insertion</em></strong> n. 插入；嵌入；插入物</p><p><strong><em>deletion</em></strong> n. 删除</p><p><strong><em>generalization</em></strong> n. 概括；普遍化；一般化</p><p><strong><em>FD</em></strong> (Functional Dependency) 函数依赖</p><p><strong><em>derivation</em></strong> n. 概括；普遍化；一般化</p><p><strong><em>augmentation</em></strong> n. 增加，增大；增加物</p><p><strong><em>transitivity</em></strong> n. 传递性；动词的及物性；转移性</p><p><strong><em>additivity</em></strong> n. 添加；相加性</p><p><strong><em>projectivity</em></strong> n. 投射心理；射影对应性；投射倾向</p><p><strong><em>pseudotransitivity</em></strong> 伪递移法则</p><p><strong><em>denote</em></strong> vt. 表示，指示</p><p><strong><em>closure</em></strong> n. 关闭；终止，结束</p><p><strong><em>relational schema</em></strong> 关系模式</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 英语 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据库SQL命令</title>
       <link href="2021/03/01/shu-ju-ku-sql-ming-ling/"/>
       <url>2021/03/01/shu-ju-ku-sql-ming-ling/</url>
