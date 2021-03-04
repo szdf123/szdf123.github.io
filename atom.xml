@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-03T16:21:30.088Z</updated>
+  <updated>2021-03-04T07:56:04.392Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>COMP9311 Lab笔记（Week 2）</title>
-    <link href="http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/"/>
-    <id>http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/</id>
-    <published>2021-03-03T11:34:13.000Z</published>
-    <updated>2021-03-03T16:21:30.088Z</updated>
+    <title>COMP9311 Lab笔记（Week 3）</title>
+    <link href="http://szdf123.github.io/2021/03/04/comp9311-lab-bi-ji-week3/"/>
+    <id>http://szdf123.github.io/2021/03/04/comp9311-lab-bi-ji-week3/</id>
+    <published>2021-03-03T16:48:25.000Z</published>
+    <updated>2021-03-04T07:56:04.392Z</updated>
     
     
       
@@ -43,14 +43,47 @@
     
     <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
     
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
   </entry>
   
   <entry>
-    <title>pygame游戏开发基础教程</title>
-    <link href="http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-ji-chu-jiao-cheng/"/>
-    <id>http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-ji-chu-jiao-cheng/</id>
+    <title>COMP9311 Lab笔记（Week 3）</title>
+    <link href="http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/"/>
+    <id>http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/</id>
+    <published>2021-03-03T11:34:13.000Z</published>
+    <updated>2021-03-04T07:55:56.169Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;实践目标&quot;&gt;&lt;a href=&quot;#实践目标&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pygame游戏开发查询手册</title>
+    <link href="http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/"/>
+    <id>http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/</id>
     <published>2021-03-02T12:35:57.000Z</published>
-    <updated>2021-03-02T13:38:39.809Z</updated>
+    <updated>2021-03-04T07:53:51.456Z</updated>
     
     
       
@@ -66,20 +99,22 @@
     <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
     <category term="游戏" scheme="http://szdf123.github.io/tags/%E6%B8%B8%E6%88%8F/"/>
     
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="手册" scheme="http://szdf123.github.io/tags/%E6%89%8B%E5%86%8C/"/>
+    
   </entry>
   
   <entry>
-    <title>英语生词本</title>
-    <link href="http://szdf123.github.io/2021/03/01/ying-yu-sheng-ci/"/>
-    <id>http://szdf123.github.io/2021/03/01/ying-yu-sheng-ci/</id>
+    <title>计算机技术英语生词本</title>
+    <link href="http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/"/>
+    <id>http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/</id>
     <published>2021-03-01T09:23:15.000Z</published>
-    <updated>2021-03-01T10:09:33.978Z</updated>
+    <updated>2021-03-04T07:55:02.396Z</updated>
     
     
       
@@ -97,6 +132,8 @@
     
     <category term="英语" scheme="http://szdf123.github.io/tags/%E8%8B%B1%E8%AF%AD/"/>
     
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
   </entry>
   
   <entry>
@@ -104,7 +141,7 @@
     <link href="http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/"/>
     <id>http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/</id>
     <published>2021-02-28T17:06:01.000Z</published>
-    <updated>2021-02-28T17:18:56.280Z</updated>
+    <updated>2021-03-04T07:55:11.132Z</updated>
     
     
       
@@ -130,6 +167,8 @@
     
     <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
     
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
   </entry>
   
   <entry>
@@ -137,7 +176,7 @@
     <link href="http://szdf123.github.io/2021/02/28/comp9311-ke-cheng-bi-ji-week2/"/>
     <id>http://szdf123.github.io/2021/02/28/comp9311-ke-cheng-bi-ji-week2/</id>
     <published>2021-02-28T15:20:47.000Z</published>
-    <updated>2021-02-28T16:25:23.299Z</updated>
+    <updated>2021-03-04T07:53:40.742Z</updated>
     
     
       
@@ -161,6 +200,8 @@
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
   </entry>
   
   <entry>
@@ -168,7 +209,7 @@
     <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/"/>
     <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/</id>
     <published>2021-02-26T14:18:55.000Z</published>
-    <updated>2021-03-01T06:49:23.348Z</updated>
+    <updated>2021-03-04T07:53:05.840Z</updated>
     
     
       
@@ -193,6 +234,8 @@
     
     <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
     
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
   </entry>
   
   <entry>
@@ -200,7 +243,7 @@
     <link href="http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/"/>
     <id>http://szdf123.github.io/2021/02/24/hexo-da-jian-jiao-cheng/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-24T14:25:33.256Z</updated>
+    <updated>2021-03-04T07:56:15.993Z</updated>
     
     
       
@@ -223,6 +266,8 @@
     
     <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
   </entry>
   
   <entry>
@@ -230,7 +275,7 @@
     <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
     <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-02-28T15:21:37.142Z</updated>
+    <updated>2021-03-04T07:55:45.407Z</updated>
     
     
       
@@ -254,6 +299,8 @@
     
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
   </entry>
   
   <entry>
@@ -261,7 +308,7 @@
     <link href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/"/>
     <id>http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-28T13:52:18.201Z</updated>
+    <updated>2021-03-04T07:56:24.242Z</updated>
     
     
       
@@ -281,6 +328,8 @@
     
     <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
     
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
   </entry>
   
   <entry>
@@ -288,7 +337,7 @@
     <link href="http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/"/>
     <id>http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-02-24T15:56:45.921Z</updated>
+    <updated>2021-03-04T07:54:53.687Z</updated>
     
     
       
@@ -312,6 +361,8 @@
     
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
+    <category term="已完成" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E6%88%90/"/>
+    
   </entry>
   
   <entry>
@@ -319,7 +370,7 @@
     <link href="http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/"/>
     <id>http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/</id>
     <published>2021-02-20T07:19:32.000Z</published>
-    <updated>2021-02-28T15:21:44.324Z</updated>
+    <updated>2021-03-04T07:54:10.815Z</updated>
     
     
       
@@ -343,6 +394,8 @@
     <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
     
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
     
   </entry>
   
