@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.9k
+                    2.4k
                 </div>
                 
 
@@ -593,10 +593,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
 <p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
 <p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
-<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p>argument n.论点  </p>
-<p>declarative sentences 陈述句</p>
-<p>permises n.前提：包含一些论点的陈述句</p>
-<p>conclusion n. 结论 </p>
+<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p><strong>permises</strong> 前提：包含一些论点的陈述句</p>
 <ul>
 <li><p>The conclusion <em>logically follows</em> from the premises.</p>
 </li>
@@ -605,12 +602,8 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li><p>The premises <strong>entail</strong> the conclusion.</p>
 </li>
 </ul>
-<p>propositional logic 命题逻辑 </p>
-<p>formulae n.公式</p>
 <p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
-<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><p>formalised vi. 使形式化，使正式</p>
-<p>implementation n. 实施，履行</p>
-<ul>
+<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><ul>
 <li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
 </li>
 <li><p>if $\phi_1 , \dots , \phi_n \vDash \psi$ then every correct implementation of the requirements <em>R</em> will be such that <em>C</em> is always true in the resulting system.</p>
@@ -618,11 +611,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
 </li>
 </ul>
-<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><p><em>valid</em> a. 有效的，合理的</p>
-<p><em>tautology</em> n.同意反复</p>
-<p>detote vt. 表示</p>
-<p><em>evaluate</em>  vt. 评价；估价</p>
-<h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
+<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
 <ul>
 <li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
 </li>
@@ -643,22 +632,19 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>$\forall$ means “for all”</p>
 <p>$ \exists$ Means “there exist(s)”</p>
 <p><strong>Goldbach’s conjecture</strong></p>
-<p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$</p>
-<p>tautology </p>
+<p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$ </p>
 <h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
 <p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
 <p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
 <h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
 <p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
-<p><em>irrational</em> adj. 不合理的；无理性的；荒谬的 n. [数] 无理数</p>
 <p><strong>Example</strong></p>
 <p>The square root of an irrational number is irrational:</p>
 <p>$\forall x \in \mathbb {R}(x\notin \mathbb {Q} \Rightarrow \sqrt {x} \notin \mathbb {Q})$</p>
 <p>To prove this, we can prove:</p>
 <p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
 <p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
-<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p><em>Contradiction</em> n. 矛盾；否认；反驳</p>
-<p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
+<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
 <p>(Hard part: working out what $B$ should be.)</p>
 <p><strong>Example</strong></p>
 <ul>
@@ -674,14 +660,11 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <p>$\Rightarrow q^2 = 2 r^2$</p>
 <p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
 <p>but $p,q$ must relative prime, so there is a contradiction</p>
-<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p><em>substitution</em> n. 代替；[数] 置换；代替物</p>
-<p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
+<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
 <p>We can substitute logical expressions for logical variables.</p>
-<p><em>tautology</em>  n. 同义反复</p>
 <h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
 <p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
-<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p><em>valuation</em> n. 评价，估价；计算</p>
-<p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
+<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
 <p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
 <p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
 <h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
@@ -692,7 +675,6 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li>$\bar{p}$ is more common than $p^\prime$</li>
 <li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
 </ul>
-<p><em>parenthese</em> n. 括号；圆括号</p>
 <h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
 <h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
 <p>$ x \cdot y = y \cdot x$</p>
@@ -834,6 +816,60 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
 <p><em>本图由freakyuito整理</em></p>
+<h3 id="Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数"><a href="#Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数" class="headerlink" title="Boolean Algebras in Computer Science 计算机科学中的布尔代数"></a>Boolean Algebras in Computer Science 计算机科学中的布尔代数</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
+<h4 id="只包含0和1的n元布尔运算规则："><a href="#只包含0和1的n元布尔运算规则：" class="headerlink" title="只包含0和1的n元布尔运算规则："></a>只包含0和1的n元布尔运算规则：</h4><p>加（join）：$(1,0,0,1) + (1,1,0,0) = (1,1,0,1)$</p>
+<p>乘（meet）：$(1,0,0,1)\cdot (1,1,0,0) = (1,0,0,0)$</p>
+<p>补集（complementation）：${(1,0,0,1)}’=(0,1,1,0)$</p>
+<h4 id="Pow-S-——-S-的子集"><a href="#Pow-S-——-S-的子集" class="headerlink" title="$Pow(S)$ ——$S$的子集"></a>$Pow(S)$ ——$S$的子集</h4><p>加（join）：$A\cup B$  乘（meet）：$A \cap B$  补集（complement）：$A^C = S \setminus A$</p>
+<p>对于S的布尔代数，$Pow(S)$，$s=\{a,b,c\}$，有：</p>
+<p>$0 \overset{def}=\empty$</p>
+<p>$1 \overset{def}=\{a,b,c\}$</p>
+<p>加（join）：$X,Y \mapsto X \cup Y $</p>
+<p>乘（meet）：$X,Y \mapsto X \cap Y$</p>
+<p>补（complementation）：$X \mapsto \{a,b,c\} \setminus X$</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210304202204.png" alt="" style="zoom: 25%;"></p>
+<h3 id="更多计算机科学中布尔代数的例子"><a href="#更多计算机科学中布尔代数的例子" class="headerlink" title="更多计算机科学中布尔代数的例子"></a>更多计算机科学中布尔代数的例子</h3><p>对于任意集合$S$到$\mathbb{B}$的函数，它们的集合记为$Map(S, \mathbb{B})$</p>
+<p>如果$f,g: S \rightarrow \mathbb{B}$，那么：</p>
+<p>$(f+g):S \rightarrow \mathbb(B) $定义为$s \mapsto f(s) + g(s)$</p>
+<p>$(f\cdot g):S\rightarrow \mathbb{B}$定义为$s \mapsto f(s)\cdot g(s)$</p>
+<p> $f’:S\rightarrow \mathbb{B}$定义为$s\mapsto {(f(s))}’$</p>
+<p>对于$|S|=n$，一共有$2^n$个</p>
+<p>对于所有n个变量的布尔函数，如$(p_1,p_2,p_3)\mapsto (p_1+p_2’)\cdot (p_1+p_3)\cdot p_2 + p_3’$</p>
+<p>它们一共有$2^{2^n}$个，它们的集合表示为$BOOL(n)$</p>
+<p><strong>事实上</strong>，每个具有有限元素集T的布尔代数满足: $|T|=2^k$</p>
+<p><strong>定义</strong></p>
+<p>考虑</p>
+<ul>
+<li><p>布尔代数$B_1$在集合$S$上有不同的元素$0_S$和$1_S$</p>
+</li>
+<li><p>布尔代数$B_2$在集合$T$上有不同的元素$0_T$和$1_T$</p>
+</li>
+</ul>
+<p>它们是同构体（isomorphic），写作$B_1\simeq B_2$，当且仅当存在一一对应关系时，$\iota:S\mapsto T$，这样</p>
+<p>$\iota(0_S)=0_T$</p>
+<p>$\iota(1_S)=1_T$</p>
+<p>$\iota(s_1+s_2)=\iota(S_1)+\iota(S_2)$  对于所有的$s_1,s_2\in S$</p>
+<p>$\iota(s_1 \cdot s_2)=\iota(S_1)\cdot \iota(S_2)$ 对于所有的$s_1,s_2\in S$</p>
+<p>$\iota(s’)=\iota(s)’$ 对于所有的$s\in S$</p>
+<p><strong>事实上</strong>，所有元素数相同的代数都是同构的，即“结构上相似”。因此，研究一个这样的代数就可以描述所有的性质。</p>
+<p>布尔代数的笛卡尔积也是布尔代数。写作：</p>
+<script type="math/tex; mode=display">
+\mathbb{B}^k = \mathbb{B} \times \dots \mathbb{B}</script><p>上面提到的代数都是这种形式：</p>
+<ul>
+<li><p>$n元\simeq \mathbb{B}^n$</p>
+</li>
+<li><p>$Pow(S)\simeq \mathbb{B}^{|S|}$</p>
+</li>
+<li><p>$Map(S,\mathbb{B})\simeq \mathbb{B}^{|S|}$</p>
+</li>
+<li><p>$BOOL(n)\simeq \mathbb{B}^{2^n}$</p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>$\equiv$等价</p>
+<p>可满足的公式（satisfiable formulae），有效公式（valid formulae）、重复式（tautologies）</p>
+<p>逻辑蕴涵$\vDash$</p>
+<p>证明方法：反证法，证明逆否命题，按案例证明</p>
+<p>布尔代数，CNF，DNF，规范形式，卡诺图（Karnaugh maps）</p>
 
                 
             </div>
@@ -1390,7 +1426,7 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.5k</span>&nbsp;字
+                class="white-color">17.4k</span>&nbsp;字
             
             
             

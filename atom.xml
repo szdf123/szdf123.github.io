@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-04T07:56:04.392Z</updated>
+  <updated>2021-03-04T16:21:23.665Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>COMP9020课程笔记（Week3）</title>
+    <link href="http://szdf123.github.io/2021/03/04/comp9020-ke-cheng-bi-ji-week3/"/>
+    <id>http://szdf123.github.io/2021/03/04/comp9020-ke-cheng-bi-ji-week3/</id>
+    <published>2021-03-04T09:24:03.000Z</published>
+    <updated>2021-03-04T16:21:23.665Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;函数（Functions）&quot;&gt;&lt;a href=&quot;#函数（Functions）&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
+    
+    <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+  </entry>
   
   <entry>
     <title>COMP9311 Lab笔记（Week 3）</title>
@@ -114,7 +147,7 @@
     <link href="http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/"/>
     <id>http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/</id>
     <published>2021-03-01T09:23:15.000Z</published>
-    <updated>2021-03-04T07:55:02.396Z</updated>
+    <updated>2021-03-04T16:22:21.256Z</updated>
     
     
       
@@ -275,7 +308,7 @@
     <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
     <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-03-04T07:55:45.407Z</updated>
+    <updated>2021-03-04T15:00:54.596Z</updated>
     
     
       
@@ -370,7 +403,7 @@
     <link href="http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/"/>
     <id>http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/</id>
     <published>2021-02-20T07:19:32.000Z</published>
-    <updated>2021-03-04T07:54:10.815Z</updated>
+    <updated>2021-03-04T09:24:30.875Z</updated>
     
     
       
@@ -395,7 +428,7 @@
     
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
     
   </entry>
   
