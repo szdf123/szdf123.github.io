@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-04T16:21:23.665Z</updated>
+  <updated>2021-03-05T07:47:05.086Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>COMP9020课程笔记（Week3）</title>
-    <link href="http://szdf123.github.io/2021/03/04/comp9020-ke-cheng-bi-ji-week3/"/>
-    <id>http://szdf123.github.io/2021/03/04/comp9020-ke-cheng-bi-ji-week3/</id>
+    <title>离散数学课程笔记（3）——函数和关系</title>
+    <link href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/"/>
+    <id>http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/</id>
     <published>2021-03-04T09:24:03.000Z</published>
-    <updated>2021-03-04T16:21:23.665Z</updated>
+    <updated>2021-03-05T07:47:05.086Z</updated>
     
     
       
@@ -50,11 +50,36 @@
   </entry>
   
   <entry>
-    <title>COMP9311 Lab笔记（Week 3）</title>
-    <link href="http://szdf123.github.io/2021/03/04/comp9311-lab-bi-ji-week3/"/>
-    <id>http://szdf123.github.io/2021/03/04/comp9311-lab-bi-ji-week3/</id>
+    <title>离散数学课程笔记（4）——矩阵</title>
+    <link href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/"/>
+    <id>http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/</id>
+    <published>2021-03-04T09:24:03.000Z</published>
+    <updated>2021-03-05T07:47:12.205Z</updated>
+    
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
+    
+    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
+    
+    <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库基础实践记录（2）</title>
+    <link href="http://szdf123.github.io/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/"/>
+    <id>http://szdf123.github.io/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/</id>
     <published>2021-03-03T16:48:25.000Z</published>
-    <updated>2021-03-04T07:56:04.392Z</updated>
+    <updated>2021-03-05T07:47:18.963Z</updated>
     
     
       
@@ -81,11 +106,11 @@
   </entry>
   
   <entry>
-    <title>COMP9311 Lab笔记（Week 3）</title>
-    <link href="http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/"/>
-    <id>http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/</id>
+    <title>数据库基础实践记录（1）</title>
+    <link href="http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/"/>
+    <id>http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/</id>
     <published>2021-03-03T11:34:13.000Z</published>
-    <updated>2021-03-04T07:55:56.169Z</updated>
+    <updated>2021-03-05T07:46:00.600Z</updated>
     
     
       
@@ -147,7 +172,7 @@
     <link href="http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/"/>
     <id>http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/</id>
     <published>2021-03-01T09:23:15.000Z</published>
-    <updated>2021-03-04T16:22:21.256Z</updated>
+    <updated>2021-03-05T07:18:22.804Z</updated>
     
     
       
@@ -205,11 +230,11 @@
   </entry>
   
   <entry>
-    <title>COMP9311课程笔记（Week2）</title>
-    <link href="http://szdf123.github.io/2021/02/28/comp9311-ke-cheng-bi-ji-week2/"/>
-    <id>http://szdf123.github.io/2021/02/28/comp9311-ke-cheng-bi-ji-week2/</id>
+    <title>数据库基础课程笔记（2）</title>
+    <link href="http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/"/>
+    <id>http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</id>
     <published>2021-02-28T15:20:47.000Z</published>
-    <updated>2021-03-04T07:53:40.742Z</updated>
+    <updated>2021-03-05T07:46:57.935Z</updated>
     
     
       
@@ -238,11 +263,11 @@
   </entry>
   
   <entry>
-    <title>Python3教程笔记（一）</title>
-    <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/"/>
-    <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji/</id>
+    <title>Python3教程笔记（1）</title>
+    <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji-1/"/>
+    <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji-1/</id>
     <published>2021-02-26T14:18:55.000Z</published>
-    <updated>2021-03-04T07:53:05.840Z</updated>
+    <updated>2021-03-05T07:47:50.482Z</updated>
     
     
       
@@ -304,11 +329,11 @@
   </entry>
   
   <entry>
-    <title>COMP9020课程笔记（Week2）</title>
-    <link href="http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/"/>
-    <id>http://szdf123.github.io/2021/02/24/comp9020-ke-cheng-bi-ji-week2/</id>
+    <title>离散数学课程笔记（2）——逻辑</title>
+    <link href="http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/"/>
+    <id>http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-03-04T15:00:54.596Z</updated>
+    <updated>2021-03-05T07:46:44.038Z</updated>
     
     
       
@@ -399,11 +424,11 @@
   </entry>
   
   <entry>
-    <title>COMP9020课程笔记（Week1）</title>
-    <link href="http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/"/>
-    <id>http://szdf123.github.io/2021/02/20/comp9020-ke-cheng-bi-ji-week1/</id>
+    <title>离散数学课程笔记（1）</title>
+    <link href="http://szdf123.github.io/2021/02/20/chi-san-shu-xue-ke-cheng-bi-ji-1/"/>
+    <id>http://szdf123.github.io/2021/02/20/chi-san-shu-xue-ke-cheng-bi-ji-1/</id>
     <published>2021-02-20T07:19:32.000Z</published>
-    <updated>2021-03-04T09:24:30.875Z</updated>
+    <updated>2021-03-05T07:46:51.068Z</updated>
     
     
       

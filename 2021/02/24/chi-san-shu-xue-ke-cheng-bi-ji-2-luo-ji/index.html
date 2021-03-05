@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记">
+    <meta name="keywords" content="COMP9020,数学,笔记">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>COMP9311 Lab笔记（Week 3） | 本杰明技术栈</title>
+    <title>离散数学课程笔记（2）——逻辑 | 本杰明技术栈</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="本杰明技术栈" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.0">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明技术栈" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/80.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/315.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">COMP9311 Lab笔记（Week 3）</h1>
+                    <h1 class="description center-align post-title">离散数学课程笔记（2）——逻辑</h1>
                 </div>
             </div>
         </div>
@@ -406,16 +406,20 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/COMP9020/">
+                                <span class="chip bg-color">COMP9020</span>
+                            </a>
+                        
                             <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">课程</span>
                             </a>
                         
-                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                <span class="chip bg-color">实践操作</span>
+                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">离散数学</span>
                             </a>
                         
                             <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
@@ -430,8 +434,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                技术学习
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
                             </a>
                         
                     </div>
@@ -443,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-02-24
                 </div>
                 
 
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.4k
                 </div>
                 
 
@@ -477,104 +481,395 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul>
-<li>设置虚拟主机</li>
-<li>在虚拟主机上安装PostgreSQL数据库服务器</li>
-<li>创建、填充和检查一个非常小的数据库</li>
-</ul>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>学校的CSE服务器名字为<code>grieg</code>，使用它可以创建私有数据库PostgreSQL</p>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="场景一：建立一个虚拟机"><a href="#场景一：建立一个虚拟机" class="headerlink" title="场景一：建立一个虚拟机"></a>场景一：建立一个虚拟机</h3><h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh grieg																# 使用学校网络登录
-ssh CSEUsername@grieg.cse.unsw.edu.au		# 使用外网登录  CSEUsername为 z学号
+                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h3 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h3><script type="math/tex; mode=display">
+\begin{align} \mbox{Excluded Middle} \qquad p\lor \lnot p & \equiv \top \\
+\mbox{Contradiction} \qquad p\wedge \lnot p & \equiv \bot \\
+\mbox{Idempotence} \qquad \quad p\lor p & \equiv p \\
+p \wedge p & \equiv p \\
+\mbox{Double Negation} \qquad \quad \lnot \lnot p & \equiv p \\
+\mbox{Identity} \qquad \quad p \lor \bot & \equiv p \\
+p \wedge \top & \equiv p \\
+p \lor \top & \equiv \top \\
+p \wedge \bot & \equiv \bot \\
+\mbox {Commutativity} \qquad \quad p \lor q & \equiv q \lor v \\
+p\land q & \equiv q \land p \\
+\mbox {Associativity}\qquad (p \lor q ) \lor r & \equiv p \lor (q \lor r ) \\
+(p \land q ) \land r & \equiv p \land ( q \land r ) \\
+\mbox {Distribution}\qquad p \lor (q \land r) & \equiv (p \lor q) \land ( p \lor r) \\
+p \land (q \lor r) & \equiv (p \land q)\lor (p \land r) \\
+\mbox {De Morgan's laws}\qquad \lnot (p \land q) & \equiv \lnot p \lor \lnot q \\
+\lnot (p \lor q) & \equiv \lnot p \land \lnot q \\
+\mbox {Implication} \qquad \qquad p \Rightarrow q & \equiv \lnot p \lor q \\
+p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 
-hostname																# 查看主机名称
-priv srvr																# 创建私有目录
-# 创建完成后，私有目录位置在/srvr/YOU/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景二：建立PostgreSQL服务"><a href="#场景二：建立PostgreSQL服务" class="headerlink" title="场景二：建立PostgreSQL服务"></a>场景二：建立PostgreSQL服务</h3><p>运行已编写完成的脚本，安装PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~cs9311/bin/pginit		# 初始化PostgreSQL服务，仅运行一次即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>运行此命令后，将在/srvr/YOU/目录下创建一个名为pgsql的子目录，同时在/srvr/YOU/目录下生成一个名为env的文件。</p>
-<p>pginit脚本已经检查了一些可能的错误，一般情况下能够正确安装服务。如果安装时出现警告提示，忽略即可。但如果有错误ERROR，一定要关注并解决。</p>
-<p>安装完成后，根据脚本提示，运行以下命令，启动或关闭PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start								# 启动PostSQL服务
-pgs stop								# 停止PostSQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>PostgreSQL的日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgsql/pg_xlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注意，此目录和pgsql/base目录文件下的内容切勿手动修改，否则可能导致PostgreSQL无法正常运行。</p>
-<p>如果想重新安装PostgreSQL，可使用以下方法</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -rf /srvr/*YOU*/pgsql		# 删除pgsql目录下的全部内容
-pginit											# 重新安装pgsql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以后每次进入grieg，都应先载入env环境变量。因此，可以将以下代码粘贴到<code>.bash_profile</code> 或 <code>.bashrc</code> 或 <code>.profile</code> 文件中，使登录系统后，自动载入。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ `hostname` = "grieg" ]
-then
-    source /srvr/YOU/env
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景三：使用PostgreSQL服务器"><a href="#场景三：使用PostgreSQL服务器" class="headerlink" title="场景三：使用PostgreSQL服务器"></a>场景三：使用PostgreSQL服务器</h3><p>一般地，每次使用PostgreSQL服务器，应按照以下流程操作：</p>
+\end{align}</script><p><strong>Example</strong></p>
+<script type="math/tex; mode=display">
+\begin{array} 
+((r \land \lnot p ) \lor (r \land q)) \lor (( \lnot r \land \lnot p ) \lor (\lnot r \land q)) \\
+\qquad \equiv (r \land ( \lnot p \lor q )) \lor (\lnot r \land ( \lnot p \lor q )) \qquad \mbox {Distrib.} \\ 
+\qquad \equiv (r \lor \lnot r) \land (\lnot p \lor q) \qquad \qquad \qquad \quad \mbox {Distrib.} \\ 
+\qquad \equiv \top \land (\lnot p \lor q ) \qquad \qquad \qquad \qquad \quad \mbox {Excl. Mid.} \\ 
+\qquad \equiv \lnot p \lor q \qquad \qquad \qquad \qquad \qquad \qquad \mbox {Ident.}
+\end{array}</script><script type="math/tex; mode=display">
+\color {Green} \checkmark p \Rightarrow ( q \Rightarrow r) \equiv ( p \Rightarrow q) \Rightarrow (p \Rightarrow r) \\
+\color {Red} \times (p \Rightarrow q ) \Rightarrow r \equiv p \Rightarrow (q \Rightarrow r )</script><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>p</th>
+<th>q</th>
+<th>r</th>
+<th>$(p \Rightarrow q ) \Rightarrow r$</th>
+<th style="text-align:left">$p \Rightarrow (q \Rightarrow r )$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F</td>
+<td>T</td>
+<td>F</td>
+<td>$ \color{Red}{\mbox{F}}$</td>
+<td style="text-align:left">$ \color {Green} {\mbox{T}}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>$ A \Rightarrow B $</th>
+<th>$\lnot ( A \Rightarrow B )$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F<br>F<br>T<br>T</td>
+<td>F<br>T<br>F<br>T</td>
+<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$</td>
+<td>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p>根据例题描述，得出：</p>
 <ul>
-<li>登录Grieg</li>
-<li>启动PostgreSQL服务器</li>
-<li>进行工作</li>
-<li>停止PostgreSQL服务器</li>
-<li>退出Grieg</li>
+<li>$J \Rightarrow \lnot S$</li>
+<li>$S \Rightarrow K$</li>
+<li>$K \Rightarrow J$</li>
 </ul>
-<p><strong>注意，不要离开之前，使PostgreSQL服务始终运行！</strong></p>
-<p>操作PostgreSQL的命令有：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start 							# 启动pgs服务
-pgs status							# 查看pgs运行状态
-pgs stop								# 关闭pgs服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>进入PostgreSQL的命令为：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql MyDatabase					# 进入指定数据库中，其中，MyDatabase名字为要进入的数据库名称
-psql -l									# 查看已有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h4><p>输入以下命令，可查看PostsqlSQL当前是否正在运行</p>
-<pre class="line-numbers language-none"><code class="language-none">psql -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>进入到PostgreSQL中的某个数据库后，命令提示符为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dbName=#					# 管理员命令提示符
-dbName=&gt;					# 其他用户命令提示符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>此处为PostgreSQL的<a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/">官网使用手册</a></p>
-<p>PostgreSQL的运行日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/srvr/YOU/pgsql/Log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="小练习-1"><a href="#小练习-1" class="headerlink" title="小练习"></a>小练习</h4><p>尝试启动和停止服务器几次，并在服务器运行和不运行时运行psql，然后分别查看屏幕显示的消息，查看内容有和区别。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>典型的操作虚拟主机和PostgreSQL服务器的会话是这样的:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">... on any CSE workstation ...
-$ ssh grieg
-... grieg login stuff ...
-... the following are all on grieg ...
-$ source /srvr/YOU/env 
-$ pgs start
-$ psql MyDatabase
-... use another xterm for editting ...
-$ pgs stop
-$ logout
-... back to your original workstation ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习1：创建一个数据库"><a href="#练习1：创建一个数据库" class="headerlink" title="练习1：创建一个数据库"></a>练习1：创建一个数据库</h3><p>登录服务器并启动PostgreSQL服务后，输入以下命令，创建数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb mydb			# 创建指定名称的数据库，mydb为要创建的数据库命令
-psql mydb					# 进入到mydb数据库中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在PostgreSQL控制台，输入以下命令，控制数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mydb=# \d					# 查看已有关系（数据库表）
-mydb=# \q					# 退出数据库控制台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="练习2：填充数据库"><a href="#练习2：填充数据库" class="headerlink" title="练习2：填充数据库"></a>练习2：填充数据库</h3><p>使用现有SQL创建数据库表及数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql  # 使用现有SQL文件向数据库导入数据
-psql mydb -f -q 文件名                                  # 开启静默模式
-( psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql 2&gt;&amp;1 ) | grep ERROR    	# 导入数据时仅显示ERROR信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习3：检查数据库"><a href="#练习3：检查数据库" class="headerlink" title="练习3：检查数据库"></a>练习3：检查数据库</h3><p>在SQL标准中，标识符将忽略大小写。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mydb=# \d Staff									# 查看指定数据库表定义
-mydb=# \q												# 退出数据库控制台
-mydb=# select * from Staff;     # 查看指定数据库表中的全部数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="小练习-2"><a href="#小练习-2" class="headerlink" title="小练习"></a>小练习</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Students where degree=3978;			    			# 查询degree为3978的全部学生
-select count(*) from Students where degree=3978;				# 查询degree为3978的学生总数
-select * from Staff where position like '%Professor%';	# 查询全部教授数据
-select course,count(*) from Enrolment group by course;	# 查询每种课程的选课人数
-select c.code, c.title																	# 查询指定姓名教师的授课名称
-from   Courses c, Staff s
-where  s.name='Andrew Taylor' and c.lecturer=s.userid;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><h4 id="无法重启PostgreSQL服务器"><a href="#无法重启PostgreSQL服务器" class="headerlink" title="无法重启PostgreSQL服务器"></a>无法重启PostgreSQL服务器</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgs stop			# 正常关闭PostgreSQL服务器的命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>解决思路</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tail -2 /srvr/YOU/logfile			# 查看日志
-psql -l												# 查看当前服务状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>PostgreSQL运行时生成的PID为位置在<code>/srvr/YOU/pgsql/postmaster.pid</code></p>
-<p>正常关闭时，PostgreSQL将自动删除此文件。若上次PostgreSQL未正常关闭，需要手动删除此文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm /srvr/YOU/pgsql/postmaster.pid			# 手动删除pid文件
-rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>求$\phi = (J\Rightarrow \lnot S) \land (S\Rightarrow K) \land (K\Rightarrow J)$为真的情形。</p>
+<p>解析真值表为：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>J</th>
+<th>K</th>
+<th>S</th>
+<th>$J\Rightarrow \lnot S$</th>
+<th>$S \Rightarrow K$</th>
+<th>$K \Rightarrow J$</th>
+<th>$\phi$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>F<br>F<br>F<br>F<br>T<br>T<br>T<br>T</td>
+<td>F<br>F<br>T<br>T<br>F<br>F<br>T<br>T</td>
+<td>F<br>T<br>F<br>T<br>F<br>T<br>F<br>T</td>
+<td><br><br><br><br><br>F<br><br>F</td>
+<td><br>F<br><br><br><br>F<br><br></td>
+<td><br><br>F<br>F<br><br><br><br></td>
+<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h5 id="Exercise-2-7-14"><a href="#Exercise-2-7-14" class="headerlink" title="Exercise 2.7.14:"></a>Exercise 2.7.14:</h5><p>Which of the following formulae are always true?</p>
+<p>(a) $(p \land (p \Rightarrow q)) \Rightarrow q \color{Green}{\checkmark}$</p>
+<p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
+<p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
+<p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
+<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p><strong>permises</strong> 前提：包含一些论点的陈述句</p>
+<ul>
+<li><p>The conclusion <em>logically follows</em> from the premises.</p>
+</li>
+<li><p>The conclusion is a <em>logical consequence</em> of the premises.</p>
+</li>
+<li><p>The premises <strong>entail</strong> the conclusion.</p>
+</li>
+</ul>
+<p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
+<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><ul>
+<li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
+</li>
+<li><p>if $\phi_1 , \dots , \phi_n \vDash \psi$ then every correct implementation of the requirements <em>R</em> will be such that <em>C</em> is always true in the resulting system.</p>
+</li>
+<li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
+</li>
+</ul>
+<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
+<ul>
+<li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
+</li>
+<li><p>$\vDash(\phi_1\land\dots\land\phi_n)\Rightarrow \psi$</p>
+</li>
+<li><p>$\vDash \phi_1 \Rightarrow (\phi_2\Rightarrow \dots (\phi_n \Rightarrow \psi )\dots)$</p>
+</li>
+<li><p>$\phi \equiv \psi \ \mbox{if and only if} \vDash \phi \Leftrightarrow \psi$</p>
+</li>
+</ul>
+<h2 id="Proof-Roles-and-Methods-证明规则与方法"><a href="#Proof-Roles-and-Methods-证明规则与方法" class="headerlink" title="Proof Roles and Methods 证明规则与方法"></a>Proof Roles and Methods 证明规则与方法</h2><h3 id="Proof-Roles-and-Methods-Proof-by-Cases-按案例证明"><a href="#Proof-Roles-and-Methods-Proof-by-Cases-按案例证明" class="headerlink" title="Proof Roles and Methods: Proof by Cases 按案例证明"></a>Proof Roles and Methods: Proof by Cases 按案例证明</h3><p>To prove A, we have</p>
+<ul>
+<li><p>$B_1 \lor \dots \lor B_n$</p>
+</li>
+<li><p>$B_i \Rightarrow A \ \mbox{for each } i = 1 \dots n$</p>
+</li>
+</ul>
+<p>$\forall$ means “for all”</p>
+<p>$ \exists$ Means “there exist(s)”</p>
+<p><strong>Goldbach’s conjecture</strong></p>
+<p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$ </p>
+<h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
+<p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
+<p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
+<h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
+<p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
+<p><strong>Example</strong></p>
+<p>The square root of an irrational number is irrational:</p>
+<p>$\forall x \in \mathbb {R}(x\notin \mathbb {Q} \Rightarrow \sqrt {x} \notin \mathbb {Q})$</p>
+<p>To prove this, we can prove:</p>
+<p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
+<p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
+<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
+<p>(Hard part: working out what $B$ should be.)</p>
+<p><strong>Example</strong></p>
+<ul>
+<li><p>$\sqrt{2}$ is irrational</p>
+</li>
+<li><p>There exist an infinite number of primes</p>
+</li>
+</ul>
+<p>$\sqrt{2}=\frac{p}{q}$</p>
+<p>$\Rightarrow 2q^2 = p^2$</p>
+<p>$\Rightarrow p^2 \mbox{ is even } \Rightarrow p \mbox{ is even } \Rightarrow p=2\cdot r$</p>
+<p>$\Rightarrow 2q^2 = 4 r^2$</p>
+<p>$\Rightarrow q^2 = 2 r^2$</p>
+<p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
+<p>but $p,q$ must relative prime, so there is a contradiction</p>
+<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
+<p>We can substitute logical expressions for logical variables.</p>
+<h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
+<p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
+<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
+<p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
+<p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
+<h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
+<p>$\mathbb{B}={0,1}$ with ‘Boolean’ arithmetic</p>
+<p>$a\cdot b, a+b,a^\prime = 1-a$</p>
+<ul>
+<li>$pq$ is for $p \cdot q$</li>
+<li>$\bar{p}$ is more common than $p^\prime$</li>
+<li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
+</ul>
+<h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
+<h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
+<p>$ x \cdot y = y \cdot x$</p>
+<p><strong>associative:</strong> $(x + y) + z = x + (y + z)$ </p>
+<p>$(x \cdot y) \cdot z = x \cdot ( y\cdot z)$</p>
+<p><strong>distributive:</strong> $x + (y\cdot z)=(x+y)\cdot (x+z)$</p>
+<p>$x \cdot (y+x) = (x\cdot y) + (x \cdot z)$</p>
+<p><strong>identity:</strong> $x + 0 = x, \ x \cdot 1 = x$</p>
+<p><strong>complementation:</strong> $x + x^\prime = 1, \ x\cdot x^\prime =0$</p>
+<p>2-bit vectors $\mathbb{B}^2$:</p>
+<script type="math/tex; mode=display">
+0 \overset {def}{=}(0,0) \\
+1 \overset {def}{=}(1,1) \\
+\mbox{join: } (a_1,a_2)+(b_1,b_2) \mapsto (a_1 = b_1, a_2 + b_2) \\
+\mbox{join: } (a_1,a_2)\cdot(b_1,b_2) \mapsto (a_1 \cdot b_1, a_2 \cdot b_2) \\
+\mbox{complementation: } (a_1,a_2)^\prime \mapsto(a_1^\prime,a_2^\prime)</script><p>$T={(0,0),(0,1),(1,0),(1,1)}$</p>
+<h4 id="Boolean-Expressions"><a href="#Boolean-Expressions" class="headerlink" title="Boolean Expressions"></a>Boolean Expressions</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PL</th>
+<th>BA(Boolean algebra)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>propositional atoms</td>
+<td>$p,q,\dots$</td>
+<td>$p,q,\dots$</td>
+</tr>
+<tr>
+<td>conjunction</td>
+<td>$p\land q$</td>
+<td>$p\cdot q$ or $pq$</td>
+</tr>
+<tr>
+<td>disjunction</td>
+<td>$p\lor q$</td>
+<td>$p + q$</td>
+</tr>
+<tr>
+<td>negation</td>
+<td>$\lnot p$</td>
+<td>$p^\prime$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h3><ul>
+<li><p>a <strong>literal</strong> is an expression $p$ or $p^\prime$, where $p$ is a propositonal atom</p>
+</li>
+<li><p>An expression is in <strong>CNF</strong> (conjunctive normal form,合取范式) is it has the form</p>
+<script type="math/tex; mode=display">
+\prod_{i} C_i</script></li>
+</ul>
+<p>where each <strong>clause</strong> $C_i$ is a disjunction of literals e.g. $p+q+r^\prime$. </p>
+<ul>
+<li>An expression is in <strong>DNF</strong> (disjunctive normal form, 析取范式) if it has the form <script type="math/tex; mode=display">
+\sum_{i}C_i</script></li>
+</ul>
+<p>where each clause $C_i$ is a conjunction of literals e.g. $pqr^\prime$</p>
+<ul>
+<li><p>CNF and DNF are named after their top level operators; no deeper nesting of $\cdot$  or $+$ is permitted.</p>
+</li>
+<li><p>any given variable appears only once in one clause</p>
+</li>
+</ul>
+<script type="math/tex; mode=display">
+x + x =x,\ xx=x \\
+
+xx^\prime = 0,\ x + x^\prime = 1 \\
+
+x \cdot 0 = 0,\ x \cdot 1 = x,\ x + 0 = x,\ x +1 =1</script><ul>
+<li>DNF perferred, as well as few terms </li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{array}
+xx + xy & = x \quad \mbox{(absorption)} \\
+xy + xy^\prime & = x \quad \mbox{(combining the opposites)}
+\end{array}</script><ul>
+<li>every Boolean expression $\phi$  has an equivalent expression in CNF or DNF</li>
+<li><strong>De morgan’s laws</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+(x+y)^\prime = x^\prime \cdot y^\prime \\
+(x \cdot y )^\prime = x^\prime + y^\prime \\
+(x^\prime)^\prime = x</script><h3 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h3><script type="math/tex; mode=display">
+\mathcal{l}=\begin{cases} X_i \quad if\ \pi(x_i)=1 \\
+x_i^\prime \quad if \ \pi(x_i)=0
+\end{cases} \\
+\mbox{product}\ t_\pi = \mathcal{l}_1\cdot\mathcal{l}_2\cdot \ \dots \ \cdot \mathcal{l}_n</script><p><strong>Example</strong></p>
+<p>If $\pi(x_1)=1 $ and $\pi(x_2)=0$ , then $t_\pi=x_1\cdot x_2^\prime$</p>
+<p>The <strong>canonical DNF</strong> of $E$ is</p>
+<script type="math/tex; mode=display">
+E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
+<p>if E is defined by</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>x</th>
+<th>y</th>
+<th>E</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Then $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
+<p>it can be simplified to  $x+{y}’$</p>
+<h3 id="Karnaugh-Maps-卡诺图"><a href="#Karnaugh-Maps-卡诺图" class="headerlink" title="Karnaugh Maps 卡诺图"></a>Karnaugh Maps 卡诺图</h3><ul>
+<li><p>The rectangles can go ‘around the corner’/the actual map should be seen as a <em>torus</em>.</p>
+</li>
+<li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
+</li>
+</ul>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
+<p><em>本图由freakyuito整理</em></p>
+<h3 id="Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数"><a href="#Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数" class="headerlink" title="Boolean Algebras in Computer Science 计算机科学中的布尔代数"></a>Boolean Algebras in Computer Science 计算机科学中的布尔代数</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
+<h4 id="只包含0和1的n元布尔运算规则："><a href="#只包含0和1的n元布尔运算规则：" class="headerlink" title="只包含0和1的n元布尔运算规则："></a>只包含0和1的n元布尔运算规则：</h4><p>加（join）：$(1,0,0,1) + (1,1,0,0) = (1,1,0,1)$</p>
+<p>乘（meet）：$(1,0,0,1)\cdot (1,1,0,0) = (1,0,0,0)$</p>
+<p>补集（complementation）：${(1,0,0,1)}’=(0,1,1,0)$</p>
+<h4 id="Pow-S-——-S-的子集"><a href="#Pow-S-——-S-的子集" class="headerlink" title="$Pow(S)$ ——$S$的子集"></a>$Pow(S)$ ——$S$的子集</h4><p>加（join）：$A\cup B$  乘（meet）：$A \cap B$  补集（complement）：$A^C = S \setminus A$</p>
+<p>对于S的布尔代数，$Pow(S)$，$s=\{a,b,c\}$，有：</p>
+<p>$0 \overset{def}=\empty$</p>
+<p>$1 \overset{def}=\{a,b,c\}$</p>
+<p>加（join）：$X,Y \mapsto X \cup Y $</p>
+<p>乘（meet）：$X,Y \mapsto X \cap Y$</p>
+<p>补（complementation）：$X \mapsto \{a,b,c\} \setminus X$</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210304202204.png" alt="" style="zoom: 25%;"></p>
+<h3 id="更多计算机科学中布尔代数的例子"><a href="#更多计算机科学中布尔代数的例子" class="headerlink" title="更多计算机科学中布尔代数的例子"></a>更多计算机科学中布尔代数的例子</h3><p>对于任意集合$S$到$\mathbb{B}$的函数，它们的集合记为$Map(S, \mathbb{B})$</p>
+<p>如果$f,g: S \rightarrow \mathbb{B}$，那么：</p>
+<p>$(f+g):S \rightarrow \mathbb(B) $定义为$s \mapsto f(s) + g(s)$</p>
+<p>$(f\cdot g):S\rightarrow \mathbb{B}$定义为$s \mapsto f(s)\cdot g(s)$</p>
+<p> $f’:S\rightarrow \mathbb{B}$定义为$s\mapsto {(f(s))}’$</p>
+<p>对于$|S|=n$，一共有$2^n$个</p>
+<p>对于所有n个变量的布尔函数，如$(p_1,p_2,p_3)\mapsto (p_1+p_2’)\cdot (p_1+p_3)\cdot p_2 + p_3’$</p>
+<p>它们一共有$2^{2^n}$个，它们的集合表示为$BOOL(n)$</p>
+<p><strong>事实上</strong>，每个具有有限元素集T的布尔代数满足: $|T|=2^k$</p>
+<p><strong>定义</strong></p>
+<p>考虑</p>
+<ul>
+<li><p>布尔代数$B_1$在集合$S$上有不同的元素$0_S$和$1_S$</p>
+</li>
+<li><p>布尔代数$B_2$在集合$T$上有不同的元素$0_T$和$1_T$</p>
+</li>
+</ul>
+<p>它们是同构体（isomorphic），写作$B_1\simeq B_2$，当且仅当存在一一对应关系时，$\iota:S\mapsto T$，这样</p>
+<p>$\iota(0_S)=0_T$</p>
+<p>$\iota(1_S)=1_T$</p>
+<p>$\iota(s_1+s_2)=\iota(S_1)+\iota(S_2)$  对于所有的$s_1,s_2\in S$</p>
+<p>$\iota(s_1 \cdot s_2)=\iota(S_1)\cdot \iota(S_2)$ 对于所有的$s_1,s_2\in S$</p>
+<p>$\iota(s’)=\iota(s)’$ 对于所有的$s\in S$</p>
+<p><strong>事实上</strong>，所有元素数相同的代数都是同构的，即“结构上相似”。因此，研究一个这样的代数就可以描述所有的性质。</p>
+<p>布尔代数的笛卡尔积也是布尔代数。写作：</p>
+<script type="math/tex; mode=display">
+\mathbb{B}^k = \mathbb{B} \times \dots \mathbb{B}</script><p>上面提到的代数都是这种形式：</p>
+<ul>
+<li><p>$n元\simeq \mathbb{B}^n$</p>
+</li>
+<li><p>$Pow(S)\simeq \mathbb{B}^{|S|}$</p>
+</li>
+<li><p>$Map(S,\mathbb{B})\simeq \mathbb{B}^{|S|}$</p>
+</li>
+<li><p>$BOOL(n)\simeq \mathbb{B}^{2^n}$</p>
+</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>$\equiv$等价</p>
+<p>可满足的公式（satisfiable formulae），有效公式（valid formulae）、重复式（tautologies）</p>
+<p>逻辑蕴涵$\vDash$</p>
+<p>证明方法：反证法，证明逆否命题，按案例证明</p>
+<p>布尔代数，CNF，DNF，规范形式，卡诺图（Karnaugh maps）</p>
 
                 
             </div>
@@ -601,7 +896,7 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/">http://szdf123.github.io/2021/03/03/comp9311-lab-bi-ji-week2/</a>
+                    <a href="http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/">http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -639,16 +934,20 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/COMP9020/">
+                                    <span class="chip bg-color">COMP9020</span>
+                                </a>
+                            
                                 <a href="/tags/%E7%AC%94%E8%AE%B0/">
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">课程</span>
                                 </a>
                             
-                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                    <span class="chip bg-color">实践操作</span>
+                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">离散数学</span>
                                 </a>
                             
                                 <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
@@ -828,31 +1127,31 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/04/comp9311-lab-bi-ji-week3/">
+                <a href="/2021/02/24/hexo-da-jian-jiao-cheng/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/80.jpg" class="responsive-img" alt="COMP9311 Lab笔记（Week 3）">
+                        <img src="/medias/featureimages/204.jpg" class="responsive-img" alt="Hexo个人博客搭建教程">
                         
-                        <span class="card-title">COMP9311 Lab笔记（Week 3）</span>
+                        <span class="card-title">Hexo个人博客搭建教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库基础实践课Week 3内容：模式定义和数据约束
+                            本教程为使用Mac搭建Hexo个人博客
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    实用工具
                                 </a>
                             
                             
@@ -862,16 +1161,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                        <span class="chip bg-color">实践操作</span>
+                    <a href="/tags/%E6%95%99%E7%A8%8B/">
+                        <span class="chip bg-color">教程</span>
                     </a>
                     
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
@@ -889,31 +1184,31 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/">
+                <a href="/2021/02/24/latex-fu-hao-ming-ling-da-quan/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/156.jpg" class="responsive-img" alt="pygame游戏开发查询手册">
+                        <img src="/medias/featureimages/247.jpg" class="responsive-img" alt="LaTeX 符号命令大全">
                         
-                        <span class="card-title">pygame游戏开发查询手册</span>
+                        <span class="card-title">LaTeX 符号命令大全</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用pygame开发游戏时所需用到的手册
+                            列出LaTex所涉及的所有公式，并给出样例
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
+                                    实用工具
                                 </a>
                             
                             
@@ -923,20 +1218,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
-                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                        <span class="chip bg-color">游戏</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%8B%E5%86%8C/">
-                        <span class="chip bg-color">手册</span>
+                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                        <span class="chip bg-color">持续更新</span>
                     </a>
                     
                 </div>
@@ -1139,7 +1426,7 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.4k</span>&nbsp;字
+                class="white-color">17.7k</span>&nbsp;字
             
             
             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Python3,python语法,pygame,游戏开发">
+    <meta name="keywords" content="COMP9020,数学,笔记">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pygame游戏开发查询手册 | 本杰明技术栈</title>
+    <title>离散数学课程笔记（3）——函数和关系 | 本杰明技术栈</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/156.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/291.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pygame游戏开发查询手册</h1>
+                    <h1 class="description center-align post-title">离散数学课程笔记（3）——函数和关系</h1>
                 </div>
             </div>
         </div>
@@ -406,20 +406,24 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Python/">
-                                <span class="chip bg-color">Python</span>
+                            <a href="/tags/COMP9020/">
+                                <span class="chip bg-color">COMP9020</span>
                             </a>
                         
-                            <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                                <span class="chip bg-color">游戏</span>
+                            <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">笔记</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                <span class="chip bg-color">课程</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">离散数学</span>
                             </a>
                         
                             <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
                                 <span class="chip bg-color">编辑中</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%89%8B%E5%86%8C/">
-                                <span class="chip bg-color">手册</span>
                             </a>
                         
                     </div>
@@ -430,8 +434,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                技术学习
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
                             </a>
                         
                     </div>
@@ -443,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-02
+                    2021-03-04
                 </div>
                 
 
@@ -452,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    393
+                    369
                 </div>
                 
 
@@ -477,52 +481,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="pygame基础使用规则"><a href="#pygame基础使用规则" class="headerlink" title="pygame基础使用规则"></a>pygame基础使用规则</h3><h3 id="关于初始化"><a href="#关于初始化" class="headerlink" title="关于初始化"></a>关于初始化</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygame		# 引入pygame模块
-pygame.init()		# 初始化pygame
-pygame.quit()		# 退出pygame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))		# 创建游戏窗口
-pygame.display.update()						# 更新窗口显示<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="关于时钟与刷新帧率"><a href="#关于时钟与刷新帧率" class="headerlink" title="关于时钟与刷新帧率"></a>关于时钟与刷新帧率</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">clock = pygame.time.Clock()		# 获取pygame时钟
-clock.tick(60)								# 数字为刷新帧率<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="关于绘制图像"><a href="#关于绘制图像" class="headerlink" title="关于绘制图像"></a>关于绘制图像</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">bg = pygame.image.load("background.png")		# 加载背景图像
-screen.blit(bg, (0, 0))											# 绘制图像到窗口
-rect = pygame.Rect(200, 800, 140, 178)  		# 定义元素矩形，参数依次为X，Y，width，height<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="关于事件"><a href="#关于事件" class="headerlink" title="关于事件"></a>关于事件</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.event.get()										# 获取pygame的全部事件
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="pygame定义的事件常量"><a href="#pygame定义的事件常量" class="headerlink" title="pygame定义的事件常量"></a>pygame定义的事件常量</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.QUIT								# 退出事件<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="精灵和精灵组"><a href="#精灵和精灵组" class="headerlink" title="精灵和精灵组"></a>精灵和精灵组</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">pygame.sprite.Sprite			# 精灵类
-pygame.sprite.Group				# 精灵组类<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="继承精灵类"><a href="#继承精灵类" class="headerlink" title="继承精灵类"></a>继承精灵类</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygame
-
-class MySprite(pygame.sprite.Sprite):
-    """自定义游戏精灵"""
-
-    def __init__(self, image_name, speed=1):
-        super().__init__()
-        self.image = pygame.image.load(image_name)
-        self.rect = self.image.get_rect()
-        self.speed = speed				# speed为自定义的精灵属性
-
-    def update(self):
-        self.rect.y += self.speed<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="使用精灵类和精灵组"><a href="#使用精灵类和精灵组" class="headerlink" title="使用精灵类和精灵组"></a>使用精灵类和精灵组</h4><pre class="line-numbers language-python" data-language="python"><code class="language-python">from sprites.my_sprites import *								# 引用自定义精灵组类
-my_sprite = PlaneSprite("sprite.png")						# 实例化精灵
-sprite_group = pygame.sprite.Group(my_sprite)		# 实例化精灵组
-
-enemy_group.update()														# 调用精灵组中的精灵的全部update方法
-enemy_group.draw(screen)												# 绘制精灵组到屏幕<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="游戏循环"><a href="#游戏循环" class="headerlink" title="游戏循环"></a>游戏循环</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph TD
-H[游戏初始化]
-H --&gt; I[设置游戏窗口]
-I --&gt; J[创建游戏时钟]
-J --&gt; K[创建精灵/精灵组]
-
-F[游戏循环]
-F --&gt; A[设置刷新帧率]
-A --&gt; B[事件监听]
-B --&gt; C[碰撞检测]
-C --&gt;  D[更新/绘制精灵组]
-D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h2 id="函数（Functions）"><a href="#函数（Functions）" class="headerlink" title="函数（Functions）"></a>函数（Functions）</h2><p>我们把函数作为集合论的概念来处理，它是两个集合之间的一种特殊的对应。</p>
+<p>$f: S→T$描述了集合的配对，即$f$给每个元素$s∈S$都赋一个唯一的元素$t∈T$。</p>
+<p>$S$——$f$域（domain），符号$Dom(f)$</p>
+<p>$T$——$f$上域（codomain），符号Codom(f)</p>
+<p>$\{f(x):x \in Dom(f)\}$——f镜像(image)，符号Im(f)</p>
+<script type="math/tex; mode=display">
+Im(f)\subseteq Condom(f)</script><p>每个函数都把它的定义域映射到它的上域，但只是映射到它的像上。</p>
+<h3 id="复合函数（Composition-of-Functions）"><a href="#复合函数（Composition-of-Functions）" class="headerlink" title="复合函数（Composition of Functions）"></a>复合函数（Composition of Functions）</h3><p>$f:x \mapsto y, f:A \mapsto B$</p>
+<p>第一个式子表示x映射到y，第二个式子表示B是在f下A的映射，$f:B=\{f(s):s \in A\}$</p>
+<p><strong>定义</strong>：复合函数描述为$g\circ f:x\mapsto g(f(x))$，要求$Im(f)\subseteq Dom(g)$</p>
+<p>如果一个函数将集合映射到自身，例如，当$Dom(f)=Codom(f)$，同时也因此$Im(f)\subseteq Dom(f)$，那么该函数可以与自身组合，这被叫做<strong>迭代</strong></p>
+<script type="math/tex; mode=display">
+f \circ f, f\circ f \circ f, \dots, 也写做 f^2,f^3,\dots</script><p>组合是联合的（associative）</p>
+<script type="math/tex; mode=display">
+h \circ (g \circ f) = (h \circ g) \circ f, 可写作h \circ g \circ f</script><p>S函数的统一性（identity）</p>
+<script type="math/tex; mode=display">
+Id_S(x)=x,x\in S; Dom(i)=Condom(i)=Im(i)=S</script><p>对于$g:s\rightarrow T \quad g\circ Id_S = g, Id_T \circ g =g$</p>
+<h4 id="gcd例子"><a href="#gcd例子" class="headerlink" title="gcd例子"></a>gcd例子</h4><p>考虑gcd为高阶函数，定义为</p>
+<script type="math/tex; mode=display">
+gcd(f)(m,n)=\begin{cases} m & \text{if} \quad m=n \\
+f(m-n,n) & \text{if} \quad m>n \\
+f(m,n-m) & \text{if} \quad m<n
+\end{cases}</script><p>它的类型是$gcd:(\mathbb{P}^2 \not \rightarrow \mathbb{P})\rightarrow (\mathbb{P}^2 \not\rightarrow \mathbb{P})$</p>
+<p>也就是说，它将每个部分函数(从一对正整数到一个正整数)映射到同一类型的(部分)函数。这种函数中最糟糕的是“无处定义”的函数。</p>
+<script type="math/tex; mode=display">
+f_\bot (m,n)=\bot</script><p>偏函数（partial function）$f: S \not \rightarrow T$ 是一个函数$f:S’ \rightarrow T 当 S’\subseteq S$</p>
+<h3 id="函数的性质"><a href="#函数的性质" class="headerlink" title="函数的性质"></a>函数的性质</h3><p>如果上域的每个元素被域中至少一个x映射到，则函数叫做<strong>onto</strong>(或满射<strong>surjective</strong>)。</p>
+<script type="math/tex; mode=display">
+ Im(f) = T</script><h3 id="1-1-函数"><a href="#1-1-函数" class="headerlink" title="1-1 函数"></a>1-1 函数</h3><p>如果不同的x对应不同的y，则叫做1-1或单射函数</p>
+<script type="math/tex; mode=display">
+f(x)=f(y)\Rightarrow x=y</script><h3 id="逆函数Inverse-Functions"><a href="#逆函数Inverse-Functions" class="headerlink" title="逆函数Inverse Functions"></a>逆函数Inverse Functions</h3><p><strong>定义</strong></p>
+<p>对给定的函数$f:S\rightarrow T$，$f^{-1}:T\rightarrow S$，满足$f^{-1}\circ f=Id_S$</p>
+<p>例如， $f^{-1}(f(x))=x，\forall x \in S$</p>
+<p>当f既为1-1又为满射时存在</p>
+<p><strong>逆镜像</strong>（inverse image）$f^{\leftarrow}(B)=\{s \in S : f(s) \in B\} \subseteq S$</p>
+<p>对于$t \in T$ ，写作$f^{\leftarrow}(t)$对于集合$f^{\leftarrow}(\{t\})$</p>
+<p>如果$f^{-1}$存在，那么$f^{\leftarrow}(t)=\{f^{-1}(t)\}$</p>
+<p>$f(\empty)=\empty , f^{\leftarrow}(\empty)=\empty$</p>
+<p>对于有限的集合$S$和$f：S\rightarrow S $，属性</p>
+<p>满射，并且1-1 是等价的（equivalent）</p>
 
                 
             </div>
@@ -549,7 +547,7 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/">http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/</a>
+                    <a href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/">http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,20 +585,24 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Python/">
-                                    <span class="chip bg-color">Python</span>
+                                <a href="/tags/COMP9020/">
+                                    <span class="chip bg-color">COMP9020</span>
                                 </a>
                             
-                                <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                                    <span class="chip bg-color">游戏</span>
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">笔记</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                                    <span class="chip bg-color">课程</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">离散数学</span>
                                 </a>
                             
                                 <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
                                     <span class="chip bg-color">编辑中</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%89%8B%E5%86%8C/">
-                                    <span class="chip bg-color">手册</span>
                                 </a>
                             
                         </div>
@@ -772,58 +774,64 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/">
+                <a href="/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/184.jpg" class="responsive-img" alt="数据库基础实践记录（1）">
+                        <img src="/medias/featureimages/291.jpg" class="responsive-img" alt="离散数学课程笔记（3）——函数和关系">
                         
-                        <span class="card-title">数据库基础实践记录（1）</span>
+                        <span class="card-title">离散数学课程笔记（3）——函数和关系</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库基础实践课Week 2内容：设置PostgreSQL服务器
+                            COMP9020离散数学Week3函数和关系（Functions and Relations）相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
+                    </a>
                     
                     <a href="/tags/%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">课程</span>
                     </a>
                     
-                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                        <span class="chip bg-color">实践操作</span>
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
                 </div>
@@ -837,31 +845,31 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/">
+                <a href="/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/81.jpg" class="responsive-img" alt="计算机技术英语生词本">
+                        <img src="/medias/featureimages/354.jpg" class="responsive-img" alt="离散数学课程笔记（4）——矩阵">
                         
-                        <span class="card-title">计算机技术英语生词本</span>
+                        <span class="card-title">离散数学课程笔记（4）——矩阵</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在学习计算机技术时遇到的生词
+                            COMP9020离散数学Week3矩阵（Functions and Relations）相关内容
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
@@ -871,12 +879,24 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
-                        <span class="chip bg-color">英语</span>
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
                     </a>
                     
-                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                        <span class="chip bg-color">持续更新</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B/">
+                        <span class="chip bg-color">课程</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
                 </div>
