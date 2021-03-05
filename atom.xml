@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-05T07:47:05.086Z</updated>
+  <updated>2021-03-05T08:52:07.008Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>全部标签和分类</title>
+    <link href="http://szdf123.github.io/2021/03/05/quan-bu-biao-qian-he-fen-lei/"/>
+    <id>http://szdf123.github.io/2021/03/05/quan-bu-biao-qian-he-fen-lei/</id>
+    <published>2021-03-05T08:10:21.000Z</published>
+    <updated>2021-03-05T08:52:07.008Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;快速复制&quot;&gt;&lt;a href=&quot;#快速复制&quot; class=&quot;headerlink&quot; title=&quot;快速复制&quot;&gt;&lt;/a&gt;快速复制&lt;/h2&gt;&lt;h3 id=&quot;全部标签&quot;&gt;&lt;a href=&quot;#全部标签&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="实用工具" scheme="http://szdf123.github.io/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/"/>
+    
+    
+    <category term="工具" scheme="http://szdf123.github.io/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>离散数学课程笔记（3）——函数和关系</title>
     <link href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/"/>
     <id>http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/</id>
     <published>2021-03-04T09:24:03.000Z</published>
-    <updated>2021-03-05T07:47:05.086Z</updated>
+    <updated>2021-03-05T08:51:53.182Z</updated>
     
     
       
@@ -39,13 +66,11 @@
     
     <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -54,7 +79,7 @@
     <link href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/"/>
     <id>http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/</id>
     <published>2021-03-04T09:24:03.000Z</published>
-    <updated>2021-03-05T07:47:12.205Z</updated>
+    <updated>2021-03-05T08:51:58.992Z</updated>
     
     
     
@@ -64,13 +89,11 @@
     
     <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -79,7 +102,7 @@
     <link href="http://szdf123.github.io/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/"/>
     <id>http://szdf123.github.io/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/</id>
     <published>2021-03-03T16:48:25.000Z</published>
-    <updated>2021-03-05T07:47:18.963Z</updated>
+    <updated>2021-03-05T08:52:51.250Z</updated>
     
     
       
@@ -92,12 +115,14 @@
     
     
     
-    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
     
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
     
     <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
     
@@ -110,7 +135,7 @@
     <link href="http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/"/>
     <id>http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/</id>
     <published>2021-03-03T11:34:13.000Z</published>
-    <updated>2021-03-05T07:46:00.600Z</updated>
+    <updated>2021-03-05T08:52:41.490Z</updated>
     
     
       
@@ -123,12 +148,14 @@
     
     
     
-    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
     
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
+    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
     
     <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
     
@@ -141,7 +168,7 @@
     <link href="http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/"/>
     <id>http://szdf123.github.io/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/</id>
     <published>2021-03-02T12:35:57.000Z</published>
-    <updated>2021-03-04T07:53:51.456Z</updated>
+    <updated>2021-03-05T08:50:18.215Z</updated>
     
     
       
@@ -199,7 +226,7 @@
     <link href="http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/"/>
     <id>http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/</id>
     <published>2021-02-28T17:06:01.000Z</published>
-    <updated>2021-03-04T07:55:11.132Z</updated>
+    <updated>2021-03-05T08:52:59.609Z</updated>
     
     
       
@@ -215,10 +242,6 @@
     <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
     
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
@@ -227,6 +250,8 @@
     
     <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
     
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
   </entry>
   
   <entry>
@@ -234,7 +259,7 @@
     <link href="http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/"/>
     <id>http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</id>
     <published>2021-02-28T15:20:47.000Z</published>
-    <updated>2021-03-05T07:46:57.935Z</updated>
+    <updated>2021-03-05T08:52:17.552Z</updated>
     
     
       
@@ -250,15 +275,13 @@
     <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
     
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -267,7 +290,7 @@
     <link href="http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji-1/"/>
     <id>http://szdf123.github.io/2021/02/26/python3-jiao-cheng-bi-ji-1/</id>
     <published>2021-02-26T14:18:55.000Z</published>
-    <updated>2021-03-05T07:47:50.482Z</updated>
+    <updated>2021-03-05T08:53:59.831Z</updated>
     
     
       
@@ -286,13 +309,11 @@
     <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
-    <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
-    
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="手册" scheme="http://szdf123.github.io/tags/%E6%89%8B%E5%86%8C/"/>
     
   </entry>
   
@@ -333,7 +354,7 @@
     <link href="http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/"/>
     <id>http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/</id>
     <published>2021-02-24T07:33:43.000Z</published>
-    <updated>2021-03-05T07:46:44.038Z</updated>
+    <updated>2021-03-05T08:51:46.073Z</updated>
     
     
       
@@ -351,13 +372,11 @@
     
     <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
     <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -395,7 +414,7 @@
     <link href="http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/"/>
     <id>http://szdf123.github.io/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/</id>
     <published>2021-02-24T04:31:07.000Z</published>
-    <updated>2021-03-04T07:54:53.687Z</updated>
+    <updated>2021-03-05T08:51:08.574Z</updated>
     
     
       
@@ -415,11 +434,11 @@
     
     <category term="教程" scheme="http://szdf123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="Java" scheme="http://szdf123.github.io/tags/Java/"/>
-    
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
-    <category term="已完成" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E6%88%90/"/>
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="Hexo" scheme="http://szdf123.github.io/tags/Hexo/"/>
     
   </entry>
   
@@ -428,7 +447,7 @@
     <link href="http://szdf123.github.io/2021/02/20/chi-san-shu-xue-ke-cheng-bi-ji-1/"/>
     <id>http://szdf123.github.io/2021/02/20/chi-san-shu-xue-ke-cheng-bi-ji-1/</id>
     <published>2021-02-20T07:19:32.000Z</published>
-    <updated>2021-03-05T07:46:51.068Z</updated>
+    <updated>2021-03-05T08:51:38.040Z</updated>
     
     
       
@@ -447,13 +466,11 @@
     
     <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
     
-    <category term="笔记" scheme="http://szdf123.github.io/tags/%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="课程" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B/"/>
-    
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

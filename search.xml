@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>全部标签和分类</title>
+      <link href="2021/03/05/quan-bu-biao-qian-he-fen-lei/"/>
+      <url>2021/03/05/quan-bu-biao-qian-he-fen-lei/</url>
+      
+        <content type="html"><![CDATA[<h2 id="快速复制"><a href="#快速复制" class="headerlink" title="快速复制"></a>快速复制</h2><h3 id="全部标签"><a href="#全部标签" class="headerlink" title="全部标签"></a>全部标签</h3><pre class="line-numbers language-none"><code class="language-none">- COMP9020- COMP9021- COMP9311- 数据库- 离散数学- Python- SQL- Hexo- 游戏- 英语- 工具- 手册- 教程- 课程笔记- 实践操作- 编辑中- 持续更新- 已完稿<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="全部分类"><a href="#全部分类" class="headerlink" title="全部分类"></a>全部分类</h3><pre class="line-numbers language-none"><code class="language-none">UNSW实用工具技术学习<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="UNSW课程"><a href="#UNSW课程" class="headerlink" title="UNSW课程"></a>UNSW课程</h3><ul><li>COMP9020：UNSW课程代码，课程名称为计算机基础（Foundations of Computer Science ）</li><li>COMP9021：UNSW课程代码，课程名称为编程原理（Principles of Programming）</li><li>COMP9311：UNSW课程代码，课程名称为数据库系统（Database Systems ）</li></ul><h3 id="内容与技术"><a href="#内容与技术" class="headerlink" title="内容与技术"></a>内容与技术</h3><ul><li>数据库：数据库与其操作相关</li><li>离散数学：离散数学相关</li><li>Python：Python计算机语言相关</li><li>SQL：SQL语言相关</li><li>Hexo：Hexo技术相关</li><li>游戏：游戏开发相关</li><li>英语：英语学习相关</li></ul><h3 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h3><ul><li>工具：用于本站的记录与维护</li><li>手册：主要用户资料查询的文档</li><li>教程：用于介绍操作流程等性质的文档</li><li>课程笔记：记录课堂所学内容的文档</li><li>实践操作：记录实践操作相关的文档</li></ul><h3 id="文档状态"><a href="#文档状态" class="headerlink" title="文档状态"></a>文档状态</h3><ul><li>编辑中：当前文档正在编辑状态，即还未编写完成</li><li>持续更新：当前文档已包含一定信息，并将在未来持续更新其内容</li><li>已完稿：当前文档已编写完成，未来仅在疏漏、补遗时修改</li></ul><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>UNSW：澳大利亚新南威尔士大学课程相关</li><li>实用工具：可用于实际操作的内容</li><li>技术学习：用于计算机技术学习</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 实用工具 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+            <tag> 持续更新 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>离散数学课程笔记（3）——函数和关系</title>
       <link href="2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/"/>
       <url>2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/</url>
@@ -22,13 +49,11 @@
             
             <tag> COMP9020 </tag>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> 离散数学 </tag>
             
-            <tag> 编辑中 </tag>
+            <tag> 已完稿 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -55,13 +80,11 @@
             
             <tag> COMP9020 </tag>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> 离散数学 </tag>
             
             <tag> 编辑中 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -79,16 +102,18 @@
       
       <categories>
           
-          <category> 技术学习 </category>
+          <category> UNSW </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> COMP9311 </tag>
             
             <tag> 数据库 </tag>
+            
+            <tag> SQL </tag>
             
             <tag> 实践操作 </tag>
             
@@ -110,16 +135,18 @@
       
       <categories>
           
-          <category> 技术学习 </category>
+          <category> UNSW </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 笔记 </tag>
+            <tag> COMP9311 </tag>
             
             <tag> 数据库 </tag>
+            
+            <tag> SQL </tag>
             
             <tag> 实践操作 </tag>
             
@@ -206,10 +233,6 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> COMP9311 </tag>
             
             <tag> 数据库 </tag>
@@ -217,6 +240,8 @@
             <tag> SQL </tag>
             
             <tag> 持续更新 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -241,15 +266,13 @@
       
         <tags>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> COMP9311 </tag>
             
             <tag> 数据库 </tag>
             
-            <tag> 编辑中 </tag>
+            <tag> 已完稿 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -274,13 +297,11 @@
       
         <tags>
             
-            <tag> 教程 </tag>
-            
             <tag> Python </tag>
             
-            <tag> 笔记 </tag>
-            
             <tag> 编辑中 </tag>
+            
+            <tag> 手册 </tag>
             
         </tags>
       
@@ -336,13 +357,11 @@
             
             <tag> COMP9020 </tag>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> 离散数学 </tag>
             
             <tag> 已完稿 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -398,11 +417,11 @@
             
             <tag> 教程 </tag>
             
-            <tag> Java </tag>
-            
             <tag> Python </tag>
             
-            <tag> 已完成 </tag>
+            <tag> 已完稿 </tag>
+            
+            <tag> Hexo </tag>
             
         </tags>
       
@@ -429,13 +448,11 @@
             
             <tag> COMP9020 </tag>
             
-            <tag> 笔记 </tag>
-            
-            <tag> 课程 </tag>
-            
             <tag> 离散数学 </tag>
             
-            <tag> 已完稿 </tag>
+            <tag> 编辑中 </tag>
+            
+            <tag> 课程笔记 </tag>
             
         </tags>
       
