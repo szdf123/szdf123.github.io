@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9020,离散数学,逻辑">
+    <meta name="keywords" content="COMP9020,离散数学,函数和关系">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散数学课程笔记（2）——逻辑 | 本杰明技术栈</title>
+    <title>离散数学课程笔记（3） | 本杰明技术栈</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/315.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/137.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散数学课程笔记（2）——逻辑</h1>
+                    <h1 class="description center-align post-title">离散数学课程笔记（3）</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-03-04
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    369
                 </div>
                 
 
@@ -477,395 +477,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h3 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h3><script type="math/tex; mode=display">
-\begin{align} \mbox{Excluded Middle} \qquad p\lor \lnot p & \equiv \top \\
-\mbox{Contradiction} \qquad p\wedge \lnot p & \equiv \bot \\
-\mbox{Idempotence} \qquad \quad p\lor p & \equiv p \\
-p \wedge p & \equiv p \\
-\mbox{Double Negation} \qquad \quad \lnot \lnot p & \equiv p \\
-\mbox{Identity} \qquad \quad p \lor \bot & \equiv p \\
-p \wedge \top & \equiv p \\
-p \lor \top & \equiv \top \\
-p \wedge \bot & \equiv \bot \\
-\mbox {Commutativity} \qquad \quad p \lor q & \equiv q \lor v \\
-p\land q & \equiv q \land p \\
-\mbox {Associativity}\qquad (p \lor q ) \lor r & \equiv p \lor (q \lor r ) \\
-(p \land q ) \land r & \equiv p \land ( q \land r ) \\
-\mbox {Distribution}\qquad p \lor (q \land r) & \equiv (p \lor q) \land ( p \lor r) \\
-p \land (q \lor r) & \equiv (p \land q)\lor (p \land r) \\
-\mbox {De Morgan's laws}\qquad \lnot (p \land q) & \equiv \lnot p \lor \lnot q \\
-\lnot (p \lor q) & \equiv \lnot p \land \lnot q \\
-\mbox {Implication} \qquad \qquad p \Rightarrow q & \equiv \lnot p \lor q \\
-p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
-
-\end{align}</script><p><strong>Example</strong></p>
+                <h2 id="函数（Functions）"><a href="#函数（Functions）" class="headerlink" title="函数（Functions）"></a>函数（Functions）</h2><p>我们把函数作为集合论的概念来处理，它是两个集合之间的一种特殊的对应。</p>
+<p>$f: S→T$描述了集合的配对，即$f$给每个元素$s∈S$都赋一个唯一的元素$t∈T$。</p>
+<p>$S$——$f$域（domain），符号$Dom(f)$</p>
+<p>$T$——$f$上域（codomain），符号Codom(f)</p>
+<p>$\{f(x):x \in Dom(f)\}$——$f$镜像(image)，符号$Im(f)$</p>
 <script type="math/tex; mode=display">
-\begin{array} 
-((r \land \lnot p ) \lor (r \land q)) \lor (( \lnot r \land \lnot p ) \lor (\lnot r \land q)) \\
-\qquad \equiv (r \land ( \lnot p \lor q )) \lor (\lnot r \land ( \lnot p \lor q )) \qquad \mbox {Distrib.} \\ 
-\qquad \equiv (r \lor \lnot r) \land (\lnot p \lor q) \qquad \qquad \qquad \quad \mbox {Distrib.} \\ 
-\qquad \equiv \top \land (\lnot p \lor q ) \qquad \qquad \qquad \qquad \quad \mbox {Excl. Mid.} \\ 
-\qquad \equiv \lnot p \lor q \qquad \qquad \qquad \qquad \qquad \qquad \mbox {Ident.}
-\end{array}</script><script type="math/tex; mode=display">
-\color {Green} \checkmark p \Rightarrow ( q \Rightarrow r) \equiv ( p \Rightarrow q) \Rightarrow (p \Rightarrow r) \\
-\color {Red} \times (p \Rightarrow q ) \Rightarrow r \equiv p \Rightarrow (q \Rightarrow r )</script><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>$(p \Rightarrow q ) \Rightarrow r$</th>
-<th style="text-align:left">$p \Rightarrow (q \Rightarrow r )$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>$ \color{Red}{\mbox{F}}$</td>
-<td style="text-align:left">$ \color {Green} {\mbox{T}}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>A</th>
-<th>B</th>
-<th>$ A \Rightarrow B $</th>
-<th>$\lnot ( A \Rightarrow B )$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F<br>F<br>T<br>T</td>
-<td>F<br>T<br>F<br>T</td>
-<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$</td>
-<td>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p>根据例题描述，得出：</p>
-<ul>
-<li>$J \Rightarrow \lnot S$</li>
-<li>$S \Rightarrow K$</li>
-<li>$K \Rightarrow J$</li>
-</ul>
-<p>求$\phi = (J\Rightarrow \lnot S) \land (S\Rightarrow K) \land (K\Rightarrow J)$为真的情形。</p>
-<p>解析真值表为：</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>J</th>
-<th>K</th>
-<th>S</th>
-<th>$J\Rightarrow \lnot S$</th>
-<th>$S \Rightarrow K$</th>
-<th>$K \Rightarrow J$</th>
-<th>$\phi$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>F<br>F<br>F<br>F<br>T<br>T<br>T<br>T</td>
-<td>F<br>F<br>T<br>T<br>F<br>F<br>T<br>T</td>
-<td>F<br>T<br>F<br>T<br>F<br>T<br>F<br>T</td>
-<td><br><br><br><br><br>F<br><br>F</td>
-<td><br>F<br><br><br><br>F<br><br></td>
-<td><br><br>F<br>F<br><br><br><br></td>
-<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h5 id="Exercise-2-7-14"><a href="#Exercise-2-7-14" class="headerlink" title="Exercise 2.7.14:"></a>Exercise 2.7.14:</h5><p>Which of the following formulae are always true?</p>
-<p>(a) $(p \land (p \Rightarrow q)) \Rightarrow q \color{Green}{\checkmark}$</p>
-<p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
-<p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
-<p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
-<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p><strong>permises</strong> 前提：包含一些论点的陈述句</p>
-<ul>
-<li><p>The conclusion <em>logically follows</em> from the premises.</p>
-</li>
-<li><p>The conclusion is a <em>logical consequence</em> of the premises.</p>
-</li>
-<li><p>The premises <strong>entail</strong> the conclusion.</p>
-</li>
-</ul>
-<p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
-<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><ul>
-<li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
-</li>
-<li><p>if $\phi_1 , \dots , \phi_n \vDash \psi$ then every correct implementation of the requirements <em>R</em> will be such that <em>C</em> is always true in the resulting system.</p>
-</li>
-<li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
-</li>
-</ul>
-<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
-<ul>
-<li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
-</li>
-<li><p>$\vDash(\phi_1\land\dots\land\phi_n)\Rightarrow \psi$</p>
-</li>
-<li><p>$\vDash \phi_1 \Rightarrow (\phi_2\Rightarrow \dots (\phi_n \Rightarrow \psi )\dots)$</p>
-</li>
-<li><p>$\phi \equiv \psi \ \mbox{if and only if} \vDash \phi \Leftrightarrow \psi$</p>
-</li>
-</ul>
-<h2 id="Proof-Roles-and-Methods-证明规则与方法"><a href="#Proof-Roles-and-Methods-证明规则与方法" class="headerlink" title="Proof Roles and Methods 证明规则与方法"></a>Proof Roles and Methods 证明规则与方法</h2><h3 id="Proof-Roles-and-Methods-Proof-by-Cases-按案例证明"><a href="#Proof-Roles-and-Methods-Proof-by-Cases-按案例证明" class="headerlink" title="Proof Roles and Methods: Proof by Cases 按案例证明"></a>Proof Roles and Methods: Proof by Cases 按案例证明</h3><p>To prove A, we have</p>
-<ul>
-<li><p>$B_1 \lor \dots \lor B_n$</p>
-</li>
-<li><p>$B_i \Rightarrow A \ \mbox{for each } i = 1 \dots n$</p>
-</li>
-</ul>
-<p>$\forall$ means “for all”</p>
-<p>$ \exists$ Means “there exist(s)”</p>
-<p><strong>Goldbach’s conjecture</strong></p>
-<p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$ </p>
-<h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
-<p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
-<p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
-<h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
-<p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
-<p><strong>Example</strong></p>
-<p>The square root of an irrational number is irrational:</p>
-<p>$\forall x \in \mathbb {R}(x\notin \mathbb {Q} \Rightarrow \sqrt {x} \notin \mathbb {Q})$</p>
-<p>To prove this, we can prove:</p>
-<p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
-<p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
-<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
-<p>(Hard part: working out what $B$ should be.)</p>
-<p><strong>Example</strong></p>
-<ul>
-<li><p>$\sqrt{2}$ is irrational</p>
-</li>
-<li><p>There exist an infinite number of primes</p>
-</li>
-</ul>
-<p>$\sqrt{2}=\frac{p}{q}$</p>
-<p>$\Rightarrow 2q^2 = p^2$</p>
-<p>$\Rightarrow p^2 \mbox{ is even } \Rightarrow p \mbox{ is even } \Rightarrow p=2\cdot r$</p>
-<p>$\Rightarrow 2q^2 = 4 r^2$</p>
-<p>$\Rightarrow q^2 = 2 r^2$</p>
-<p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
-<p>but $p,q$ must relative prime, so there is a contradiction</p>
-<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
-<p>We can substitute logical expressions for logical variables.</p>
-<h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
-<p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
-<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
-<p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
-<p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
-<h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
-<p>$\mathbb{B}={0,1}$ with ‘Boolean’ arithmetic</p>
-<p>$a\cdot b, a+b,a^\prime = 1-a$</p>
-<ul>
-<li>$pq$ is for $p \cdot q$</li>
-<li>$\bar{p}$ is more common than $p^\prime$</li>
-<li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
-</ul>
-<h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
-<h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
-<p>$ x \cdot y = y \cdot x$</p>
-<p><strong>associative:</strong> $(x + y) + z = x + (y + z)$ </p>
-<p>$(x \cdot y) \cdot z = x \cdot ( y\cdot z)$</p>
-<p><strong>distributive:</strong> $x + (y\cdot z)=(x+y)\cdot (x+z)$</p>
-<p>$x \cdot (y+x) = (x\cdot y) + (x \cdot z)$</p>
-<p><strong>identity:</strong> $x + 0 = x, \ x \cdot 1 = x$</p>
-<p><strong>complementation:</strong> $x + x^\prime = 1, \ x\cdot x^\prime =0$</p>
-<p>2-bit vectors $\mathbb{B}^2$:</p>
+Im(f)\subseteq Codom(f)</script><p>每个函数都把它的定义域映射到它的上域，但只是映射到它的像上。</p>
+<h3 id="复合函数（Composition-of-Functions）"><a href="#复合函数（Composition-of-Functions）" class="headerlink" title="复合函数（Composition of Functions）"></a>复合函数（Composition of Functions）</h3><p>$f:x \mapsto y, f:A \mapsto B$</p>
+<p>第一个式子表示x映射到y，第二个式子表示B是在f下A的映射，$f:B=\{f(s):s \in A\}$</p>
+<p><strong>定义</strong>：复合函数描述为$g\circ f:x\mapsto g(f(x))$，要求$Im(f)\subseteq Dom(g)$</p>
+<p>如果一个函数将集合映射到自身，例如，当$Dom(f)=Codom(f)$，同时也因此$Im(f)\subseteq Dom(f)$，那么该函数可以与自身组合，这被叫做<strong>迭代</strong></p>
 <script type="math/tex; mode=display">
-0 \overset {def}{=}(0,0) \\
-1 \overset {def}{=}(1,1) \\
-\mbox{join: } (a_1,a_2)+(b_1,b_2) \mapsto (a_1 = b_1, a_2 + b_2) \\
-\mbox{join: } (a_1,a_2)\cdot(b_1,b_2) \mapsto (a_1 \cdot b_1, a_2 \cdot b_2) \\
-\mbox{complementation: } (a_1,a_2)^\prime \mapsto(a_1^\prime,a_2^\prime)</script><p>$T={(0,0),(0,1),(1,0),(1,1)}$</p>
-<h4 id="Boolean-Expressions"><a href="#Boolean-Expressions" class="headerlink" title="Boolean Expressions"></a>Boolean Expressions</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>PL</th>
-<th>BA(Boolean algebra)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>propositional atoms</td>
-<td>$p,q,\dots$</td>
-<td>$p,q,\dots$</td>
-</tr>
-<tr>
-<td>conjunction</td>
-<td>$p\land q$</td>
-<td>$p\cdot q$ or $pq$</td>
-</tr>
-<tr>
-<td>disjunction</td>
-<td>$p\lor q$</td>
-<td>$p + q$</td>
-</tr>
-<tr>
-<td>negation</td>
-<td>$\lnot p$</td>
-<td>$p^\prime$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h3><ul>
-<li><p>a <strong>literal</strong> is an expression $p$ or $p^\prime$, where $p$ is a propositonal atom</p>
-</li>
-<li><p>An expression is in <strong>CNF</strong> (conjunctive normal form,合取范式) is it has the form</p>
+f \circ f, f\circ f \circ f, \dots, 也写做 f^2,f^3,\dots</script><p>组合是联合的（associative）</p>
 <script type="math/tex; mode=display">
-\prod_{i} C_i</script></li>
-</ul>
-<p>where each <strong>clause</strong> $C_i$ is a disjunction of literals e.g. $p+q+r^\prime$. </p>
-<ul>
-<li>An expression is in <strong>DNF</strong> (disjunctive normal form, 析取范式) if it has the form <script type="math/tex; mode=display">
-\sum_{i}C_i</script></li>
-</ul>
-<p>where each clause $C_i$ is a conjunction of literals e.g. $pqr^\prime$</p>
-<ul>
-<li><p>CNF and DNF are named after their top level operators; no deeper nesting of $\cdot$  or $+$ is permitted.</p>
-</li>
-<li><p>any given variable appears only once in one clause</p>
-</li>
-</ul>
+h \circ (g \circ f) = (h \circ g) \circ f, 可写作h \circ g \circ f</script><p>S函数的统一性（identity）</p>
 <script type="math/tex; mode=display">
-x + x =x,\ xx=x \\
-
-xx^\prime = 0,\ x + x^\prime = 1 \\
-
-x \cdot 0 = 0,\ x \cdot 1 = x,\ x + 0 = x,\ x +1 =1</script><ul>
-<li>DNF perferred, as well as few terms </li>
-</ul>
+Id_S(x)=x,x\in S; Dom(i)=Condom(i)=Im(i)=S</script><p>对于$g:s\rightarrow T \quad g\circ Id_S = g, Id_T \circ g =g$</p>
+<h4 id="gcd例子"><a href="#gcd例子" class="headerlink" title="gcd例子"></a>gcd例子</h4><p>考虑gcd为高阶函数，定义为</p>
 <script type="math/tex; mode=display">
-\begin{array}
-xx + xy & = x \quad \mbox{(absorption)} \\
-xy + xy^\prime & = x \quad \mbox{(combining the opposites)}
-\end{array}</script><ul>
-<li>every Boolean expression $\phi$  has an equivalent expression in CNF or DNF</li>
-<li><strong>De morgan’s laws</strong></li>
-</ul>
+gcd(f)(m,n)=\begin{cases} m & \text{if} \quad m=n \\
+f(m-n,n) & \text{if} \quad m>n \\
+f(m,n-m) & \text{if} \quad m<n
+\end{cases}</script><p>它的类型是$gcd:(\mathbb{P}^2 \not \rightarrow \mathbb{P})\rightarrow (\mathbb{P}^2 \not\rightarrow \mathbb{P})$</p>
+<p>也就是说，它将每个部分函数(从一对正整数到一个正整数)映射到同一类型的(部分)函数。这种函数中最糟糕的是“无处定义”的函数。</p>
 <script type="math/tex; mode=display">
-(x+y)^\prime = x^\prime \cdot y^\prime \\
-(x \cdot y )^\prime = x^\prime + y^\prime \\
-(x^\prime)^\prime = x</script><h3 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h3><script type="math/tex; mode=display">
-\mathcal{l}=\begin{cases} X_i \quad if\ \pi(x_i)=1 \\
-x_i^\prime \quad if \ \pi(x_i)=0
-\end{cases} \\
-\mbox{product}\ t_\pi = \mathcal{l}_1\cdot\mathcal{l}_2\cdot \ \dots \ \cdot \mathcal{l}_n</script><p><strong>Example</strong></p>
-<p>If $\pi(x_1)=1 $ and $\pi(x_2)=0$ , then $t_\pi=x_1\cdot x_2^\prime$</p>
-<p>The <strong>canonical DNF</strong> of $E$ is</p>
+f_\bot (m,n)=\bot</script><p>偏函数（partial function）$f: S \not \rightarrow T$ 是一个函数$f:S’ \rightarrow T 当 S’\subseteq S$</p>
+<h3 id="函数的性质"><a href="#函数的性质" class="headerlink" title="函数的性质"></a>函数的性质</h3><p>如果上域的每个元素被域中至少一个x映射到，则函数叫做<strong>onto</strong>(或满射<strong>surjective</strong>)。</p>
 <script type="math/tex; mode=display">
-E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
-<p>if E is defined by</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-<th>E</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Then $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
-<p>it can be simplified to  $x+{y}’$</p>
-<h3 id="Karnaugh-Maps-卡诺图"><a href="#Karnaugh-Maps-卡诺图" class="headerlink" title="Karnaugh Maps 卡诺图"></a>Karnaugh Maps 卡诺图</h3><ul>
-<li><p>The rectangles can go ‘around the corner’/the actual map should be seen as a <em>torus</em>.</p>
-</li>
-<li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
-</li>
-</ul>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
-<p><em>本图由freakyuito整理</em></p>
-<h3 id="Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数"><a href="#Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数" class="headerlink" title="Boolean Algebras in Computer Science 计算机科学中的布尔代数"></a>Boolean Algebras in Computer Science 计算机科学中的布尔代数</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
-<h4 id="只包含0和1的n元布尔运算规则："><a href="#只包含0和1的n元布尔运算规则：" class="headerlink" title="只包含0和1的n元布尔运算规则："></a>只包含0和1的n元布尔运算规则：</h4><p>加（join）：$(1,0,0,1) + (1,1,0,0) = (1,1,0,1)$</p>
-<p>乘（meet）：$(1,0,0,1)\cdot (1,1,0,0) = (1,0,0,0)$</p>
-<p>补集（complementation）：${(1,0,0,1)}’=(0,1,1,0)$</p>
-<h4 id="Pow-S-——-S-的子集"><a href="#Pow-S-——-S-的子集" class="headerlink" title="$Pow(S)$ ——$S$的子集"></a>$Pow(S)$ ——$S$的子集</h4><p>加（join）：$A\cup B$  乘（meet）：$A \cap B$  补集（complement）：$A^C = S \setminus A$</p>
-<p>对于S的布尔代数，$Pow(S)$，$s=\{a,b,c\}$，有：</p>
-<p>$0 \overset{def}=\empty$</p>
-<p>$1 \overset{def}=\{a,b,c\}$</p>
-<p>加（join）：$X,Y \mapsto X \cup Y $</p>
-<p>乘（meet）：$X,Y \mapsto X \cap Y$</p>
-<p>补（complementation）：$X \mapsto \{a,b,c\} \setminus X$</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210304202204.png" alt="" style="zoom: 25%;"></p>
-<h3 id="更多计算机科学中布尔代数的例子"><a href="#更多计算机科学中布尔代数的例子" class="headerlink" title="更多计算机科学中布尔代数的例子"></a>更多计算机科学中布尔代数的例子</h3><p>对于任意集合$S$到$\mathbb{B}$的函数，它们的集合记为$Map(S, \mathbb{B})$</p>
-<p>如果$f,g: S \rightarrow \mathbb{B}$，那么：</p>
-<p>$(f+g):S \rightarrow \mathbb(B) $定义为$s \mapsto f(s) + g(s)$</p>
-<p>$(f\cdot g):S\rightarrow \mathbb{B}$定义为$s \mapsto f(s)\cdot g(s)$</p>
-<p> $f’:S\rightarrow \mathbb{B}$定义为$s\mapsto {(f(s))}’$</p>
-<p>对于$|S|=n$，一共有$2^n$个</p>
-<p>对于所有n个变量的布尔函数，如$(p_1,p_2,p_3)\mapsto (p_1+p_2’)\cdot (p_1+p_3)\cdot p_2 + p_3’$</p>
-<p>它们一共有$2^{2^n}$个，它们的集合表示为$BOOL(n)$</p>
-<p><strong>事实上</strong>，每个具有有限元素集T的布尔代数满足: $|T|=2^k$</p>
-<p><strong>定义</strong></p>
-<p>考虑</p>
-<ul>
-<li><p>布尔代数$B_1$在集合$S$上有不同的元素$0_S$和$1_S$</p>
-</li>
-<li><p>布尔代数$B_2$在集合$T$上有不同的元素$0_T$和$1_T$</p>
-</li>
-</ul>
-<p>它们是同构体（isomorphic），写作$B_1\simeq B_2$，当且仅当存在一一对应关系时，$\iota:S\mapsto T$，这样</p>
-<p>$\iota(0_S)=0_T$</p>
-<p>$\iota(1_S)=1_T$</p>
-<p>$\iota(s_1+s_2)=\iota(S_1)+\iota(S_2)$  对于所有的$s_1,s_2\in S$</p>
-<p>$\iota(s_1 \cdot s_2)=\iota(S_1)\cdot \iota(S_2)$ 对于所有的$s_1,s_2\in S$</p>
-<p>$\iota(s’)=\iota(s)’$ 对于所有的$s\in S$</p>
-<p><strong>事实上</strong>，所有元素数相同的代数都是同构的，即“结构上相似”。因此，研究一个这样的代数就可以描述所有的性质。</p>
-<p>布尔代数的笛卡尔积也是布尔代数。写作：</p>
+Im(f) = T</script><h3 id="1-1-函数"><a href="#1-1-函数" class="headerlink" title="1-1 函数"></a>1-1 函数</h3><p>如果不同的x对应不同的y，则叫做1-1或单射函数</p>
 <script type="math/tex; mode=display">
-\mathbb{B}^k = \mathbb{B} \times \dots \mathbb{B}</script><p>上面提到的代数都是这种形式：</p>
-<ul>
-<li><p>$n元\simeq \mathbb{B}^n$</p>
-</li>
-<li><p>$Pow(S)\simeq \mathbb{B}^{|S|}$</p>
-</li>
-<li><p>$Map(S,\mathbb{B})\simeq \mathbb{B}^{|S|}$</p>
-</li>
-<li><p>$BOOL(n)\simeq \mathbb{B}^{2^n}$</p>
-</li>
-</ul>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>$\equiv$等价</p>
-<p>可满足的公式（satisfiable formulae），有效公式（valid formulae）、重复式（tautologies）</p>
-<p>逻辑蕴涵$\vDash$</p>
-<p>证明方法：反证法，证明逆否命题，按案例证明</p>
-<p>布尔代数，CNF，DNF，规范形式，卡诺图（Karnaugh maps）</p>
+f(x)=f(y)\Rightarrow x=y</script><h3 id="逆函数Inverse-Functions"><a href="#逆函数Inverse-Functions" class="headerlink" title="逆函数Inverse Functions"></a>逆函数Inverse Functions</h3><p><strong>定义</strong></p>
+<p>对给定的函数$f:S\rightarrow T$，$f^{-1}:T\rightarrow S$，满足$f^{-1}\circ f=Id_S$</p>
+<p>例如， $f^{-1}(f(x))=x，\forall x \in S$</p>
+<p>当f既为1-1又为满射时存在</p>
+<p><strong>逆镜像</strong>（inverse image）$f^{\leftarrow}(B)=\{s \in S : f(s) \in B\} \subseteq S$</p>
+<p>对于$t \in T$ ，写作$f^{\leftarrow}(t)$对于集合$f^{\leftarrow}(\{t\})$</p>
+<p>如果$f^{-1}$存在，那么$f^{\leftarrow}(t)=\{f^{-1}(t)\}$</p>
+<p>$f(\empty)=\empty , f^{\leftarrow}(\empty)=\empty$</p>
+<p>对于有限的集合$S$和$f：S\rightarrow S $，属性</p>
+<p>满射，并且1-1 是等价的（equivalent）</p>
 
                 
             </div>
@@ -892,7 +543,7 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/">http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2-luo-ji/</a>
+                    <a href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3/">http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1119,82 +770,25 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/02/24/hexo-da-jian-jiao-cheng/">
+                <a href="/2021/03/05/quan-bu-biao-qian-he-fen-lei/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/204.jpg" class="responsive-img" alt="Hexo个人博客搭建教程">
+                        <img src="/medias/featureimages/257.jpg" class="responsive-img" alt="全部标签和分类">
                         
-                        <span class="card-title">Hexo个人博客搭建教程</span>
+                        <span class="card-title">全部标签和分类</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本教程为使用Mac搭建Hexo个人博客
+                            列出本站所使用的全部标签及分类，并解释说明
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-05
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    实用工具
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/24/latex-fu-hao-ming-ling-da-quan/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/247.jpg" class="responsive-img" alt="LaTeX 符号命令大全">
-                        
-                        <span class="card-title">LaTeX 符号命令大全</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            列出LaTex所涉及的所有公式，并给出样例
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1216,6 +810,67 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                     
                     <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
                         <span class="chip bg-color">持续更新</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/168.jpg" class="responsive-img" alt="离散数学课程笔记（4）">
+                        
+                        <span class="card-title">离散数学课程笔记（4）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9020离散数学Week3矩阵及关系（Functions and Relations）相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
@@ -1418,7 +1073,7 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
+                class="white-color">20.1k</span>&nbsp;字
             
             
             

@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散数学课程笔记（4）——矩阵 | 本杰明技术栈</title>
+    <title>离散数学课程笔记（4） | 本杰明技术栈</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/354.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/168.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散数学课程笔记（4）——矩阵</h1>
+                    <h1 class="description center-align post-title">离散数学课程笔记（4）</h1>
                 </div>
             </div>
         </div>
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    1.9k
                 </div>
                 
 
@@ -477,7 +477,177 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h2 id="矩阵（Matrices）"><a href="#矩阵（Matrices）" class="headerlink" title="矩阵（Matrices）"></a>矩阵（Matrices）</h2><p>$m\times n$矩阵是一个有m个水平行n个垂直列的数组</p>
+<script type="math/tex; mode=display">
+\mathbf{A} = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots &        & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn} \\
+\end{bmatrix}</script><p>对计算机科学来说，矩阵大有用处，如：</p>
+<ul>
+<li>优化（optimisation）</li>
+<li>图形和计算机视觉（graphics and computer vision）</li>
+<li>密码学（cryptography）</li>
+<li>信息检索和网络搜索（information retrieval and web search）</li>
+<li>机器学习（machine learning）</li>
+</ul>
+<h3 id="基本矩阵运算（Basic-Matrix-Operations）"><a href="#基本矩阵运算（Basic-Matrix-Operations）" class="headerlink" title="基本矩阵运算（Basic Matrix Operations）"></a>基本矩阵运算（Basic Matrix Operations）</h3><p><strong>转置矩阵</strong>（transpose）</p>
+<p>对于$m\times n$的矩阵$\mathbf{A}=[a_{ij}]$，它的转置矩阵$\mathbf{A^T}$就是一个$n\times m$矩阵，其第$i$行第$j$列为$a_{ji}$</p>
+<p>例如，</p>
+<script type="math/tex; mode=display">
+\mathbf{A}=\begin{bmatrix} 
+2 & -1 & 0 & 4 \\
+3 & 2 & -1 & 2 \\
+4 & 0 & 1 &3
+\end{bmatrix}
+\quad
+\mathbf{A^T}=\begin{bmatrix} 
+2 & 3 & 4 \\
+-1 & 2 & 0 \\
+0 & -1 & 1 \\
+4 & 2 & 3
+\end{bmatrix}</script><p>如果$\mathbf{M^T}=\mathbf{M}$，那么这个矩阵$\mathbf{M}$叫做<strong>对称矩阵</strong>（symmetric）</p>
+<p>两个$m\times n$矩阵$\mathbf{A}=[a_{ij}]$和$\mathbf{B}=[b_{ij}]$<strong>相加</strong>（<strong>sum</strong>）后，结果也是一个$m\times n$矩阵，其第$i$行第$j$列的值为$a_{ij}+b_{ij}$</p>
+<p>事实上，$\mathbf{A}+\mathbf{B}=\mathbf{B}+\mathbf{A}$，且$(\mathbf{A}+\mathbf{B})+\mathbf{C}=\mathbf{A}+(\mathbf{B}+\mathbf{C})$</p>
+<p>给定$m \times n$矩阵$\mathbf{A}=[a_{ij}]$，且$c\in \mathbb{R}$，<strong>标量乘积</strong>（<strong>scalar product</strong>）$c\mathbf{A}$是$m\times n$矩阵，其第$i$行第$j$列的值为$c\cdot a_{ij}$</p>
+<p>$m \times n$矩阵$\mathbf{A}=[a_{ij}]$和$n \times p$矩阵$\mathbf{B}=[b_{jk}]$的积（product）为$m \times p$矩阵$\mathbf{C}=[c_{ik}]$</p>
+<p>定义为</p>
+<script type="math/tex; mode=display">
+c_{ik}=\sum_{j=1}^{n}a_{ij}b_{jk}\quad \text{对于}1\leq i \leq m \text{且} 1\leq k \leq p</script><p>注意，$\mathbf{A}$的列数和$\mathbf{B}$的行数必须相同</p>
+<p>$1\times n$矩阵和$n\times 1$矩阵相乘通常叫<strong>n维向量</strong>（<strong>n-dimensional vectors</strong>）<strong>内积</strong></p>
+<p>一般情况下，$\mathbf{A}\cdot\mathbf{B}\neq\mathbf{B}\cdot\mathbf{A}$</p>
+<h4 id="例子：计算机图形"><a href="#例子：计算机图形" class="headerlink" title="例子：计算机图形"></a>例子：计算机图形</h4><p>旋转物体w.r.t. $x$轴旋转角度$\alpha$</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+1 & 0 & 0 \\
+0 & \cos{\alpha} & -\sin{\alpha} \\
+0 & \sin{\alpha} & \cos{\alpha}
+\end{bmatrix}
+\cdot
+\begin{bmatrix}
+5 & 5 & 7 & 7 & 5 & 7 & 5 & 7 \\
+1 & 1 & 1 & 1 & 3 & 3 & 3 & 3 \\
+9 & 7 & 7 & 9 & 7 & 7 & 9 & 9 \\
+\end{bmatrix}</script><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210305193328.png" alt="3维空间物体旋转"></p>
+<h2 id="关系及其表达"><a href="#关系及其表达" class="headerlink" title="关系及其表达"></a>关系及其表达</h2><p>关系是一种抽象的概念，用于捕获特定领域(通常是多个对象的同一领域)的相关对象。这些对象可能是：</p>
+<ul>
+<li>相互影响（彼此为二元关系；自我(?)一元）</li>
+<li>共享一些共同的属性</li>
+<li>当满足某些约束时，它们就会精确地对应起来</li>
+</ul>
+<p>一般来说，关系形式化了来自不同领域的对象之间相互作用的概念；但是，对于每种类型的对象必须有一个指定的域。</p>
+<p>一个<strong>n元关系</strong>是n个集合的笛卡尔积的子集。</p>
+<script type="math/tex; mode=display">
+\mathcal{R}\subseteq S_1 \times S_2 \times \dots \times S_n</script><script type="math/tex; mode=display">
+x \in \mathcal{R} \Rightarrow x = (x_1,x_2,\dots,x_n)\text{其中，每个}x_i \in S_i</script><p>如果$n=2$，则有二元关系$\mathcal{R}\subseteq S \times T$</p>
+<p>等价标记：$(x_1,x_2,\dots x_n)\in \mathcal{R} \Leftrightarrow \mathcal{R}(x_1,x_2,\dots x_n)$</p>
+<p>对二元关系：$(x,y)\in \mathcal{R} \Leftrightarrow \mathcal{R}(x,y) \Leftrightarrow x\mathcal{R}y$</p>
+<h3 id="数据库实例"><a href="#数据库实例" class="headerlink" title="数据库实例"></a>数据库实例</h3><p>若S为学生的一个子集，C是课程的一个子集，E为选课，则E可表示为$E=\{(s,c):s\ 选了\ c\}$</p>
+<script type="math/tex; mode=display">
+E \subseteq S \times C</script><p>在实践中，在数据库关系上几乎总是存在各种各样的“onto”(非空性)和1-1(唯一性)约束。</p>
+<p>若C为课程，T为开始时间，R为教室，S为课程安排，则</p>
+<script type="math/tex; mode=display">
+S=\{(c,t,r):c 在t时间在r教室\} \subseteq C \times T \times R</script><p>又比如，在运动状态里</p>
+<script type="math/tex; mode=display">
+\mathcal{R}\subseteq 比赛 \times 成绩 \times 年份 \times 运动员</script><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>关系在计算机科学中普遍存在</p>
+<ul>
+<li>数据库是关系的集合</li>
+<li>常见的数据结构(例如图)是关系</li>
+<li>任何顺序都是一个关系</li>
+<li>函数/程序/程序计算其输入和输出之间的关系</li>
+</ul>
+<h3 id="n元关系（n-ary-Relations）"><a href="#n元关系（n-ary-Relations）" class="headerlink" title="n元关系（n-ary Relations）"></a>n元关系（n-ary Relations）</h3><p>关系可以定义同时连接$k≥1$个域$D_1,\dots,D_k$。</p>
+<p>在数据库中允许1元关系(n=1)。</p>
+<p>更多的时候是二元关系(binary relations)</p>
+<script type="math/tex; mode=display">
+\mathcal{R} \subseteq S \times T; \mathcal{R}=\{(s,t):某些属性连接s,t\}</script><p>有关联的$s,t$可以写作$(s,t)\in \mathcal{R}$或$s\mathcal{R}t$，没有关联的项目记作$(s,t)\not\in \mathcal{R}$或$s\mathcal{R}t$</p>
+<p>$\mathcal{R}$可定义为</p>
+<ul>
+<li><p>相关k元组的显式枚举(二元关系中的有序对)；</p>
+</li>
+<li><p>标识整个$D_1 \times D_2 \times \dots D_k$相关元组的属性</p>
+</li>
+<li><p>从其他关系建立</p>
+</li>
+</ul>
+<h3 id="函数和关系"><a href="#函数和关系" class="headerlink" title="函数和关系"></a>函数和关系</h3><p>任何函数$f:S\rightarrow T$可以被视为二元关系$\{(s,f(s)):s\in S\}\subseteq S \times T$</p>
+<p>如果S × T的一个子集对应于一个函数，它必须满足一定的条件</p>
+<h3 id="二元关系（Binary-Relations）"><a href="#二元关系（Binary-Relations）" class="headerlink" title="二元关系（Binary Relations）"></a>二元关系（Binary Relations）</h3><p>一个二元关系$\mathcal{R}\subseteq S \times T$，可以被表示为一个矩阵，行(元素)由S枚举，列为T</p>
+<p>例如，设$S=\{s_1,s_2,s_3\}$，同时$T=\{t_1,t_2,t_3,t_4\}$，那么可能有</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\bullet & \circ & \bullet & \bullet \\
+\circ & \bullet & \bullet & \bullet \\
+\bullet & \bullet & \circ & \circ
+\end{bmatrix}</script><h3 id="单个域上的关系（Relations-on-a-Single-Domain）"><a href="#单个域上的关系（Relations-on-a-Single-Domain）" class="headerlink" title="单个域上的关系（Relations on a Single Domain）"></a>单个域上的关系（Relations on a Single Domain）</h3><p>特别重要的是同一集合的元素之间的二元关系。我们说’ R是S上的二元关系’，如果$\mathcal{R}\subseteq S \times S$</p>
+<h2 id="特殊（简单的）关系-（Special-Trivial-Relations）"><a href="#特殊（简单的）关系-（Special-Trivial-Relations）" class="headerlink" title="特殊（简单的）关系 （Special (Trivial) Relations）"></a>特殊（简单的）关系 （Special (Trivial) Relations）</h2><p><strong>一致性（Identity）</strong>$E=\{(x,x):x \in S\}$</p>
+<p><strong>空（Empty）</strong>：$\empty$</p>
+<p><strong>普遍性（Universal）</strong>$U = S \times S$</p>
+<h3 id="二元关系的重要特性"><a href="#二元关系的重要特性" class="headerlink" title="二元关系的重要特性"></a>二元关系的重要特性</h3><p>对于$\mathcal{R}\subseteq S \times S$，可能有以下属性</p>
+<script type="math/tex; mode=display">
+\begin{array}{1}
+(R) & \text{自反性（reflexive）} & (x,x) \in \mathcal{R} & \forall x \in S \\
+(AR) & \text{反自反性（antireflexive）} & (x,x) \not\in \mathcal{R} & \forall x \in S \\
+(S) & \text{对称性（symmetric）} & (x,y) \in \mathcal{R} \Rightarrow (y,x) \in \mathcal{R} & \forall x \in S \\
+(AS) & \text{反对称性（antisymmetric）} & (x,y),(y,x)\in \mathcal{R} \Rightarrow x =y & \forall x,y \in S \\
+(T) & \text{传递性（ transitive）} & (x,y),(y,z) \in \mathcal{R} \Rightarrow (x,z) \in \mathcal{R} & \forall x,y,z \in S
+\end{array}</script><p>如果一个对象、概念等的任何实例都没有违反该属性的任何定义语句，那么它就被认为满足该属性。</p>
+<h3 id="属性的交互（Interaction-of-Properties）"><a href="#属性的交互（Interaction-of-Properties）" class="headerlink" title="属性的交互（Interaction of Properties）"></a>属性的交互（Interaction of Properties）</h3><p>关系既可以是对称的（symmetric），也可以是反对称的（ antisymmetric）。即当$R$仅由某些对$(x, x)$组成时，$x∈S$。</p>
+<p>一种关系不能同时是自反的（reflflexive ）和非自反的（antireflflexive），除非$S=\empty$</p>
+<p>注意：</p>
+<p>nonrelexive $\neq$ antireflexive/irreflexive</p>
+<p>nonsymmetric $\neq$ antisymmetric</p>
+<p>一个关系可以是 nonreflflexive但不是antireflflexive。<br>一个关系可以是 nonsymmetric 而不是 antisymmetric。</p>
+<h4 id="S上的一些重要的关系"><a href="#S上的一些重要的关系" class="headerlink" title="S上的一些重要的关系"></a>S上的一些重要的关系</h4><ul>
+<li>全序，如$\leq 在数字上$</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\bullet & \bullet & \bullet \\
+\circ & \bullet & \bullet  \\
+\circ & \circ & \bullet
+\end{bmatrix}</script><ul>
+<li>偏序，如$\subseteq在集合$</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\bullet & \bullet & \bullet \\
+\circ & \bullet & \circ  \\
+\circ & \circ & \bullet
+\end{bmatrix}
+,
+\begin{bmatrix}
+\bullet & \bullet & \circ \\
+\circ & \bullet & \circ  \\
+\circ & \circ & \bullet
+\end{bmatrix}</script><ul>
+<li>等价<script type="math/tex; mode=display">
+\begin{bmatrix}
+\bullet & \bullet & \circ \\
+\bullet & \bullet & \circ  \\
+\circ & \circ & \bullet
+\end{bmatrix}</script></li>
+</ul>
+<ul>
+<li>同一性</li>
+</ul>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+\bullet & \circ & \circ \\
+\circ & \bullet & \circ  \\
+\circ & \circ & \bullet
+\end{bmatrix}</script><p>注意，其中一些是其他情况的特殊情况，如“”部分顺序”的“总顺序”，“等价”的“恒等”。</p>
+<h3 id="把-mathcal-R-作为S和T的对应关系"><a href="#把-mathcal-R-作为S和T的对应关系" class="headerlink" title="把$\mathcal{R}$作为S和T的对应关系"></a>把$\mathcal{R}$作为S和T的对应关系</h3><p>逆关系$\mathcal{R}^{\leftarrow}$:</p>
+<script type="math/tex; mode=display">
+\mathcal{R}^{\leftarrow}=\{(t,s)\in T \times S: (s,t)\in \mathcal{R}\}</script><p>记为$\mathcal{R}^{\leftarrow}\subseteq T \times S$</p>
+<p>很明显，$(\mathcal{R}^{\leftarrow})^{\leftarrow}=\mathcal{R}$</p>
+<p>对于子集：</p>
+<p>$\mathcal{R}(A)\overset{def}=\{t\in T:(s,t)\in \mathcal{R} \text{对一些}s\in A \subseteq S\}$</p>
+<p>$\mathcal{R}^{\leftarrow}(B)\overset{def}=\{s\in S:(s,t)\in\mathcal{R}对一些t\in B \subseteq T\}$</p>
+<p>注意，$\mathcal{R}$可以是$Pow(S)$到$Pow(T)$的关系，但是并不是所有的$Pow(S)\rightarrow Pow(T)$都可以一一映射。</p>
+<p>注意，$S$和$T$的轴的顺序是重要的。对于$\mathcal{R}\subseteq S \times S$，它的逆矩阵$\mathcal{R}^{\leftarrow}$通常与$\mathcal{R}$非常不同</p>
+
                 
             </div>
             <hr/>
@@ -503,7 +673,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/">http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4-ju-zhen/</a>
+                    <a href="http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4/">http://szdf123.github.io/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-4/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -730,13 +900,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3-han-shu-he-guan-xi/">
+                <a href="/2021/03/04/chi-san-shu-xue-ke-cheng-bi-ji-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/291.jpg" class="responsive-img" alt="离散数学课程笔记（3）——函数和关系">
+                        <img src="/medias/featureimages/137.jpg" class="responsive-img" alt="离散数学课程笔记（3）">
                         
-                        <span class="card-title">离散数学课程笔记（3）——函数和关系</span>
+                        <span class="card-title">离散数学课程笔记（3）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1045,7 +1215,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">18.1k</span>&nbsp;字
+                class="white-color">20.1k</span>&nbsp;字
             
             
             
