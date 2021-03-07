@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="LaTex,符号,数学,公式">
+    <meta name="keywords" content="COMP9311,数据库,笔记,函数依赖">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>LaTeX 符号命令大全 | 本杰明学习笔记</title>
+    <title>数据库基础课程笔记（3） | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/247.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/192.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">LaTeX 符号命令大全</h1>
+                    <h1 class="description center-align post-title">数据库基础课程笔记（3）</h1>
                 </div>
             </div>
         </div>
@@ -406,12 +406,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                <span class="chip bg-color">工具</span>
+                            <a href="/tags/COMP9311/">
+                                <span class="chip bg-color">COMP9311</span>
                             </a>
                         
-                            <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                                <span class="chip bg-color">持续更新</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                <span class="chip bg-color">编辑中</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
                             </a>
                         
                     </div>
@@ -422,8 +430,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
-                                实用工具
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
                             </a>
                         
                     </div>
@@ -435,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-03-07
                 </div>
                 
 
@@ -444,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    855
+                    1.5k
                 </div>
                 
 
@@ -469,667 +477,217 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>本文引用改编自：</p>
-<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_bad174440102z1t7.html">http://blog.sina.com.cn/s/blog_bad174440102z1t7.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/yalphait/articles/8685586.html">https://www.cnblogs.com/yalphait/articles/8685586.html</a></p>
-</blockquote>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/266267223?utm_source=wechat_session">编写Matrix矩阵方法</a></p>
-<h2 id="函数、符号及特殊字符"><a href="#函数、符号及特殊字符" class="headerlink" title="函数、符号及特殊字符"></a>函数、符号及特殊字符</h2><h3 id="声调"><a href="#声调" class="headerlink" title="声调"></a>声调</h3><div class="table-container">
+                <h2 id="关系依赖"><a href="#关系依赖" class="headerlink" title="关系依赖"></a>关系依赖</h2><p>”好的”数据库模式不应该导致更新异常：</p>
+<ul>
+<li>更新异常</li>
+<li>函数依赖</li>
+<li>阿姆斯特朗原理</li>
+<li>关闭</li>
+</ul>
+<h3 id="更新异常（Update-Anomalies）"><a href="#更新异常（Update-Anomalies）" class="headerlink" title="更新异常（Update Anomalies）"></a>更新异常（Update Anomalies）</h3><p>数据库中的<strong>冗余</strong>（Redundancy ）是指将一段数据多次存储。</p>
+<p>出于效率和语义方面的原因，冗余通常是有用的，但也可能造成一致性问题。</p>
+<p>不完善的冗余控制可能会导致更新异常。</p>
+<p>例如，在此表中，可能会出现：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\bar{x}</td>
-<td>$\bar{x}$</td>
-<td>\acute{\eta}</td>
-<td>$\acute{\eta}$</td>
-<td>\check{\alpha}</td>
-<td>$\check{\alpha}$</td>
-</tr>
-<tr>
-<td>\grave{\eta}</td>
-<td>$\grave{\eta}$</td>
-<td>\breve{a}</td>
-<td>$\breve{a}$</td>
-<td>\ddot{y}</td>
-<td>$\ddot{y}$</td>
-</tr>
-<tr>
-<td>\dot{x}</td>
-<td>$\dot{x}$</td>
-<td>\hat{\alpha}</td>
-<td>$\hat{\alpha}$</td>
-<td>\tilde{\iota}</td>
-<td>$\tilde{\iota}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\sin\theta</td>
-<td>$\sin\theta$</td>
-<td>\cos\theta</td>
-<td>$\cos\theta$</td>
-<td>$\tan\theta$</td>
-<td>$\tan\theta$</td>
-</tr>
-<tr>
-<td>\arcsin\frac{L}{r}</td>
-<td>$\arcsin\frac{L}{r}$</td>
-<td>\arccos\frac{T}{r}</td>
-<td>$\arccos\frac{T}{r}$</td>
-<td>$\arctan\frac{L}{T}$</td>
-<td>$\arctan\frac{L}{T}$</td>
-</tr>
-<tr>
-<td>\sinh g</td>
-<td>$\sinh g$</td>
-<td>\cosh h</td>
-<td>$\cosh h$</td>
-<td>$\tanh i$</td>
-<td>\tanh i</td>
-</tr>
-<tr>
-<td>\operatorname{sh}j</td>
-<td>$\operatorname{sh}j$</td>
-<td>\operatorname{argsh}k</td>
-<td>$\operatorname{argsh}k$</td>
-<td>\operatorname{ch}h</td>
-<td>$\operatorname{ch}h$</td>
-</tr>
-<tr>
-<td>\operatorname{argch}l</td>
-<td>$\operatorname{argch}l$</td>
-<td>\operatorname{th}i</td>
-<td>$\operatorname{th}i$</td>
-<td>\operatorname{argth}m</td>
-<td>$\operatorname{argth}m$</td>
-</tr>
-<tr>
-<td>k’(x)=\lim_{\Delta x\to 0}\frac{k(x)-k(x-\Delta x)}{\Deltax}</td>
-<td>k’(x)=$m_{\Delta x\to 0}\frac{k(x)-k(x-\Delta x)}{\Deltax}$</td>
-<td>\limsup S</td>
-<td>$\limsup S$</td>
-<td>\liminf I</td>
-<td>$\liminf I$</td>
-</tr>
-<tr>
-<td>\max H</td>
-<td>$\max H$</td>
-<td>\min L</td>
-<td>$\min L$</td>
-<td>\inf s</td>
-<td>$\inf s$</td>
-</tr>
-<tr>
-<td>\sup t</td>
-<td>$\sup t$</td>
-<td>\exp!t</td>
-<td>$\exp!t$</td>
-<td>\ln X</td>
-<td>$\ln X$</td>
-</tr>
-<tr>
-<td>\lg X</td>
-<td>$\lg X$</td>
-<td>\log X</td>
-<td>$\log X$</td>
-<td>\log_\alpha X</td>
-<td>$\log_\alpha X$</td>
-</tr>
-<tr>
-<td>\ker x</td>
-<td>$\ker x$</td>
-<td>\deg x</td>
-<td>$\deg x$</td>
-<td>\gcd(T,U,V,W,X)</td>
-<td>$\gcd(T,U,V,W,X)$</td>
-</tr>
-<tr>
-<td>\Pr x</td>
-<td>$\Pr x$</td>
-<td>\det x</td>
-<td>$\det x$</td>
-<td>\hom x</td>
-<td>$\hom x$</td>
-</tr>
-<tr>
-<td>\arg x</td>
-<td>$\arg x$</td>
-<td>\dim x</td>
-<td>$\dim x$</td>
-<td>\lim_{t\to n}T</td>
-<td>$\lim_{t\to n}T$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="同余"><a href="#同余" class="headerlink" title="同余"></a>同余</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\pmod{m}</td>
-<td>$\pmod{m}$</td>
-<td>a \bmod b</td>
-<td>$a \bmod b$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="微分"><a href="#微分" class="headerlink" title="微分"></a>微分</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\nabla</td>
-<td>$\nabla$</td>
-<td>\partial x</td>
-<td>$\partial x$</td>
-<td>\mathrm{d}x</td>
-<td>$\mathrm{d}x$</td>
-</tr>
-<tr>
-<td>\dot x</td>
-<td>$\dot x$</td>
-<td>\ddot y</td>
-<td>$\ddot y$</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\forall</td>
-<td>$\forall$</td>
-<td>\exists</td>
-<td>$\exists$</td>
-<td>\empty</td>
-<td>$\empty$</td>
-<td>\emptyset</td>
-<td>$\emptyset$</td>
-<td>\varnothing</td>
-<td>$\varnothing$</td>
-</tr>
-<tr>
-<td>\in</td>
-<td>$\in$</td>
-<td>\ni</td>
-<td>$\ni$</td>
-<td>\not\in</td>
-<td>$\not\in$</td>
-<td>\notin</td>
-<td>$\notin$</td>
-<td>\subset</td>
-<td>$\subset$</td>
-</tr>
-<tr>
-<td>\subseteq</td>
-<td>$\subseteq$</td>
-<td>\supset</td>
-<td>$\supset$</td>
-<td>\supseteq</td>
-<td>$\supseteq$</td>
-<td>\cap</td>
-<td>$\cap$</td>
-<td>\bigcap</td>
-<td>$\bigcap$</td>
-</tr>
-<tr>
-<td>\cup</td>
-<td>$\cup$</td>
-<td>\bigcup</td>
-<td>$\bigcup$</td>
-<td>\biguplus</td>
-<td>$\biguplus$</td>
-<td>\sqsubset</td>
-<td>$\sqsubset$</td>
-<td>\sqsubseteq</td>
-<td>$\sqsubseteq$</td>
-</tr>
-<tr>
-<td>\sqsupset</td>
-<td>$\sqsupset$</td>
-<td>\sqsupseteq</td>
-<td>$\sqsupseteq$</td>
-<td>\sqcap</td>
-<td>$\sqcap$</td>
-<td>\sqcup</td>
-<td>$\sqcup$</td>
-<td>\bigsqcup</td>
-<td>$\bigsqcup$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="逻辑"><a href="#逻辑" class="headerlink" title="逻辑"></a>逻辑</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>p</td>
-<td>$P$</td>
-<td>\land</td>
-<td>$\land$</td>
-<td>\wedge</td>
-<td>$\wedge$</td>
-<td>\bigwedge</td>
-<td>$\bigwedge$</td>
-</tr>
-<tr>
-<td>\bar{q} \to p</td>
-<td>$\bar{q} \to p$</td>
-<td>\lor</td>
-<td>$\lor$</td>
-<td>\vee</td>
-<td>$\vee$</td>
-<td>\bigvee</td>
-<td>$\bigvee$</td>
-</tr>
-<tr>
-<td>\lnot</td>
-<td>$\lnot$</td>
-<td>\neg q</td>
-<td>$\neg q$</td>
-<td>\setminus</td>
-<td>$\setminus$</td>
-<td>\smallsetminus</td>
-<td>$\smallsetminus$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="根号"><a href="#根号" class="headerlink" title="根号"></a>根号</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\sqrt{3}</td>
-<td>$\sqrt{3}$</td>
-<td>\sqrt[n]{3}</td>
-<td>$\sqrt[n]{3}$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="关系符号"><a href="#关系符号" class="headerlink" title="关系符号"></a>关系符号</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>\Delta ABC\sim\Delta XYZ</code></td>
-<td>$1 $</td>
-</tr>
-<tr>
-<td><code>\sqrt{3}\approx1.732050808\ldots</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td>\simeq</td>
-<td>$\simeq$</td>
-</tr>
-<tr>
-<td>\cong</td>
-<td>$\cong$</td>
-</tr>
-<tr>
-<td>\dot=</td>
-<td>$\dot=$</td>
-</tr>
-<tr>
-<td><code>\ggg</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\gg</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\ge</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\geqq</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>=</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\leq</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\leqq</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>&lt;</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\ll</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\lll</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>(x-y)^2\equiv(-x+y)^2\equiv x^2-2xy+y^2</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td><code>\begin{align}``\because\begin{cases}``\acute{a}x^2+bx^2+c\gtrless0\gtrless\grave{a}x^2+bx^2+c\\``\acute{a}&gt;0&gt;\grave{a}``\end{cases}\\``\therefore\frac{-b\pm\sqrt{b^2-4\acute{a}c}}{2\acute{a}}{}_\lessgtr^\gtrlessx_\lessgtr^\gtrless\frac{-b\pm\sqrt{b^2-4\grave{a}c}}{2\grave{a}}``\end{align}</code></td>
-<td>$1$</td>
-</tr>
-<tr>
-<td>x\not\equiv N</td>
-<td>$x\not\equiv N$</td>
-</tr>
-<tr>
-<td>x\ne A</td>
-<td>$x\ne A$</td>
-</tr>
-<tr>
-<td>x\neq C</td>
-<td>$x\neq C$</td>
-</tr>
-<tr>
-<td>t\propto v</td>
-<td>$t\propto v$</td>
-</tr>
-<tr>
-<td>\pm</td>
-<td>$\pm$</td>
-</tr>
-<tr>
-<td>\mp</td>
-<td>$\mp$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="几何符号"><a href="#几何符号" class="headerlink" title="几何符号"></a>几何符号</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>特征</th>
-<th>语法</th>
-<th>效果</th>
+<th><strong>STUDENTS</strong></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
 <th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>菱形</td>
-<td>\Diamond</td>
-<td>$\Diamond$</td>
-<td></td>
+<td>Name</td>
+<td>Course</td>
+<td>Phone_no</td>
+<td>Major</td>
+<td>Prof</td>
+<td>Grade</td>
 </tr>
 <tr>
-<td>正方形</td>
-<td>\Box</td>
-<td>$\Box$</td>
-<td></td>
+<td>Jones</td>
+<td>353</td>
+<td>237-4539</td>
+<td>Comp Sci</td>
+<td>Smith</td>
+<td>A</td>
 </tr>
 <tr>
-<td>三角形 Delta</td>
-<td><code>\Delta</code></td>
-<td>$\Delta$</td>
+<td>Ng</td>
+<td>329</td>
+<td>427-7390</td>
+<td>Chemistry</td>
+<td>Turner</td>
+<td>B</td>
 </tr>
 <tr>
-<td>三角形 图型</td>
-<td><code>\triangle</code></td>
-<td>$\triangle$</td>
-<td></td>
+<td>Jones</td>
+<td>328</td>
+<td>237-4539</td>
+<td>Comp Sci</td>
+<td>Clark</td>
+<td>B</td>
 </tr>
 <tr>
-<td>角名</td>
-<td><code>\angle\Alpha\Beta\Gamma</code></td>
-<td>$\angle\Alpha\Beta\Gamma$</td>
-<td></td>
+<td>Martin</td>
+<td>456</td>
+<td>388-5183</td>
+<td>Physics</td>
+<td>James</td>
+<td>A</td>
 </tr>
 <tr>
-<td>角度</td>
-<td><code>\sin\!\frac{\pi}{3}=\sin60^\operatorname{\omicron}=\frac{\sqrt{3}}{2}</code></td>
-<td>$\sin!\frac{\pi}{3}=\sin60^\operatorname{\omicron}=\frac{\sqrt{3}}{2}$</td>
-<td></td>
+<td>Dulles</td>
+<td>293</td>
+<td>371-6259</td>
+<td>Decision Sci</td>
+<td>Cook</td>
+<td>C</td>
 </tr>
 <tr>
-<td>垂直</td>
-<td>\perp</td>
-<td>$\perp$</td>
+<td>Duke</td>
+<td>491</td>
+<td>823-7293</td>
+<td>Mathematics</td>
+<td>Lamb</td>
+<td>B</td>
+</tr>
+<tr>
+<td>Duke</td>
+<td>356</td>
+<td>823-7293</td>
+<td>Mathematics</td>
+<td>Bond</td>
+<td>UN</td>
+</tr>
+<tr>
+<td>Jones</td>
+<td>492</td>
+<td>237- 4539</td>
+<td>Comp Sci</td>
+<td>Cross</td>
+<td>UN</td>
+</tr>
+<tr>
+<td>Baxter</td>
+<td>379</td>
+<td>839-0827</td>
+<td>English</td>
+<td>Broes</td>
+<td>C</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="箭头符号"><a href="#箭头符号" class="headerlink" title="箭头符号"></a>箭头符号</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\leftarrow</td>
-<td>$\leftarrow$</td>
-<td>\gets</td>
-<td>$\gets$</td>
-<td>\rightarrow</td>
-<td>$\rightarrow$</td>
-</tr>
-<tr>
-<td>\to</td>
-<td>$\to$</td>
-<td>\leftrightarrow</td>
-<td>$\leftrightarrow$</td>
-<td>\longleftarrow</td>
-<td>$\longleftarrow$</td>
-</tr>
-<tr>
-<td>\longrightarrow</td>
-<td>$\longrightarrow$</td>
-<td>\mapsto</td>
-<td>$\mapsto$</td>
-<td>\longmapsto</td>
-<td>$\longmapsto$</td>
-</tr>
-<tr>
-<td>\hookrightarrow</td>
-<td>$\hookrightarrow$</td>
-<td>\hookleftarrow</td>
-<td>$\hookleftarrow$</td>
-<td>\nearrow</td>
-<td>$\nearrow$</td>
-</tr>
-<tr>
-<td>\searrow</td>
-<td>$\searrow$</td>
-<td>\swarrow</td>
-<td>$\swarrow$</td>
-<td>\nwarrow</td>
-<td>$\nwarrow$</td>
-</tr>
-<tr>
-<td>\uparrow</td>
-<td>$\uparrow $</td>
-<td>\downarrow</td>
-<td>$\downarrow$</td>
-<td>\updownarrow</td>
-<td>$\updownarrow$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\rightharpoonup</td>
-<td>$\rightharpoonup $</td>
-<td>\rightharpoondown</td>
-<td>$\rightharpoondown$</td>
-<td>\leftharpoonup</td>
-<td>$\leftharpoonup$</td>
-<td>\leftharpoondown</td>
-<td>$\leftharpoondown$</td>
-</tr>
-<tr>
-<td>\upharpoonleft</td>
-<td>$\upharpoonleft$</td>
-<td>\upharpoonright</td>
-<td>$\upharpoonright$</td>
-<td>\downharpoonleft</td>
-<td>$\downharpoonleft$</td>
-<td>\downharpoonright</td>
-<td>$\downharpoonright$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-<th>语法</th>
-<th>效果</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>\Leftarrow</td>
-<td>$\Leftarrow$</td>
-<td>\Rightarrow</td>
-<td>$\Rightarrow$</td>
-<td>\Leftrightarrow</td>
-<td>$\Leftrightarrow$</td>
-</tr>
-<tr>
-<td>\Longleftarrow</td>
-<td>$\Longleftarrow$</td>
-<td>\Longrightarrow</td>
-<td>$\Longrightarrow$</td>
-<td>\Longleftrightarrow (or \iff)</td>
-<td>$\Longleftrightarrow (or \iff)$</td>
-</tr>
-<tr>
-<td>\Uparrow</td>
-<td>$\Uparrow$</td>
-<td>\Downarrow</td>
-<td>$\Downarrow$</td>
-<td>\Updownarrow</td>
-<td>$\Updownarrow$</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p><strong>修改异常（Modification anomalies）</strong>：例如，Jones的电话号码出现了3次。更改电话号码时，必须在3处全部更改，否则数据会不一致。</p>
+<p><strong>插入异常（Insertion anomalies）</strong>：如果Jones报名另一门课程，输入的电话号码不一样，数据也会不一致。</p>
+<p>此外，如果在这个关系中存储课程和教授之间的关联，如果这是唯一方式的话，那我们只能在有人注册该课程时才知道教授信息。</p>
+<p><strong>删除异常（Deletion anomalies）：</strong>如果删除了某门课的最后一个学生，那么教授和这门课之间的关联就丢失了。</p>
+<h3 id="函数依赖性的定义"><a href="#函数依赖性的定义" class="headerlink" title="函数依赖性的定义"></a>函数依赖性的定义</h3><p>函数$f$从$S_1$到$S_2$的具有这样的性质：</p>
+<p>如果$x, y \in S_1$，而且$x =y$，那么$f(x)=f(y)$</p>
+<p>设$X$和$Y$是$R$中的属性集合，</p>
+<p>$X$（函数式）决定$Y$，$X \rightarrow Y$，当且仅当$t_1[X] = t_2[X]$意味着$t_1[Y] = t_2[Y]$。即，$f (t(X)) = t [Y]$</p>
+<p>我们也说$X\rightarrow Y$有函数依赖性，并且$Y$在函数上依赖于$X$。</p>
+<p>$X$被称为设X和Y是r中的属性集合。</p>
+<p>X(函数式)决定Y, X→Y, iff t1[X] = t2[X]意味着t1[Y] = t2[Y]。即。， f (t(X)) = t [Y]</p>
+<p>我们也说X→Y是一个函数依赖性，并且Y在函数上依赖于X。</p>
+<p>X被称为左边的依赖性，Y被称为右边的依赖性。（left side），$Y$被称为<strong>右边依赖性</strong>（right side）。</p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><ul>
+<li>每个名字都有一个唯一的电话号码和专业，假设名字是唯一的</li>
+<li>每个课程都有一个唯一的教授</li>
+<li>每个名字和课程都有一个唯一的成绩</li>
+</ul>
+<p>整理其关系为：</p>
+<p>{Name} →{Phone_no , Major}<br>{Course} → {Prof}<br>{Name , Course} → {Grade}</p>
+<p>也可以用这样的图表来展示</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210307221958.png" alt="image-20210307221958124" style="zoom:50%;"></p>
+<p>请注意，其他字段遵循以下规则：</p>
+<p>{Name} → {Major}<br>{Course , Grade} → {Prof , Grade}</p>
+<p>设$F$是字段的集合</p>
+<p>定义1：$X\rightarrow Y$是从$F$推断出来的（或者$F$推断$X\rightarrow Y$)，写成</p>
+<script type="math/tex; mode=display">
+F \vDash X \rightarrow Y</script><p>如果满足$F$的任何关系实例也必须满足$X→Y$。</p>
+<p>不可能列出每一个关系来验证X→Y是否从F推导而来。</p>
+<p>需要一组推导规则$ρ$，如:<br>根据定义1，$F$可推倒出$X→Y$，当且仅当用$ρ$推导时。</p>
+<p><strong>符号</strong>：如果$X$和$Y$是属性的集合，我们用$XY$表示它们的并集。</p>
+<h3 id="属性依赖性运算规则"><a href="#属性依赖性运算规则" class="headerlink" title="属性依赖性运算规则"></a>属性依赖性运算规则</h3><p>例如，设$ X = \{A, B\},  Y = \{B, C\}, XY = \{A, B, C\} $，那么有：</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+F1 & (Reflexivity) & 如果  X ⊇ Y 那么 X →Y \\
+F2 & (Augmentation) & \{X → Y \} \vDash XZ → Y Z \\
+F3 & (Transitivity) & \{X → Y , Y → Z\} \vDash X → Z \\
+F4 & (Additivity) & \{X→ Y , X → Z\} \vDash X → Y Z \\
+F5 & (Projectivity) & \{X → Y Z\} \vDash X → Y \\
+F6 & (Pseudotransitivity) & \{X → Y , YZ → W\} \vDash XZ → W
+\end{array}</script><p><strong>例子</strong></p>
+<p>给定$F = \{A→B,A→C,BC→D\}$，可推导出$A→D$</p>
+<p>实际上，F4、F5、F6可以从F1、F2、F3中推倒出来。</p>
+<h3 id="阿姆斯特朗原理（Armstrong’s-axioms）"><a href="#阿姆斯特朗原理（Armstrong’s-axioms）" class="headerlink" title="阿姆斯特朗原理（Armstrong’s axioms）"></a>阿姆斯特朗原理（Armstrong’s axioms）</h3><p>我们可以证明阿姆斯特朗的公理是正确和完整的：</p>
+<p>声明：如果$F$用阿姆斯特朗公理导出$A→B$，那么根据定义1，$F \vDash A→B$。</p>
+<p>完全：根据定义1，$F \vDash M→N$，则$F$利用阿姆斯特朗公理导出$M→N$。</p>
+<h3 id="检查FD的算法"><a href="#检查FD的算法" class="headerlink" title="检查FD的算法"></a>检查FD的算法</h3><p>已知$F$，如何检查$X→Y$是否在$F^+$中?</p>
+<p>$F^+$表示$FD$的最小集合</p>
+<ul>
+<li>包含F</li>
+<li>在阿姆斯特朗公理下是封闭的（closed ）</li>
+</ul>
+<p>$F^+$是$F$的闭包。</p>
+<p>如果$F = \{ A → B, B → C, A → C \}$，那么</p>
+<script type="math/tex; mode=display">F^+ = \{AB \rightarrow A, AB \rightarrow B, AB \rightarrow C, AC \rightarrow A, AC \rightarrow B, \\
+AC \rightarrow C,  ABC \rightarrow A, ABC \rightarrow B, ABC \rightarrow C, AB \rightarrow AB, \\
+AB \rightarrow BC, AB \rightarrow AC, \dots \}</script><p>$F^+$对于$|F|$总是有一个指数大小。</p>
+<p>为了计算成员资格，计算$F^+$太过复杂。实际上，我们可以计算$X$在$F$下的闭包$X^+$， $X^+$是由$X$函数决定的最大的属性集。</p>
+<p>这是因为：</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+S1: & X^+ = \cup_{\forall x \rightarrow A \in F^+}A \\
+S2: & X\rightarrow Y \in F^+ 当且仅当 Y \subseteq X^+
+\end{array}</script><h3 id="计算-X-的算法"><a href="#计算-X-的算法" class="headerlink" title="计算$X^+$的算法"></a>计算$X^+$的算法</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">X+ := X;
+change := true;
+while change do
+	begin
+	change := false;
+	for each FD W → Z in F do
+		begin
+		if (W ⊆ X+) and (Z    X+) then do
+			begin
+			X+ := X+ ∪ Z;
+			change := true;
+			end
+		end
+	end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="计算候选键的算法"><a href="#计算候选键的算法" class="headerlink" title="计算候选键的算法"></a>计算候选键的算法</h3><p>给定一个关系模式$R$和一组函数依赖$R$的$F$。</p>
+<p>$R$的键$X$必须具有$X^+ = R$的性质。</p>
+<p><strong>计算候选键的算法</strong></p>
+<p>第一步：在$F$中给$X$赋一个超键</p>
+<p>第二步：迭代地从$X$中移除属性，同时保留属性$X^+ = R$，直到$X$上没有裁减。</p>
+<p>其余的$X$就是候选键。</p>
+<h3 id="计算所有候选键的算法"><a href="#计算所有候选键的算法" class="headerlink" title="计算所有候选键的算法"></a>计算所有候选键的算法</h3><p>给定关系模式$R$和函数依赖$R$的集合$F$，计算所有候选键的算法如下:</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python">T := ∅
+Main:
+        X := S where S is a super key which does not contain any candidate key in T
+        remove := true
+        While remove do 
+                For each attribute A ∈ X
+                Compute {X-A}+ with respect to F
+                If {X-A}+ contains all attributes of R then 
+                        X := X – {A}
+	 Else  
+                        remove := false
+        T :=T ∪ X
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>重复Main直到找不到可用的S为止。最后，T包含所有候选键。</p>
+<p><strong>例子</strong></p>
+<p>$R = \{A, B, C, D\} $，且$ F = \{ A → B, BC → D, A → C \} $</p>
+<p>$X = \{A, B, C\} $ 如果$F$的左边是一个超级键。</p>
+<p>不能删除$A$，因为$ \{BC\}^+ = \{B, C, D\} ≠ R$</p>
+<p>$B$ 可以移除，因为$\{AC\}^+ = \{A, B, C, D\} = R\rightarrow     X = \{ A, C\}$</p>
+<p>$C$ 可以进一步移除，因为$ \{A\}^+ = \{A, B, C, D\} \rightarrow X = \{A\}$</p>
 
                 
             </div>
@@ -1156,7 +714,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/">http://szdf123.github.io/2021/02/24/latex-fu-hao-ming-ling-da-quan/</a>
+                    <a href="http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/">http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1194,12 +752,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                    <span class="chip bg-color">工具</span>
+                                <a href="/tags/COMP9311/">
+                                    <span class="chip bg-color">COMP9311</span>
                                 </a>
                             
-                                <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                                    <span class="chip bg-color">持续更新</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                    <span class="chip bg-color">编辑中</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
                                 </a>
                             
                         </div>
@@ -1371,62 +937,60 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/">
+                <a href="/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/216.jpg" class="responsive-img" alt="博客配置及图片引用方法">
+                        <img src="/medias/featureimages/192.jpg" class="responsive-img" alt="数据库基础课程笔记（3）">
                         
-                        <span class="card-title">博客配置及图片引用方法</span>
+                        <span class="card-title">数据库基础课程笔记（3）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            展示在Hexo上引用图片等资源时，博客文章内的引用方法
+                            COMP9311 Week2 数据库基础函数依赖部分相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    实用工具
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
@@ -1440,24 +1004,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/20/chi-san-shu-xue-ke-cheng-bi-ji-1/">
+                <a href="/2021/03/07/unsw-y1t1-ke-cheng-suo-yin/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/75.jpg" class="responsive-img" alt="离散数学课程笔记（1）">
+                        <img src="/medias/featureimages/49.jpg" class="responsive-img" alt="UNSW Y1T1课程索引">
                         
-                        <span class="card-title">离散数学课程笔记（1）</span>
+                        <span class="card-title">UNSW Y1T1课程索引</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9020 离散数学相关内容
+                            COMP9020离散数学Week3矩阵及关系（Functions and Relations）相关内容
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                         <span class="publish-author">
                             
@@ -1478,16 +1042,20 @@
                         <span class="chip bg-color">COMP9020</span>
                     </a>
                     
-                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">离散数学</span>
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E6%89%8B%E5%86%8C/">
+                        <span class="chip bg-color">手册</span>
                     </a>
                     
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                        <span class="chip bg-color">持续更新</span>
+                    </a>
+                    
+                    <a href="/tags/COMP9021/">
+                        <span class="chip bg-color">COMP9021</span>
                     </a>
                     
                 </div>
