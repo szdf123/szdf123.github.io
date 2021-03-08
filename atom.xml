@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-07T15:21:46.156Z</updated>
+  <updated>2021-03-08T10:24:44.773Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据库基础课程笔记（1）</title>
+    <link href="http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/"/>
+    <id>http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/</id>
+    <published>2021-03-08T07:25:06.000Z</published>
+    <updated>2021-03-08T10:24:44.773Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;课程安排&quot;&gt;&lt;a href=&quot;#课程安排&quot; class=&quot;headerlink&quot; title=&quot;课程安排&quot;&gt;&lt;/a&gt;课程安排&lt;/h2&gt;&lt;h4 id=&quot;教师及联系方式&quot;&gt;&lt;a href=&quot;#教师及联系方式&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
+    
+    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>数据库基础课程笔记（3）</title>
@@ -52,7 +83,7 @@
     <link href="http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/"/>
     <id>http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/</id>
     <published>2021-03-07T12:54:12.000Z</published>
-    <updated>2021-03-07T17:04:35.610Z</updated>
+    <updated>2021-03-08T09:16:47.219Z</updated>
     
     
       
@@ -271,7 +302,7 @@
     <link href="http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/"/>
     <id>http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/</id>
     <published>2021-03-01T09:23:15.000Z</published>
-    <updated>2021-03-07T14:26:45.681Z</updated>
+    <updated>2021-03-08T08:15:45.762Z</updated>
     
     
       

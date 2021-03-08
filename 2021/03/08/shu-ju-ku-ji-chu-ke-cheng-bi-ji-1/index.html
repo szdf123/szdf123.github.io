@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9020,离散数学,逻辑">
+    <meta name="keywords" content="COMP9311,数据库,笔记,课程安排">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散数学课程笔记（2） | 本杰明学习笔记</title>
+    <title>数据库基础课程笔记（1） | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/106.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/130.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散数学课程笔记（2）</h1>
+                    <h1 class="description center-align post-title">数据库基础课程笔记（1）</h1>
                 </div>
             </div>
         </div>
@@ -406,16 +406,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/COMP9020/">
-                                <span class="chip bg-color">COMP9020</span>
+                            <a href="/tags/COMP9311/">
+                                <span class="chip bg-color">COMP9311</span>
                             </a>
                         
-                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">离散数学</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                <span class="chip bg-color">已完稿</span>
+                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                <span class="chip bg-color">编辑中</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-24
+                    2021-03-08
                 </div>
                 
 
@@ -477,395 +477,219 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h3 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h3><script type="math/tex; mode=display">
-\begin{align} \mbox{Excluded Middle} \qquad p\lor \lnot p & \equiv \top \\
-\mbox{Contradiction} \qquad p\wedge \lnot p & \equiv \bot \\
-\mbox{Idempotence} \qquad \quad p\lor p & \equiv p \\
-p \wedge p & \equiv p \\
-\mbox{Double Negation} \qquad \quad \lnot \lnot p & \equiv p \\
-\mbox{Identity} \qquad \quad p \lor \bot & \equiv p \\
-p \wedge \top & \equiv p \\
-p \lor \top & \equiv \top \\
-p \wedge \bot & \equiv \bot \\
-\mbox {Commutativity} \qquad \quad p \lor q & \equiv q \lor v \\
-p\land q & \equiv q \land p \\
-\mbox {Associativity}\qquad (p \lor q ) \lor r & \equiv p \lor (q \lor r ) \\
-(p \land q ) \land r & \equiv p \land ( q \land r ) \\
-\mbox {Distribution}\qquad p \lor (q \land r) & \equiv (p \lor q) \land ( p \lor r) \\
-p \land (q \lor r) & \equiv (p \land q)\lor (p \land r) \\
-\mbox {De Morgan's laws}\qquad \lnot (p \land q) & \equiv \lnot p \lor \lnot q \\
-\lnot (p \lor q) & \equiv \lnot p \land \lnot q \\
-\mbox {Implication} \qquad \qquad p \Rightarrow q & \equiv \lnot p \lor q \\
-p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
-
-\end{align}</script><p><strong>Example</strong></p>
-<script type="math/tex; mode=display">
-\begin{array} 
-((r \land \lnot p ) \lor (r \land q)) \lor (( \lnot r \land \lnot p ) \lor (\lnot r \land q)) \\
-\qquad \equiv (r \land ( \lnot p \lor q )) \lor (\lnot r \land ( \lnot p \lor q )) \qquad \mbox {Distrib.} \\ 
-\qquad \equiv (r \lor \lnot r) \land (\lnot p \lor q) \qquad \qquad \qquad \quad \mbox {Distrib.} \\ 
-\qquad \equiv \top \land (\lnot p \lor q ) \qquad \qquad \qquad \qquad \quad \mbox {Excl. Mid.} \\ 
-\qquad \equiv \lnot p \lor q \qquad \qquad \qquad \qquad \qquad \qquad \mbox {Ident.}
-\end{array}</script><script type="math/tex; mode=display">
-\color {Green} \checkmark p \Rightarrow ( q \Rightarrow r) \equiv ( p \Rightarrow q) \Rightarrow (p \Rightarrow r) \\
-\color {Red} \times (p \Rightarrow q ) \Rightarrow r \equiv p \Rightarrow (q \Rightarrow r )</script><div class="table-container">
+                <h2 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h2><h4 id="教师及联系方式"><a href="#教师及联系方式" class="headerlink" title="教师及联系方式"></a>教师及联系方式</h4><p>Xuemin Lin<br>School of Computer Science and Engineering<br>Office: K17-503<br>E-mail: lxue@cse.unsw.edu.au<br>Ext: 6493<br><a target="_blank" rel="noopener" href="http://www.cse.unsw.edu.au/~lxue">http://www.cse.unsw.edu.au/~lxue</a></p>
+<h4 id="开课信息"><a href="#开课信息" class="headerlink" title="开课信息"></a>开课信息</h4><p><strong>演讲：</strong><br>    17:00 - 19:00 （周一，澳大利亚时间）           第 1 – 9 周上课<br>    16:00 - 18:00 （周二，澳大利亚时间）           第 1 – 9 周上课<br>共9周。</p>
+<p><strong>实验：</strong></p>
+<p>通过Moodle(<a target="_blank" rel="noopener" href="https://moodle.telt.unsw.edu.au/)在线进行，在“讲座和录音”中（COMP9311">https://moodle.telt.unsw.edu.au/)在线进行，在“讲座和录音”中（COMP9311</a> – Database Systems 2021 T1）<br>第2 - 5、7 - 10周上课（第11周周一复活节补课）<br>咨询：TBA<br>Q&amp;A论坛： <a target="_blank" rel="noopener" href="https://groups.google.com/group/comp9311-21t1">https://groups.google.com/group/comp9311-21t1</a><br>课程的电子邮件： comp9311unsw@gmail.com</p>
+<h4 id="作业安排"><a href="#作业安排" class="headerlink" title="作业安排"></a>作业安排</h4><p>2 个大作业（assignments），1 个项目（project）。所有的作业都需要个人独立完成！</p>
+<ul>
+<li>大作业（50%）：<br>大作业1（Ass 1）：数据建模 + 关系代数（20%）（第2-4周）<br>大作业2（Ass 2）：数据库设计理论 + 数据库存储结构 + 事务处理（30%）（第7-9周）</li>
+<li><p>项目（project） (50%)<br>项目 1: SQL &amp; PLpgSQL (50%)  ( 4-7 周为SQL, 第 8 周为PLpgSQL)<br>逾期提交的惩罚：<br>作业：迟交作业0分<br>项目：迟交第一天扣10%，然后每天扣30%。</p>
+</li>
+<li><p>期末考试：100%<br>如果考试当天你生病了，就不要参加考试。如果已经尝试考试，将不允许再提出医疗特殊考虑要求。</p>
+</li>
+</ul>
+<h4 id="最终成绩计算规则"><a href="#最终成绩计算规则" class="headerlink" title="最终成绩计算规则"></a>最终成绩计算规则</h4><p>最终成绩 = $\sqrt{(ass1+ass2+proj1)∗exam}$</p>
+<h4 id="教科书"><a href="#教科书" class="headerlink" title="教科书"></a>教科书</h4><p>Elmasri &amp; Navathe, Fundamentals of Database Systems, Benjamin/Cummings, 6th Edition, 2010.</p>
+<p>（Elmasri &amp; Navathe，《数据库系统基础》，Benjamin/Cummings，第6版，2010年版）</p>
+<h4 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h4><p>J. D. Ullman &amp; J. Widom, 《数据库系统概论》，武汉大学出版社，1997年版。<br>R. Ramakrishan,《数据库管理系统》，北京:科学出版社，1997年版<br>D. Maier《关系数据库理论》，计算机科学出版社，1983年版</p>
+<h4 id="教学安排"><a href="#教学安排" class="headerlink" title="教学安排"></a>教学安排</h4><div class="table-container">
 <table>
 <thead>
 <tr>
-<th>p</th>
-<th>q</th>
-<th>r</th>
-<th>$(p \Rightarrow q ) \Rightarrow r$</th>
-<th style="text-align:left">$p \Rightarrow (q \Rightarrow r )$</th>
+<th><strong>Time</strong></th>
+<th><strong>Monday</strong></th>
+<th><strong>Tuesday</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>F</td>
-<td>T</td>
-<td>F</td>
-<td>$ \color{Red}{\mbox{F}}$</td>
-<td style="text-align:left">$ \color {Green} {\mbox{T}}$</td>
+<td>Week 1</td>
+<td>Subject Introduction, Conceptual DB Design (ER)</td>
+<td>Conceptual DB Design (continue), Relational Data Model</td>
+</tr>
+<tr>
+<td>Week 2</td>
+<td>Relational Data Model(continue), Relational Algebra</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>Week 3</td>
+<td>SQL(continue), PLpgSQL</td>
+<td>Functional Dependencies</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Functional Dependencies (continue), Normal Forms</td>
+<td>Normal Forms (continue)</td>
+</tr>
+<tr>
+<td>Week 5</td>
+<td>Relational DB design</td>
+<td>Relational DB design (continue)</td>
+</tr>
+<tr>
+<td>Week 6</td>
+<td>Disks, Files</td>
+<td>Index</td>
+</tr>
+<tr>
+<td>Week 7</td>
+<td>Transaction Management</td>
+<td>Transaction Management (continue)</td>
+</tr>
+<tr>
+<td>Week 8</td>
+<td>Graph Data and Graph Database</td>
+<td>Graph Pattern Matching</td>
+</tr>
+<tr>
+<td>Week 9</td>
+<td>Towards Big Graph Processing: applications and challenges</td>
+<td>Revisions</td>
 </tr>
 </tbody>
 </table>
 </div>
+<h2 id="数据库概念设计"><a href="#数据库概念设计" class="headerlink" title="数据库概念设计"></a>数据库概念设计</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph LR
+a[应用 Appl] --&gt; e[E-R图] --&gt; r[关系数据库 Relational DB]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="实体关系模型"><a href="#实体关系模型" class="headerlink" title="实体关系模型"></a>实体关系模型</h3><p><strong>实体关系模型</strong>（Entity-Relationship Model，ER）是一种高级概念数据模型。其ER主要用作设计工具。</p>
+<p><strong>实体类型（Entity type）</strong>：具有相同属性的对象组</p>
+<p><strong>实体（Entity）</strong>：实体类型的成员-类似于对象。</p>
+<p><strong>属性（Attribute）</strong>：对象的一个属性</p>
+<p><strong>关系（Relationship）</strong>：对象之间的关系</p>
+<p>ER图可以建模n-元（n-way）关系，通过一个关系对两个对象见建立连接</p>
+<h3 id="实体和属性-Entity-and-Attributes"><a href="#实体和属性-Entity-and-Attributes" class="headerlink" title="实体和属性 Entity and Attributes"></a>实体和属性 Entity and Attributes</h3><p>实体代表现实世界中的事物。属性描述实体的属性。属性可以是：</p>
+<ul>
+<li>简单（原子），例如 sex = ‘ Female ‘</li>
+<li>复合（composite），例如姓名由头衔(Dr)、首字母(C.C.)、姓(Chen)组成</li>
+</ul>
+<p>每个实体都有每个属性的值。属性可以是：</p>
+<ul>
+<li>单值，例如 学生编号，姓名</li>
+<li>多值，例如 关键字=神经网络, 计算机图形, 数据库</li>
+</ul>
+<p>每个简单属性都有一个值集（value set）或叫域（domain），表示该属性可能值的集合。</p>
+<p>在一个复合属性中$A = (A_1,\dots ,A_n)$，假设$V_1,\dots,V_n$为$A_1,\dots ,A_n$的域</p>
+<p>$A$的定义域$V$是$V_1 \times \dots \times V_n$。</p>
+<p>数学上，实体$E$的属性$A$是一个函数</p>
+<script type="math/tex; mode=display">
+A: E \rightarrow ℘(V)</script><p>其中$V$是$A$的定义域，$℘(V)$是$V$的单值属性的幂集，$A(E)$必须是一个单值函数。</p>
+<p>一个属性可以有一个空值，例如：</p>
+<ul>
+<li>没有合适的值，例如，一个学生可能没有兴趣，那么keywords = null</li>
+<li>还不知道真实的值，例如，一个人的结婚日期还不知道：结婚日期= null</li>
+</ul>
+<p>派生属性的值可以从其他属性和实体派生出来，比如学生人数。</p>
+<p><strong>实体类型（entity type）</strong>是一组具有相同属性的实体。它由<strong>实体模式（entity schema）</strong>描述。实体模式由一个名称和一个属性列表构成。</p>
+<p>在特定时刻，单个实体<strong>实例（instances）</strong>集称为实体类型的扩展。</p>
+<p>模型和实例的对比如下：</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>A</th>
-<th>B</th>
-<th>$ A \Rightarrow B $</th>
-<th>$\lnot ( A \Rightarrow B )$</th>
+<th><strong>模型Schema (Intension)</strong></th>
+<th><strong>RESEACHER</strong><br> <strong>Name,</strong> <strong>Payroll_no**</strong>,<strong> </strong>No_of_students<strong>**, Keywords</strong></th>
+<th><strong>DEPARTMENT Name</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>F<br>F<br>T<br>T</td>
-<td>F<br>T<br>F<br>T</td>
-<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$</td>
-<td>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
+<td>实例Instances (Extension)</td>
+<td>(Dr C.C. Chen, 230-0013, 3, Neural Networks)  (Dr R. Wilkinson, 231-0091, 1, Databases)</td>
+<td>Computer Science Psychology Management</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p>根据例题描述，得出：</p>
+<p>实体类型通常有一个<strong>主键（key）</strong>，即可唯一标识实体的属性组。例如：<br>{工资号}是研究员的主键<br>{名称}是部门的主键</p>
+<p>一个实体可已有多个主键</p>
+<p>一个重要的约束是键约束：在实体类型的任何扩展中，不能有两个实体的键属性具有相同的值。</p>
+<p>模式（schemata）可以用以下两种方式描述：</p>
 <ul>
-<li>$J \Rightarrow \lnot S$</li>
-<li>$S \Rightarrow K$</li>
-<li>$K \Rightarrow J$</li>
+<li><p>符合属性()</p>
+</li>
+<li><p>多值属性{}</p>
+</li>
 </ul>
-<p>求$\phi = (J\Rightarrow \lnot S) \land (S\Rightarrow K) \land (K\Rightarrow J)$为真的情形。</p>
-<p>解析真值表为：</p>
 <div class="table-container">
 <table>
 <thead>
 <tr>
-<th>J</th>
-<th>K</th>
-<th>S</th>
-<th>$J\Rightarrow \lnot S$</th>
-<th>$S \Rightarrow K$</th>
-<th>$K \Rightarrow J$</th>
-<th>$\phi$</th>
+<th><strong>CAR **</strong>Registration(Registration No, State), Make, Model, Year, {Colour}**</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>F<br>F<br>F<br>F<br>T<br>T<br>T<br>T</td>
-<td>F<br>F<br>T<br>T<br>F<br>F<br>T<br>T</td>
-<td>F<br>T<br>F<br>T<br>F<br>T<br>F<br>T</td>
-<td><br><br><br><br><br>F<br><br>F</td>
-<td><br>F<br><br><br><br>F<br><br></td>
-<td><br><br>F<br>F<br><br><br><br></td>
-<td>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$<br>$ \color{Green}{\mbox{T}}$<br>$ \color{Red}{\mbox{F}}$</td>
+<td>((ARQ) 595, Vic), Datsun, 120Y, 1972, {green}) ((8HR) 696, WA), Mazda, 929, 1979, {grey, black})</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h5 id="Exercise-2-7-14"><a href="#Exercise-2-7-14" class="headerlink" title="Exercise 2.7.14:"></a>Exercise 2.7.14:</h5><p>Which of the following formulae are always true?</p>
-<p>(a) $(p \land (p \Rightarrow q)) \Rightarrow q \color{Green}{\checkmark}$</p>
-<p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
-<p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
-<p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
-<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p><strong>permises</strong> 前提：包含一些论点的陈述句</p>
-<ul>
-<li><p>The conclusion <em>logically follows</em> from the premises.</p>
-</li>
-<li><p>The conclusion is a <em>logical consequence</em> of the premises.</p>
-</li>
-<li><p>The premises <strong>entail</strong> the conclusion.</p>
-</li>
-</ul>
-<p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
-<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><ul>
-<li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
-</li>
-<li><p>if $\phi_1 , \dots , \phi_n \vDash \psi$ then every correct implementation of the requirements <em>R</em> will be such that <em>C</em> is always true in the resulting system.</p>
-</li>
-<li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
-</li>
-</ul>
-<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
-<ul>
-<li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
-</li>
-<li><p>$\vDash(\phi_1\land\dots\land\phi_n)\Rightarrow \psi$</p>
-</li>
-<li><p>$\vDash \phi_1 \Rightarrow (\phi_2\Rightarrow \dots (\phi_n \Rightarrow \psi )\dots)$</p>
-</li>
-<li><p>$\phi \equiv \psi \ \mbox{if and only if} \vDash \phi \Leftrightarrow \psi$</p>
-</li>
-</ul>
-<h2 id="Proof-Roles-and-Methods-证明规则与方法"><a href="#Proof-Roles-and-Methods-证明规则与方法" class="headerlink" title="Proof Roles and Methods 证明规则与方法"></a>Proof Roles and Methods 证明规则与方法</h2><h3 id="Proof-Roles-and-Methods-Proof-by-Cases-按案例证明"><a href="#Proof-Roles-and-Methods-Proof-by-Cases-按案例证明" class="headerlink" title="Proof Roles and Methods: Proof by Cases 按案例证明"></a>Proof Roles and Methods: Proof by Cases 按案例证明</h3><p>To prove A, we have</p>
-<ul>
-<li><p>$B_1 \lor \dots \lor B_n$</p>
-</li>
-<li><p>$B_i \Rightarrow A \ \mbox{for each } i = 1 \dots n$</p>
-</li>
-</ul>
-<p>$\forall$ means “for all”</p>
-<p>$ \exists$ Means “there exist(s)”</p>
-<p><strong>Goldbach’s conjecture</strong></p>
-<p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$ </p>
-<h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
-<p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
-<p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
-<h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
-<p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
-<p><strong>Example</strong></p>
-<p>The square root of an irrational number is irrational:</p>
-<p>$\forall x \in \mathbb {R}(x\notin \mathbb {Q} \Rightarrow \sqrt {x} \notin \mathbb {Q})$</p>
-<p>To prove this, we can prove:</p>
-<p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
-<p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
-<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
-<p>(Hard part: working out what $B$ should be.)</p>
-<p><strong>Example</strong></p>
-<ul>
-<li><p>$\sqrt{2}$ is irrational</p>
-</li>
-<li><p>There exist an infinite number of primes</p>
-</li>
-</ul>
-<p>$\sqrt{2}=\frac{p}{q}$</p>
-<p>$\Rightarrow 2q^2 = p^2$</p>
-<p>$\Rightarrow p^2 \mbox{ is even } \Rightarrow p \mbox{ is even } \Rightarrow p=2\cdot r$</p>
-<p>$\Rightarrow 2q^2 = 4 r^2$</p>
-<p>$\Rightarrow q^2 = 2 r^2$</p>
-<p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
-<p>but $p,q$ must relative prime, so there is a contradiction</p>
-<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
-<p>We can substitute logical expressions for logical variables.</p>
-<h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
-<p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
-<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
-<p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
-<p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
-<h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
-<p>$\mathbb{B}={0,1}$ with ‘Boolean’ arithmetic</p>
-<p>$a\cdot b, a+b,a^\prime = 1-a$</p>
-<ul>
-<li>$pq$ is for $p \cdot q$</li>
-<li>$\bar{p}$ is more common than $p^\prime$</li>
-<li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
-</ul>
-<h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
-<h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
-<p>$ x \cdot y = y \cdot x$</p>
-<p><strong>associative:</strong> $(x + y) + z = x + (y + z)$ </p>
-<p>$(x \cdot y) \cdot z = x \cdot ( y\cdot z)$</p>
-<p><strong>distributive:</strong> $x + (y\cdot z)=(x+y)\cdot (x+z)$</p>
-<p>$x \cdot (y+x) = (x\cdot y) + (x \cdot z)$</p>
-<p><strong>identity:</strong> $x + 0 = x, \ x \cdot 1 = x$</p>
-<p><strong>complementation:</strong> $x + x^\prime = 1, \ x\cdot x^\prime =0$</p>
-<p>2-bit vectors $\mathbb{B}^2$:</p>
-<script type="math/tex; mode=display">
-0 \overset {def}{=}(0,0) \\
-1 \overset {def}{=}(1,1) \\
-\mbox{join: } (a_1,a_2)+(b_1,b_2) \mapsto (a_1 = b_1, a_2 + b_2) \\
-\mbox{join: } (a_1,a_2)\cdot(b_1,b_2) \mapsto (a_1 \cdot b_1, a_2 \cdot b_2) \\
-\mbox{complementation: } (a_1,a_2)^\prime \mapsto(a_1^\prime,a_2^\prime)</script><p>$T={(0,0),(0,1),(1,0),(1,1)}$</p>
-<h4 id="Boolean-Expressions"><a href="#Boolean-Expressions" class="headerlink" title="Boolean Expressions"></a>Boolean Expressions</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>PL</th>
-<th>BA(Boolean algebra)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>propositional atoms</td>
-<td>$p,q,\dots$</td>
-<td>$p,q,\dots$</td>
-</tr>
-<tr>
-<td>conjunction</td>
-<td>$p\land q$</td>
-<td>$p\cdot q$ or $pq$</td>
-</tr>
-<tr>
-<td>disjunction</td>
-<td>$p\lor q$</td>
-<td>$p + q$</td>
-</tr>
-<tr>
-<td>negation</td>
-<td>$\lnot p$</td>
-<td>$p^\prime$</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h3><ul>
-<li><p>a <strong>literal</strong> is an expression $p$ or $p^\prime$, where $p$ is a propositonal atom</p>
-</li>
-<li><p>An expression is in <strong>CNF</strong> (conjunctive normal form,合取范式) is it has the form</p>
-<script type="math/tex; mode=display">
-\prod_{i} C_i</script></li>
-</ul>
-<p>where each <strong>clause</strong> $C_i$ is a disjunction of literals e.g. $p+q+r^\prime$. </p>
-<ul>
-<li>An expression is in <strong>DNF</strong> (disjunctive normal form, 析取范式) if it has the form <script type="math/tex; mode=display">
-\sum_{i}C_i</script></li>
-</ul>
-<p>where each clause $C_i$ is a conjunction of literals e.g. $pqr^\prime$</p>
-<ul>
-<li><p>CNF and DNF are named after their top level operators; no deeper nesting of $\cdot$  or $+$ is permitted.</p>
-</li>
-<li><p>any given variable appears only once in one clause</p>
-</li>
-</ul>
-<script type="math/tex; mode=display">
-x + x =x,\ xx=x \\
-
-xx^\prime = 0,\ x + x^\prime = 1 \\
-
-x \cdot 0 = 0,\ x \cdot 1 = x,\ x + 0 = x,\ x +1 =1</script><ul>
-<li>DNF perferred, as well as few terms </li>
-</ul>
-<script type="math/tex; mode=display">
-\begin{array}
-xx + xy & = x \quad \mbox{(absorption)} \\
-xy + xy^\prime & = x \quad \mbox{(combining the opposites)}
-\end{array}</script><ul>
-<li>every Boolean expression $\phi$  has an equivalent expression in CNF or DNF</li>
-<li><strong>De morgan’s laws</strong></li>
-</ul>
-<script type="math/tex; mode=display">
-(x+y)^\prime = x^\prime \cdot y^\prime \\
-(x \cdot y )^\prime = x^\prime + y^\prime \\
-(x^\prime)^\prime = x</script><h3 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h3><script type="math/tex; mode=display">
-\mathcal{l}=\begin{cases} X_i \quad if\ \pi(x_i)=1 \\
-x_i^\prime \quad if \ \pi(x_i)=0
-\end{cases} \\
-\mbox{product}\ t_\pi = \mathcal{l}_1\cdot\mathcal{l}_2\cdot \ \dots \ \cdot \mathcal{l}_n</script><p><strong>Example</strong></p>
-<p>If $\pi(x_1)=1 $ and $\pi(x_2)=0$ , then $t_\pi=x_1\cdot x_2^\prime$</p>
-<p>The <strong>canonical DNF</strong> of $E$ is</p>
-<script type="math/tex; mode=display">
-E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
-<p>if E is defined by</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>x</th>
-<th>y</th>
-<th>E</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr>
-<td>1</td>
-<td>0</td>
-<td>1</td>
-</tr>
-<tr>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>Then $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
-<p>it can be simplified to  $x+{y}’$</p>
-<h3 id="Karnaugh-Maps-卡诺图"><a href="#Karnaugh-Maps-卡诺图" class="headerlink" title="Karnaugh Maps 卡诺图"></a>Karnaugh Maps 卡诺图</h3><ul>
-<li><p>The rectangles can go ‘around the corner’/the actual map should be seen as a <em>torus</em>.</p>
-</li>
-<li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
-</li>
-</ul>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
-<p><em>本图由freakyuito整理</em></p>
-<h3 id="Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数"><a href="#Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数" class="headerlink" title="Boolean Algebras in Computer Science 计算机科学中的布尔代数"></a>Boolean Algebras in Computer Science 计算机科学中的布尔代数</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
-<h4 id="只包含0和1的n元布尔运算规则："><a href="#只包含0和1的n元布尔运算规则：" class="headerlink" title="只包含0和1的n元布尔运算规则："></a>只包含0和1的n元布尔运算规则：</h4><p>加（join）：$(1,0,0,1) + (1,1,0,0) = (1,1,0,1)$</p>
-<p>乘（meet）：$(1,0,0,1)\cdot (1,1,0,0) = (1,0,0,0)$</p>
-<p>补集（complementation）：${(1,0,0,1)}’=(0,1,1,0)$</p>
-<h4 id="Pow-S-——-S-的子集"><a href="#Pow-S-——-S-的子集" class="headerlink" title="$Pow(S)$ ——$S$的子集"></a>$Pow(S)$ ——$S$的子集</h4><p>加（join）：$A\cup B$  乘（meet）：$A \cap B$  补集（complement）：$A^C = S \setminus A$</p>
-<p>对于S的布尔代数，$Pow(S)$，$s=\{a,b,c\}$，有：</p>
-<p>$0 \overset{def}=\empty$</p>
-<p>$1 \overset{def}=\{a,b,c\}$</p>
-<p>加（join）：$X,Y \mapsto X \cup Y $</p>
-<p>乘（meet）：$X,Y \mapsto X \cap Y$</p>
-<p>补（complementation）：$X \mapsto \{a,b,c\} \setminus X$</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210304202204.png" alt="" style="zoom: 25%;"></p>
-<h3 id="更多计算机科学中布尔代数的例子"><a href="#更多计算机科学中布尔代数的例子" class="headerlink" title="更多计算机科学中布尔代数的例子"></a>更多计算机科学中布尔代数的例子</h3><p>对于任意集合$S$到$\mathbb{B}$的函数，它们的集合记为$Map(S, \mathbb{B})$</p>
-<p>如果$f,g: S \rightarrow \mathbb{B}$，那么：</p>
-<p>$(f+g):S \rightarrow \mathbb(B) $定义为$s \mapsto f(s) + g(s)$</p>
-<p>$(f\cdot g):S\rightarrow \mathbb{B}$定义为$s \mapsto f(s)\cdot g(s)$</p>
-<p> $f’:S\rightarrow \mathbb{B}$定义为$s\mapsto {(f(s))}’$</p>
-<p>对于$|S|=n$，一共有$2^n$个</p>
-<p>对于所有n个变量的布尔函数，如$(p_1,p_2,p_3)\mapsto (p_1+p_2’)\cdot (p_1+p_3)\cdot p_2 + p_3’$</p>
-<p>它们一共有$2^{2^n}$个，它们的集合表示为$BOOL(n)$</p>
-<p><strong>事实上</strong>，每个具有有限元素集T的布尔代数满足: $|T|=2^k$</p>
-<p><strong>定义</strong></p>
-<p>考虑</p>
-<ul>
-<li><p>布尔代数$B_1$在集合$S$上有不同的元素$0_S$和$1_S$</p>
-</li>
-<li><p>布尔代数$B_2$在集合$T$上有不同的元素$0_T$和$1_T$</p>
-</li>
-</ul>
-<p>它们是同构体（isomorphic），写作$B_1\simeq B_2$，当且仅当存在一一对应关系时，$\iota:S\mapsto T$，这样</p>
-<p>$\iota(0_S)=0_T$</p>
-<p>$\iota(1_S)=1_T$</p>
-<p>$\iota(s_1+s_2)=\iota(S_1)+\iota(S_2)$  对于所有的$s_1,s_2\in S$</p>
-<p>$\iota(s_1 \cdot s_2)=\iota(S_1)\cdot \iota(S_2)$ 对于所有的$s_1,s_2\in S$</p>
-<p>$\iota(s’)=\iota(s)’$ 对于所有的$s\in S$</p>
-<p><strong>事实上</strong>，所有元素数相同的代数都是同构的，即“结构上相似”。因此，研究一个这样的代数就可以描述所有的性质。</p>
-<p>布尔代数的笛卡尔积也是布尔代数。写作：</p>
-<script type="math/tex; mode=display">
-\mathbb{B}^k = \mathbb{B} \times \dots \mathbb{B}</script><p>上面提到的代数都是这种形式：</p>
-<ul>
-<li><p>$n元\simeq \mathbb{B}^n$</p>
-</li>
-<li><p>$Pow(S)\simeq \mathbb{B}^{|S|}$</p>
-</li>
-<li><p>$Map(S,\mathbb{B})\simeq \mathbb{B}^{|S|}$</p>
-</li>
-<li><p>$BOOL(n)\simeq \mathbb{B}^{2^n}$</p>
-</li>
-</ul>
-<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>$\equiv$等价</p>
-<p>可满足的公式（satisfiable formulae），有效公式（valid formulae）、重复式（tautologies）</p>
-<p>逻辑蕴涵$\vDash$</p>
-<p>证明方法：反证法，证明逆否命题，按案例证明</p>
-<p>布尔代数，CNF，DNF，规范形式，卡诺图（Karnaugh maps）</p>
+<p>实体及其属性也可以用实体-关系图（ERDs）来描述。例如：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308170830.png" alt="实体-关系图" style="zoom: 25%;"></p>
+<h3 id="关系-Relationships"><a href="#关系-Relationships" class="headerlink" title="关系 Relationships"></a>关系 Relationships</h3><p><strong>关系（relationship ）</strong>表示事物之间的关联。</p>
+<p>$n$个实体类型$E_1,\dots E_n$之间的关系类型$R$，是这些实体类型之间的一组关联。</p>
+<p>数学上，实体类型$E_1,\dots E_n$之间的关系类型$R$是$E_1 \times \dots \times E_n$的子集。</p>
+<p>每个实例$r = (e_1,\dots , e_n)$在$R$中是一种关系。</p>
+<p>我们说$E_1,\dots E_n$<strong>参与（participate）</strong>$R$ .</p>
+<p>同样，如果$r = (e_1,\dots, e_n)$是$R$的一个实例，我们说每个$e_i$参与$r$。</p>
+<p>$R$的<strong>度（degree）</strong>是参与的实体类型的数量。例如，</p>
+<p>招生可以是研究员、学生和课程之间的三元（3度）关系。</p>
+<p>可以用一个事件图来说明这一点：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308170905.png" alt="事件图" style="zoom:25%;"></p>
+<p>实体及其关系也可以用实体-关系图来表示：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171024.png" alt="实体-关系图" style="zoom:25%;"></p>
+<p>参与关系的每种实体类型在关系中扮演特定的<strong>角色（role）</strong>。</p>
+<p>实体类型可以在不同的关系中扮演不同的角色，或者在一个关系中扮演多个角色。</p>
+<p>可以使用角色名来区分它们。</p>
+<p>例如，ENROLMENT可以是PERSON（作为研究员）、PERSON（作为学生）和COURSE之间的关系，如下图所示:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171126.png" alt="实体类型扮演多种角色" style="zoom:25%;"></p>
+<p>或者，使用ERD：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171200.png" alt="ERD图" style="zoom:25%;"></p>
+<p>这称为递归关系。</p>
+<h3 id="弱实体类型-Weak-entity-types"><a href="#弱实体类型-Weak-entity-types" class="headerlink" title="弱实体类型 Weak entity types"></a>弱实体类型 Weak entity types</h3><p>有些实体类型没有自己的键，这种实体类型称为弱实体类型。</p>
+<p>弱实体类型的实体可以通过部分键和与另一个实体类型所有者相关联来标识。</p>
+<p>弱实体类型与其所有者之间的关系类型是弱实体类型的<strong>标识关系（dentifying relationship）</strong>。</p>
+<p>例如，一个纳税人TAX PAYER 实体可能与几个由其名称确定的独立实体DEPENDENT相关。在本例中，DEPENDENT称为弱实体，{Name}是它的部分键。</p>
+<p>DEPENDENT和TAX PAYER之间的标识关系是IS DEPENDENT OF。</p>
+<p>TAX PAYER被称为<strong>自己的（own）</strong> DEPENDENT</p>
+<h3 id="关系类型的约束-Constraints-on-relationship-types"><a href="#关系类型的约束-Constraints-on-relationship-types" class="headerlink" title="关系类型的约束 Constraints on relationship types"></a>关系类型的约束 Constraints on relationship types</h3><p>关系类型通常具有某些约束，这些约束用来限制实体在组合实例时的组成方法。它们应该反映正确的因素<br><strong>基数比率约束（Cardinality ratio constraint）</strong>：指定实体可以参与的关系实例的数量。</p>
+<p>例如，一个研究补助金只能支持一个研究项目，但一个研究项目可能需要多个补助金来支持。那么，PROJECT:GRANT就是1:N的关系。</p>
+<p>如下图所示：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308174655.png" alt="关系约束示例" style="zoom:25%;"></p>
+<p>可以在ERD中展示为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180539.png" alt="ERD-1:N" style="zoom:25%;"></p>
+<p>例如：考虑一个AFL(这里替代你最喜欢的团队运动)统计数据的数据库。主教练与俱乐部的关系就是1:1关系的一个例子。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308175257.png" alt="AFL关系图" style="zoom:25%;"></p>
+<p>其ERD为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180801.png" alt="ERD-1:1" style="zoom:25%;"></p>
+<p>例子：一个表示作者和出版社之间N: M关系的实例</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308175812.png" alt="N:M关系实例" style="zoom:25%;"></p>
+<p>其等价ERD为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180844.png" alt="ERD-N:M" style="zoom:25%;"></p>
+<p>另一种可以使用ER模型表示的约束是<strong>参与约束（Participation constraint）</strong></p>
+<p>一个实体在关系中的参与可以是：</p>
+<p>合计（total）：每个实体都必须参与，例如每个出版物都有一个作者</p>
+<p>部分的（partical）：不一定全部。不是每个人都有出版物。</p>
+<p>这可以用ERD表示为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180922.png" alt="ERD-N:=M" style="zoom:25%;"></p>
+<h3 id="关系类型的属性-Attributes-of-relationship-types"><a href="#关系类型的属性-Attributes-of-relationship-types" class="headerlink" title="关系类型的属性 Attributes of relationship types"></a>关系类型的属性 Attributes of relationship types</h3><p>关系类型可以有属性。</p>
+<p>例如：一个研究人员可以从事几个项目。她花在一个特定项目上的时间可能是关系WORKS ON的一个属性。</p>
+<p>这可以在ERD中显示如下：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181143.png" alt="关系的属性" style="zoom: 25%;"></p>
+<p>Elmasre/Navathe总结了ERDs所用的符号：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181316.png" alt="ERD图使用符号" style="zoom:50%;"></p>
+<h3 id="增强ER模型EER-Enhanced-ER-EER-model"><a href="#增强ER模型EER-Enhanced-ER-EER-model" class="headerlink" title="增强ER模型EER Enhanced ER (EER) model"></a>增强ER模型EER Enhanced ER (EER) model</h3><p>设计者必须使用另外的建模概念来尽可能准确（accurately）和明确地（explicitly）表示应用程序的需求。</p>
+<p>ER模型有许多扩展。</p>
+<p>专门化（Specialisation）：定义实体类型的一组子类的过程；这种实体类型称为专门化的超类。</p>
+<p>概括：专业化的逆向过程。</p>
+<p>子类继承父类的所有属性。</p>
+<p>专门化涉及以下几个方面：<br>定义实体类型的一组子类，将额外的特定属性与每个子类关联起来。在每个子类和其他实体类型或其他子类之间建立额外的特定关系类型。一个子类可以有多个超类。专门化可以是全部的也可以是部分的；既可以是不相交的，也可以是重叠的。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181909.png" alt="专门化EER示例"></p>
+<h3 id="设计原则-Design-Principles"><a href="#设计原则-Design-Principles" class="headerlink" title="设计原则 Design Principles"></a>设计原则 Design Principles</h3><p>诚实（Faithfulness）：反映现实需要（reflect reality）</p>
+<p>避免冗余（Avoid redundancy）</p>
+<p>选择正确的元素（element）</p>
 
                 
             </div>
@@ -892,7 +716,7 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2/">http://szdf123.github.io/2021/02/24/chi-san-shu-xue-ke-cheng-bi-ji-2/</a>
+                    <a href="http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/">http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -930,16 +754,16 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/COMP9020/">
-                                    <span class="chip bg-color">COMP9020</span>
+                                <a href="/tags/COMP9311/">
+                                    <span class="chip bg-color">COMP9311</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">离散数学</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
                                 </a>
                             
-                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                    <span class="chip bg-color">已完稿</span>
+                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                    <span class="chip bg-color">编辑中</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1115,54 +939,60 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/02/24/hexo-da-jian-jiao-cheng/">
+                <a href="/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/204.jpg" class="responsive-img" alt="Hexo个人博客搭建教程">
+                        <img src="/medias/featureimages/130.jpg" class="responsive-img" alt="数据库基础课程笔记（1）">
                         
-                        <span class="card-title">Hexo个人博客搭建教程</span>
+                        <span class="card-title">数据库基础课程笔记（1）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本教程为使用Mac搭建Hexo个人博客
+                            COMP9311 Week1 数据库系统 课程安排及***部分相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    实用工具
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
@@ -1176,31 +1006,31 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/02/24/bo-ke-pei-zhi-ji-tu-pian-yin-yong-fang-fa/">
+                <a href="/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/216.jpg" class="responsive-img" alt="博客配置及图片引用方法">
+                        <img src="/medias/featureimages/192.jpg" class="responsive-img" alt="数据库基础课程笔记（3）">
                         
-                        <span class="card-title">博客配置及图片引用方法</span>
+                        <span class="card-title">数据库基础课程笔记（3）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            展示在Hexo上引用图片等资源时，博客文章内的引用方法
+                            COMP9311 Week2 数据库基础函数依赖部分相关内容
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/" class="post-category">
-                                    实用工具
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
@@ -1210,24 +1040,20 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                        <span class="chip bg-color">工具</span>
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%99%E7%A8%8B/">
-                        <span class="chip bg-color">教程</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
-                    </a>
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
