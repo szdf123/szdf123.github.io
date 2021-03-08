@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-03-08T10:26:44.390Z</updated>
+  <updated>2021-03-08T14:11:13.315Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,42 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据库基础课程笔记（2）</title>
+    <link href="http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/"/>
+    <id>http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</id>
+    <published>2021-03-08T12:21:20.000Z</published>
+    <updated>2021-03-08T14:11:13.315Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;关系数据模型-Relational-Data-Model&quot;&gt;&lt;a href=&quot;#关系数据模型-Relational-Data-Model&quot; class=&quot;headerlink&quot; title=&quot;关系数据模型 Relational Data</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
+    
+    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据库基础课程笔记（1）</title>
     <link href="http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/"/>
     <id>http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/</id>
     <published>2021-03-08T07:25:06.000Z</published>
-    <updated>2021-03-08T10:26:44.390Z</updated>
+    <updated>2021-03-08T12:22:36.251Z</updated>
     
     
       
@@ -48,11 +79,11 @@
   </entry>
   
   <entry>
-    <title>数据库基础课程笔记（3）</title>
-    <link href="http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/"/>
-    <id>http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/</id>
+    <title>数据库基础课程笔记（4）</title>
+    <link href="http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-4/"/>
+    <id>http://szdf123.github.io/2021/03/07/shu-ju-ku-ji-chu-ke-cheng-bi-ji-4/</id>
     <published>2021-03-07T13:35:50.000Z</published>
-    <updated>2021-03-07T15:21:46.156Z</updated>
+    <updated>2021-03-08T14:19:03.937Z</updated>
     
     
       
@@ -83,7 +114,7 @@
     <link href="http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/"/>
     <id>http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/</id>
     <published>2021-03-07T12:54:12.000Z</published>
-    <updated>2021-03-08T09:16:47.219Z</updated>
+    <updated>2021-03-08T14:20:00.011Z</updated>
     
     
       
@@ -302,7 +333,7 @@
     <link href="http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/"/>
     <id>http://szdf123.github.io/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/</id>
     <published>2021-03-01T09:23:15.000Z</published>
-    <updated>2021-03-08T08:15:45.762Z</updated>
+    <updated>2021-03-08T13:09:05.632Z</updated>
     
     
       
@@ -358,11 +389,11 @@
   </entry>
   
   <entry>
-    <title>数据库基础课程笔记（2）</title>
-    <link href="http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/"/>
-    <id>http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</id>
+    <title>数据库基础课程笔记（3）</title>
+    <link href="http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/"/>
+    <id>http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/</id>
     <published>2021-02-28T15:20:47.000Z</published>
-    <updated>2021-03-05T08:52:17.552Z</updated>
+    <updated>2021-03-08T14:14:53.553Z</updated>
     
     
       
@@ -382,7 +413,7 @@
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
     
     <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     

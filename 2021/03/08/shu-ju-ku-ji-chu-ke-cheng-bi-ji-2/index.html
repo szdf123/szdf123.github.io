@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记,关系代数">
+    <meta name="keywords" content="COMP9311,数据库,笔记,关系数据模型">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-02-28
+                    2021-03-08
                 </div>
                 
 
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    822
+                    2k
                 </div>
                 
 
@@ -477,97 +477,110 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="关系代数"><a href="#关系代数" class="headerlink" title="关系代数"></a>关系代数</h2><h4 id="关系数据库语言的分类"><a href="#关系数据库语言的分类" class="headerlink" title="关系数据库语言的分类"></a>关系数据库语言的分类</h4><p><strong>关系代数语言</strong>：用对关系的运算来表达查询要求</p>
-<p><strong>关系演算语言</strong>：用谓词来表达查询要求</p>
+                <h2 id="关系数据模型-Relational-Data-Model"><a href="#关系数据模型-Relational-Data-Model" class="headerlink" title="关系数据模型 Relational Data Model"></a>关系数据模型 Relational Data Model</h2><p>关系数据模型采用简单统一的数据结构，且已在大多数商业数据库系统中实现，具有坚实的理论基础。</p>
+<h3 id="结构-Structures"><a href="#结构-Structures" class="headerlink" title="结构 Structures"></a>结构 Structures</h3><p>在关系模型中，一切都是使用关系来描述的。关系可以看作是一个指定的表。表的每一列都对应一个命名的属性。属性允许的值集合称为它的域。表中的每一行被称为关系的一个元组。</p>
+<p>注意，列或行没有顺序要求。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308202702.png" alt="关系数据模型的样例" style="zoom: 25%;"></p>
+<p>从数学上说，域$D$是一组表示某种语义的原子值（具有某种固定的数据类型）。属性$A$是域$dom(A)$所扮演的角色名称。关系模式$R$，表示为$R(A_1,A_2,\dots ,A_n)$，由一组属性组成 $R = {A_1,A_2,\dots,A_n}$。</p>
+<p>注意，不允许复合和多值属性！</p>
+<p>元组$t(A_1,A_2,\dots ,A_n)$是$dom(A_1) \times \dots \times dom(A_n)$中的一个点，其中每个$dom(A_j)$的域是$A_j$</p>
+<p>一个关系（或一个关系实例）是一组元组，是$dom(A_1) \times \dots \times dom(A_n)$的子集</p>
+<p>关系模式用于描述关系。关系的<strong>度（degree）</strong>是关系模式中属性的数量。</p>
+<h3 id="关系数据模型与ER模型对比"><a href="#关系数据模型与ER模型对比" class="headerlink" title="关系数据模型与ER模型对比"></a>关系数据模型与ER模型对比</h3><p>关系模式（内涵）⇄实体或关系类型模式（内涵）</p>
+<p>属性⇄属性</p>
+<p>元组⇄实体/关系实例</p>
+<p>关系(实例，扩展)⇄实体/关系扩展</p>
+<p>在ER模型中允许复合和多值属性，但在关系数据模型中不允许</p>
+<p><strong>键（keys）</strong>用于标识关系中的元组</p>
+<p><strong>超键（superkey）</strong>是一组唯一确定元组的属性</p>
+<p>请注意，这是关系的一个属性，它不依赖于当前的关系实例</p>
+<p><strong>候选键（candidate key）</strong>是一个超键，它的<strong>恰当的（proper）</strong>子集都不是超键。</p>
+<p>键是由应用程序决定的</p>
+<p>例如，如果${Name}$是唯一的，那么它是PLAYER的候选键；否则，我们需要使用整个元组，或者创建一个候选键，比如PID</p>
+<p>{Goals}通常不能成为候选关键，因为不同的玩家<strong>可能</strong>拥有相同数量的目标</p>
+<p>{Name, Goals}是超键，但如果{Name}是键，则不是候选键。</p>
+<p><strong>主键（primary key）</strong>是指定的候选键。在许多应用程序中，如果没有一个自然的主键，那么有必要发明一个主键——通常这将是一个非负整数，例如Person_number。当一个关系模式有几个候选键时，通常最好选择一个具有单个属性或少量属性的主键。</p>
+<h3 id="完整性约束-Integrity-constraints"><a href="#完整性约束-Integrity-constraints" class="headerlink" title="完整性约束 Integrity constraints"></a>完整性约束 Integrity constraints</h3><p>完整性约束有几种类型，是关系模型不可或缺的一部分：</p>
 <ul>
-<li>元组关系演算语言<br>谓词变元的基本对象是元组变量<br>代表：APLHA, QUEL</li>
-<li>域关系演算语言<br>谓词变元的基本对象是域变量<br>代表：QBE</li>
+<li>键约束（Key constraint）：候选键值对于每个关系实例必须是唯一的</li>
+<li>实体完整性（Entity integrity）：作为主键的一部分的属性不能为空</li>
+<li>参照完整性（Referential integrity）：这种约束与”外键”有关</li>
+<li>引用完整性：FK的值必须出现在另一个关系中，否则完全为Null</li>
 </ul>
-<p><strong>具有关系代数和关系演算双重特点的语言</strong><br>代表：SQL（Structured Query Language）</p>
-<h2 id="关系代数-1"><a href="#关系代数-1" class="headerlink" title="关系代数"></a>关系代数</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>关系代数是一种抽象的查询语言，它用对关系的运算来表达查询</p>
-<h4 id="关系代数的特点"><a href="#关系代数的特点" class="headerlink" title="关系代数的特点"></a>关系代数的特点</h4><ul>
-<li>运算对象是关系</li>
-<li>运算结果亦为关系</li>
-<li>关系代数的运算符有两类：集合运算符和专门的关系运算符</li>
+<p><strong>外键（Foreign keys）</strong>用于引用另一个关系中的元组。</p>
+<p>如果一个关系模式的属性$R_1$是外键，则其需要满足：</p>
+<ul>
+<li>这些属性与另一个关系模式$R_2$的主键中的属性具有相同的域</li>
+<li>元组$t_1 (R_1)$中的FK值要么作为$R2$中某个元组$t2$的PK值，要么为Null</li>
 </ul>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th></th>
-<th>运算符</th>
-<th>含义</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>集合运算符</td>
-<td>$\cup $</td>
-<td>并</td>
-</tr>
-<tr>
-<td></td>
-<td>$- $</td>
-<td>差</td>
-</tr>
-<tr>
-<td></td>
-<td>$\cap $</td>
-<td>交</td>
-</tr>
-<tr>
-<td></td>
-<td>$\times$</td>
-<td>笛卡尔积</td>
-</tr>
-<tr>
-<td>专门的关系运算符</td>
-<td>$\sigma$</td>
-<td>选择</td>
-</tr>
-<tr>
-<td></td>
-<td>$ \pi$</td>
-<td>投影</td>
-</tr>
-<tr>
-<td></td>
-<td>$\Join$</td>
-<td>连接</td>
-</tr>
-<tr>
-<td></td>
-<td>$\div$</td>
-<td>除</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="传统的集合运算"><a href="#传统的集合运算" class="headerlink" title="传统的集合运算"></a>传统的集合运算</h3><h3 id="一些基本概念"><a href="#一些基本概念" class="headerlink" title="一些基本概念"></a>一些基本概念</h3><h4 id="（1）-R-t-in-R-t-A-i"><a href="#（1）-R-t-in-R-t-A-i" class="headerlink" title="（1）$R,t\in R,t[A_i]$"></a>（1）$R,t\in R,t[A_i]$</h4><p>设关系模式为$R(A_1,A_2,\dots , A_n)$<br>它的一个关系设为$R$<br>$t \in R $表示$t$是$R$的一个元组<br>$t[A_i]$则表示元组$t$中相应于属性$A_i$的一个分量</p>
-<h4 id="（2）-A-t-A-bar-A"><a href="#（2）-A-t-A-bar-A" class="headerlink" title="（2）$A,t[A], \bar{A}$"></a>（2）$A,t[A], \bar{A}$</h4><p>若$A={A_{i1}, A_{i2}, \dots, A_{ik}}$ ，其中$A_{i1}, A_{i2}, \dots, A_{ik}$ 是$A_{1}, A_{2}, \dots, A_{n}$ 中的一部分，则$A$称为属性列或属性组。<br>$t[A]=(t[A_{i1}],t[A_{i2}],\dots,t[A_{ik}])$表示元组$t$在属性列$A$上诸分量的集合。<br>$\bar{A}$则表示${A_{1}, A_{2}, \dots, A_{n}}$中去掉${A_{i1}, A_{i2}, \dots, A_{ik}}$后剩余的属性组。</p>
-<h4 id="3-overset-frown-t-rt-s"><a href="#3-overset-frown-t-rt-s" class="headerlink" title="(3)$\overset{\frown}{t_rt_s}$"></a>(3)$\overset{\frown}{t_rt_s}$</h4><p>$R$为$n$目关系，$S$为$m$目关系。<br>$t_r\in R,t_s \in S, \overset{\frown}{t_rt_s}$称为元组的连接。<br>$\overset{\frown}{t_rt_s}$是一个$n+m$列的元组，前$n$个分量为$R$中的一个$n$元组，后$m$个分量为$S$中的一个$m$元组。</p>
-<h4 id="4-象集-Z-x"><a href="#4-象集-Z-x" class="headerlink" title="(4)象集$Z_x$"></a>(4)象集$Z_x$</h4><p>给定一个关系$R（X，Z），X$和$Z$为属性组。 当$t[X]=x$时，$x$在$R$中的象集（Images Set）为：<br>$Zx={t[Z]|,t ∈R,t[X]=x}$<br>它表示$R$中属性组$X$上值为$x$的诸元组在$Z$上分量的集合</p>
-<h3 id="1-并（Union）"><a href="#1-并（Union）" class="headerlink" title="1. 并（Union）"></a>1. 并（Union）</h3><ul>
-<li>$R$和$S$ 具有相同的目$n$（即两个关系都有$n$个属性） </li>
-<li>相应的属性取自同一个域<br>$R\cup S$ 仍为$n$目关系，由属于$R$或属于$S$的元组组成<br>$R\cup S =  \{ t|t ∈ R\lor t \in S\}$</li>
+<h4 id="检查更新的约束-Checking-constraints-on-updates"><a href="#检查更新的约束-Checking-constraints-on-updates" class="headerlink" title="检查更新的约束 Checking constraints on updates"></a>检查更新的约束 Checking constraints on updates</h4><p>为了维护数据库的完整性，我们需要在进行更新之前对要更新的数据进行检查，检查其是否违反完整性约束</p>
+<p>例如，假设我们有如下的带有外键的模式：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308205555.png" alt="检查更新的约束" style="zoom:33%;"></p>
+<p><strong>插入（Insertions）</strong>：当插入数据时，我们需要检查候选键是否已经存在，同时每个外键的值要么为NULL，要么在引用的关系中存在。</p>
+<p><strong>删除（Deletions）</strong>: 删除时，我们需要检查引用完整性——检查主键是否出现在另一个关系中。</p>
+<p>如果要删除的值做为外键被其他表引用，则可以：</p>
+<ul>
+<li>删除引用它的数据（注意，这需要进行另一次完整性检查，可能导致级联删除）</li>
+<li>将外键值设置为NULL（注意，如果它是主键的一部分，就不能这样做）</li>
+<li>将外键值设置为另一个可接受的值</li>
 </ul>
-<h3 id="2-差（Difference）"><a href="#2-差（Difference）" class="headerlink" title="2. 差（Difference）"></a>2. 差（Difference）</h3><ul>
-<li>$R$和$S$ 具有相同的目$n$ </li>
-<li>相应的属性取自同一个域<br>$R - S $ 仍为$n$目关系，由属于$R$而不属于$S$的所有元组组成<br>$R -S = \{ t|t∈R∧t∉S \}$</li>
+<p><strong>修改（Modifications）</strong>：如果修改的属性是主键，那么情况就似于删除然后重新插入。如果修改的是外键，那就检查新值是否指向已经存在的元组。如果不是以上两种情况，那么一般就不会出现问题。</p>
+<h4 id="关系数据库的定义-Relational-database-definition"><a href="#关系数据库的定义-Relational-database-definition" class="headerlink" title="关系数据库的定义 Relational database definition"></a>关系数据库的定义 Relational database definition</h4><p>一个关系数据库模式，是一组关系模式${R_1,\dots,R_m}$和一组完整性约束。</p>
+<p>一个关系数据库实例是一组关系实例${r_1,\dots,r_m}$，使每个$r_i$都是$R_i$的一个实例，并且满足完整性约束。</p>
+<h3 id="ER图到关系数据模型映射"><a href="#ER图到关系数据模型映射" class="headerlink" title="ER图到关系数据模型映射"></a>ER图到关系数据模型映射</h3><p>数据库设计的一种技术是首先使用高级数据模型设计概念模式，然后将其映射到所选DBMS数据模型中的概念模式。这里我们将介绍一种将ER映射到关系数据模型的方法。它包括以下7个步骤。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308212016.png" alt="ER图转RDB" style="zoom: 25%;"></p>
+<h5 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h5><p>对于每个常规（非弱）实体类型$E$，创建与$R$的关系</p>
+<ul>
+<li>Attributes：$E$的所有简单属性（以及复合属性的简单组件）创建一个关系R</li>
+<li>Key：选择$E$的一个键作为该关系的主键</li>
 </ul>
-<h3 id="3-交（Intersection）"><a href="#3-交（Intersection）" class="headerlink" title="3.交（Intersection）"></a>3.交（Intersection）</h3><ul>
-<li>$R$和$S$具有相同的目$n$</li>
-<li>相应的属性取自同一个域</li>
-<li>$R∩S$ 仍为$n$目关系，由既属于$R$又属于$S$的元组组成</li>
-<li>$R∩S = \{ t|t ∈ R∧t ∈S \}\\ R∩S = R –(R-S）$</li>
+<p>对于具有父实体类型$P$的每个专门化实体类型$E$，创建与$R$的关系</p>
+<ul>
+<li>属性：$P$的键的属性，加上$E$的简单属性</li>
+<li>键：P的键</li>
 </ul>
-<h3 id="4-笛卡尔积（Cartesian-Product）"><a href="#4-笛卡尔积（Cartesian-Product）" class="headerlink" title="4.笛卡尔积（Cartesian Product）"></a>4.笛卡尔积（Cartesian Product）</h3><ul>
-<li><p>$R: n$目关系，$k_1$个元组； $S: m$目关系，$k_2$个元组<br>对于$R×S$，有</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308213007.png" alt="创建实体$E$" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308214001.png" alt="创建实体E" style="zoom:25%;"></p>
+<h5 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h5><p>对于每个弱实体类型$W$，所有者实体类型$E$，创建与$R$的关系</p>
+<ul>
+<li><p>属性：$W$的所有简单属性（以及复合属性的简单组件），包括$E$派生的关系的主属性作为外键</p>
 </li>
-<li><p>列：$（n+m）$列元组的集合<br>元组的前$n$列是关系$R$的一个元组<br>后$m$列是关系$S$的一个元组</p>
+<li><p>键：外键加上$W$的部分键</p>
 </li>
-<li><p>行：$k_1×k_2$个元组<br>$R×S = \{\overset{\frown}{t_rt_s}|t_r ∈R ∧ t_s∈S \}$</p>
-</li>
+</ul>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308213757.png" alt="弱实体类型W" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308214041.png" alt="创建弱实体$W$" style="zoom:25%;"></p>
+<h5 id="步骤三："><a href="#步骤三：" class="headerlink" title="步骤三："></a>步骤三：</h5><p>对于每种1:1关系类型$B$，设$E$和$F$为参与的实体类型。让$S$和$T$是对应的关系。</p>
+<ul>
+<li>从$S$和$T$中选择一个（最好是完全参与的），比如$S$</li>
+<li>将$T$的主键的属性添加到$S$中作为外键</li>
+<li>将$B$的简单属性（以及复合属性的简单组件）添加为$S$的属性</li>
+</ul>
+<p>另一种选择是，将两种实体类型和关系合并为一个关系，特别是在两者都参与而不参与其他关系的情况下。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308214644.png" alt="1:1关系$B$" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308214847.png" alt="创建1:1关系$B$" style="zoom:25%;"></p>
+<h5 id="步骤四："><a href="#步骤四：" class="headerlink" title="步骤四："></a>步骤四：</h5><p>对于每一个规则的1:N关系类型$B$，设$E$和$F$为参与的实体类型，$E$在1边，$F$在N边。$S$和$T$是对应的关系，将$S$的主键的属性添加到$T$作为外键。向关系$T$添加简单属性（或复合属性的简单组件）。</p>
+<p>注意，这并没有添加任何新的元组，只是添加了属性。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308215447.png" alt="1:N关系$B$" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308215629.png" alt="创建1:N关系$B$" style="zoom:25%;"></p>
+<h5 id="步骤五："><a href="#步骤五：" class="headerlink" title="步骤五："></a>步骤五：</h5><p>对于每个N:M关系类型$B$，创建一个新的关系$R$，让$E$和$F$作为参与的实体类型，让$S$和$T$是对应的关系。</p>
+<ul>
+<li>属性：将$S$键和$T$键作为外键，再加上$B$的简单属性（以及复合属性的简单组件）</li>
+<li>key：$S$键和$T$键</li>
+</ul>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308220215.png" alt="N:M关系$R$" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308220259.png" alt="创建N:M关系$R$" style="zoom:25%;"></p>
+<h5 id="步骤六："><a href="#步骤六：" class="headerlink" title="步骤六："></a>步骤六：</h5><p>对于每个多值属性$A$，创建一个新的关系$R$，设$A$为$E$的一个属性。</p>
+<ul>
+<li>属性A（如果A是一个简单属性）和$E$的键作为外键；A的简单组件（如果A是一个复合属性），以及作为外键的键$E$</li>
+<li>键：所有属性</li>
+</ul>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308220733.png" alt="多值属性$A$" style="zoom:25%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308220818.png" alt="创建多值属性$A$关系$R$" style="zoom:25%;"></p>
+<h5 id="步骤七："><a href="#步骤七：" class="headerlink" title="步骤七："></a>步骤七：</h5><p>对于每个n元关系类型（n &gt; 2），创建一个新的关系：</p>
+<ul>
+<li>属性：与步骤五相同</li>
+<li>键：与步骤五相同，除非其中一个参与实体类型的参与率为1，它的键可以用作新关系的键。</li>
 </ul>
 
                 
@@ -595,7 +608,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/">http://szdf123.github.io/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</a>
+                    <a href="http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/">http://szdf123.github.io/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -818,29 +831,92 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/01/shu-ju-ku-sql-ming-ling/">
+                <a href="/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/358.jpg" class="responsive-img" alt="数据库SQL命令">
+                        <img src="/medias/featureimages/161.jpg" class="responsive-img" alt="数据库基础课程笔记（2）">
                         
-                        <span class="card-title">数据库SQL命令</span>
+                        <span class="card-title">数据库基础课程笔记（2）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            数据库基础SQL部分相关内容
+                            COMP9311 Week1 数据库系统 关系数据模型部分相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/08/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/130.jpg" class="responsive-img" alt="数据库基础课程笔记（1）">
+                        
+                        <span class="card-title">数据库基础课程笔记（1）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week1 数据库系统 课程安排及数据库概念设计部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -864,73 +940,12 @@
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                        <span class="chip bg-color">持续更新</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
                     </a>
                     
                     <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
                         <span class="chip bg-color">课程笔记</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/26/python3-jiao-cheng-bi-ji-1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/263.jpg" class="responsive-img" alt="Python3教程笔记（1）">
-                        
-                        <span class="card-title">Python3教程笔记（1）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            基于菜鸟教程Python3的课程笔记
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%8B%E5%86%8C/">
-                        <span class="chip bg-color">手册</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
                 </div>
@@ -1133,7 +1148,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">24.3k</span>&nbsp;字
+                class="white-color">26.3k</span>&nbsp;字
             
             
             
