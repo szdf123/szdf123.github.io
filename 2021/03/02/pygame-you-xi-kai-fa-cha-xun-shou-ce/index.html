@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    393
+                    1.6k
                 </div>
                 
 
@@ -477,7 +477,382 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="pygame基础使用规则"><a href="#pygame基础使用规则" class="headerlink" title="pygame基础使用规则"></a>pygame基础使用规则</h3><h3 id="关于初始化"><a href="#关于初始化" class="headerlink" title="关于初始化"></a>关于初始化</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygame		# 引入pygame模块
+                <blockquote>
+<p>参考教程：<a target="_blank" rel="noopener" href="https://eyehere.net/2011/python-pygame-novice-professional-index/">https://eyehere.net/2011/python-pygame-novice-professional-index/</a></p>
+</blockquote>
+<h2 id="pygame模块"><a href="#pygame模块" class="headerlink" title="pygame模块"></a>pygame模块</h2><p><strong>pygame模块一览表</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">模块名</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">pygame.cdrom</td>
+<td style="text-align:left">访问光驱</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.cursors</td>
+<td style="text-align:left">加载光标</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.display</td>
+<td style="text-align:left">访问显示设备</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.draw</td>
+<td style="text-align:left">绘制形状、线和点</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.event</td>
+<td style="text-align:left">管理事件</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.font</td>
+<td style="text-align:left">使用字体</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.image</td>
+<td style="text-align:left">加载和存储图片</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.joystick</td>
+<td style="text-align:left">使用游戏手柄或者 类似的东西</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.key</td>
+<td style="text-align:left">读取键盘按键</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.mixer</td>
+<td style="text-align:left">声音</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.mouse</td>
+<td style="text-align:left">鼠标</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.movie</td>
+<td style="text-align:left">播放视频</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.music</td>
+<td style="text-align:left">播放音频</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.overlay</td>
+<td style="text-align:left">访问高级视频叠加</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame</td>
+<td style="text-align:left">就是我们在学的这个东西了……</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.rect</td>
+<td style="text-align:left">管理矩形区域</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.sndarray</td>
+<td style="text-align:left">操作声音数据</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.sprite</td>
+<td style="text-align:left">操作移动图像</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.surface</td>
+<td style="text-align:left">管理图像和屏幕</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.surfarray</td>
+<td style="text-align:left">管理点阵图像数据</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.time</td>
+<td style="text-align:left">管理时间和帧信息</td>
+</tr>
+<tr>
+<td style="text-align:left">pygame.transform</td>
+<td style="text-align:left">缩放和移动图像</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>注：有些模块在一些平台上可能不存在</p>
+<h2 id="pygame模块及函数"><a href="#pygame模块及函数" class="headerlink" title="pygame模块及函数"></a>pygame模块及函数</h2><h3 id="根模块相关"><a href="#根模块相关" class="headerlink" title="根模块相关"></a>根模块相关</h3><h4 id="init"><a href="#init" class="headerlink" title="init()"></a>init()</h4><p>初始化pygame</p>
+<p>pygame.init()</p>
+<h4 id="Surface"><a href="#Surface" class="headerlink" title="Surface()"></a>Surface()</h4><p>设置或获取pygame的surface</p>
+<p>all_colors = pygame.Surface((4096,4096), depth=24)</p>
+<p>bland_surface = pygame.Surface((256, 256))</p>
+<p>bland_alpha_surface = pygame.Surface((256, 256), flags=SRCALPHA, depth=32)</p>
+<h3 id="display模块"><a href="#display模块" class="headerlink" title="display模块"></a>display模块</h3><h4 id="blit"><a href="#blit" class="headerlink" title="blit()"></a>blit()</h4><p>在屏幕上绘制图像</p>
+<p>screen = pygame.display.set_mode((640, 480), 0, 32)</p>
+<p>screen.blit(background, (0,0))</p>
+<p>screen.blit(ogre, (300, 200), (100 * frame_no, 0, 100, 100))</p>
+<h4 id="flip"><a href="#flip" class="headerlink" title="flip()"></a>flip()</h4><p>交替显示画面</p>
+<p>pygame.display.flip()</p>
+<h4 id="fill"><a href="#fill" class="headerlink" title="fill()"></a>fill()</h4><p>为Surface填充颜色</p>
+<p>screen = pygame.display.set_mode((640, 480), 0, 32)</p>
+<p>screen.fill((255, 255, 255))</p>
+<h4 id="get-at"><a href="#get-at" class="headerlink" title="get_at()"></a>get_at()</h4><p>获取Surface指定位置颜色</p>
+<p>screen.set_at(rand_pos)</p>
+<p>注：全屏/硬件模式下，该方法调用速度很慢！</p>
+<h4 id="get-clip"><a href="#get-clip" class="headerlink" title="get_clip()"></a>get_clip()</h4><p>获取剪裁区域</p>
+<p>screen.get_clip()</p>
+<h4 id="list-modes"><a href="#list-modes" class="headerlink" title="list_modes()"></a>list_modes()</h4><p>显示当前主机支持的显示模式</p>
+<p>pygame.display.list_modes()</p>
+<h4 id="lock"><a href="#lock" class="headerlink" title="lock()"></a>lock()</h4><p>锁住Surface</p>
+<p>screen.lock()</p>
+<h4 id="set-at"><a href="#set-at" class="headerlink" title="set_at()"></a>set_at()</h4><p>设置Surface指定位置颜色</p>
+<p>screen.set_at(rand_pos, rand_col)</p>
+<h4 id="set-caption"><a href="#set-caption" class="headerlink" title="set_caption()"></a>set_caption()</h4><p>设置标题</p>
+<p>pygame.display.set_caption(“Pygame”)</p>
+<h4 id="set-clip"><a href="#set-clip" class="headerlink" title="set_clip"></a>set_clip</h4><p>设置剪裁区域</p>
+<p>screen.set_clip(0, 400, 200, 600)</p>
+<h4 id="set-mode"><a href="#set-mode" class="headerlink" title="set_mode()"></a>set_mode()</h4><p>pygame.display.set_mode((640, 480), 0, 32)</p>
+<p>screen = pygame.display.set_mode((640, 480), FULLSCREEN, 32)</p>
+<p>set_mode可选模式</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">标志位</th>
+<th style="text-align:left">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">FULLSCREEN</td>
+<td style="text-align:left">创建一个全屏窗口</td>
+</tr>
+<tr>
+<td style="text-align:left">DOUBLEBUF</td>
+<td style="text-align:left">创建一个“双缓冲”窗口，建议在HWSURFACE或者OPENGL时使用</td>
+</tr>
+<tr>
+<td style="text-align:left">HWSURFACE</td>
+<td style="text-align:left">创建一个硬件加速的窗口，必须和FULLSCREEN同时使用</td>
+</tr>
+<tr>
+<td style="text-align:left">OPENGL</td>
+<td style="text-align:left">创建一个OPENGL渲染的窗口</td>
+</tr>
+<tr>
+<td style="text-align:left">RESIZABLE</td>
+<td style="text-align:left">创建一个可以改变大小的窗口</td>
+</tr>
+<tr>
+<td style="text-align:left">NOFRAME</td>
+<td style="text-align:left">创建一个没有边框的窗口</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="subsurface"><a href="#subsurface" class="headerlink" title="subsurface()"></a>subsurface()</h4><p>设置子Surface</p>
+<p>my_font_image = Pygame.load(“font.png”)<br>letters = []<br>letters[“a”] = my_font_image.subsurface((0,0), (80,80))<br>letters[“b”] = my_font_image.subsurface((80,0), (80,80))</p>
+<h4 id="unlock"><a href="#unlock" class="headerlink" title="unlock()"></a>unlock()</h4><p>解锁Surface</p>
+<p>screen.unlock()</p>
+<h4 id="update"><a href="#update" class="headerlink" title="update()"></a>update()</h4><p>更新画面</p>
+<p>pygame.display.update()</p>
+<h3 id="draw模块"><a href="#draw模块" class="headerlink" title="draw模块"></a>draw模块</h3><h4 id="aaline"><a href="#aaline" class="headerlink" title="aaline()"></a>aaline()</h4><p>绘制平滑直线</p>
+<h4 id="aalines"><a href="#aalines" class="headerlink" title="aalines()"></a>aalines()</h4><p>绘制多条平滑直线</p>
+<h4 id="arc"><a href="#arc" class="headerlink" title="arc()"></a>arc()</h4><p>绘制弧</p>
+<p>pygame.draw.arc(Surface, color, Rect, start_angle, stop_angle, width=1)</p>
+<h4 id="circle"><a href="#circle" class="headerlink" title="circle()"></a>circle()</h4><p>绘制圆形</p>
+<p>pygame.draw.circle(Surface, color, pos, radius, width=0)</p>
+<p>pygame.draw.circle(screen, (0, 0, 0), (int(factor * 639.0), 120), 10)</p>
+<h4 id="ellipse"><a href="#ellipse" class="headerlink" title="ellipse()"></a>ellipse()</h4><p>绘制椭圆</p>
+<p>pygame.draw.ellipse(Surface, color, Rect, width=0)</p>
+<h4 id="line"><a href="#line" class="headerlink" title="line()"></a>line()</h4><p>绘制直线</p>
+<p>pygame.draw.line(Surface, color, start_pos, end_pos, width=1)</p>
+<h4 id="lines"><a href="#lines" class="headerlink" title="lines()"></a>lines()</h4><p>绘制多条直线</p>
+<p>pygame.draw.lines(Surface, color, closed, pointlist, width=1)</p>
+<h4 id="rect"><a href="#rect" class="headerlink" title="rect()"></a>rect()</h4><p>绘制矩形</p>
+<p>pygame.draw.rect(Surface, color, Rect, width=0)</p>
+<h4 id="polygon"><a href="#polygon" class="headerlink" title="polygon()"></a>polygon()</h4><p>绘制多边形</p>
+<p>tri = [ (0, 120), (639, 100), (639, 140) ]</p>
+<p>pygame.draw.polygon(Surface, color, pointlist, width=0)</p>
+<p>pygame.draw.polygon(screen, (0, 255, 0), tri)</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">rect</td>
+<td style="text-align:left">绘制矩形</td>
+</tr>
+<tr>
+<td style="text-align:left">polygon</td>
+<td style="text-align:left">绘制多边形（三个及三个以上的边）</td>
+</tr>
+<tr>
+<td style="text-align:left">circle</td>
+<td style="text-align:left">绘制圆</td>
+</tr>
+<tr>
+<td style="text-align:left">ellipse</td>
+<td style="text-align:left">绘制椭圆</td>
+</tr>
+<tr>
+<td style="text-align:left">arc</td>
+<td style="text-align:left">绘制圆弧</td>
+</tr>
+<tr>
+<td style="text-align:left">line</td>
+<td style="text-align:left">绘制线</td>
+</tr>
+<tr>
+<td style="text-align:left">lines</td>
+<td style="text-align:left">绘制一系列的线</td>
+</tr>
+<tr>
+<td style="text-align:left">aaline</td>
+<td style="text-align:left">绘制一根平滑的线</td>
+</tr>
+<tr>
+<td style="text-align:left">aalines</td>
+<td style="text-align:left">绘制一系列平滑的线</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="event-模块"><a href="#event-模块" class="headerlink" title="event 模块"></a>event 模块</h3><h4 id="get"><a href="#get" class="headerlink" title="get()"></a>get()</h4><p>获取全部事件</p>
+<p>pygame.event.get()</p>
+<h4 id="set-allowed"><a href="#set-allowed" class="headerlink" title="set_allowed()"></a>set_allowed()</h4><p>设置允许事件</p>
+<p>pygame.event.set_allowed()</p>
+<h4 id="set-blocked"><a href="#set-blocked" class="headerlink" title="set_blocked()"></a>set_blocked()</h4><p>设置阻止事件</p>
+<p>pygame.event.set_blocked(事件名)</p>
+<h4 id="poll"><a href="#poll" class="headerlink" title="poll()"></a>poll()</h4><p>返回真实事件</p>
+<p>pygame.event.poll()</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">事件</th>
+<th style="text-align:left">产生途径</th>
+<th style="text-align:left">参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">QUIT</td>
+<td style="text-align:left">用户按下关闭按钮</td>
+<td style="text-align:left">none</td>
+</tr>
+<tr>
+<td style="text-align:left">ATIVEEVENT</td>
+<td style="text-align:left">Pygame被激活或者隐藏</td>
+<td style="text-align:left">gain, state</td>
+</tr>
+<tr>
+<td style="text-align:left">KEYDOWN</td>
+<td style="text-align:left">键盘被按下</td>
+<td style="text-align:left">unicode, key, mod</td>
+</tr>
+<tr>
+<td style="text-align:left">KEYUP</td>
+<td style="text-align:left">键盘被放开</td>
+<td style="text-align:left">key, mod</td>
+</tr>
+<tr>
+<td style="text-align:left">MOUSEMOTION</td>
+<td style="text-align:left">鼠标移动</td>
+<td style="text-align:left">pos, rel, buttons</td>
+</tr>
+<tr>
+<td style="text-align:left">MOUSEBUTTONDOWN</td>
+<td style="text-align:left">鼠标按下</td>
+<td style="text-align:left">pos, button</td>
+</tr>
+<tr>
+<td style="text-align:left">MOUSEBUTTONUP</td>
+<td style="text-align:left">鼠标放开</td>
+<td style="text-align:left">pos, button</td>
+</tr>
+<tr>
+<td style="text-align:left">JOYAXISMOTION</td>
+<td style="text-align:left">游戏手柄(Joystick or pad)移动</td>
+<td style="text-align:left">joy, axis, value</td>
+</tr>
+<tr>
+<td style="text-align:left">JOYBALLMOTION</td>
+<td style="text-align:left">游戏球(Joy ball)?移动</td>
+<td style="text-align:left">joy, axis, value</td>
+</tr>
+<tr>
+<td style="text-align:left">JOYHATMOTION</td>
+<td style="text-align:left">游戏手柄(Joystick)?移动</td>
+<td style="text-align:left">joy, axis, value</td>
+</tr>
+<tr>
+<td style="text-align:left">JOYBUTTONDOWN</td>
+<td style="text-align:left">游戏手柄按下</td>
+<td style="text-align:left">joy, button</td>
+</tr>
+<tr>
+<td style="text-align:left">JOYBUTTONUP</td>
+<td style="text-align:left">游戏手柄放开</td>
+<td style="text-align:left">joy, button</td>
+</tr>
+<tr>
+<td style="text-align:left">VIDEORESIZE</td>
+<td style="text-align:left">Pygame窗口缩放</td>
+<td style="text-align:left">size, w, h</td>
+</tr>
+<tr>
+<td style="text-align:left">VIDEOEXPOSE</td>
+<td style="text-align:left">Pygame窗口部分公开(expose)?</td>
+<td style="text-align:left">none</td>
+</tr>
+<tr>
+<td style="text-align:left">USEREVENT</td>
+<td style="text-align:left">触发了一个用户事件</td>
+<td style="text-align:left">code</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>鼠标及键盘事件：<strong>MOUSEMOTION、MOUSEBUTTONDOWN、MOUSEBUTTONUP、KEYDOWN、KEYUP</strong></p>
+<p>键盘值：<strong>K_xxx，如K_A、K_SPACE、K_RETURN</strong></p>
+<p>控制按键：<strong>KMOD_CTRL、KMOD_SHIFT、KMOD_ALT</strong></p>
+<h4 id="post"><a href="#post" class="headerlink" title="post()"></a>post()</h4><p>发送事件给pygame</p>
+<p>my_event = pygame.event.Event(KEYDOWN, key=K_SPACE, mod=0, unicode=u’ ‘)</p>
+<p>my_event = pygame.event.Event(KEYDOWN, {“key”:K_SPACE, “mod”:0, “unicode”:u’ ‘})</p>
+<p>CATONKEYBOARD = USEREVENT+1</p>
+<p>my_event = pygame.event.Event(CATONKEYBOARD, message=”Bad cat!”)</p>
+<p>pgame.event.post(my_event)</p>
+<h4 id="wait"><a href="#wait" class="headerlink" title="wait()"></a>wait()</h4><p>等待事件</p>
+<p>pygame.event.wait()</p>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h3 id="font模块"><a href="#font模块" class="headerlink" title="font模块"></a>font模块</h3><h4 id="Font"><a href="#Font" class="headerlink" title="Font()"></a>Font()</h4><p>使用自定义字体</p>
+<p>my_font = pygame.font.Font(“my_font.ttf”, 16)</p>
+<h4 id="get-fonts"><a href="#get-fonts" class="headerlink" title="get_fonts()"></a>get_fonts()</h4><p>获取系统现有字体</p>
+<p>pygame.font.get_fonts()</p>
+<h4 id="get-linesize"><a href="#get-linesize" class="headerlink" title="get_linesize()"></a>get_linesize()</h4><p>获取字体高度</p>
+<p>font = pygame.font.SysFont(“arial”, 16);</p>
+<p>font_height = font.get_linesize()</p>
+<h4 id="SysFont"><a href="#SysFont" class="headerlink" title="SysFont()"></a>SysFont()</h4><p>设置字体</p>
+<p>font = pygame.font.SysFont(“arial”, 16);</p>
+<h3 id="image模块"><a href="#image模块" class="headerlink" title="image模块"></a>image模块</h3><h4 id="convert-convert-alpha"><a href="#convert-convert-alpha" class="headerlink" title="convert()/convert_alpha()"></a>convert()/convert_alpha()</h4><p>将图像数据都转化为Surface对象</p>
+<p>background = pygame.image.load(background_image_filename).convert()</p>
+<h4 id="render"><a href="#render" class="headerlink" title="render()"></a>render()</h4><p>显示文字</p>
+<p>font.render(text, True, (0, 0, 0)), (0, y)</p>
+<p>text_surface = my_font.render(“Pygame!”, True, (0,0,0), (255, 255, 255))</p>
+<h4 id="save"><a href="#save" class="headerlink" title="save()"></a>save()</h4><p>保存图片</p>
+<p>pygame.image.save(name_surface, “name.png”)</p>
+<h3 id="mouse模块"><a href="#mouse模块" class="headerlink" title="mouse模块"></a>mouse模块</h3><h4 id="get-pos"><a href="#get-pos" class="headerlink" title="get_pos()"></a>get_pos()</h4><p>获取鼠标位置</p>
+<p>pygame.mouse.get_pos()</p>
+<h3 id="Locals模块"><a href="#Locals模块" class="headerlink" title="Locals模块"></a>Locals模块</h3><h4 id="Rect"><a href="#Rect" class="headerlink" title="Rect()"></a>Rect()</h4><p>定义矩形</p>
+<p>rect1 = Rect(100, 100, 200, 150)</p>
+<p>rect2 = Rect((100, 100), (200, 150))</p>
+<h2 id="pygame基础使用规则"><a href="#pygame基础使用规则" class="headerlink" title="pygame基础使用规则"></a>pygame基础使用规则</h2><h3 id="关于初始化"><a href="#关于初始化" class="headerlink" title="关于初始化"></a>关于初始化</h3><pre class="line-numbers language-python" data-language="python"><code class="language-python">import pygame		# 引入pygame模块
 pygame.init()		# 初始化pygame
 pygame.quit()		# 退出pygame<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-python" data-language="python"><code class="language-python">screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))		# 创建游戏窗口
@@ -1083,7 +1458,7 @@ D --&gt; E[更新屏幕显示]<span aria-hidden="true" class="line-numbers-rows"
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">27.9k</span>&nbsp;字
+                class="white-color">31.8k</span>&nbsp;字
             
             
             
