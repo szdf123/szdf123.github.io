@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记,SQL命令">
+    <meta name="keywords" content="COMP9311,数据库,笔记,PLpgSQL">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库SQL命令 | 本杰明学习笔记</title>
+    <title>数据库基础PLpgSQL | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/358.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/323.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库SQL命令</h1>
+                    <h1 class="description center-align post-title">数据库基础PLpgSQL</h1>
                 </div>
             </div>
         </div>
@@ -418,8 +418,12 @@
                                 <span class="chip bg-color">SQL</span>
                             </a>
                         
-                            <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                                <span class="chip bg-color">持续更新</span>
+                            <a href="/tags/%E6%89%8B%E5%86%8C/">
+                                <span class="chip bg-color">手册</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -447,7 +451,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-01
+                    2021-03-15
                 </div>
                 
 
@@ -456,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    163
+                    1.8k
                 </div>
                 
 
@@ -481,77 +485,396 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="SQL（Structured-Query-Language）"><a href="#SQL（Structured-Query-Language）" class="headerlink" title="SQL（Structured Query Language）"></a>SQL（Structured Query Language）</h2><p>结构化查询语言，是关系数据库的标准语言</p>
-<h4 id="SQL-的动词"><a href="#SQL-的动词" class="headerlink" title="SQL 的动词"></a>SQL 的动词</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>SQL功能</th>
-<th>动词</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>数据查询</td>
-<td>Select</td>
-</tr>
-<tr>
-<td>数据定义</td>
-<td>Create,Drop,Alter</td>
-</tr>
-<tr>
-<td>数据操纵</td>
-<td>Insert, Update, Delete</td>
-</tr>
-<tr>
-<td>数据控制</td>
-<td>Grant, Revoke</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h4 id="SQL-的数据定义语句"><a href="#SQL-的数据定义语句" class="headerlink" title="SQL 的数据定义语句"></a>SQL 的数据定义语句</h4><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>操作对象</th>
-<th>创建</th>
-<th>删除</th>
-<th>修改</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>模式</td>
-<td>Create Schema</td>
-<td>Drop Schema</td>
-<td></td>
-</tr>
-<tr>
-<td>表</td>
-<td>Create Table</td>
-<td>Drop Table</td>
-<td>Alter Table</td>
-</tr>
-<tr>
-<td>视图</td>
-<td>Create View</td>
-<td>Drop View</td>
-<td></td>
-</tr>
-<tr>
-<td>索引</td>
-<td>Create Index</td>
-<td>Drop Index</td>
-<td>Alter Index</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h3 id="定义模式"><a href="#定义模式" class="headerlink" title="定义模式"></a>定义模式</h3><p><strong>CREATE SCHEMA</strong> [&lt;模式名&gt;] <strong>AUTHORIZATION</strong> &lt;用户名&gt;[&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]</p>
-<p>CREATE SCHEMA “S-T” AUTHORIZATION WANG;</p>
-<p>其中，模式名可隐藏，默认为&lt;用户名&gt;</p>
+                <h2 id="SQL语言已经具有的特点"><a href="#SQL语言已经具有的特点" class="headerlink" title="SQL语言已经具有的特点"></a>SQL语言已经具有的特点</h2><h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p><strong>原子类型</strong>： integer, float, character, boolean </p>
+<p>可定义元组类型</p>
+<p>可自定义新类型</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 基本类型
+CREATE DOMAIN DomainName [ AS ] DataType
+[ DEFAULT expression ]
+[ CONSTRAINT ConstrName constraint ]
 
+-- 元组类型
+CREATE TYPE TypeName AS
+( AttrName1 DataType1 , AttrName2 DataType2 , ...)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 定义一个基本类型
+create domain UnswCourseCode as text
+check ( value ~ '[A-Z]{4}[0-9]{4}' );
+
+create table Course (
+	id integer ,
+	code UnswCourseCode ,
+	...
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>例：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 定义一个元组类型
+create type ComplexNumber as ( r float , i float );
+create type CourseInfo as (
+	course UnswCourseCode ,
+	syllabus text ,
+	lecturer text
+);
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="PLpgSQL（Structured-Query-Language）"><a href="#PLpgSQL（Structured-Query-Language）" class="headerlink" title="PLpgSQL（Structured Query Language）"></a>PLpgSQL（Structured Query Language）</h2><p>PLpgSQL = <strong>P</strong>rocedural <strong>L</strong>anguage extensions to <strong>P</strong>ost<strong>g</strong>re<strong>SQL</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">CREATE PROCEDURE ProcName ( Params )
+[ local declarations ]
+procedure body ;
+
+CREATE FUNCTION FuncName ( Params )
+RETURNS Type
+[ local declarations ]
+function body ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中，Params有三种模式： IN, OUT, INOUT</p>
+<h3 id="PostgreSQL-函数定义"><a href="#PostgreSQL-函数定义" class="headerlink" title="PostgreSQL 函数定义"></a>PostgreSQL 函数定义</h3><p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE OR REPLACE FUNCTION 
+	funcName(arg1type, arg2type, ....)
+	RETURNS rettype
+AS $$ 
+	SQL statements
+$$ LANGUAGE plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 指定啤酒的最大价格
+create or replace function 
+	maxPrice(text) returns float 
+as $$ 
+	select max(price) from Sells where beer = $1; 
+$$ language sql;
+
+-- 使用方法
+select maxPrice('New'); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 指定地址查询包含的酒吧
+create or replace function 
+	hotelsIn(text) returns setof Bars 
+as $$ 
+	select * from Bars where addr = $1; 
+$$ language sql;
+
+-- 使用方法
+select * from hotelsIn('The Rocks'); <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 老式函数定义
+CREATE OR REPLACE FUNCTION 
+	cat(text, text) RETURNS text 
+AS ‘
+DECLARE 
+	x alias for $1; -- alias for parameter 
+	y alias for $2; -- alias for parameter 
+	result text; -- local variable 
+BEGIN 
+	result := x||''''''''||y; 
+	return result; 
+END; 
+‘ LANGUAGE ‘plpgsql’;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 新式函数定义
+CREATE OR REPLACE FUNCTION 
+	add(x text, y text) RETURNS text 
+AS $$
+DECLARE 
+	result text; -- local variable 
+BEGIN 
+	result := x||''''||y; 
+	return result; 
+END; 
+$$ LANGUAGE 'plpgsql';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE OR REPLACE FUNCTION
+	add ( x anyelement , y anyelement ) RETURNS anyelement
+AS $$
+BEGIN
+	return x + y ;
+END ;
+$$ LANGUAGE plpgsql ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>PlpgSQL允许重载</p>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE FUNCTION add ( int , int ) RETURNS int AS
+$$ BEGIN return $1 + $2 ; END ; $$ LANGUAGE plpgsql ;
+
+CREATE FUNCTION add ( int , int , int ) RETURNS int AS
+$$ BEGIN return $1 + $2 + $3 ; END ; $$ LANGUAGE plpgsql ;
+
+CREATE FUNCTION add ( char (1) , int ) RETURNS int AS
+$$ BEGIN return ascii ( $1 )+ $2 ; END ; $$ LANGUAGE plpgsql ;
+
+-- 但此时，不能再定义返回其他类型值的add ( char (1) , int )
+CREATE FUNCTION add ( char (1) , int ) RETURNS char AS
+$$ BEGIN return chr ( ascii ( $1 )+ $2 ); END ; $$ LANGUAGE plpgsql ;
+-- cannot have two functions that look like add(char(1), int).<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>PostgreSQL允许的返回值类型为：</p>
+<ul>
+<li><p>void</p>
+</li>
+<li><p>原子类型（integer, text,…）</p>
+</li>
+<li>元组（table record类型或元组类）</li>
+<li>一组原子类型</li>
+<li>一组元组</li>
+</ul>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 创建不同类型的返回值的示例
+create type Employee as 
+	(id integer, name text, salary float, ...);
+
+create function factorial(integer) 
+	returns integer ... 
+create function EmployeeOfMonth(date) 
+	returns Employee ... 
+create function allSalaries() 
+	returns setof float ... 
+create function OlderEmployees() 
+	returns setof Employee ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不同类型的函数有不同的调用方式：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">select factorial(5); 
+	-- returns one integer 
+select EmployeeOfMonth('2008-04-01'); 
+	-- returns (x,y,z,...) 
+select * from EmployeeOfMonth('2008-04-01'); 
+	-- one-row table 
+select * from allSalaries(); 
+	-- single-column table 
+select * from OlderEmployees(); 
+	-- subset of Employees<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以通过几种方式调用PLpgSQL函数</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 作为 SELECT 的一部分
+select myFunction ( arg1 , arg2 );
+select * from myTableFunction ( arg1 , arg2 );
+
+-- 作为其他 PLpgSQL 的一部分
+PERFORM myVoidFunction ( arg1 , arg2 );
+result := myOtherFunction ( arg1 );
+
+-- 通过 insert/delete/update 触发器
+create trigger T before update on R
+for each row execute procedure myCheck ();
+
+-- 通过从现有的数据库表派生类型
+account Accounts % ROWTYPE ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>变量还可以按照以下方式定义：</p>
+<ul>
+<li>现有变量或表列的类型</li>
+<li>现有表行类型（隐式记录类型）</li>
+</ul>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">quantity INTEGER ;
+start_qty quantity % TYPE ;
+employee Employees % ROWTYPE ;
+name Employees.name % TYPE ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="控制结构"><a href="#控制结构" class="headerlink" title="控制结构"></a>控制结构</h3><h4 id="赋值"><a href="#赋值" class="headerlink" title="赋值"></a>赋值</h4><p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">variable := expression;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>例</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">tax := subtotal * 0.06; 
+my_record.user_id := 20;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="条件"><a href="#条件" class="headerlink" title="条件"></a>条件</h4><p><strong>语法：</strong></p>
+<p>IF … THEN<br>IF … THEN … ELSE<br>IF … THEN … ELSIF … THEN … ELSE</p>
+<p><strong>例</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">IF v_user_id &gt; 0 THEN 
+UPDATE users SET email = v_email WHERE user_id = v_user_id; END IF;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="LOOP循环"><a href="#LOOP循环" class="headerlink" title="LOOP循环"></a>LOOP循环</h4><p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">LOOP
+	Satement 
+END LOOP ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">LOOP 
+	IF count &gt; 0 THEN 
+		-- some computations 
+	END IF; 
+END LOOP;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="For循环"><a href="#For循环" class="headerlink" title="For循环"></a>For循环</h4><p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">FOR int_var IN low .. high LOOP
+	Satement
+END LOOP ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">FOR i IN 1..10 LOOP 
+	-- i will take on the values 1,2,3,4,5,6,7,8,9,10 within the loop 
+END LOOP;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="SELECT-…-INTO"><a href="#SELECT-…-INTO" class="headerlink" title="SELECT … INTO"></a>SELECT … INTO</h4><p>可以捕获查询结果</p>
+<p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Exp1 , Exp2 , ... , Expn
+INTO Var1 , Var2 , ... , Varn
+FROM TableList
+WHERE Condition ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- cost 是本地变量, price 是一个字段/属性
+SELECT price INTO cost
+FROM StockList
+WHERE item = ' Cricket Bat ';
+cost := cost * (1 + tax_rate );
+total := total + cost ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="异常-Exceptions"><a href="#异常-Exceptions" class="headerlink" title="异常 Exceptions"></a>异常 Exceptions</h4><p><strong>语法</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">BEGIN
+	Statements ...
+EXCEPTION
+	WHEN Exceptions1 THEN
+		StatementsForHandler1
+	WHEN Exceptions2 THEN
+		StatementsForHandler2
+	...
+END ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 表 T 包含一行数据 ( ' Tom ' , ' Jones ')
+DECLARE
+	x INTEGER := 3;
+BEGIN
+	UPDATE T SET firstname = ' Joe ' WHERE lastname = ' Jones ';
+	-- 此时表 T 包含的数据为 ( ' Joe ' , ' Jones ')
+	x := x + 1;
+  y := x / y;  ---- y: = # Staff 表中的 Tom Jones
+EXCEPTION
+	WHEN division_by_zero THEN
+	-- 更新表 T 回滚至 ( ' Tom ' , ' Jones ')
+	RAISE NOTICE ' Caught division_by_zero ';
+	RETURN x ;
+	-- 返回值为 4
+END ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>RAISE操作可以生成服务器日志</p>
+<p>例：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">RAISE DEBUG ' Simple message ';
+RAISE NOTICE ' User = % ' , user_id ;
+RAISE EXCEPTION ' Fatal : value was % ' , value ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>日志级别有以下几种</p>
+<ul>
+<li>DEBUG, LOG, INFO, NOTICE, WARNING, EXCEPTION</li>
+</ul>
+<p>并不是所有级别的日志都会在客户端生成消息</p>
+<h3 id="Cursors-游标"><a href="#Cursors-游标" class="headerlink" title="Cursors 游标"></a>Cursors 游标</h3><p>游标是一个变量，可用于访问特定SQL查询的结果</p>
+<p>最简单的使用方法是在FOR … IN中使用</p>
+<p><strong>例</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE FUNCTION totsal () RETURNS REAL AS $$
+DECLARE
+	emp RECORD ;
+	total REAL := 0;
+BEGIN
+	FOR emp IN SELECT * FROM Employees
+	LOOP
+		total := total + emp . salary ;
+	END LOOP ;
+	RETURN total ;
+END ; $$ LANGUAGE plpgsql ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以优化为</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE FUNCTION totsal () RETURNS REAL AS $$
+DECLARE
+	total REAL ;
+BEGIN
+	SELECT sum ( salary ) INTO total FROM Employees ;
+	return total ;
+END ; $$ LANGUAGE plpgsql ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>游标的基本操作为：OPEN, FETCH, CLOSE</p>
+<p>例：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 假设 ... 游标 e 为 SELECT * FROM Employees ;
+OPEN e ;
+LOOP
+	FETCH e INTO emp ;
+	EXIT WHEN NOT FOUND ;
+	total := total + emp.salary ;
+END LOOP ;
+CLOSE e ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>FETCH操作也可以提取一行的组件:</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">FETCH e INTO my_id , my_name , my_salary ;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="Triggers-触发器"><a href="#Triggers-触发器" class="headerlink" title="Triggers 触发器"></a>Triggers 触发器</h3><p>触发器是存储在数据库中的过程，在响应数据库事件（例如更新）时被激活。</p>
+<p>触发器提供事件-条件-动作(ECA)编程：</p>
+<p>事件在激活时激活触发器，触发器检查条件（如果条件成立），执行过程（操作）</p>
+<p>两种INSERT的触发器为</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">create trigger X before insert on T Code1; 
+create trigger Y after insert on T Code2; 
+insert into T values (a,b,c,...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>两种UPDATE的触发器为</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">create trigger X before update on T Code1; 
+create trigger Y after update on T Code2; 
+update T set b=j,c=k where a=m;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>语法</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE TRIGGER TriggerName 
+{AFTER|BEFORE} Event1 [OR Event2 ...] 
+ON TableName 
+[ WHEN ( Condition ) ] 
+FOR EACH {ROW|STATEMENT} 
+EXECUTE PROCEDURE FunctionName(args...);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>函数触发器</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE OR REPLACE FUNCTION name () RETURNS TRIGGER ..<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>如果有以下数据库表结构</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">create table Person ( 
+	id integer primary key, 
+	ssn varchar(11) unique,
+	... e.g. family, given, street, town ... 
+	state char(2), ... 
+); 
+create table States ( 
+	id integer primary key, 
+	code char(2) unique, 
+	... e.g. name, area, population, flag ... 
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong>确保只使用有效的州代码</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 在为每一行的人插入或更新之前创建触发校验状态
+
+create function checkState() returns trigger as $$ 
+begin 
+	-- 标准化用户提供的值
+	new.state = upper(trim(new.state)); 
+	if (new.state !~ '^[A-Z][A-Z]$') then 
+		raise exception 'Code must be two alpha chars'; 
+	end if; 
+	-- 实现参照完整性检查
+	select * from States where code=new.state; 
+	if (not found) then 
+		raise exception 'Invalid code %',new.state;
+	end if; 
+	return new; 
+end; 
+$$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong>部门工资总额</p>
+<p>现有表结构为：</p>
+<p>Employee(id, name, address, dept, salary, …)<br>Department(id, name, manager, totSal, …)</p>
+<p>我们希望：Department.totSal = (select sum(e.salary) from Employee e where e.dept = d.id) ) )</p>
+<p>具体来说，可能有以下四种情况</p>
+<ul>
+<li>新员工入职</li>
+<li>员工加薪</li>
+<li>员工从一个部门跳槽到另一个部门</li>
+<li>员工离开公司</li>
+</ul>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 新员工入职
+create trigger TotalSalary1 
+after insert on Employees 
+for each row execute procedure totalSalary1(); 
+
+create function totalSalary1() returns trigger 
+as $$ 
+begin 
+	if (new.dept is not null) then 
+		update Department 
+		set totSal = totSal + new.salary 
+		where Department.id = new.dept; 
+	end if; 
+	return new; 
+end; $$ language plpgsql;
+
+-- 员工调整部门/调薪
+create trigger TotalSalary2 
+after update on Employee 
+for each row execute procedure totalSalary2(); 
+
+create function totalSalary2() returns trigger
+as $$ 
+begin 
+	update Department 
+	set totSal = totSal + new.salary 
+	where Department.id = new.dept; 
+	update Department set totSal = totSal - old.salary 
+	where Department.id = old.dept; 
+	return new; 
+end; $$ language plpgsql;
+
+-- 员工离职
+create trigger TotalSalary3 
+after delete on Employee 
+for each row execute procedure totalSalary3(); 
+
+create function totalSalary3() returns trigger 
+as $$ 
+begin 
+	if (old.dept is not null) then 
+		update Department 
+		set totSal = totSal - old.salary where Department.id = old.dept; 
+	end if; 
+	return old; 
+end; $$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
                 
             </div>
             <hr/>
@@ -577,7 +900,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/">http://szdf123.github.io/2021/03/01/shu-ju-ku-sql-ming-ling/</a>
+                    <a href="http://szdf123.github.io/2021/03/15/shu-ju-ku-ji-chu-plpgsql/">http://szdf123.github.io/2021/03/15/shu-ju-ku-ji-chu-plpgsql/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -627,8 +950,12 @@
                                     <span class="chip bg-color">SQL</span>
                                 </a>
                             
-                                <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                                    <span class="chip bg-color">持续更新</span>
+                                <a href="/tags/%E6%89%8B%E5%86%8C/">
+                                    <span class="chip bg-color">手册</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -808,78 +1135,25 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/01/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/">
+                <a href="/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-5/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/81.jpg" class="responsive-img" alt="计算机技术英语生词本">
+                        <img src="/medias/featureimages/254.jpg" class="responsive-img" alt="数据库基础课程笔记（5）">
                         
-                        <span class="card-title">计算机技术英语生词本</span>
+                        <span class="card-title">数据库基础课程笔记（5）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            在学习计算机技术时遇到的生词
+                            COMP9311 Week4 数据库基础范式部分相关内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
                         </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
-                        <span class="chip bg-color">英语</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
-                        <span class="chip bg-color">持续更新</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/02/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/192.jpg" class="responsive-img" alt="数据库基础课程笔记（3）">
-                        
-                        <span class="card-title">数据库基础课程笔记（3）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            COMP9311 Week2 数据库基础关系代数部分相关内容
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
-                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -901,6 +1175,67 @@
                     
                     <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
                         <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/12/chi-san-shu-xue-ke-cheng-bi-ji-5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/199.jpg" class="responsive-img" alt="离散数学课程笔记（5）">
+                        
+                        <span class="card-title">离散数学课程笔记（5）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9020离散数学Week4等价与序关系（Equivalence and Order Relations）相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
                     </a>
                     
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
@@ -1111,7 +1446,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">31.8k</span>&nbsp;字
+                class="white-color">38.6k</span>&nbsp;字
             
             
             
