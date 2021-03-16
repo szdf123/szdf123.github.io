@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记">
+    <meta name="keywords" content="COMP9311,数据库,笔记,函数依赖">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库基础实践记录（1） | 本杰明学习笔记</title>
+    <title>数据库基础课程笔记（6） | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/184.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/285.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库基础实践记录（1）</h1>
+                    <h1 class="description center-align post-title">数据库基础课程笔记（6）</h1>
                 </div>
             </div>
         </div>
@@ -414,16 +414,12 @@
                                 <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/SQL/">
-                                <span class="chip bg-color">SQL</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                <span class="chip bg-color">实践操作</span>
-                            </a>
-                        
                             <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                                 <span class="chip bg-color">已完稿</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
                             </a>
                         
                     </div>
@@ -447,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-16
                 </div>
                 
 
@@ -456,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.9k
                 </div>
                 
 
@@ -481,104 +477,238 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul>
-<li>设置虚拟主机</li>
-<li>在虚拟主机上安装PostgreSQL数据库服务器</li>
-<li>创建、填充和检查一个非常小的数据库</li>
-</ul>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>学校的CSE服务器名字为<code>grieg</code>，使用它可以创建私有数据库PostgreSQL</p>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="场景一：建立一个虚拟机"><a href="#场景一：建立一个虚拟机" class="headerlink" title="场景一：建立一个虚拟机"></a>场景一：建立一个虚拟机</h3><h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh grieg																# 使用学校网络登录
-ssh CSEUsername@grieg.cse.unsw.edu.au		# 使用外网登录  CSEUsername为 z学号
-
-hostname																# 查看主机名称
-priv srvr																# 创建私有目录
-# 创建完成后，私有目录位置在/srvr/YOU/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景二：建立PostgreSQL服务"><a href="#场景二：建立PostgreSQL服务" class="headerlink" title="场景二：建立PostgreSQL服务"></a>场景二：建立PostgreSQL服务</h3><p>运行已编写完成的脚本，安装PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~cs9311/bin/pginit		# 初始化PostgreSQL服务，仅运行一次即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>运行此命令后，将在/srvr/YOU/目录下创建一个名为pgsql的子目录，同时在/srvr/YOU/目录下生成一个名为env的文件。</p>
-<p>pginit脚本已经检查了一些可能的错误，一般情况下能够正确安装服务。如果安装时出现警告提示，忽略即可。但如果有错误ERROR，一定要关注并解决。</p>
-<p>安装完成后，根据脚本提示，运行以下命令，启动或关闭PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start								# 启动PostSQL服务
-pgs stop								# 停止PostSQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>PostgreSQL的日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgsql/pg_xlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注意，此目录和pgsql/base目录文件下的内容切勿手动修改，否则可能导致PostgreSQL无法正常运行。</p>
-<p>如果想重新安装PostgreSQL，可使用以下方法</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -rf /srvr/*YOU*/pgsql		# 删除pgsql目录下的全部内容
-pginit											# 重新安装pgsql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以后每次进入grieg，都应先载入env环境变量。因此，可以将以下代码粘贴到<code>.bash_profile</code> 或 <code>.bashrc</code> 或 <code>.profile</code> 文件中，使登录系统后，自动载入。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ `hostname` = "grieg" ]
-then
-    source /srvr/YOU/env
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景三：使用PostgreSQL服务器"><a href="#场景三：使用PostgreSQL服务器" class="headerlink" title="场景三：使用PostgreSQL服务器"></a>场景三：使用PostgreSQL服务器</h3><p>一般地，每次使用PostgreSQL服务器，应按照以下流程操作：</p>
-<ul>
-<li>登录Grieg</li>
-<li>启动PostgreSQL服务器</li>
-<li>进行工作</li>
-<li>停止PostgreSQL服务器</li>
-<li>退出Grieg</li>
-</ul>
-<p><strong>注意，不要离开之前，使PostgreSQL服务始终运行！</strong></p>
-<p>操作PostgreSQL的命令有：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start 							# 启动pgs服务
-pgs status							# 查看pgs运行状态
-pgs stop								# 关闭pgs服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>进入PostgreSQL的命令为：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql MyDatabase					# 进入指定数据库中，其中，MyDatabase名字为要进入的数据库名称
-psql -l									# 查看已有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h4><p>输入以下命令，可查看PostsqlSQL当前是否正在运行</p>
-<pre class="line-numbers language-none"><code class="language-none">psql -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>进入到PostgreSQL中的某个数据库后，命令提示符为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dbName=#					# 管理员命令提示符
-dbName=&gt;					# 其他用户命令提示符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>此处为PostgreSQL的<a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/">官网使用手册</a></p>
-<p>PostgreSQL的运行日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/srvr/YOU/pgsql/Log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="小练习-1"><a href="#小练习-1" class="headerlink" title="小练习"></a>小练习</h4><p>尝试启动和停止服务器几次，并在服务器运行和不运行时运行psql，然后分别查看屏幕显示的消息，查看内容有和区别。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>典型的操作虚拟主机和PostgreSQL服务器的会话是这样的:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">... on any CSE workstation ...
-$ ssh grieg
-... grieg login stuff ...
-... the following are all on grieg ...
-$ source /srvr/YOU/env 
-$ pgs start
-$ psql MyDatabase
-... use another xterm for editting ...
-$ pgs stop
-$ logout
-... back to your original workstation ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习1：创建一个数据库"><a href="#练习1：创建一个数据库" class="headerlink" title="练习1：创建一个数据库"></a>练习1：创建一个数据库</h3><p>登录服务器并启动PostgreSQL服务后，输入以下命令，创建数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb mydb			# 创建指定名称的数据库，mydb为要创建的数据库命令
-psql mydb					# 进入到mydb数据库中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在PostgreSQL控制台，输入以下命令，控制数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mydb=# \d					# 查看已有关系（数据库表）
-mydb=# \q					# 退出数据库控制台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="练习2：填充数据库"><a href="#练习2：填充数据库" class="headerlink" title="练习2：填充数据库"></a>练习2：填充数据库</h3><p>使用现有SQL创建数据库表及数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql  # 使用现有SQL文件向数据库导入数据
-psql mydb -f -q 文件名                                  # 开启静默模式
-( psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql 2&gt;&amp;1 ) | grep ERROR    	# 导入数据时仅显示ERROR信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习3：检查数据库"><a href="#练习3：检查数据库" class="headerlink" title="练习3：检查数据库"></a>练习3：检查数据库</h3><p>在SQL标准中，标识符将忽略大小写。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mydb=# \d Staff									# 查看指定数据库表定义
-mydb=# \q												# 退出数据库控制台
-mydb=# select * from Staff;     # 查看指定数据库表中的全部数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="小练习-2"><a href="#小练习-2" class="headerlink" title="小练习"></a>小练习</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Students where degree=3978;			    			# 查询degree为3978的全部学生
-select count(*) from Students where degree=3978;				# 查询degree为3978的学生总数
-select * from Staff where position like '%Professor%';	# 查询全部教授数据
-select course,count(*) from Enrolment group by course;	# 查询每种课程的选课人数
-select c.code, c.title																	# 查询指定姓名教师的授课名称
-from   Courses c, Staff s
-where  s.name='Andrew Taylor' and c.lecturer=s.userid;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><h4 id="无法重启PostgreSQL服务器"><a href="#无法重启PostgreSQL服务器" class="headerlink" title="无法重启PostgreSQL服务器"></a>无法重启PostgreSQL服务器</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgs stop			# 正常关闭PostgreSQL服务器的命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>解决思路</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tail -2 /srvr/YOU/logfile			# 查看日志
-psql -l												# 查看当前服务状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>PostgreSQL运行时生成的PID为位置在<code>/srvr/YOU/pgsql/postmaster.pid</code></p>
-<p>正常关闭时，PostgreSQL将自动删除此文件。若上次PostgreSQL未正常关闭，需要手动删除此文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm /srvr/YOU/pgsql/postmaster.pid			# 手动删除pid文件
-rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+                <h2 id="关系数据库设计"><a href="#关系数据库设计" class="headerlink" title="关系数据库设计"></a>关系数据库设计</h2><p>通过分解关系设计，直到它们处于标准的形式，可以将异常从关系设计中移除。</p>
+<p>关于分解，应该研究几个问题。</p>
+<p>关系方案$R$的分解是一组关系方案$\{R_1，…，R_n\}$，使每个$i$符合$R_i \subseteq R$，且$\cup_{i=1}^{n}R_i=R$</p>
+<p>注意，在一个分解${R_1，…R_n}$中，每一对$R_i$和$R_j$的交集不一为空。</p>
+<p><strong>例</strong>：</p>
+<p>$R=\{A,B,C,D,E\},R_1=\{A,B\},R_2=\{A,C\},R_3=\{C,D,E\}$</p>
+<p>朴素分解：每个关系只有一个属性。</p>
+<p>一个好的分解应该有以下两个特性。</p>
+<p><strong>定义</strong>：当$F^+ = G^+$时，FD的两个集合F和G等价。</p>
+<p>给定一个分解$R$为$\{R_1, . . . ,R_n\}$</p>
+<script type="math/tex; mode=display">
+F_i=\{X\rightarrow Y: X \rightarrow Y \in F \& X \in R_i,Y\in R_i\}</script><p>分解$R\{R_1，…R_n\}$，使其对$F$保持依赖</p>
+<script type="math/tex; mode=display">
+F^+=(\cup_{i=1}^{i=n}F_i)^+</script><p><strong>例</strong>1：</p>
+<p>设$F = \{ A \rightarrow BC, D \rightarrow EG, M \rightarrow A \}, R = (A, B, C, D, E, G, M, A)$</p>
+<p>1） 给定$R_1=\{A,B,C,M\}$，$R_2=\{C,D,E,G\}$，</p>
+<p>$F_1 = \{A \rightarrow BC, M \rightarrow A \}$，$F_2 = \{ D\rightarrow EG\}$</p>
+<p>$F=F_1 \cup F_2$，因此，依赖保留</p>
+<p>2）假设$F’=F \cup \{M \rightarrow D\}$。$R_1$和$R_2$与1）相同。</p>
+<p>那么，$F_1$和$F_2$也与1）相同。</p>
+<p>我们需要确认$M\rightarrow D$是否可以由$F_1\cup F_2$推出。</p>
+<p>当$M^+ |_{F_1 \cup F_2}=\{M,A,B,C \}$，$M \rightarrow D$不能由$F_1 \cup F_2$推出</p>
+<p>因此，$R_1$和$R_2$没有保留$F’$的依赖关系</p>
+<p>3）$F’’ =\{ A \rightarrow BC, D \rightarrow EG, M \rightarrow A , M\rightarrow C, C\rightarrow D, M\rightarrow D\} $</p>
+<p>$F_1 = \{A \rightarrow BC, M\rightarrow A, M\rightarrow C\}, F2  = \{D\rightarrow EG, C\rightarrow D\}$</p>
+<p>可以证明$M\rightarrow D$可以由$F_1$和$F_2$推出</p>
+<p>由此，$F’’^+ = (F_1 \cup F_2)^+$</p>
+<p>因此，$R_1$和$R_2$对$F’’$保持依赖关系</p>
+<h2 id="无损连接分解"><a href="#无损连接分解" class="headerlink" title="无损连接分解"></a>无损连接分解</h2><p>分解的第二个必要属性：</p>
+<p>如果对于每个满足F的关系实例r，一个分解$R\{R_1，…，R_n\}$是对FD的集合F的<strong>无损连接分解</strong>（lossless join）：</p>
+<script type="math/tex; mode=display">
+r=\pi R_1(r)\Join\dots\Join\pi R_n(r)</script><p>如果$r\subset \pi R_1(r)\Join\dots\Join\pi R_n(r)$，那么分解是<strong>有损的</strong>（lossy）。</p>
+<p><strong>例2</strong>：</p>
+<p>假设需要分解以下关系：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316170638.png" alt="image-20210316170638673" style="zoom:33%;"></p>
+<p>与依赖关系 $\{Name→Department, Name→Advisor, Advisor→Department\}$</p>
+<p>将上表分为两个关系：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316170657.png" alt="image-20210316170657465" style="zoom: 25%;"></p>
+<p>如果我们把这些分解的关系连接起来，则有：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316170839.png" alt="image-20210316170839598" style="zoom: 33%;"></p>
+<p>这与原始关系不同(添加了带有<em>标记的元组)。因此分解是<em>*有损的</em></em>（lossy）。</p>
+<p><strong>定理</strong>：如果普通属性$R_1\cap R_2$构成$R_1$或$R_2$的超键，则$R$的分解$\{R_1,R_2\}$是无损的。</p>
+<p><strong>例3</strong>：给定$R(A,B,C)$和$F = \{A→B\}$。因为$A→B$是$R_1$上的FD，所以分解为$R_1(A,B)$和$R_2(A,C)$是无损的。所以一般属性$A$是$R_1$的键。</p>
+<h3 id="测试无损连接属性"><a href="#测试无损连接属性" class="headerlink" title="测试无损连接属性"></a>测试无损连接属性</h3><p><strong>TEST_LJ算法</strong></p>
+<p>步骤1：创建一个矩阵$S$，每个元素$s_{i,j}∈S$对应关系$R_i$和属性$A_j$，使：</p>
+<script type="math/tex; mode=display">
+s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步骤2：重复下面的过程，直到$S$没有变化，或者有一行完全由“a”符号组成</p>
+<p>步骤2.1：对于每个$X→Y$，选择与$X$对应的元素取值为a的行</p>
+<p>步骤2.2：在那些选择的行中（必须至少有两行），如果其中一个选择的行在Y上取值a，那么对应于Y的元素也取值a</p>
+<p>如果一行完全由“a”值组成，则分解是无损的。</p>
+<p>（该算法可以在E/N书中找到——算法15.2）</p>
+<p><strong>注意</strong>：本算法的正确性是基于此假设：Join属性不允许有空值。</p>
+<p>当且仅当存在一个令$R_i\cap M_{i-1}$形式的顺序，$R_i$或$M_{i-1}$的超键，其中$M_{i-1}$是$R_1, R_2,\dots ,R_{i-1}$的结合</p>
+<p><strong>例1</strong>：</p>
+<p>$R = (A,B,C,D), F = \{A→B,A →C,C → D\}$</p>
+<p>令$R_1 = (A,B,C), R_2 = (C,D)$</p>
+<p>最初，$S$为</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+  & A & B & C & D \\
+ R_1 & a & a & a & b \\
+ R_2 & b & b & a & a 
+\end{array}</script><p>注意，$S$的第1行和第2行与$\{C\}$一致，即$C→D$的左手边。因此，改变第一行的D值为a，匹配第2行中的值。</p>
+<p>现在第一行完全是a，所以分解是无损的。</p>
+<p><strong>例2</strong>：</p>
+<p>$R = (A,B,C,D,E)$，$F = \{AB →CD,A → E,C → D\}$</p>
+<p>令$R_1 = (A,B,C), R_2 = (B,C,D), R_3 = (C,D,E)$</p>
+<p><strong>例3：</strong></p>
+<p>$R = (A,B,C,D,E,G)$，$F = {A → B,C → DE,AB → G}$</p>
+<p>令$R_1 = (A,B)$，$R_2 = (C,D,E)$，$R_3 = (A,C,G)$</p>
+<p><strong>例4：</strong></p>
+<p>$R = (A,B,C,D,E,G)$，$F = \{AB →G, C → DE, A → B\}$<br>令$R_1 = (A,B)$，$R_2 = (C, D, E)$ ，$R_3 = (A,C,G)$</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+     & A & B & C & D & E & G\\
+ R_1 & a & a & b & b & b & b\\
+ R_2 & b & b & a & a & a & b\\
+ R_3 & a & b & a & b & b & a\\
+     &   &   &   &   &   &  \\
+     &   &   &   &   &   &
+\end{array}
+\quad
+\begin{array}{}
+     & A & B & C & D & E & G & \\
+ R_1 & a & a & b & b & b & b & \\
+ R_2 & b & b & a & a & a & b & \Leftarrow\\
+ R_3 & a & b & a & \not{b} & \not{b} & a & \Leftarrow \\
+     &   &   &   &  \uparrow & \uparrow & & \\
+     &   &   &   &  a        &  a       & & 
+\end{array} 
+\quad
+\begin{array}{}
+     & A & B & C & D & E & G & \\
+ R_1 & a & a & b & b & b & b & \Leftarrow\\
+ R_2 & b & b & a & a & a & b & \\
+ R_3 & a & \not{b} & a & a & a & a & \Leftarrow \\
+     &   & \uparrow &  &   &   & & \\
+     &   & a &     &   &   &   & &
+\end{array}</script><h2 id="无损分解为BCNF"><a href="#无损分解为BCNF" class="headerlink" title="无损分解为BCNF"></a>无损分解为BCNF</h2><p><strong>TO_BCNF算法</strong>：</p>
+<p>$D := {R_1,R_2, …R_n}$</p>
+<p><strong>While</strong> $\exists a\ R_i\in D$，且$R_i$不在BCNF <strong>DO</strong></p>
+<p>​    在$R_i$查找违反BCNF的$X\rightarrow Y$</p>
+<p>​    用$(R_i-Y)$和$(X \cup Y)$替换$D$中的$R_i$</p>
+<p><strong>例</strong>：</p>
+<p>$F=\{A\rightarrow B,A\rightarrow C,A\rightarrow D,C\rightarrow E,E\rightarrow D,C\rightarrow G\}$，</p>
+<p>$R_1=(C,D,E,G)$，$R_2=(A,B,C,D)$</p>
+<p>$R_{11}=\{C,E,G\}$，$R_{12}=(E,D)$根据$E\rightarrow D$</p>
+<p>$R_{21}=(A,B,C)$，$R_22=(C,D)$由于$C\rightarrow D$</p>
+<p>因为违反BCNF的$X\rightarrow Y$并不总是在$F$中，主要的困难是验证$R_i$是否在BCNF中；</p>
+<p>见下面的方法：</p>
+<ol>
+<li>对每个$R_i$的子集$X$，计算$X^+$</li>
+<li>如果$ X^+|_{R_i}-X \neq \empty$且$R_i - X^+\neq \empty $ ,$X\rightarrow (X^+|_{R_i}-X)$违反BCNF</li>
+</ol>
+<p>这里，$ X^+|_{R_i}-X \neq \empty$意味着每个包含$X$的FD作为左半部分是不重要的（trivial）</p>
+<p>$R_i - X^+\neq \empty $意味着$X$是$R_i$的一个超键</p>
+<p><strong>例</strong>：</p>
+<p>找到下面关系方案的BCNF分解</p>
+<p>$SHIPPING(Ship , Capacity , Date , Cargo , Value)$<br>$F$为：<br>    $Ship→ Capacity$<br>    $ \{Ship , Date\}→ Cargo$<br>    $\{Cargo , Capacity\}→ Value$</p>
+<p>根据$Ship→ Capacity$，将$SHIPPING$分解为</p>
+<p>$R_1(Ship,Date,Cargo,Value)$</p>
+<p>键：$\{Ship,Date\}$</p>
+<p>在$F^+$中的重要FD违反BCNF：</p>
+<p>$\{Ship,CargoS\}\rightarrow Value$</p>
+<p>且</p>
+<p>$R_2(Ship,Capacity)$</p>
+<p>键：$\{Ship\}$</p>
+<p>$F^+$只有一个重要FD：$Ship\rightarrow Capacity$</p>
+<p>$R_1$不再BCNF所以必须将它再次分解为</p>
+<p>$R_{11}(Ship,Date,Cargo)$</p>
+<p>键：$\{Ship,Date\}$</p>
+<p>在右侧，$F^+$上只有一个包含单一属性的重要FD：$\{Ship,Date\}\rightarrow Cargo$</p>
+<p>且</p>
+<p>$R_{12}(Ship,Cargo,Value)$</p>
+<p>键：$\{Ship,Cargo\}$</p>
+<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Ship,Cargo\}\rightarrow Value$</p>
+<p>这在BCNF中，分解是无损的，但是没有保护依赖，FD$\{Capacity,Cargo\}\rightarrow Value$丢失了</p>
+<p>或者可以选择$\{Cargo,Capacity\}\rightarrow Value$，这可以得到：</p>
+<p>$R_1 (Ship , Capacity , Date , Cargo)$</p>
+<p>键：$\{Ship,Date\}$</p>
+<p>$F^+$上一个重要FD违反BCNF：</p>
+<p>$Ship\rightarrow Capacity$</p>
+<p>且</p>
+<p>$R_2(cargo, Capacity, Value)$</p>
+<p>键：$\{Cargo,Capacity\}$</p>
+<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Cargo,Capacity\}\rightarrow Value$</p>
+<p>再根据$Ship\rightarrow  Capacity$</p>
+<p>$R_{11} (Ship , Date , Cargo)$<br>键：$\{Ship,Date\}$</p>
+<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Ship , Date\} \rightarrow Cargo$</p>
+<p>且</p>
+<p>$R_{12}(Ship,Capacity)$</p>
+<p>键：$\{Ship\}$</p>
+<p>$F^+$上只有一个重要FD：$Ship \rightarrow Capacity$</p>
+<p>且</p>
+<p>$R_{12}(Ship,Capacity)$</p>
+<p>键：$\{Ship\}$</p>
+<p>$F^+$上只有一个重要FD：$Ship \rightarrow Capacity$</p>
+<p>这符合BCNF，而且分解即无损又保留依赖关系。</p>
+<p>然而，有一些关系方案分解为BCNF后，没有无损、保持依赖关系的方法。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316201403.png" alt="image-20210316201403853" style="zoom:25%;"></p>
+<h2 id="无损和保持依赖分解为3NF"><a href="#无损和保持依赖分解为3NF" class="headerlink" title="无损和保持依赖分解为3NF"></a>无损和保持依赖分解为3NF</h2><p>具有任何$F$的任何$R$都可以无损且保持依赖关系的分解为3NF。</p>
+<p>需要更多关于FD的定义。</p>
+<p>FD的集合$F$是最小的，如果：</p>
+<ol>
+<li>每个$F$上的FD$X \rightarrow Y$是朴素的：$Y$由一个单一属性构成</li>
+<li>每个$F$上的FD$X \rightarrow Y$是左减的（left-reduced）：没有恰当的子集$Y \subset X$使$X \rightarrow A$可以被替换为$Y\rightarrow A$，即，没有$Y \subset X$使$((F-\{X \rightarrow A\})\cup \{Y\rightarrow  A\})^+ = F^+$</li>
+<li>没有FD可以被移除；没有F上的FD$X\rightarrow A$使$(F=\{X\rightarrow A\})^+=F^+$</li>
+</ol>
+<h3 id="计算最小覆盖"><a href="#计算最小覆盖" class="headerlink" title="计算最小覆盖"></a>计算最小覆盖</h3><p>F是FD的集合。</p>
+<p>F的最小覆盖（或规范覆盖）是FD的$F_{min}$的最小集合，使$F^+=F^+_{min}$</p>
+<p><strong>Min_Cover算法</strong></p>
+<p>输入：F的函数依赖集合</p>
+<p>输出：F的最小覆盖</p>
+<p>步骤1：减少右侧。使用算法减少右侧至F</p>
+<p>步骤2：减少左侧。适应算法减少左侧至步骤2的输出</p>
+<p>步骤3：减少多余的FD。使用算法减少多余的依赖至步骤2的输出。输出结果是最小覆盖。</p>
+<p>这3个步骤的详细算法为：</p>
+<p><strong>算法减少右侧：</strong></p>
+<p>输入：$F$</p>
+<p>输出：右侧减少后的$F’$</p>
+<p>对每个FD$X\rightarrow Y \in F$，其中$Y=\{A_1,A_2,…,A_k\}$，使用所有$X\rightarrow \{A_i\}(1\leq i \leq k)$来替换$X\rightarrow Y$</p>
+<p><strong>算法减少左侧</strong>：</p>
+<p>输入：减少后的右侧$F$</p>
+<p>输出：右侧和左侧减少后的$F’$</p>
+<p>对每个$X \rightarrow \{A\} \in F$，其中$X=\{A_i:1\leq i \leq K\}$，按以下操作：使i从1到k，如果$A\in (X-\{A_I\})^+$用$X-\{A_i\}$替换$X$</p>
+<p><strong>算法减少多余</strong>：</p>
+<p>输入：右侧和左侧减少后的$F$</p>
+<p>输出：$F$的最小覆盖$F’$</p>
+<p>对每个FD$X\rightarrow \{A\}\in F$，如果$A \in X^+$对于$F-\{X\rightarrow \{A\}\}$，将它从$F$移除</p>
+<p><strong>例</strong>：</p>
+<p>$R = (A, B, C, D, E, G)$<br>$F = \{A \rightarrow  BCD,  B  \rightarrow CDE, AC \rightarrow  E\}$</p>
+<p>步骤1：</p>
+<p>$F’ = \{A \rightarrow  B, A\rightarrow C, A \rightarrow  D, B\rightarrow  C, B\rightarrow  D, B\rightarrow  E, AC \rightarrow  E\}$</p>
+<p>步骤2：</p>
+<p>$AC\rightarrow E\quad C^+=\{C\}$</p>
+<p>故由$F’$不能得出$C\rightarrow E$</p>
+<p>因此，$AC\rightarrow E$不能替换为$A \rightarrow  E$</p>
+<p>$A^+=\{A,B,C,D,E\}$，故由$F’$可得出$A\rightarrow E$</p>
+<p>因此，$AC\rightarrow E$可以被替换为$A\rightarrow E$</p>
+<p>$F’’ = \{A\rightarrow  B, A\rightarrow C, A\rightarrow  D, A\rightarrow  E, B\rightarrow C, B\rightarrow D, B\rightarrow  E\}$</p>
+<p>步骤3：</p>
+<p>$A^+|_{F’’ – \{A \rightarrow  B\}}= \{A, C, D, E\}$</p>
+<p>故，由$F’’=\{A\rightarrow B\}$不能得出$A\rightarrow B$</p>
+<p>所以$A\rightarrow B$是多余的</p>
+<p>$A^+|F’’ – {A \rightarrow  C}= \{A, B, C, D, E\}$，故$A\rightarrow C$是多余的</p>
+<p>故，将$A\rightarrow C$从$F’’$移除，变为$F’’’$</p>
+<p>重复这个操作，可以得到$A\rightarrow D$和$A \rightarrow E$</p>
+<p>故，$F_{min}=\{A\rightarrow  B, B\rightarrow  C, B\rightarrow  D, B\rightarrow E\}$</p>
+<h2 id="3NF分解算法"><a href="#3NF分解算法" class="headerlink" title="3NF分解算法"></a>3NF分解算法</h2><p><strong>3NF的分解算法</strong></p>
+<ol>
+<li><p>求$F$的最小覆盖$F’$</p>
+</li>
+<li><p>对每一个在$F’$中出现的$X$，做：</p>
+</li>
+</ol>
+<p>创建关系模式$X\cup A_1 \cup A_2 … \cup A_m$，其中$X\rightarrow \{A_1\},…,X\rightarrow \{A_m\}$全部为左侧$X$的$F’$的依赖</p>
+<ol>
+<li>如果关系模式均不包含$R$的键，建立一个对$R$键包含属性的多关系模式</li>
+</ol>
+<p><strong>例</strong>：</p>
+<p>$R = (A, B, C, D, E, G)$<br>$F_{min}=\{A\rightarrow B, B\rightarrow C, B\rightarrow D, B\rightarrow E\}.$<br>候选键： $(A, G)$<br>$R_1 = (A, B), R_2 = (B, C, D, E)$<br>$R_3 = (A, G)$</p>
+<p><strong>例</strong>：<br>还是从$SHIPPING$关系开始。函数依赖已经形成规范覆盖。</p>
+<p>从$Ship→Capacity$，根据 $R_1(Ship,Capacity)$<br>从$\{Ship,Date\} → Cargo, derive$<br>$R_2(Ship , Date , Cargo)$<br>从 $\{Capacity,Cargo\} → Value, derive$<br>$R_3(Capacity , Cargo , Value)$<br>没有未包含的属性和原始键$\{Ship,Date\}$包含在$R_2$</p>
+<p><strong>例</strong>：</p>
+<p>将该算法应用到前面给出的LOTS中</p>
+<p>最小覆盖为<br>$\{ Property_Id→Lot_No, Property_Id → Area, \{City,Lot_No\} → Property_Id, Area → Price, Area → City, City → Tax_Rate \}$</p>
+<p>这可以分解为：<br>$R_1 (\underline{Property_Id} , Lot_No , Area)$<br>$R_2 (\underline{City , Lot_No} , Property_Id)$<br>$R_3 (\underline{Area} , Price , City)$<br>$R_4 (\underline{City} , Tax_Rate)$</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>数据冗余是不可取的，因为它们可能导致更新异常。</p>
+<p>消除这种冗余的一种方法是在FD的指导下规范化设计。</p>
+<p>BCNF根据FD删除所有多余属性，但不能总是找到保持依赖的分解</p>
+<p>总是可以找到保持依赖关系，无损分解为3NF的方法，但一些冗余可能仍然存在</p>
+<p>即使可以找到一个保留依赖关系的无损分解来删除所有冗余，出于效率的原因，可能也不可能删除所有冗余。</p>
 
                 
             </div>
@@ -605,7 +735,7 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/">http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/</a>
+                    <a href="http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/">http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -651,16 +781,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                                     <span class="chip bg-color">数据库</span>
                                 </a>
                             
-                                <a href="/tags/SQL/">
-                                    <span class="chip bg-color">SQL</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                    <span class="chip bg-color">实践操作</span>
-                                </a>
-                            
                                 <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                                     <span class="chip bg-color">已完稿</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
                                 </a>
                             
                         </div>
@@ -832,29 +958,92 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/">
+                <a href="/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/215.jpg" class="responsive-img" alt="数据库基础实践记录（2）">
+                        <img src="/medias/featureimages/285.jpg" class="responsive-img" alt="数据库基础课程笔记（6）">
                         
-                        <span class="card-title">数据库基础实践记录（2）</span>
+                        <span class="card-title">数据库基础课程笔记（6）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库基础实践课Week 3内容：模式定义和数据约束
+                            COMP9311 Week4 数据库基础关系数据库设计部分相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-5/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/254.jpg" class="responsive-img" alt="数据库基础课程笔记（5）">
+                        
+                        <span class="card-title">数据库基础课程笔记（5）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week4 数据库基础范式部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -878,77 +1067,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                        <span class="chip bg-color">实践操作</span>
-                    </a>
-                    
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/156.jpg" class="responsive-img" alt="pygame游戏开发查询手册">
-                        
-                        <span class="card-title">pygame游戏开发查询手册</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            使用pygame开发游戏时所需用到的手册
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                        <span class="chip bg-color">游戏</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%8B%E5%86%8C/">
-                        <span class="chip bg-color">手册</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
