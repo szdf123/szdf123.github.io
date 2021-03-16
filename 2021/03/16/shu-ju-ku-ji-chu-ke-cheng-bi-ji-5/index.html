@@ -482,61 +482,61 @@
 <h3 id="第一范式（1NF）"><a href="#第一范式（1NF）" class="headerlink" title="第一范式（1NF）"></a>第一范式（1NF）</h3><p>要求属性值是原子的，并且是关系模型定义的一部分。</p>
 <p><strong>原子值</strong>：不允许多值属性、组合属性及其组合。</p>
 <p>假设有如下表</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316010754.png" alt="image-20210316010754960" style="zoom: 67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316010754.png" alt="原始数据表" style="zoom: 67%;"></p>
 <p>可以转化为:</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316010830.png" alt="image-20210316010830023" style="zoom:67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316010830.png" alt="1NF数据库表" style="zoom:67%;"></p>
 <p>上图的表现存在以下缺点：</p>
 <ul>
-<li>给定教授是在一个特定的部门可能重复</li>
-<li>教授和部门之间的关系将不会记录，除非有一些课程教授引用</li>
-<li>一个给定的课程是由给定的部门提供的，可以重复</li>
-<li>这不是记录，除非有人偏爱某门课程</li>
+<li>一个教授在一个部门的信息可能重复</li>
+<li>如果教授不教授课程，那么教授和部门之间的关系将没有记录</li>
+<li>一个课程由某个部门提供，这个信息可能重复</li>
+<li>如果没有人选课，那么课程和部门的信息就没有对应记录</li>
 </ul>
 <p>假设这些属性的FD是</p>
 <script type="math/tex; mode=display">
-F = \{Prof →Fac\_Dept, Course → Crs\_Dept\}</script><p>注意，超键只是一组这样的属性</p>
+F = \{Prof →Fac\_Dept, Course → Crs\_Dept\}</script><p>注意，超键是一组这样的属性</p>
 <script type="math/tex; mode=display">
 S → \{Prof,  Course,  Fac\_Dept, Crs\_Dept\} ∈ F^+</script><p>因此，这里唯一的候选关键字是$ \{Prof, Course\}$</p>
-<p>这些问题的产生，是因为$Fac_Dept$只取决于$Prof$而不取决于$Course$；同样，$Crs_Dept$只取决于$Course$而不取决于$Prof$。</p>
+<p>产生这些问题，是因为$Fac_Dept$只取决于$Prof$而不取决于$Course$；同样，$Crs_Dept$只取决于$Course$而不取决于$Prof$。</p>
 <p>我们可以使用函数依赖来识别和避免这些问题。</p>
-<h3 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h3><p>质数属性是候选键的一部分。其他属性是非素数的。</p>
-<p><strong>定义</strong>：在一个FD $X\rightarrow Y$中，如果没有$Z \subset X$使$Z \rightarrow Y$，那么$Y$是<strong>完全函数依赖</strong>于X（fully functionally dependent）的。否则$Y$部分依赖于$X$。</p>
+<h3 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h3><p>质数（prime）属性是候选键的一部分。其他属性是非素数的。</p>
+<p><strong>定义</strong>：在一个FD $X\rightarrow Y$中，如果没有$Z \subset X$使$Z \rightarrow Y$，那么$Y$是<strong>完全函数依赖</strong>于$X$（fully functionally dependent）的。否则$Y$部分依赖于$X$。</p>
 <p><strong>定义</strong>（第二范式）：如果所有非素数属性在功能上完全依赖于候选键，那么关系模式就是第二范式（2NF）。</p>
-<p>如果数据库方案的所有关系都在2NF中，那么它就是在2NF中。</p>
+<p>如果数据库模式的所有关系都在2NF中，那么它就是在2NF中。</p>
 <p>可能的2NF为：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316012707.png" alt="image-20210316012707050" style="zoom:67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316012707.png" alt="2NF表结构" style="zoom:67%;"></p>
 <p>问：什么关系代数表达式可以从这些关系中恢复$CRS_PREF$ ?</p>
 <p>答：Join</p>
-<p>2NF并没有完全消除我们之前看到的那种异常：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316013448.png" alt="image-20210316013448682" style="zoom:67%;"></p>
+<p>2NF并没有完全消除我们之前看到的那些异常：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316013448.png" alt="2NF仍未解决问题的表结构" style="zoom:67%;"></p>
 <p>这符合2NF，但是：</p>
-<p>如果另一个课程使用A532房间，那么A532的Room_Cap为45和Enrol_Lmt为40将存储两次。</p>
-<p>如果删除了课程355，那么H940的Room_Cap为400，enroll _lmt为300就会丢失。</p>
+<p>如果另一个课程使用A532房间，那么A532的$Room_Cap$为45和$Enrol_Lmt$为40将存储两次。</p>
+<p>如果删除了课程355，那么H940的$Room_Cap$为400，$enroll_lmt$为300就会丢失。</p>
 <p>我们也可以通过增加对函数依赖关系的进一步限制来解决这个问题。</p>
-<h3 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h3><p><strong>定义：</strong>如果$Z$不是任何键的子集的话，一个FD $X\rightarrow Y$是一个传递依赖，那么$X \rightarrow Z$且$Z \rightarrow Y$且$Z \not\rightarrow X$成立</p>
+<h3 id="第三范式（3NF）"><a href="#第三范式（3NF）" class="headerlink" title="第三范式（3NF）"></a>第三范式（3NF）</h3><p><strong>定义：</strong>如果$Z$不是任何键的子集，使$X \rightarrow Z$且$Z \rightarrow Y$且$Z \not\rightarrow X$成立，那么一个FD $X\rightarrow Y$是一个传递依赖，</p>
 <p>属性$Y$传递依赖于$X$。</p>
 <p>例如， 当 {Course} → {Room} 且 {Room} → {Room_Cap} 成立，且 {Room} 不是任意键的子集时，Room_Cap 传递依赖于{Course}。</p>
-<p><strong>定义（第三范式）</strong>：如果对所有形式为X→A的非平凡（non-trivial）FD成立，X是超键或A是素数属性，则关系模式是第三范式(3NF)。</p>
-<p>注意：如果Y是X的子集，那么FD X→Y就是平凡的。</p>
+<p><strong>定义（第三范式）</strong>：如果对所有形式为X→A的非平凡（non-trivial）FD成立，或者X是超键或A是素数属性，则关系模式是第三范式(3NF)。</p>
+<p>注意：如果Y是X的子集，那么FD X→Y就是平凡的（trivial）。</p>
 <p><strong>转换定义</strong>：如果每个非素数属性在功能上完全依赖于键，而不是传递地依赖于任何键，那么关系模式就是第三范式。</p>
-<p>如果数据库方案的所有关系都在3NF中，那么它就是在3NF中。</p>
+<p>如果数据库模式的所有关系都在3NF中，那么它就是在3NF中。</p>
 <p>TEACHES可以分解为3NF：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316014833.png" alt="image-20210316014833882" style="zoom:67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316014833.png" alt="3NF数据库表" style="zoom:67%;"></p>
 <p>另一个例子：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316014903.png" alt="image-20210316014903560" style="zoom:67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316014903.png" alt="新例子表结构" style="zoom:67%;"></p>
 <p>这不符合2NF，因为 City→Tax_Rate, Tax_Rate 不是prime，且 {City,Lot_No} 是键，使 Tax_Rate 部分依赖于键。</p>
-<p>我们可以解决这个问题：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015049.png" alt="image-20210316015049709" style="zoom:67%;"></p>
+<p>可以这样解决这个问题：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015049.png" alt="新例子2NF表结构" style="zoom:67%;"></p>
 <p>现在符合2NF，但没有符合3NF，因为 Area → Price, {Area} 不是一个超键，而且Price 不是 prime。</p>
 <p>注意，传递依赖 Property_Id→ Area → Price</p>
 <p>我们也可以解决这个问题：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015223.png" alt="image-20210316015223015" style="zoom:67%;"></p>
-<p>还假设 Area→City。关系模式仍在3NF中，因为 City 是一个prime属性。然而，像以前一样，可能会有异常。所以仍然需要更多的限制来解决这些问题。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015223.png" alt="新场子3NF表结构" style="zoom:67%;"></p>
+<p>还假设 Area→City。关系模式仍在3NF中，因为 City 是一个prime属性。然而，像以前一样，可能还是会有异常存在。所以仍然需要更多的限制来解决这些问题。</p>
 <h3 id="博伊斯-科德范式-Boyce-Codd-Normal-Form-BCNF"><a href="#博伊斯-科德范式-Boyce-Codd-Normal-Form-BCNF" class="headerlink" title="博伊斯-科德范式 Boyce-Codd Normal Form (BCNF)"></a>博伊斯-科德范式 Boyce-Codd Normal Form (BCNF)</h3><p><strong>定义</strong> (Boyce-Codd Normal Form)：当X→A成立且X→A非平凡时，X是超键，那么关系模式就在Boyce-Codd范式中。</p>
-<p>如果一个数据库方案的所有关系都在BCNF中，那么它就是在BCNF中。</p>
-<p>我们可以把我们的例子变成BCNF：</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015728.png" alt="image-20210316015728363" style="zoom:67%;"></p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015843.png" alt="image-20210316015843503" style="zoom:67%;"></p>
+<p>如果一个数据库模式的所有关系都在BCNF中，那么它就是在BCNF中。</p>
+<p>可以把例子变成BCNF：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015728.png" alt="BCNF方案一" style="zoom:67%;"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316015843.png" alt="BCNF方案二" style="zoom:67%;"></p>
 
                 
             </div>
