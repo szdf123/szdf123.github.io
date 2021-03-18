@@ -491,12 +491,12 @@
 F_i=\{X\rightarrow Y: X \rightarrow Y \in F \& X \in R_i,Y\in R_i\}</script><p>分解$R\{R_1，…R_n\}$，使其对$F$保持依赖</p>
 <script type="math/tex; mode=display">
 F^+=(\cup_{i=1}^{i=n}F_i)^+</script><p><strong>例</strong>1：</p>
-<p>设$F = \{ A \rightarrow BC, D \rightarrow EG, M \rightarrow A \}, R = (A, B, C, D, E, G, M, A)$</p>
+<p>设$F = \{ A \rightarrow BC, D \rightarrow EG, M \rightarrow A \}, R = (A, B, C, D, E, G, M)$</p>
 <p>1） 给定$R_1=\{A,B,C,M\}$，$R_2=\{C,D,E,G\}$，</p>
 <p>$F_1 = \{A \rightarrow BC, M \rightarrow A \}$，$F_2 = \{ D\rightarrow EG\}$</p>
 <p>$F=F_1 \cup F_2$，因此，依赖保留</p>
-<p>2）假设$F’=F \cup \{M \rightarrow D\}$。$R_1$和$R_2$与1）相同。</p>
-<p>那么，$F_1$和$F_2$也与1）相同。</p>
+<p>2）假设$F’=F \cup \{M \rightarrow D\}$。</p>
+<p>$R_1$和$R_2$与1）相同，$F_1$和$F_2$也与1）相同。</p>
 <p>我们需要确认$M\rightarrow D$是否可以由$F_1\cup F_2$推出。</p>
 <p>当$M^+ |_{F_1 \cup F_2}=\{M,A,B,C \}$，$M \rightarrow D$不能由$F_1 \cup F_2$推出</p>
 <p>因此，$R_1$和$R_2$没有保留$F’$的依赖关系</p>
@@ -517,7 +517,7 @@ r=\pi R_1(r)\Join\dots\Join\pi R_n(r)</script><p>如果$r\subset \pi R_1(r)\Join
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316170657.png" alt="image-20210316170657465" style="zoom: 25%;"></p>
 <p>如果我们把这些分解的关系连接起来，则有：</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316170839.png" alt="image-20210316170839598" style="zoom: 33%;"></p>
-<p>这与原始关系不同(添加了带有<em>标记的元组)。因此分解是<em>*有损的</em></em>（lossy）。</p>
+<p>这与原始关系不同(添加了带有*标记的元组)。因此分解是<strong>有损的</strong>（lossy）。</p>
 <p><strong>定理</strong>：如果普通属性$R_1\cap R_2$构成$R_1$或$R_2$的超键，则$R$的分解$\{R_1,R_2\}$是无损的。</p>
 <p><strong>例3</strong>：给定$R(A,B,C)$和$F = \{A→B\}$。因为$A→B$是$R_1$上的FD，所以分解为$R_1(A,B)$和$R_2(A,C)$是无损的。所以一般属性$A$是$R_1$的键。</p>
 <h3 id="测试无损连接属性"><a href="#测试无损连接属性" class="headerlink" title="测试无损连接属性"></a>测试无损连接属性</h3><p><strong>TEST_LJ算法</strong></p>
@@ -584,56 +584,56 @@ s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步�
 <p>$F=\{A\rightarrow B,A\rightarrow C,A\rightarrow D,C\rightarrow E,E\rightarrow D,C\rightarrow G\}$，</p>
 <p>$R_1=(C,D,E,G)$，$R_2=(A,B,C,D)$</p>
 <p>$R_{11}=\{C,E,G\}$，$R_{12}=(E,D)$根据$E\rightarrow D$</p>
-<p>$R_{21}=(A,B,C)$，$R_22=(C,D)$由于$C\rightarrow D$</p>
-<p>因为违反BCNF的$X\rightarrow Y$并不总是在$F$中，主要的困难是验证$R_i$是否在BCNF中；</p>
+<p>$R_{21}=(A,B,C)$，$R_{22}=(C,D)$由于$C\rightarrow D$</p>
+<p>因为违反BCNF的$X\rightarrow Y$并不总是在$F$中，主要的难点是验证$R_i$是否在BCNF中；</p>
 <p>见下面的方法：</p>
 <ol>
 <li>对每个$R_i$的子集$X$，计算$X^+$</li>
-<li>如果$ X^+|_{R_i}-X \neq \empty$且$R_i - X^+\neq \empty $ ,$X\rightarrow (X^+|_{R_i}-X)$违反BCNF</li>
+<li>如果$ X^+|_{R_i}-X \neq \emptyset$且$R_i - X^+\neq \emptyset $ ,$X\rightarrow (X^+|_{R_i}-X)$违反BCNF</li>
 </ol>
-<p>这里，$ X^+|_{R_i}-X \neq \empty$意味着每个包含$X$的FD作为左半部分是不重要的（trivial）</p>
-<p>$R_i - X^+\neq \empty $意味着$X$是$R_i$的一个超键</p>
+<p>这里，$ X^+|_{R_i}-X \neq \emptyset$意味着每个包含$X$的FD作为左半部分是平凡的（trivial）</p>
+<p>$R_i - X^+\neq \emptyset $意味着$X$是$R_i$的一个超键</p>
 <p><strong>例</strong>：</p>
 <p>找到下面关系方案的BCNF分解</p>
-<p>$SHIPPING(Ship , Capacity , Date , Cargo , Value)$<br>$F$为：<br>    $Ship→ Capacity$<br>    $ \{Ship , Date\}→ Cargo$<br>    $\{Cargo , Capacity\}→ Value$</p>
+<p>SHIPPING(Ship , Capacity , Date , Cargo , Value)<br>$F$为：<br>    Ship$→$ Capacity<br>    {Ship , Date}$→$ Cargo<br>    {Cargo , Capacity}$→$ Value</p>
 <p>根据$Ship→ Capacity$，将$SHIPPING$分解为</p>
-<p>$R_1(Ship,Date,Cargo,Value)$</p>
-<p>键：$\{Ship,Date\}$</p>
-<p>在$F^+$中的重要FD违反BCNF：</p>
-<p>$\{Ship,CargoS\}\rightarrow Value$</p>
+<p>$R_1$(Ship, Date, Cargo, Value)​</p>
+<p>键：{Ship, Date}​</p>
+<p>在$F^+$中的非平凡FD违反BCNF：</p>
+<p>{Ship,Cargo\}\rightarrow$ Value</p>
 <p>且</p>
-<p>$R_2(Ship,Capacity)$</p>
-<p>键：$\{Ship\}$</p>
-<p>$F^+$只有一个重要FD：$Ship\rightarrow Capacity$</p>
-<p>$R_1$不再BCNF所以必须将它再次分解为</p>
-<p>$R_{11}(Ship,Date,Cargo)$</p>
-<p>键：$\{Ship,Date\}$</p>
-<p>在右侧，$F^+$上只有一个包含单一属性的重要FD：$\{Ship,Date\}\rightarrow Cargo$</p>
+<p>$R_2$(Ship,Capacity)​</p>
+<p>键：{Ship}​</p>
+<p>$F^+$只有一个非平凡FD：Ship$\rightarrow$ Capacity</p>
+<p>$R_1$不在BCNF所以必须将它再次分解为</p>
+<p>$R_{11}$(Ship,Date,Cargo)​</p>
+<p>键：{Ship, Date}​</p>
+<p>在右侧，$F^+$上只有一个包含单一属性的非平凡FD：{Ship, Date}$\rightarrow$ Cargo</p>
 <p>且</p>
-<p>$R_{12}(Ship,Cargo,Value)$</p>
-<p>键：$\{Ship,Cargo\}$</p>
-<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Ship,Cargo\}\rightarrow Value$</p>
-<p>这在BCNF中，分解是无损的，但是没有保护依赖，FD$\{Capacity,Cargo\}\rightarrow Value$丢失了</p>
-<p>或者可以选择$\{Cargo,Capacity\}\rightarrow Value$，这可以得到：</p>
-<p>$R_1 (Ship , Capacity , Date , Cargo)$</p>
-<p>键：$\{Ship,Date\}$</p>
-<p>$F^+$上一个重要FD违反BCNF：</p>
-<p>$Ship\rightarrow Capacity$</p>
+<p>$R_{12}$(Ship,Cargo,Value)</p>
+<p>键：{Ship,Cargo}​</p>
+<p>在右侧$F^+$上只有一个具有单一属性的非平凡FD：{Ship,Cargo}$\rightarrow$ Value</p>
+<p>这在BCNF中，分解是无损的，但是没有保护依赖，FD{Capacity, Cargo}$\rightarrow$ Value丢失了</p>
+<p>或者，可以选择{Cargo, Capacity}$\rightarrow$ Value，这可以得到：</p>
+<p>$R_1$ (Ship , Capacity , Date , Cargo)​</p>
+<p>键：{Ship,Date}​</p>
+<p>$F^+$上一个非平凡FD违反BCNF：</p>
+<p>Ship$\rightarrow$ Capacity</p>
 <p>且</p>
-<p>$R_2(cargo, Capacity, Value)$</p>
-<p>键：$\{Cargo,Capacity\}$</p>
-<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Cargo,Capacity\}\rightarrow Value$</p>
-<p>再根据$Ship\rightarrow  Capacity$</p>
-<p>$R_{11} (Ship , Date , Cargo)$<br>键：$\{Ship,Date\}$</p>
-<p>在右侧$F^+$上只有一个具有单一属性的重要FD：$\{Ship , Date\} \rightarrow Cargo$</p>
+<p>$R_2$(Cargo, Capacity, Value)​</p>
+<p>键：{Cargo, Capacity}​</p>
+<p>在右侧$F^+$上只有一个具有单一属性的非平凡FD：{Cargo,Capacity}$\rightarrow$ Value​</p>
+<p>再根据Ship$\rightarrow$  Capacity​</p>
+<p>$R_{11}$ (Ship , Date , Cargo)​<br>键：{Ship,Date\}​</p>
+<p>在右侧$F^+$上只有一个具有单一属性的非平凡FD：{Ship , Date\}$ \rightarrow$ Cargo</p>
 <p>且</p>
-<p>$R_{12}(Ship,Capacity)$</p>
-<p>键：$\{Ship\}$</p>
-<p>$F^+$上只有一个重要FD：$Ship \rightarrow Capacity$</p>
+<p>$R_{12}$(Ship, Capacity)​</p>
+<p>键：{Ship}</p>
+<p>$F^+$上只有一个非平凡FD：Ship$ \rightarrow$ Capacity</p>
 <p>且</p>
-<p>$R_{12}(Ship,Capacity)$</p>
-<p>键：$\{Ship\}$</p>
-<p>$F^+$上只有一个重要FD：$Ship \rightarrow Capacity$</p>
+<p>$R_{12}$(Ship,Capacity)​</p>
+<p>键：{Ship}​</p>
+<p>$F^+$上只有一个非平凡FD：Ship $\rightarrow$ Capacity</p>
 <p>这符合BCNF，而且分解即无损又保留依赖关系。</p>
 <p>然而，有一些关系方案分解为BCNF后，没有无损、保持依赖关系的方法。</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316201403.png" alt="image-20210316201403853" style="zoom:25%;"></p>
@@ -958,30 +958,29 @@ s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/">
+                <a href="/2021/03/18/shu-ju-ku-ji-chu-shi-jian-ji-lu-3/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/285.jpg" class="responsive-img" alt="数据库基础课程笔记（6）">
+                        <img src="/medias/featureimages/246.jpg" class="responsive-img" alt="数据库基础实践记录（3）">
                         
-                        <span class="card-title">数据库基础课程笔记（6）</span>
+                        <span class="card-title">数据库基础实践记录（3）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 Week4 数据库基础关系数据库设计部分相关内容
+                            COMP9311 数据库基础实践课Week 4内容：SQL查询和视图定义
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-16
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-18
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -994,7 +993,6 @@ s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步�
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1006,12 +1004,16 @@ s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步�
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                        <span class="chip bg-color">已完稿</span>
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
                     </a>
                     
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">实践操作</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
                     </a>
                     
                 </div>
@@ -1275,7 +1277,7 @@ s_{j,i} = a \text{如果} A_i∈ R_j, \text{否则} s_{j,i} = b</script><p>步�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">41.5k</span>&nbsp;字
+                class="white-color">43.5k</span>&nbsp;字
             
             
             
