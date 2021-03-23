@@ -414,8 +414,8 @@
                                 <span class="chip bg-color">离散数学</span>
                             </a>
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -548,7 +548,7 @@
 <p>对于有向图，欧拉回路存在的条件是$\forall v \in V(G)\ indeg(v)=outdeg(v)$</p>
 <h3 id="特殊的图"><a href="#特殊的图" class="headerlink" title="特殊的图"></a>特殊的图</h3><p><strong>完全图（Complete graph）</strong>$K_n$，有$n$个顶点，全部相互连接，含有$\frac{n(n-1)}{2}$条边</p>
 <p><strong>完全双边图（Complete bipartite graph）</strong>$K_{n,n}$，有$m+n$个顶点，分割为两个不连接的集合，一个包含n个顶点，另一个包含m个顶点。每个顶点都与另一组顶点连接，每组内的顶点相互不连接。其边的数量为$m\cdot n$</p>
-<p><strong>完全k分图（Complete k-partite graph）$K_{m_1,…,m_k}$</strong></p>
+<p><strong>完全k部图（Complete k-partite graph）$K_{m_1,…,m_k}$</strong></p>
 <p>包含$m_1 + … + m_k$个顶点，分割成k个不相接的集合，分别为顶点$m_1,m_2…$。所有来自不同集合顶点相连，来自相同集合的顶点不相连。其边数为$\sum_{i&lt;j}m_im_j=\frac{1}{2}\sum_{i\neq j}m_im_j$</p>
 <p>这些图生成完全图$K_n=\underbrace{K_1,…,1}_n$</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210321201445.png" alt="K5及K33图" style="zoom: 25%;"></p>
@@ -567,11 +567,11 @@
 c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V)$的色数，用$χ(G)$表示。</p>
 <h3 id="色数的性质-Properties-of-the-Chromatic-Number"><a href="#色数的性质-Properties-of-the-Chromatic-Number" class="headerlink" title="色数的性质 Properties of the Chromatic Number"></a>色数的性质 Properties of the Chromatic Number</h3><script type="math/tex; mode=display">χ(K_n) = n</script><p>如果$G$有$n$个顶点，且$χ(G) = n$，那么$G = K_n$</p>
 <p>如果$χ(G) = 1$那么$G$是完全不连通的，它有0条边</p>
-<p>如果$χ(G) = 2\ G$是二分图</p>
+<p>如果$χ(G) = 2\ G$是二部图</p>
 <p>对于任意树$χ(T) = 2$</p>
 <p>对于任何循环$C_n$，它的色数取决于$n$的奇偶性，对于当$n$为偶数时，$χ(C_n) = 2$，而当$n$为奇数时，$χ(C_n) = 3$</p>
 <h3 id="团-Cliques"><a href="#团-Cliques" class="headerlink" title="团 Cliques"></a>团 Cliques</h3><p>图$(V’,E’)$是图$(V,E)$的子集，其中$V’ \subseteq V$且$E’ \subseteq E$</p>
-<p><strong>团（clique）</strong>是G的完全子图。含有k个节点的集团被称为k-集团</p>
+<p><strong>团（clique）</strong>是G的完全子图。含有k个节点的团被称为k-团</p>
 <p>最大的团数被称为图的团数，记作$\kappa(G)$</p>
 <p>$\chi(G)\ge\kappa(G)$</p>
 <p>然而，这是唯一的限制。对于任意给定的$k$，都存在$κ(G) = k$的图，而$χ(G)$可以任意大。</p>
@@ -594,10 +594,10 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
 <p>如果一个图包含$K_5$或$K_{3,3}$为副图，它就是非平面的。</p>
 <p>$n\ge5$时，$K_n$是非平面的。</p>
 <p>当$m≥3$且$n≥3$时，$K_{m,n}$是非平面的。</p>
-<p>所有的$K_{m,1}$，$K_{m,2}$  都是平面的。同样的 ，对于k分图，$K_{2,2,2}$，$K_{1,1,m}$是平面图。</p>
+<p>所有的$K_{m,1}$，$K_{m,2}$  都是平面的。同样的 ，对于k部图，$K_{2,2,2}$，$K_{1,1,m}$是平面图。</p>
 <h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>图Graphs, 树trees, 顶点的度vertex degree, 连通图connected graphs, 连通组成connected components, 通路paths, 回路cycles $C_n$</p>
 <p>图同构Graph isomorphisms, 自同构automorphisms</p>
-<p>特殊图Special graphs: 完全图complete $K_n$, 完全双边图complete bi-, k分图k-partite $K_{m_1,\cdots,m_k}$</p>
+<p>特殊图Special graphs: 完全图complete $K_n$, 完全双边图complete bi-, k部图k-partite $K_{m_1,\cdots,m_k}$</p>
 <p>遍历Traversals</p>
 <p>欧拉通路和回路Euler paths and circuits (边遍历edge traversal)</p>
 <p>汉密尔顿通路和回路Hamiltonian paths and circuits (点遍历vertex traversal)</p>
@@ -675,8 +675,8 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
                                     <span class="chip bg-color">离散数学</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -852,30 +852,29 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/21/chi-san-shu-xue-ke-cheng-bi-ji-6/">
+                <a href="/2021/03/22/chi-san-shu-xue-ke-cheng-bi-ji-7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/230.jpg" class="responsive-img" alt="离散数学课程笔记（6）">
+                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="离散数学课程笔记（7）">
                         
-                        <span class="card-title">离散数学课程笔记（6）</span>
+                        <span class="card-title">离散数学课程笔记（7）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9020离散数学Week5图论（Graphs）相关内容
+                            COMP9020离散数学Week1~Week5内容梳理
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-21
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -888,7 +887,6 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -900,8 +898,8 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
                         <span class="chip bg-color">离散数学</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
                     </a>
                     
                     <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1173,7 +1171,7 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">46k</span>&nbsp;字
+                class="white-color">46.8k</span>&nbsp;字
             
             
             
