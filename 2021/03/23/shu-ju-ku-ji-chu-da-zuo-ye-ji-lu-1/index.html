@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库基础实践记录（1） | 本杰明学习笔记</title>
+    <title>数据库基础大作业记录（1） | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/184.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/194.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库基础实践记录（1）</h1>
+                    <h1 class="description center-align post-title">数据库基础大作业记录（1）</h1>
                 </div>
             </div>
         </div>
@@ -422,8 +422,8 @@
                                 <span class="chip bg-color">实践操作</span>
                             </a>
                         
-                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                <span class="chip bg-color">已完稿</span>
+                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                <span class="chip bg-color">编辑中</span>
                             </a>
                         
                     </div>
@@ -447,7 +447,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-23
                 </div>
                 
 
@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    2.3k
                 </div>
                 
 
@@ -481,104 +481,109 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul>
-<li>设置虚拟主机</li>
-<li>在虚拟主机上安装PostgreSQL数据库服务器</li>
-<li>创建、填充和检查一个非常小的数据库</li>
+                <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>这个项目的目的是给你练习</li>
+<li>阅读和理解一个中等规模的关系模式(MyMyUNSW)</li>
+<li>实现SQL查询和视图，以满足信息请求</li>
+<li>实现PLpgSQL函数来帮助满足对信息的请求</li>
 </ul>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>学校的CSE服务器名字为<code>grieg</code>，使用它可以创建私有数据库PostgreSQL</p>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="场景一：建立一个虚拟机"><a href="#场景一：建立一个虚拟机" class="headerlink" title="场景一：建立一个虚拟机"></a>场景一：建立一个虚拟机</h3><h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh grieg																# 使用学校网络登录
-ssh CSEUsername@grieg.cse.unsw.edu.au		# 使用外网登录  CSEUsername为 z学号
-
-hostname																# 查看主机名称
-priv srvr																# 创建私有目录
-# 创建完成后，私有目录位置在/srvr/YOU/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景二：建立PostgreSQL服务"><a href="#场景二：建立PostgreSQL服务" class="headerlink" title="场景二：建立PostgreSQL服务"></a>场景二：建立PostgreSQL服务</h3><p>运行已编写完成的脚本，安装PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~cs9311/bin/pginit		# 初始化PostgreSQL服务，仅运行一次即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>运行此命令后，将在/srvr/YOU/目录下创建一个名为pgsql的子目录，同时在/srvr/YOU/目录下生成一个名为env的文件。</p>
-<p>pginit脚本已经检查了一些可能的错误，一般情况下能够正确安装服务。如果安装时出现警告提示，忽略即可。但如果有错误ERROR，一定要关注并解决。</p>
-<p>安装完成后，根据脚本提示，运行以下命令，启动或关闭PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start								# 启动PostSQL服务
-pgs stop								# 停止PostSQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>PostgreSQL的日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgsql/pg_xlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注意，此目录和pgsql/base目录文件下的内容切勿手动修改，否则可能导致PostgreSQL无法正常运行。</p>
-<p>如果想重新安装PostgreSQL，可使用以下方法</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -rf /srvr/*YOU*/pgsql		# 删除pgsql目录下的全部内容
-pginit											# 重新安装pgsql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以后每次进入grieg，都应先载入env环境变量。因此，可以将以下代码粘贴到<code>.bash_profile</code> 或 <code>.bashrc</code> 或 <code>.profile</code> 文件中，使登录系统后，自动载入。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ `hostname` = "grieg" ]
-then
-    source /srvr/YOU/env
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景三：使用PostgreSQL服务器"><a href="#场景三：使用PostgreSQL服务器" class="headerlink" title="场景三：使用PostgreSQL服务器"></a>场景三：使用PostgreSQL服务器</h3><p>一般地，每次使用PostgreSQL服务器，应按照以下流程操作：</p>
+<h2 id="如何做这个项目"><a href="#如何做这个项目" class="headerlink" title="如何做这个项目"></a>如何做这个项目</h2><ul>
+<li>仔细、完整地阅读本说明书</li>
+<li>熟悉数据库模式（描述、SQL模式、摘要）</li>
+<li>为这个项目创建一个私有目录，并放置一个projec1.sql的副本</li>
+<li>当定义解决方案时必须使用proj1中的create语句</li>
+<li>查看作为检查的一部分加载的expected_qX表中的预期输出check.sql文件</li>
+<li>解决下面的每个问题，并将你完成的解决方案放入proj1.sql中</li>
+<li>检查您的解决方案是正确的，通过验证与示例输出和使用check_qX()函数</li>
+<li>测试你的proj1.sql文件，可以毫无错误地加载到只包含原始文件的数据库中MyMyUNSW数据</li>
+<li>仔细检查你的proj1.sql文件加载到仅包含原始MyMyUNSW数据</li>
+<li>通过moodle提交项目</li>
+<li>对于每个问题，您必须在120秒内在Grieg服务器上输出结果</li>
+</ul>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>所有的大学都需要一个重要的信息基础设施来管理他们的事务。这通常需要安装一个大型的商业DBMS。UNSW的学生信息系统位于MyUNSW网站的后面。MyUNSW提供了一个与PeopleSoft企业管理系统的接口，该系统具有底层Oracle数据库。这个后端系统(Peoplesoft/Oracle)通常称为NSS。</p>
+<p>UNSW已经在MyUNSW/NSS系统上花了相当多的钱(8000多万美元)，而且它似乎很好地处理了大部分的教育管理工作。大多数人都抱怨MyUNSW的界面质量，但该系统确实允许你在线完成最基本的注册任务。</p>
+<p>尽管MyUNSW/NSS取得了成功，但仍然存在一些不足，包括：</p>
 <ul>
-<li>登录Grieg</li>
-<li>启动PostgreSQL服务器</li>
-<li>进行工作</li>
-<li>停止PostgreSQL服务器</li>
-<li>退出Grieg</li>
+<li>没有课程或课程报名等候名单</li>
+<li>没有代表学位项目结构</li>
+<li>与新南威尔士大学在线手册的整合很差</li>
 </ul>
-<p><strong>注意，不要离开之前，使PostgreSQL服务始终运行！</strong></p>
-<p>操作PostgreSQL的命令有：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start 							# 启动pgs服务
-pgs status							# 查看pgs运行状态
-pgs stop								# 关闭pgs服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>进入PostgreSQL的命令为：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql MyDatabase					# 进入指定数据库中，其中，MyDatabase名字为要进入的数据库名称
-psql -l									# 查看已有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h4><p>输入以下命令，可查看PostsqlSQL当前是否正在运行</p>
-<pre class="line-numbers language-none"><code class="language-none">psql -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>进入到PostgreSQL中的某个数据库后，命令提示符为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dbName=#					# 管理员命令提示符
-dbName=&gt;					# 其他用户命令提示符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>此处为PostgreSQL的<a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/">官网使用手册</a></p>
-<p>PostgreSQL的运行日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/srvr/YOU/pgsql/Log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="小练习-1"><a href="#小练习-1" class="headerlink" title="小练习"></a>小练习</h4><p>尝试启动和停止服务器几次，并在服务器运行和不运行时运行psql，然后分别查看屏幕显示的消息，查看内容有和区别。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>典型的操作虚拟主机和PostgreSQL服务器的会话是这样的:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">... on any CSE workstation ...
-$ ssh grieg
-... grieg login stuff ...
-... the following are all on grieg ...
-$ source /srvr/YOU/env 
-$ pgs start
-$ psql MyDatabase
-... use another xterm for editting ...
-$ pgs stop
-$ logout
-... back to your original workstation ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习1：创建一个数据库"><a href="#练习1：创建一个数据库" class="headerlink" title="练习1：创建一个数据库"></a>练习1：创建一个数据库</h3><p>登录服务器并启动PostgreSQL服务后，输入以下命令，创建数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb mydb			# 创建指定名称的数据库，mydb为要创建的数据库命令
-psql mydb					# 进入到mydb数据库中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在PostgreSQL控制台，输入以下命令，控制数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mydb=# \d					# 查看已有关系（数据库表）
-mydb=# \q					# 退出数据库控制台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="练习2：填充数据库"><a href="#练习2：填充数据库" class="headerlink" title="练习2：填充数据库"></a>练习2：填充数据库</h3><p>使用现有SQL创建数据库表及数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql  # 使用现有SQL文件向数据库导入数据
-psql mydb -f -q 文件名                                  # 开启静默模式
-( psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql 2&gt;&amp;1 ) | grep ERROR    	# 导入数据时仅显示ERROR信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习3：检查数据库"><a href="#练习3：检查数据库" class="headerlink" title="练习3：检查数据库"></a>练习3：检查数据库</h3><p>在SQL标准中，标识符将忽略大小写。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mydb=# \d Staff									# 查看指定数据库表定义
-mydb=# \q												# 退出数据库控制台
-mydb=# select * from Staff;     # 查看指定数据库表中的全部数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="小练习-2"><a href="#小练习-2" class="headerlink" title="小练习"></a>小练习</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Students where degree=3978;			    			# 查询degree为3978的全部学生
-select count(*) from Students where degree=3978;				# 查询degree为3978的学生总数
-select * from Staff where position like '%Professor%';	# 查询全部教授数据
-select course,count(*) from Enrolment group by course;	# 查询每种课程的选课人数
-select c.code, c.title																	# 查询指定姓名教师的授课名称
-from   Courses c, Staff s
-where  s.name='Andrew Taylor' and c.lecturer=s.userid;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><h4 id="无法重启PostgreSQL服务器"><a href="#无法重启PostgreSQL服务器" class="headerlink" title="无法重启PostgreSQL服务器"></a>无法重启PostgreSQL服务器</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgs stop			# 正常关闭PostgreSQL服务器的命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>解决思路</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tail -2 /srvr/YOU/logfile			# 查看日志
-psql -l												# 查看当前服务状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>PostgreSQL运行时生成的PID为位置在<code>/srvr/YOU/pgsql/postmaster.pid</code></p>
-<p>正常关闭时，PostgreSQL将自动删除此文件。若上次PostgreSQL未正常关闭，需要手动删除此文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm /srvr/YOU/pgsql/postmaster.pid			# 手动删除pid文件
-rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>第一点很不方便，因为这意味着注册一门完整的课程或课程变成了一系列反复尝试的过程。想要注册这门可的人只能希望在注册之前有人退出，而且没有其他人抢了这个空位。</p>
+<p>第二点限制了MyUNSW/NSS在三个重要操作，而这些操作原本对学生管理他们的注册非常有帮助：</p>
+<ul>
+<li>了解他们在学位课程中已经取得了多大的进步，还有哪些是需要完成的</li>
+<li>查一查他们下学期的注册项目（例如，弄一份可供选择的课程列表）</li>
+<li>确定他们何时完成了学位课程的所有要求并有资格毕业</li>
+</ul>
+<p>NSS包含有关学生、课程、课程、先决条件、配额等数据，但不包含任何UNSW学位项目结构的表示。如果在NSS数据库中没有这些信息，以上三种情况都是不可能做到的。因此，在2007年，COMP9311班设计了一个数据模型，可以代表UNSW学位课程的要求和规则。这是建立在表示所有核心NSS数据（学生、工作人员、课程、类等）的现有模式之上的。增强的数据模型被命名为MyMyUNSW模式。</p>
+<p>MyMyUNSW数据库包括包括NSS功能的信息，UNSW在线手册和CATS（房间分配）数据库。MyMyUNSW数据模型、模式和数据库在单独的文档中描述。</p>
+<h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>要在Grieg服务器下安装MyMyUNSW数据库，只需运行以下两个命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ createdb proj1
+$ psql proj1 -f /home/cs9311/web/21T1/proj/proj1/mymyunsw.dump<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果你已经在template1数据库中设置了PLpgSQL，当数据库开始加载时，你会得到一条错误消息:</p>
+<pre class="line-numbers language-none"><code class="language-none">psql:mymyunsw.dump:NN: ERROR: language "plpgsql" already exists<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>您可以忽略此错误消息，但是在加载期间发生的任何其他错误都需要进行调查。</p>
+<p>如果一切正常，load输出应该有很多信息。</p>
+<p>除了可能的与plpgsql相关的消息外，您应该不会得到错误消息。在Grieg上加载数据库的时间应该少于60秒，前提是Grieg负载不重。(如果您直到最后一刻才开始进行项目，那么在Grieg上加载数据库将会相当缓慢，从而进一步推迟您的工作。解决方案：至少现在就加载数据库，即使您一段时间后不要开始使用它。转储文件大小为50MB；把它复制到你的主目录或/srvr目录下不是一个好主意)。</p>
+<p>如果您的PostgreSQL服务器在Grieg上有其他大型数据库，或者您的/srvr/you/目录下有大型文件，那么您可能会耗尽Grieg磁盘配额。特别是，您将无法在Grieg服务器下存储MyMyUNSW数据库的两个副本。解决方案:在加载MyMyUNSW数据库之前删除所有现有的数据库。</p>
+<p>如果您在家里运行PostgreSQL，您可以下载这些文件：ymyunsw.dump，proj1.sql来帮助您开始。一旦check.sql可用，你可以去拿单独使用。</p>
+<p>一开始要做的一件事是对实际存在的数据有一个感觉。这可以帮助你更好地理解模式，并使练习的描述更容易理解。看看这个模式。问一些查询。现在就做。</p>
+<p>例如：</p>
+<pre class="line-numbers language-none"><code class="language-none">$ psql proj1
+... PostgreSQL welcome stuff ...
+proj1=# \d
+... look at the schema ...
+proj1=# select * from Students;
+... look at the Students table ...
+proj1=# select p.unswid,p.name from People p join Students s on (p.id=s.id);
+... look at the names and UNSW ids of all students ...
+proj1=# select p.unswid,p.name,s.phone from People p join Staff s on (p.id=s.id);
+... look at the names, staff ids, and phone #s of all staff ...
+proj1=# select count(*) from Course_Enrolments;
+... how many course enrolments records ...
+proj1=# select * from dbpop();
+... how many records in all tables ...
+proj1=# ... etc. etc. etc.
+proj1=# \q<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>您将发现一些表（例如，书籍、需求等）目前没有填充；这个项目不需要他们的内容。</p>
+<h3 id="入门总结"><a href="#入门总结" class="headerlink" title="入门总结"></a>入门总结</h3><p>要为这个项目设置数据库，按提供的顺序运行以下命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ createdb proj1
+$ psql proj1 -f /home/cs9311/web/21T1/proj/proj1/mymyunsw.dump
+$ psql proj1
+... run some checks to make sure the database is ok
+$ mkdir Project1Directory
+... make a working directory for Project 1
+$ cp /home/cs9311/web/21T1/proj/proj1/proj1.sql Project1Directory<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在开始做练习之前，请先阅读以下内容：</p>
+<ul>
+<li>分数反映了每个问题的相对难度/长度</li>
+<li>使用提供的proj1.sql模板文件来完成任务</li>
+<li>可以根据需要定义更多的附加函数和视图，前提是(a)在保留proj1.sql中的定义，(b)您可以按照每个问题中的要求来定义允许定义的内容</li>
+<li>确保你的查询可以在MyMyUNSW模式的任何实例上工作；不要定制它们只在这个数据库上工作；最后可能在一个不同的实例上测试</li>
+<li>不要假设任何查询都只返回单个结果;即使用“大多数”或“最大”来表示，数据库中也可能有两个或两个以上同样“大”的实例</li>
+<li>查询人名时，使用Person.name字段;它的作用就是产生可显示的名称</li>
+<li>当查询要求学生ID时，使用people.unswid字段；people.id字段是一个内部数字键，数据库之外的任何人都不感兴趣</li>
+<li>除非在练习中特别提到，否则结果中元组的顺序无关紧要；它可以随时调整使用顺序。事实上，我们的check.sql将自动对结果进行排序以进行比较</li>
+<li>结果元组中字段的精确格式确实很重要，例如，如果你使用to_char将一个数字转换为字符串，它可能不再匹配包含相同值的数字字段，即使这两个字段看起来很相似</li>
+<li>分阶段开发查询；在最终视图/函数的查询中使用它们之前，请确保您正在使用的任何子查询或子连接实际工作正确</li>
+<li>您可以定义SQL视图来回答以下问题。</li>
+<li>如果你遇到类似“不能改变视图列的名称”这样的错误，你可以使用命令<code>drop view VIEWNAME cascade</code>删除你刚刚创建的视图，然后重新创建你的新视图。</li>
+</ul>
+<p>每个问题都附有对所需内容的简要描述。如果您想要预期输出的完整细节，请查看检查脚本中提供的expected_qX表。</p>
+<h2 id="任务"><a href="#任务" class="headerlink" title="任务"></a>任务</h2><p>为了方便半自动标记，请按照每个问题中定义的方式将所有SQL解决方案打包到视图中(参见我们提供的解决方案模板的详细信息)。</p>
+<pre class="line-numbers language-none"><code class="language-none">$ dropdb proj1 ... remove any existing DB
+$ createdb proj1 ... create an empty database
+$ psql proj1 -f /home/cs9311/web/21T1/proj/proj1/mymyunsw.dump ... load the MyMyUNSW 
+schema and data
+$ psql proj1 -f /home/cs9311/web/21T1/proj/proj1/check.sql ... load the checking code
+$ psql proj1 -f proj1.sql ... load your solution (replace by proj2.sql here)
+$ psql proj1
+proj1=# select check_q1(); … check your solution to question1 (replace by check_q13() here)
+…
+proj1=# select check_q6(); … check your solution to question6
+…
+proj1=# select check_q12(); … check your solution to question13
+proj1=# select check_all(); … check all your solutions<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -605,7 +610,7 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/">http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/</a>
+                    <a href="http://szdf123.github.io/2021/03/23/shu-ju-ku-ji-chu-da-zuo-ye-ji-lu-1/">http://szdf123.github.io/2021/03/23/shu-ju-ku-ji-chu-da-zuo-ye-ji-lu-1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -659,8 +664,8 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                                     <span class="chip bg-color">实践操作</span>
                                 </a>
                             
-                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                    <span class="chip bg-color">已完稿</span>
+                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                    <span class="chip bg-color">编辑中</span>
                                 </a>
                             
                         </div>
@@ -836,24 +841,24 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/">
+                <a href="/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/215.jpg" class="responsive-img" alt="数据库基础实践记录（2）">
+                        <img src="/medias/featureimages/316.jpg" class="responsive-img" alt="数据库基础课程笔记（7）">
                         
-                        <span class="card-title">数据库基础实践记录（2）</span>
+                        <span class="card-title">数据库基础课程笔记（7）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库基础实践课Week 3内容：模式定义和数据约束
+                            COMP9311 Week5 数据库基础磁盘及文件部分相关内容
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
                         </span>
                         <span class="publish-author">
                             
@@ -878,16 +883,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                        <span class="chip bg-color">实践操作</span>
-                    </a>
-                    
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>
@@ -901,31 +902,31 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/">
+                <a href="/2021/03/22/chi-san-shu-xue-ke-cheng-bi-ji-7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/156.jpg" class="responsive-img" alt="pygame游戏开发查询手册">
+                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="离散数学课程笔记（7）">
                         
-                        <span class="card-title">pygame游戏开发查询手册</span>
+                        <span class="card-title">离散数学课程笔记（7）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            使用pygame开发游戏时所需用到的手册
+                            COMP9020离散数学Week1~Week5内容梳理
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
                                 </a>
                             
                             
@@ -935,20 +936,20 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
                     </a>
                     
-                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                        <span class="chip bg-color">游戏</span>
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
                     </a>
                     
-                    <a href="/tags/%E6%89%8B%E5%86%8C/">
-                        <span class="chip bg-color">手册</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>

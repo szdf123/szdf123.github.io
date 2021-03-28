@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记">
+    <meta name="keywords" content="COMP9311,数据库,笔记,索引">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库基础实践记录（1） | 本杰明学习笔记</title>
+    <title>数据库基础课程笔记（8） | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/184.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/347.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库基础实践记录（1）</h1>
+                    <h1 class="description center-align post-title">数据库基础课程笔记（8）</h1>
                 </div>
             </div>
         </div>
@@ -414,16 +414,12 @@
                                 <span class="chip bg-color">数据库</span>
                             </a>
                         
-                            <a href="/tags/SQL/">
-                                <span class="chip bg-color">SQL</span>
+                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                <span class="chip bg-color">编辑中</span>
                             </a>
                         
-                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                <span class="chip bg-color">实践操作</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                <span class="chip bg-color">已完稿</span>
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
                             </a>
                         
                     </div>
@@ -447,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-03
+                    2021-03-28
                 </div>
                 
 
@@ -456,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1k
                 </div>
                 
 
@@ -481,104 +477,113 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul>
-<li>设置虚拟主机</li>
-<li>在虚拟主机上安装PostgreSQL数据库服务器</li>
-<li>创建、填充和检查一个非常小的数据库</li>
-</ul>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>学校的CSE服务器名字为<code>grieg</code>，使用它可以创建私有数据库PostgreSQL</p>
-<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="场景一：建立一个虚拟机"><a href="#场景一：建立一个虚拟机" class="headerlink" title="场景一：建立一个虚拟机"></a>场景一：建立一个虚拟机</h3><h4 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ssh grieg																# 使用学校网络登录
-ssh CSEUsername@grieg.cse.unsw.edu.au		# 使用外网登录  CSEUsername为 z学号
-
-hostname																# 查看主机名称
-priv srvr																# 创建私有目录
-# 创建完成后，私有目录位置在/srvr/YOU/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景二：建立PostgreSQL服务"><a href="#场景二：建立PostgreSQL服务" class="headerlink" title="场景二：建立PostgreSQL服务"></a>场景二：建立PostgreSQL服务</h3><p>运行已编写完成的脚本，安装PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">~cs9311/bin/pginit		# 初始化PostgreSQL服务，仅运行一次即可<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>运行此命令后，将在/srvr/YOU/目录下创建一个名为pgsql的子目录，同时在/srvr/YOU/目录下生成一个名为env的文件。</p>
-<p>pginit脚本已经检查了一些可能的错误，一般情况下能够正确安装服务。如果安装时出现警告提示，忽略即可。但如果有错误ERROR，一定要关注并解决。</p>
-<p>安装完成后，根据脚本提示，运行以下命令，启动或关闭PostgreSQL服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start								# 启动PostSQL服务
-pgs stop								# 停止PostSQL服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>PostgreSQL的日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgsql/pg_xlog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>注意，此目录和pgsql/base目录文件下的内容切勿手动修改，否则可能导致PostgreSQL无法正常运行。</p>
-<p>如果想重新安装PostgreSQL，可使用以下方法</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm -rf /srvr/*YOU*/pgsql		# 删除pgsql目录下的全部内容
-pginit											# 重新安装pgsql服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>以后每次进入grieg，都应先载入env环境变量。因此，可以将以下代码粘贴到<code>.bash_profile</code> 或 <code>.bashrc</code> 或 <code>.profile</code> 文件中，使登录系统后，自动载入。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">if [ `hostname` = "grieg" ]
-then
-    source /srvr/YOU/env
-fi<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="场景三：使用PostgreSQL服务器"><a href="#场景三：使用PostgreSQL服务器" class="headerlink" title="场景三：使用PostgreSQL服务器"></a>场景三：使用PostgreSQL服务器</h3><p>一般地，每次使用PostgreSQL服务器，应按照以下流程操作：</p>
+                <h2 id="文件组织和索引"><a href="#文件组织和索引" class="headerlink" title="文件组织和索引"></a>文件组织和索引</h2><h3 id="成本模型"><a href="#成本模型" class="headerlink" title="成本模型"></a>成本模型</h3><p><strong>D</strong>: 读取或写入磁盘页的平均时间</p>
+<p><strong>C</strong>: 处理记录的平均时间</p>
+<p>H：对记录应用Hash函数所需的时间</p>
+<p>3文件组织:<br>堆文件</p>
+<p>整理文件</p>
+<p>散列文件</p>
+<h3 id="待研究的操作"><a href="#待研究的操作" class="headerlink" title="待研究的操作"></a>待研究的操作</h3><p><strong>扫描Scan</strong>：获取文件中的所有记录</p>
+<p>根据相等选择搜索。(SWES) (“ Find the students record with sid = 23 “)<br>根据范围选择搜索。(SWRS) (“ Find all students with name alphabetically after ‘ Smith ‘ “)</p>
+<p><strong>插入Insert</strong>：插入一个给定的记录到文件中。</p>
+<p><strong>删除Delete</strong>:删除给定rid的记录。</p>
+<p>下面，我们将根据3种不同的文件组织检查这些操作的成本。</p>
+<h3 id="堆文件Heap-Files"><a href="#堆文件Heap-Files" class="headerlink" title="堆文件Heap Files"></a>堆文件Heap Files</h3><p>扫描：</p>
+<p>B(D + RC)，其中<strong>B是页面数</strong>，<strong>R是页面(块)的平均记录数</strong></p>
+<p>SWES：</p>
+<p>如果选择是在一个键上指定的，平均0.5B(D + RC)，否则为B(D + RC)</p>
+<p>SWRS：</p>
+<p>插入Insert: 2D + C (总是插入到文件末尾)</p>
+<p>删除Delete：</p>
+<p>只涉及到一个记录</p>
 <ul>
-<li>登录Grieg</li>
-<li>启动PostgreSQL服务器</li>
-<li>进行工作</li>
-<li>停止PostgreSQL服务器</li>
-<li>退出Grieg</li>
+<li><p>如果rid没有给出，平均成本为0.5B(D + RC) + D;</p>
+</li>
+<li><p>其他为 (D + C ) + D</p>
+</li>
 </ul>
-<p><strong>注意，不要离开之前，使PostgreSQL服务始终运行！</strong></p>
-<p>操作PostgreSQL的命令有：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">source /srvr/YOU/env		# 载入环境变量
-pgs start 							# 启动pgs服务
-pgs status							# 查看pgs运行状态
-pgs stop								# 关闭pgs服务<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>进入PostgreSQL的命令为：</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql MyDatabase					# 进入指定数据库中，其中，MyDatabase名字为要进入的数据库名称
-psql -l									# 查看已有数据库<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="小练习"><a href="#小练习" class="headerlink" title="小练习"></a>小练习</h4><p>输入以下命令，可查看PostsqlSQL当前是否正在运行</p>
-<pre class="line-numbers language-none"><code class="language-none">psql -l<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>进入到PostgreSQL中的某个数据库后，命令提示符为</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">dbName=#					# 管理员命令提示符
-dbName=&gt;					# 其他用户命令提示符<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>此处为PostgreSQL的<a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/">官网使用手册</a></p>
-<p>PostgreSQL的运行日志文件在</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/srvr/YOU/pgsql/Log<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="小练习-1"><a href="#小练习-1" class="headerlink" title="小练习"></a>小练习</h4><p>尝试启动和停止服务器几次，并在服务器运行和不运行时运行psql，然后分别查看屏幕显示的消息，查看内容有和区别。</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>典型的操作虚拟主机和PostgreSQL服务器的会话是这样的:</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">... on any CSE workstation ...
-$ ssh grieg
-... grieg login stuff ...
-... the following are all on grieg ...
-$ source /srvr/YOU/env 
-$ pgs start
-$ psql MyDatabase
-... use another xterm for editting ...
-$ pgs stop
-$ logout
-... back to your original workstation ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习1：创建一个数据库"><a href="#练习1：创建一个数据库" class="headerlink" title="练习1：创建一个数据库"></a>练习1：创建一个数据库</h3><p>登录服务器并启动PostgreSQL服务后，输入以下命令，创建数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb mydb			# 创建指定名称的数据库，mydb为要创建的数据库命令
-psql mydb					# 进入到mydb数据库中<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>在PostgreSQL控制台，输入以下命令，控制数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mydb=# \d					# 查看已有关系（数据库表）
-mydb=# \q					# 退出数据库控制台<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h3 id="练习2：填充数据库"><a href="#练习2：填充数据库" class="headerlink" title="练习2：填充数据库"></a>练习2：填充数据库</h3><p>使用现有SQL创建数据库表及数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql  # 使用现有SQL文件向数据库导入数据
-psql mydb -f -q 文件名                                  # 开启静默模式
-( psql mydb -f ~cs9311/public_html/21T1/lab/01/mydb.sql 2&gt;&amp;1 ) | grep ERROR    	# 导入数据时仅显示ERROR信息<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h3 id="练习3：检查数据库"><a href="#练习3：检查数据库" class="headerlink" title="练习3：检查数据库"></a>练习3：检查数据库</h3><p>在SQL标准中，标识符将忽略大小写。</p>
-<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">mydb=# \d Staff									# 查看指定数据库表定义
-mydb=# \q												# 退出数据库控制台
-mydb=# select * from Staff;     # 查看指定数据库表中的全部数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="小练习-2"><a href="#小练习-2" class="headerlink" title="小练习"></a>小练习</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Students where degree=3978;			    			# 查询degree为3978的全部学生
-select count(*) from Students where degree=3978;				# 查询degree为3978的学生总数
-select * from Staff where position like '%Professor%';	# 查询全部教授数据
-select course,count(*) from Enrolment group by course;	# 查询每种课程的选课人数
-select c.code, c.title																	# 查询指定姓名教师的授课名称
-from   Courses c, Staff s
-where  s.name='Andrew Taylor' and c.lecturer=s.userid;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="可能遇到的问题"><a href="#可能遇到的问题" class="headerlink" title="可能遇到的问题"></a>可能遇到的问题</h3><h4 id="无法重启PostgreSQL服务器"><a href="#无法重启PostgreSQL服务器" class="headerlink" title="无法重启PostgreSQL服务器"></a>无法重启PostgreSQL服务器</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">pgs stop			# 正常关闭PostgreSQL服务器的命令<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>解决思路</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">tail -2 /srvr/YOU/logfile			# 查看日志
-psql -l												# 查看当前服务状态<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>PostgreSQL运行时生成的PID为位置在<code>/srvr/YOU/pgsql/postmaster.pid</code></p>
-<p>正常关闭时，PostgreSQL将自动删除此文件。若上次PostgreSQL未正常关闭，需要手动删除此文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rm /srvr/YOU/pgsql/postmaster.pid			# 手动删除pid文件
-rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>如果涉及几条记录，则花费巨大</p>
+<h3 id="整理文件-Sorted-Files"><a href="#整理文件-Sorted-Files" class="headerlink" title="整理文件 Sorted Files"></a>整理文件 Sorted Files</h3><p>按搜索键排序——一个或多个字段的组合</p>
+<p>如果对搜索键执行以下查询，则：</p>
+<p>扫描Scan: B(D + RC)</p>
+<p>SWES: </p>
+<p>如果唯一记录 O(D log2  B + C log2 R) </p>
+<p>O(D log2 B + C log2 R + #matches)</p>
+<p>SWRS:</p>
+<p>O (D log2 B + C log2 R + #matches)</p>
+<p>插入：花费巨大，搜索成本 + 2∗(0.5B(D + RC))</p>
+<p>删除：花费巨大，搜索成本 + 2∗(0.5B(D + RC))</p>
+<h3 id="哈希文件-Hashed-Files"><a href="#哈希文件-Hashed-Files" class="headerlink" title="哈希文件 Hashed Files"></a>哈希文件 Hashed Files</h3><p>文件中的页面被分组成桶。bucket由散列函数定义。页面的占用率保持在80%左右。</p>
+<p>假设数据操作基于Hash键。</p>
+<p>扫描Scan：1.25B(D + RC)</p>
+<p>SWES：如果每个哈希桶只包含一个页面，则H + D + 0.5RC</p>
+<p>SWRS: 1.25B(D + RC)。（没有从哈希结构得到帮助）</p>
+<p>插入Insert：如果涉及一个块，搜索成本加上C + D</p>
+<p>删除Delete：如果涉及一个块，搜索成本加上C + D</p>
+<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>FileType</th>
+<th>Scan</th>
+<th>EqualitySearch</th>
+<th>RangeSearch</th>
+<th>Insert</th>
+<th>Delete</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Heap</td>
+<td>BD</td>
+<td>0.5 BD</td>
+<td>BD</td>
+<td>Search + D</td>
+<td>Search+ D</td>
+</tr>
+<tr>
+<td>Sorted</td>
+<td>B D</td>
+<td>D log B</td>
+<td>D log B+# matches</td>
+<td>Search+ BD</td>
+<td>Search+ BD</td>
+</tr>
+<tr>
+<td>Hashed</td>
+<td>1.25 BD</td>
+<td>D</td>
+<td>1.25 BD</td>
+<td>2 D</td>
+<td>Search+ BD</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="索引-Indexes"><a href="#索引-Indexes" class="headerlink" title="索引 Indexes"></a>索引 Indexes</h2><p>索引背后的基本思想是参照书籍：</p>
+<p>一个键值表，其中每个条目给出使用键的位置。</p>
+<p>目的：通过键值有效地访问记录。</p>
+<h3 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328203734.png" alt="索引结构" style="zoom:25%;"></p>
+<p>索引是数据项k∗的集合。</p>
+<p>每个数据条目k∗都包含足够的信息来检索（一个或多个）具有搜索键值k的记录。</p>
+<p>编入索引 Indexing：</p>
+<p>如何组织数据条目以支持对具有给定搜索键值的数据条目的有效检索？数据输入到底存储了什么？</p>
+<h3 id="索引中数据条目的替代方案"><a href="#索引中数据条目的替代方案" class="headerlink" title="索引中数据条目的替代方案"></a>索引中数据条目的替代方案</h3><p>数据条目k∗是一个实际的数据记录（搜索键值k）。</p>
+<p>一个数据条目（k, 消除）对（rid是数据的记录id，记录搜索键值k)</p>
+<p>数据条目是（k, rid-list）对（rid-list是数据的记录ids，记录搜索键值k)</p>
+<p>例如：(Xuemin Lin, page 12),(Xuemin Lin, page 100)和(Xuemin Lin, page 12, page 100)</p>
+<h3 id="聚集索引-Clustered-Index"><a href="#聚集索引-Clustered-Index" class="headerlink" title="聚集索引 Clustered Index"></a>聚集索引 Clustered Index</h3><p>群集：一个文件是由数据记录组织起来的，与某些索引中的数据条目的顺序相同或接近。通常，“file”的搜索键与“index”的搜索键相同。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328204638.png" alt="集群索引" style="zoom:50%;"></p>
+<h3 id="未聚集索引-Unclustered-Index"><a href="#未聚集索引-Unclustered-Index" class="headerlink" title="未聚集索引 Unclustered Index"></a>未聚集索引 Unclustered Index</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328204753.png" alt="未聚集索引" style="zoom:50%;"></p>
+<p>聚集索引维护起来相对昂贵。一个数据文件最多可以集中在一个搜索键上。</p>
+<h3 id="稠密索引与稀疏索引-Dense-VS-Sparse-Indexes"><a href="#稠密索引与稀疏索引-Dense-VS-Sparse-Indexes" class="headerlink" title="稠密索引与稀疏索引 Dense VS Sparse Indexes"></a>稠密索引与稀疏索引 Dense VS Sparse Indexes</h3><p>密集：对于每个搜索键值，它包含(至少)一个数据输入。</p>
+<p>稀疏：其他情况</p>
+<p>Q：我们可以建立一个非聚集的稀疏索引吗？</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328205021.png" alt="稀疏索引VS稠密索引" style="zoom: 33%;"></p>
+<h3 id="一级和二级索引-Primary-and-Secondary-Indexes"><a href="#一级和二级索引-Primary-and-Secondary-Indexes" class="headerlink" title="一级和二级索引 Primary and  Secondary Indexes"></a>一级和二级索引 Primary and  Secondary Indexes</h3><p>一级：索引字段包括主键</p>
+<p>二级：其他情况</p>
+<p>一个文件最多只能有一个主索引</p>
+<p>组合搜索键：搜索键包含多个字段</p>
 
                 
             </div>
@@ -605,7 +610,7 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/">http://szdf123.github.io/2021/03/03/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/</a>
+                    <a href="http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/">http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -651,16 +656,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                                     <span class="chip bg-color">数据库</span>
                                 </a>
                             
-                                <a href="/tags/SQL/">
-                                    <span class="chip bg-color">SQL</span>
+                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                    <span class="chip bg-color">编辑中</span>
                                 </a>
                             
-                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                                    <span class="chip bg-color">实践操作</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
-                                    <span class="chip bg-color">已完稿</span>
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
                                 </a>
                             
                         </div>
@@ -832,29 +833,92 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/03/04/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/">
+                <a href="/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/215.jpg" class="responsive-img" alt="数据库基础实践记录（2）">
+                        <img src="/medias/featureimages/347.jpg" class="responsive-img" alt="数据库基础课程笔记（8）">
                         
-                        <span class="card-title">数据库基础实践记录（2）</span>
+                        <span class="card-title">数据库基础课程笔记（8）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库基础实践课Week 3内容：模式定义和数据约束
+                            COMP9311 Week5、Week6 数据库基础文件组织和索引部分相关内容
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                        <span class="chip bg-color">编辑中</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-7/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/316.jpg" class="responsive-img" alt="数据库基础课程笔记（7）">
+                        
+                        <span class="card-title">数据库基础课程笔记（7）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week5 数据库基础磁盘及文件部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -878,77 +942,12 @@ rm /srvr/YOU/pgsql/.s*								# 删除socket文件<span aria-hidden="true" class
                         <span class="chip bg-color">数据库</span>
                     </a>
                     
-                    <a href="/tags/SQL/">
-                        <span class="chip bg-color">SQL</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
-                        <span class="chip bg-color">实践操作</span>
-                    </a>
-                    
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/03/02/pygame-you-xi-kai-fa-cha-xun-shou-ce/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/156.jpg" class="responsive-img" alt="pygame游戏开发查询手册">
-                        
-                        <span class="card-title">pygame游戏开发查询手册</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            使用pygame开发游戏时所需用到的手册
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B8%B8%E6%88%8F/">
-                        <span class="chip bg-color">游戏</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%89%8B%E5%86%8C/">
-                        <span class="chip bg-color">手册</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
                     </a>
                     
                 </div>

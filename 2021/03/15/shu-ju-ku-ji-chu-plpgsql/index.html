@@ -513,8 +513,7 @@ create type CourseInfo as (
 	course UnswCourseCode ,
 	syllabus text ,
 	lecturer text
-);
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h2 id="PLpgSQL（Structured-Query-Language）"><a href="#PLpgSQL（Structured-Query-Language）" class="headerlink" title="PLpgSQL（Structured Query Language）"></a>PLpgSQL（Structured Query Language）</h2><p>PLpgSQL = <strong>P</strong>rocedural <strong>L</strong>anguage extensions to <strong>P</strong>ost<strong>g</strong>re<strong>SQL</strong></p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">CREATE PROCEDURE ProcName ( Params )
 [ local declarations ]
@@ -555,7 +554,7 @@ select * from hotelsIn('The Rocks'); <span aria-hidden="true" class="line-number
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 老式函数定义
 CREATE OR REPLACE FUNCTION 
 	cat(text, text) RETURNS text 
-AS ‘
+AS $$
 DECLARE 
 	x alias for $1; -- alias for parameter 
 	y alias for $2; -- alias for parameter 
@@ -1446,7 +1445,7 @@ end; $$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">46.8k</span>&nbsp;字
+                class="white-color">52.1k</span>&nbsp;字
             
             
             
