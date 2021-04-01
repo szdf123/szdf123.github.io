@@ -460,7 +460,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    1.9k
                 </div>
                 
 
@@ -529,8 +529,35 @@ function body ;<span aria-hidden="true" class="line-numbers-rows"><span></span><
 	funcName(arg1type, arg2type, ....)
 	RETURNS rettype
 AS $$ 
-	SQL statements
-$$ LANGUAGE plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+DECLARE 
+	variable declarations 
+BEGIN 
+	code for function 
+END; 
+$$ LANGUAGE plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">create or replace function 
+	withdraw(acctNum text, amount integer)
+	returns text
+as $$ 
+declare
+	bal integer; 
+begin 
+	select balance into bal 
+	from Accounts 
+	where acctNo = acctNum; 
+	if (bal &lt; amount) then 
+		return 'Insufficient Funds'; 
+	else 
+		update Accounts 
+		set balance = balance - amount 
+		where acctNo = acctNum; 
+		select balance into bal 
+		from Accounts where acctNo = acctNum; 
+		return 'New Balance: ' || bal; 
+	end if; 
+end; 
+$$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>例：</strong></p>
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 指定啤酒的最大价格
 create or replace function 
@@ -563,7 +590,7 @@ BEGIN
 	result := x||''''''''||y; 
 	return result; 
 END; 
-‘ LANGUAGE ‘plpgsql’;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+$$ LANGUAGE 'plpgsql';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 新式函数定义
 CREATE OR REPLACE FUNCTION 
 	add(x text, y text) RETURNS text 
@@ -582,7 +609,8 @@ AS $$
 BEGIN
 	return x + y ;
 END ;
-$$ LANGUAGE plpgsql ;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+$$ LANGUAGE plpgsql ;
+-- 限制：要求x和y具有相同的“可添加”类型的值。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>PlpgSQL允许重载</p>
 <p><strong>例：</strong></p>
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE FUNCTION add ( int , int ) RETURNS int AS
@@ -801,7 +829,6 @@ create table States (
 );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>例：</strong>确保只使用有效的州代码</p>
 <pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 在为每一行的人插入或更新之前创建触发校验状态
-
 create function checkState() returns trigger as $$ 
 begin 
 	-- 标准化用户提供的值
@@ -816,11 +843,11 @@ begin
 	end if; 
 	return new; 
 end; 
-$$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+$$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p><strong>例：</strong>部门工资总额</p>
 <p>现有表结构为：</p>
 <p>Employee(id, name, address, dept, salary, …)<br>Department(id, name, manager, totSal, …)</p>
-<p>我们希望：Department.totSal = (select sum(e.salary) from Employee e where e.dept = d.id) ) )</p>
+<p>我们希望：Department.totSal = (select sum(e.salary) from Employee e where e.dept = d.id) )</p>
 <p>具体来说，可能有以下四种情况</p>
 <ul>
 <li>新员工入职</li>
@@ -1445,7 +1472,7 @@ end; $$ language plpgsql;<span aria-hidden="true" class="line-numbers-rows"><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.1k</span>&nbsp;字
+                class="white-color">51.8k</span>&nbsp;字
             
             
             

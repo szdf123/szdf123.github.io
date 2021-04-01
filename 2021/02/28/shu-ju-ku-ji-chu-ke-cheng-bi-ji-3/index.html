@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.3k
                 </div>
                 
 
@@ -1195,56 +1195,7 @@ R ÷ S = \{t: t × S\subseteq R\}</script><p><strong>例子：</strong></p>
 </tbody>
 </table>
 </div>
-<p><strong>典型的使用场景：</strong></p>
-<p>所有部门都开设了哪个课程？</p>
-<script type="math/tex; mode=display">
-COURSE÷(π_{Department}COURSE)</script><p>1）</p>
-<script type="math/tex; mode=display">
-\pi_{\{eName\}}( \sigma_{\{dName='sales'\}}(Department) \Join Employee)</script><p>2)</p>
-<script type="math/tex; mode=display">
-A \leftarrow \pi_{\{pName\}}(Project \Join Host \Join Department \div \pi_{\{dID\}}(Department))\\
-B \leftarrow \pi_{\{pName\}}(\sigma_{\{dName='human\ resource'\}}(Department)\Join Employee \Join WorkOn \Join Project)\\
-A-B</script><p>3)</p>
-<script type="math/tex; mode=display">
-A\leftarrow \pi_{\{pName\}}(\sigma_{\{gender='male'\}}(Employee)\Join WorkOn \Join Project) \\
-B\leftarrow \pi_{\{pName\}}(\sigma_{\{gender='female'\}}(Employee)\Join WorkOn \Join Project) \\
-(A - B) \cup (B-A)</script><p>4)</p>
-<script type="math/tex; mode=display">
-A \leftarrow \pi_{\{pID\}}(\sigma_{\{cost>=1000000\}}(Project)) \\
-B \leftarrow \pi_{\{dName\}}(A \Join Host \Join Department) \\
-C \leftarrow \pi_{\{dName\}}((\pi_{\{pID\}}(Project)-A) \Join WorkOn \Join Employee \Join Department)\\
-B-C</script><script type="math/tex; mode=display">
-\begin{aligned}
-& D & \leftarrow & Department \\
-& E & \leftarrow & Employee\\
-& P & \leftarrow & Project \\
-& W & \leftarrow & WorkOn \\
-& H & \leftarrow & Host
-\end{aligned}</script><p>1）</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& \pi_{\{eName\}}( \sigma_{\{dName='sales'\}}(D) \Join_{D.dID=E.dID} E)
-\end{aligned}</script><p>2)</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& A \leftarrow \pi_{\{pID,pName\}}(P \Join_{P.pID=H.pID} H \Join_{H.dID=D.dID} D \div \pi_{\{dID\}}(\sigma_{\{dName\neq 'human\ resource'\}}(D))\\
-& B \leftarrow \pi_{\{pID,pName\}}(\sigma_{\{dName='human\ resource'\}}(D)\Join_{D.dID=H.dID} H \Join_{H.pID=P.pID} P)\\
-& \pi_{\{pName\}}(A-B)
-\end{aligned}</script><p>3)</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& A\leftarrow \pi_{\{pID,pName\}}(\sigma_{\{gender='male'\}}(E)\Join_{E.eID=W.eID} W \Join_{W.pID=P.pID} P) \\
-& B\leftarrow \pi_{\{pID,pName\}}(\sigma_{\{gender='female'\}}(E)\Join_{E.eID=W.eID} W \Join_{W.pID=P.pID} P) \\
-& \pi_{\{pName\}}((A - B) \cup (B-A))
-\end{aligned}</script><p>4)</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-& A \leftarrow \pi_{\{pID\}}(\sigma_{\{cost>=1000000\}}(P)) \\
-& F \leftarrow \pi_{\{pID\}}(P)-A \\
-& B \leftarrow \pi_{\{dID,dName\}}(A \Join_{A.pID=H.pID} H \Join_{H.dID=D.dID} D) \\
-& C \leftarrow \pi_{\{dID,dName\}}(F \Join_{F.pID=W.pID} W \Join_{W.eID=E.eID} E \Join_{E.dID=D.eID} D)\\
-& \pi_{\{dName\}}(B-C)
-\end{aligned}</script>
+
                 
             </div>
             <hr/>
@@ -1812,7 +1763,7 @@ B-C</script><script type="math/tex; mode=display">
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">52.1k</span>&nbsp;字
+                class="white-color">51.8k</span>&nbsp;字
             
             
             
