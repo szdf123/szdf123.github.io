@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9311,数据库,笔记,索引">
+    <meta name="keywords" content="Linux,CentOS7,Java">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>数据库基础课程笔记（8） | 本杰明学习笔记</title>
+    <title>Linux CentOS 综合使用技巧 | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/347.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/122.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">数据库基础课程笔记（8）</h1>
+                    <h1 class="description center-align post-title">Linux CentOS 综合使用技巧</h1>
                 </div>
             </div>
         </div>
@@ -406,20 +406,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/COMP9311/">
-                                <span class="chip bg-color">COMP9311</span>
+                            <a href="/tags/Java/">
+                                <span class="chip bg-color">Java</span>
                             </a>
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                <span class="chip bg-color">数据库</span>
+                            <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                                <span class="chip bg-color">持续更新</span>
                             </a>
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">课程笔记</span>
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -430,8 +426,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/UNSW/" class="post-category">
-                                UNSW
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                最佳实践
                             </a>
                         
                     </div>
@@ -443,7 +439,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-28
+                    2021-04-15
                 </div>
                 
 
@@ -452,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    50
                 </div>
                 
 
@@ -477,113 +473,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="文件组织和索引"><a href="#文件组织和索引" class="headerlink" title="文件组织和索引"></a>文件组织和索引</h2><h3 id="成本模型"><a href="#成本模型" class="headerlink" title="成本模型"></a>成本模型</h3><p><strong>D</strong>: 读取或写入磁盘页的平均时间</p>
-<p><strong>C</strong>: 处理记录的平均时间</p>
-<p>H：对记录应用Hash函数所需的时间</p>
-<p>3文件组织:<br>堆文件</p>
-<p>整理文件</p>
-<p>散列文件</p>
-<h3 id="待研究的操作"><a href="#待研究的操作" class="headerlink" title="待研究的操作"></a>待研究的操作</h3><p><strong>扫描Scan</strong>：获取文件中的所有记录</p>
-<p>根据相等选择搜索。(SWES) (“ Find the students record with sid = 23 “)<br>根据范围选择搜索。(SWRS) (“ Find all students with name alphabetically after ‘ Smith ‘ “)</p>
-<p><strong>插入Insert</strong>：插入一个给定的记录到文件中。</p>
-<p><strong>删除Delete</strong>:删除给定rid的记录。</p>
-<p>下面，我们将根据3种不同的文件组织检查这些操作的成本。</p>
-<h3 id="堆文件Heap-Files"><a href="#堆文件Heap-Files" class="headerlink" title="堆文件Heap Files"></a>堆文件Heap Files</h3><p>扫描：</p>
-<p>B(D + RC)，其中<strong>B是页面数</strong>，<strong>R是页面(块)的平均记录数</strong></p>
-<p>SWES：</p>
-<p>如果选择是在一个键上指定的，平均0.5B(D + RC)，否则为B(D + RC)</p>
-<p>SWRS：</p>
-<p>插入Insert: 2D + C (总是插入到文件末尾)</p>
-<p>删除Delete：</p>
-<p>只涉及到一个记录</p>
-<ul>
-<li><p>如果rid没有给出，平均成本为0.5B(D + RC) + D;</p>
-</li>
-<li><p>其他为 (D + C ) + D</p>
-</li>
-</ul>
-<p>如果涉及几条记录，则花费巨大</p>
-<h3 id="整理文件-Sorted-Files"><a href="#整理文件-Sorted-Files" class="headerlink" title="整理文件 Sorted Files"></a>整理文件 Sorted Files</h3><p>按搜索键排序——一个或多个字段的组合</p>
-<p>如果对搜索键执行以下查询，则：</p>
-<p>扫描Scan: B(D + RC)</p>
-<p>SWES: </p>
-<p>如果唯一记录 O(D log2  B + C log2 R) </p>
-<p>O(D log2 B + C log2 R + #matches)</p>
-<p>SWRS:</p>
-<p>O (D log2 B + C log2 R + #matches)</p>
-<p>插入：花费巨大，搜索成本 + 2∗(0.5B(D + RC))</p>
-<p>删除：花费巨大，搜索成本 + 2∗(0.5B(D + RC))</p>
-<h3 id="哈希文件-Hashed-Files"><a href="#哈希文件-Hashed-Files" class="headerlink" title="哈希文件 Hashed Files"></a>哈希文件 Hashed Files</h3><p>文件中的页面被分组成桶。bucket由散列函数定义。页面的占用率保持在80%左右。</p>
-<p>假设数据操作基于Hash键。</p>
-<p>扫描Scan：1.25B(D + RC)</p>
-<p>SWES：如果每个哈希桶只包含一个页面，则H + D + 0.5RC</p>
-<p>SWRS: 1.25B(D + RC)。（没有从哈希结构得到帮助）</p>
-<p>插入Insert：如果涉及一个块，搜索成本加上C + D</p>
-<p>删除Delete：如果涉及一个块，搜索成本加上C + D</p>
-<h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><div class="table-container">
-<table>
-<thead>
-<tr>
-<th>FileType</th>
-<th>Scan</th>
-<th>EqualitySearch</th>
-<th>RangeSearch</th>
-<th>Insert</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Heap</td>
-<td>BD</td>
-<td>0.5 BD</td>
-<td>BD</td>
-<td>Search + D</td>
-<td>Search+ D</td>
-</tr>
-<tr>
-<td>Sorted</td>
-<td>B D</td>
-<td>D log B</td>
-<td>D log B+# matches</td>
-<td>Search+ BD</td>
-<td>Search+ BD</td>
-</tr>
-<tr>
-<td>Hashed</td>
-<td>1.25 BD</td>
-<td>D</td>
-<td>1.25 BD</td>
-<td>2 D</td>
-<td>Search+ BD</td>
-</tr>
-</tbody>
-</table>
-</div>
-<h2 id="索引-Indexes"><a href="#索引-Indexes" class="headerlink" title="索引 Indexes"></a>索引 Indexes</h2><p>索引背后的基本思想是参照书籍：</p>
-<p>一个键值表，其中每个条目给出使用键的位置。</p>
-<p>目的：通过键值有效地访问记录。</p>
-<h3 id="索引结构"><a href="#索引结构" class="headerlink" title="索引结构"></a>索引结构</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328203734.png" alt="索引结构" style="zoom:25%;"></p>
-<p>索引是数据项k∗的集合。</p>
-<p>每个数据条目k∗都包含足够的信息来检索（一个或多个）具有搜索键值k的记录。</p>
-<p>编入索引 Indexing：</p>
-<p>如何组织数据条目以支持对具有给定搜索键值的数据条目的有效检索？数据输入到底存储了什么？</p>
-<h3 id="索引中数据条目的替代方案"><a href="#索引中数据条目的替代方案" class="headerlink" title="索引中数据条目的替代方案"></a>索引中数据条目的替代方案</h3><p>数据条目k∗是一个实际的数据记录（搜索键值k）。</p>
-<p>一个数据条目（k, 消除）对（rid是数据的记录id，记录搜索键值k)</p>
-<p>数据条目是（k, rid-list）对（rid-list是数据的记录ids，记录搜索键值k)</p>
-<p>例如：(Xuemin Lin, page 12),(Xuemin Lin, page 100)和(Xuemin Lin, page 12, page 100)</p>
-<h3 id="聚集索引-Clustered-Index"><a href="#聚集索引-Clustered-Index" class="headerlink" title="聚集索引 Clustered Index"></a>聚集索引 Clustered Index</h3><p>群集：一个文件是由数据记录组织起来的，与某些索引中的数据条目的顺序相同或接近。通常，“file”的搜索键与“index”的搜索键相同。</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328204638.png" alt="集群索引" style="zoom:50%;"></p>
-<h3 id="未聚集索引-Unclustered-Index"><a href="#未聚集索引-Unclustered-Index" class="headerlink" title="未聚集索引 Unclustered Index"></a>未聚集索引 Unclustered Index</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328204753.png" alt="未聚集索引" style="zoom:50%;"></p>
-<p>聚集索引维护起来相对昂贵。一个数据文件最多可以集中在一个搜索键上。</p>
-<h3 id="稠密索引与稀疏索引-Dense-VS-Sparse-Indexes"><a href="#稠密索引与稀疏索引-Dense-VS-Sparse-Indexes" class="headerlink" title="稠密索引与稀疏索引 Dense VS Sparse Indexes"></a>稠密索引与稀疏索引 Dense VS Sparse Indexes</h3><p>密集：对于每个搜索键值，它包含(至少)一个数据输入。</p>
-<p>稀疏：其他情况</p>
-<p>Q：我们可以建立一个非聚集的稀疏索引吗？</p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210328205021.png" alt="稀疏索引VS稠密索引" style="zoom: 33%;"></p>
-<h3 id="一级和二级索引-Primary-and-Secondary-Indexes"><a href="#一级和二级索引-Primary-and-Secondary-Indexes" class="headerlink" title="一级和二级索引 Primary and  Secondary Indexes"></a>一级和二级索引 Primary and  Secondary Indexes</h3><p>一级：索引字段包括主键</p>
-<p>二级：其他情况</p>
-<p>一个文件最多只能有一个主索引</p>
-<p>组合搜索键：搜索键包含多个字段</p>
+                <h2 id="Java相关"><a href="#Java相关" class="headerlink" title="Java相关"></a>Java相关</h2><h3 id="查询Java进程"><a href="#查询Java进程" class="headerlink" title="查询Java进程"></a>查询Java进程</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">ps -ef | grep java<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">jps -l     #（显示java进程的Id和软件名称）
+jps -lmv   #（显示java进程的Id和软件名称；显示启动main输入参数；虚拟机参数）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
                 
             </div>
@@ -610,7 +502,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/">http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/</a>
+                    <a href="http://szdf123.github.io/2021/04/15/linux-centos-zong-he-shi-yong-ji-qiao/">http://szdf123.github.io/2021/04/15/linux-centos-zong-he-shi-yong-ji-qiao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -648,20 +540,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/COMP9311/">
-                                    <span class="chip bg-color">COMP9311</span>
+                                <a href="/tags/Java/">
+                                    <span class="chip bg-color">Java</span>
                                 </a>
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                                    <span class="chip bg-color">数据库</span>
+                                <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                                    <span class="chip bg-color">持续更新</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">课程笔记</span>
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -833,58 +721,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/">
+                <a href="/2021/04/15/linux-centos-zong-he-shi-yong-ji-qiao/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="离散数学课程笔记（7）">
+                        <img src="/medias/featureimages/122.jpg" class="responsive-img" alt="Linux CentOS 综合使用技巧">
                         
-                        <span class="card-title">离散数学课程笔记（7）</span>
+                        <span class="card-title">Linux CentOS 综合使用技巧</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9020离散数学Week7内容梳理
+                            Linux CentOS 综合使用技巧
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/UNSW/" class="post-category">
-                                    UNSW
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/COMP9020/">
-                        <span class="chip bg-color">COMP9020</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                        <span class="chip bg-color">离散数学</span>
+                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                        <span class="chip bg-color">持续更新</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -898,31 +784,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-7/">
+                <a href="/2021/04/15/centos7-pei-zhi-java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/316.jpg" class="responsive-img" alt="数据库基础课程笔记（7）">
+                        <img src="/medias/featureimages/331.jpg" class="responsive-img" alt="CentOS7操作系统配置Java">
                         
-                        <span class="card-title">数据库基础课程笔记（7）</span>
+                        <span class="card-title">CentOS7操作系统配置Java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 Week5 数据库基础磁盘及文件部分相关内容
+                            CentOS7操作系统配置Java
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/UNSW/" class="post-category">
-                                    UNSW
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
                                 </a>
                             
                             
@@ -932,20 +818,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/COMP9311/">
-                        <span class="chip bg-color">COMP9311</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>

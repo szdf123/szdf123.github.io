@@ -29,9 +29,9 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
-<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
@@ -422,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                技术学习
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                最佳实践
                             </a>
                         
                     </div>
@@ -444,7 +444,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    772
+                    1.2k
                 </div>
                 
 
@@ -469,11 +469,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <blockquote>
-<p>bistoury官网：<a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p>
-<p>K8s环境搭建bistoury参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaoqi/p/Bistoury.html">https://www.cnblogs.com/xiaoqi/p/Bistoury.html</a></p>
-</blockquote>
-<h2 id="Bistoury介绍"><a href="#Bistoury介绍" class="headerlink" title="Bistoury介绍"></a>Bistoury介绍</h2><p>开发者：去哪儿网</p>
+                <h2 id="Bistoury介绍"><a href="#Bistoury介绍" class="headerlink" title="Bistoury介绍"></a>Bistoury介绍</h2><p>开发者：去哪儿网</p>
 <p>功能：从日志、内存、线程、类信息、调试、机器和系统属性等各个方面对应用进行诊断</p>
 <p>目的：提升开发人员诊断问题的效率和能力</p>
 <p>集成：Alibaba开源的<a target="_blank" rel="noopener" href="https://github.com/alibaba/arthas">arthas</a>和唯品会开源的<a target="_blank" rel="noopener" href="https://github.com/vipshop/vjtools">vjtools</a></p>
@@ -498,6 +494,27 @@
 <p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/design/design.md">Bistoury的访问流程</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f7202e490156">Bistoury原理分析</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/quick_start.md">Bistoury快速开始</a></p>
+<h2 id="Bistoury的快速部署"><a href="#Bistoury的快速部署" class="headerlink" title="Bistoury的快速部署"></a>Bistoury的快速部署</h2><ol>
+<li><p>从官网下载quick_start安装包，本例下载安装包文件名称为<a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/releases/download/v2.0.7/bistoury-2.0.7-quick-start.tar.gz">bistoury-2.0.7-quick-start.tar.gz</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/quick_start.md">快速开始官网地址</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/releases">最新release下载地址</a></p>
+</li>
+<li><p>解压安装包，并运行quick_start.sh</p>
+</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 解压文件，并进入到对应目录中
+tar -zxvf bistoury-quick-start.tar.gz
+cd bistoury-2.0.7
+# 如果应用以本人用户启动，可以直接运行
+./quick_start.sh -p 1024(应用进程pid，自行替换) start
+# 如果应用以其它帐号启动，比如 tomcat，需要指定一下用户然后运行
+sudo -u tomcat ./quick_start.sh -p 1024(应用进程pid，自行替换) start
+# 停止运行
+./quick_start.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol>
+<li>访问方法<br>在浏览器输入 <a target="_blank" rel="noopener" href="http://ip:9091">http://ip:9091</a> 访问 UI，初始化用户名/密码为 admin/admin</li>
+<li>官方提供的启动参数<br>| 参数名称 | 是否必填 | 默认值                                            | 说明                                                         |<br>| ———— | ———— | ————————————————————————- | —————————————————————————————— |<br>| -i       | 选填     | ip 中列表的第一个                                 | 当本机存在多个 ip 时，指定一个可用 ip                        |<br>| -j       | 选填     | 环境变量 JAVA_HOME                                | 指定 jdk 路径                                                |<br>| -l       | 选填     | /tmp                                              | 应用的日志目录，Bistoury 命令执行的目录，比如 ls，tail 等都会默认在此目录下执行 |<br>| -p       | 必填     |                                                   | 应用进程 id，因为是脚本快速启动，所以需要使用该参数指定对哪个 JAVA 进程进行诊断 |<br>| -c       | 选填     | org.springframework.web.servlet.DispatcherServlet | 用于获取一些应用信息，应填写为依赖的 jar 包中的一个已加载的类（不能使用 Bistoury agent 中用到的类，推荐使用公司内部中间件的 jar 包或 Spring 相关包中的，agent 不可能使用到的类，如org.springframework.web.servlet.DispatcherServlet） |<br>| -h       | 选填     |                                                   | 查看帮助文档                                                 |</li>
+</ol>
 <h2 id="Bistoury-在docker运行"><a href="#Bistoury-在docker运行" class="headerlink" title="Bistoury 在docker运行"></a>Bistoury 在docker运行</h2><p>官方的快速启动命令：</p>
 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
 #创建网络
@@ -528,7 +545,12 @@ docker  run -it -d  -p 8687:8686 -i --net bistoury --ip 172.19.0.6 registry.cn-h
 <li>agent 需要和应用部署在同一台机器上。推荐在测试环境全环境自动部署，线上环境提供单机一键部署，以及应用下所有机器一键部署</li>
 <li>独立的应用中心，管理所有功能内部应用和机器信息，这是一个和 Bistoury 相独立的系统，Bistoury 从中拿到不断更新的应用和机器信息</li>
 </ul>
-<h2 id="bistoury-application-k8s-Bistoury-on-K8S"><a href="#bistoury-application-k8s-Bistoury-on-K8S" class="headerlink" title="bistoury-application-k8s(Bistoury on K8S)"></a>bistoury-application-k8s(Bistoury on K8S)</h2>
+<h2 id="bistoury-application-k8s-Bistoury-on-K8S"><a href="#bistoury-application-k8s-Bistoury-on-K8S" class="headerlink" title="bistoury-application-k8s(Bistoury on K8S)"></a>bistoury-application-k8s(Bistoury on K8S)</h2><blockquote>
+<p><strong>本文参考链接</strong></p>
+<p>bistoury官网<br><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p>
+<p>java应用诊断和在线debug利器bistoury介绍与在K8S环境使用<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaoqi/p/Bistoury.html">https://www.cnblogs.com/xiaoqi/p/Bistoury.html</a></p>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -796,8 +818,8 @@ docker  run -it -d  -p 8687:8686 -i --net bistoury --ip 172.19.0.6 registry.cn-h
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    技术学习
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
                                 </a>
                             
                             
@@ -1080,7 +1102,7 @@ docker  run -it -d  -p 8687:8686 -i --net bistoury --ip 172.19.0.6 registry.cn-h
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">53.1k</span>&nbsp;字
+                class="white-color">53.6k</span>&nbsp;字
             
             
             
