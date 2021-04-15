@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="COMP9020,数学,笔记">
+    <meta name="keywords" content="bistoury,kubernetes,应用监控,系统监控">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>离散数学课程笔记（7） | 本杰明学习笔记</title>
+    <title>在kubernetes环境搭建bistoury | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/261.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/171.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">离散数学课程笔记（7）</h1>
+                    <h1 class="description center-align post-title">在kubernetes环境搭建bistoury</h1>
                 </div>
             </div>
         </div>
@@ -406,20 +406,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/COMP9020/">
-                                <span class="chip bg-color">COMP9020</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                                <span class="chip bg-color">离散数学</span>
-                            </a>
-                        
                             <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
                                 <span class="chip bg-color">编辑中</span>
                             </a>
                         
-                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                                <span class="chip bg-color">课程笔记</span>
+                            <a href="/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">
+                                <span class="chip bg-color">监控系统</span>
                             </a>
                         
                     </div>
@@ -430,8 +422,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/UNSW/" class="post-category">
-                                UNSW
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                技术学习
                             </a>
                         
                     </div>
@@ -443,7 +435,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-01
+                    2021-04-15
                 </div>
                 
 
@@ -452,7 +444,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    337
+                    772
                 </div>
                 
 
@@ -477,17 +469,66 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="归纳，递归，Big-Oh符号-Induction-Recursion-Big-Oh-Notation"><a href="#归纳，递归，Big-Oh符号-Induction-Recursion-Big-Oh-Notation" class="headerlink" title="归纳，递归，Big-Oh符号 Induction, Recursion, Big-Oh Notation"></a>归纳，递归，Big-Oh符号 Induction, Recursion, Big-Oh Notation</h2><h3 id="归纳推理-Inductive-Reasoning"><a href="#归纳推理-Inductive-Reasoning" class="headerlink" title="归纳推理 Inductive Reasoning"></a>归纳推理 Inductive Reasoning</h3><p>假设我们想要得出这种形式的结论：$P(x)$对于所有的$x$都属于某种类型</p>
-<p>归纳推理(如哲学中所理解的那样)是从例子出发的。</p>
-<p>例如：已知“这只天鹅是白色的，那只天鹅也是白色的，事实上每只天鹅都是白色的。我所见过的天鹅都是白色的。”<br>结论：”每只天鹅都是白色的“</p>
-<p>注意：这可能是发现假说的好方法，但这不是一个有效的推理原则！</p>
-<p>数学归纳法 是一种有效的变体。</p>
-<h3 id="数学归纳法-Mathematical-induction"><a href="#数学归纳法-Mathematical-induction" class="headerlink" title="数学归纳法 Mathematical induction"></a>数学归纳法 Mathematical induction</h3><p>数学归纳法不仅基于一组例子，而且基于从已知P存在的情况中推导出新的$P(x)$情况的规则。</p>
-<p>数学归纳法推理的一般结构：</p>
-<p><strong>基本情况Base Case[B]</strong>：$P(a_1), P(a_2),…. P(a_n)$对于一个小的例子集$a_1…a_n$(通常 n = 1)</p>
-<p><strong>归纳步骤 Inductive Step[I]</strong>: 如果$P(x)$在某些情况下$x = x_1,…, x_k$成立，那么$P(y)$对于新的情况$y$是成立的，以某种方式由$x_1,…,x_k$。</p>
-<p><strong>结论 Conclusion</strong>: 从$a_1…a_n$开始，并重复应用已有值构造y的方法，我们最终可以构造所有感兴趣的域内的值。</p>
-
+                <blockquote>
+<p>bistoury官网：<a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p>
+<p>K8s环境搭建bistoury参考文章：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiaoqi/p/Bistoury.html">https://www.cnblogs.com/xiaoqi/p/Bistoury.html</a></p>
+</blockquote>
+<h2 id="Bistoury介绍"><a href="#Bistoury介绍" class="headerlink" title="Bistoury介绍"></a>Bistoury介绍</h2><p>开发者：去哪儿网</p>
+<p>功能：从日志、内存、线程、类信息、调试、机器和系统属性等各个方面对应用进行诊断</p>
+<p>目的：提升开发人员诊断问题的效率和能力</p>
+<p>集成：Alibaba开源的<a target="_blank" rel="noopener" href="https://github.com/alibaba/arthas">arthas</a>和唯品会开源的<a target="_blank" rel="noopener" href="https://github.com/vipshop/vjtools">vjtools</a></p>
+<h2 id="功能概览"><a href="#功能概览" class="headerlink" title="功能概览"></a>功能概览</h2><p>通过命令行界面查看日志，使用arthas和vjtools的各项功能</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/console.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/console.png" alt="console"></a></p>
+<p>在线debug，在线应用调试神器</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/debug_panel.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/debug_panel.png" alt="debug"></a></p>
+<p>线程级cpu监控，帮助你掌握线程级cpu使用率</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jstack.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jstack.png" alt="jstack_dump"></a></p>
+<p>在web界面查看JVM运行信息，以及各种其它信息</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jvm.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jvm.png" alt="jvm"></a></p>
+<p>动态给方法添加监控</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/monitor.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/monitor.png" alt="monitor"></a></p>
+<p>线程dump</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/thread_dump.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/thread_dump.png" alt="thread_dump"></a></p>
+<h2 id="Bistoury架构分析"><a href="#Bistoury架构分析" class="headerlink" title="Bistoury架构分析"></a>Bistoury架构分析</h2><p>Bistoury核心组件包含agent，proxy，ui：</p>
+<ul>
+<li>agent ： 与需要诊断的应用部署到一起，负责具体的诊断命令执行，通过域名连接proxy</li>
+<li>proxy：agent的代理，agent启动时会通过ws和proxy连接注册，proxy可以部署多个，推荐使用域名负载</li>
+<li>ui：ui提供图形化和命令行界面，接收从用户传来的命令，传递命令给proxy，接收从proxy传来的结果并展示给用户。</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/design/design.md">Bistoury的访问流程</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f7202e490156">Bistoury原理分析</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/quick_start.md">Bistoury快速开始</a></p>
+<h2 id="Bistoury-在docker运行"><a href="#Bistoury-在docker运行" class="headerlink" title="Bistoury 在docker运行"></a>Bistoury 在docker运行</h2><p>官方的快速启动命令：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash
+#创建网络
+echo "start create network"
+docker network create --subnet=172.19.0.0/16 bistoury
+#mysql 镜像
+echo "start run mysql image"
+docker run --name mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -d -i --net bistoury --ip 172.19.0.7  registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-db
+#zk 镜像
+echo "start run zk image"
+docker run -d -p 2181:2181 -it --net bistoury --ip 172.19.0.2 registry.cn-hangzhou.aliyuncs.com/bistoury/zk:latest
+sleep 30
+#proxy 镜像
+echo "start run proxy module"
+docker run -d -p 9880:9880 -p 9881:9881 -p 9090:9090 -i --net bistoury --ip 172.19.0.3 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-proxy --real-ip $1 --zk-address 172.19.0.2:2181 --proxy-jdbc-url jdbc:mysql://172.19.0.7:3306/bistoury
+#ui 镜像
+echo "start run ui module"
+docker run -p 9091:9091  -it -d --net bistoury --ip 172.19.0.4 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-ui --zk-address 172.19.0.2:2181 --ui-jdbc-url jdbc:mysql://172.19.0.7:3306/bistoury
+#boot 镜像
+echo "start run demo application"
+docker  run -it -d  -p 8686:8686 -i --net bistoury --ip 172.19.0.5 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-demo --proxy-host $1:9090
+docker  run -it -d  -p 8687:8686 -i --net bistoury --ip 172.19.0.6 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-demo --proxy-host $1:9090<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意，运行时需要传入本机IP地址</p>
+<h2 id="Bistoury-在生产环境运行"><a href="#Bistoury-在生产环境运行" class="headerlink" title="Bistoury 在生产环境运行"></a>Bistoury 在生产环境运行</h2><p>官方推荐部署方式：</p>
+<ul>
+<li>ui 独立部署，推荐部署在多台机器，并提供独立的域名</li>
+<li>proxy 独立部署，推荐部署在多台机器，并提供独立的域名</li>
+<li>agent 需要和应用部署在同一台机器上。推荐在测试环境全环境自动部署，线上环境提供单机一键部署，以及应用下所有机器一键部署</li>
+<li>独立的应用中心，管理所有功能内部应用和机器信息，这是一个和 Bistoury 相独立的系统，Bistoury 从中拿到不断更新的应用和机器信息</li>
+</ul>
+<h2 id="bistoury-application-k8s-Bistoury-on-K8S"><a href="#bistoury-application-k8s-Bistoury-on-K8S" class="headerlink" title="bistoury-application-k8s(Bistoury on K8S)"></a>bistoury-application-k8s(Bistoury on K8S)</h2>
                 
             </div>
             <hr/>
@@ -513,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/">http://szdf123.github.io/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/</a>
+                    <a href="http://szdf123.github.io/2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/">http://szdf123.github.io/2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -551,20 +592,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/COMP9020/">
-                                    <span class="chip bg-color">COMP9020</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
-                                    <span class="chip bg-color">离散数学</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
                                     <span class="chip bg-color">编辑中</span>
                                 </a>
                             
-                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                                    <span class="chip bg-color">课程笔记</span>
+                                <a href="/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">
+                                    <span class="chip bg-color">监控系统</span>
                                 </a>
                             
                         </div>
@@ -740,19 +773,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/">
+                <a href="/2021/04/15/centos7-pei-zhi-java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/171.jpg" class="responsive-img" alt="在kubernetes环境搭建bistoury">
+                        <img src="/medias/featureimages/331.jpg" class="responsive-img" alt="CentOS7操作系统配置Java">
                         
-                        <span class="card-title">在kubernetes环境搭建bistoury</span>
+                        <span class="card-title">CentOS7操作系统配置Java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9020离散数学Week7内容梳理
+                            CentOS7操作系统配置Java
                         
                     </div>
                     <div class="publish-info">
@@ -774,12 +807,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">
-                        <span class="chip bg-color">监控系统</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
                     </a>
                     
                 </div>
@@ -793,24 +830,24 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/">
+                <a href="/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/347.jpg" class="responsive-img" alt="数据库基础课程笔记（8）">
+                        <img src="/medias/featureimages/261.jpg" class="responsive-img" alt="离散数学课程笔记（7）">
                         
-                        <span class="card-title">数据库基础课程笔记（8）</span>
+                        <span class="card-title">离散数学课程笔记（7）</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 Week5、Week6 数据库基础文件组织和索引部分相关内容
+                            COMP9020离散数学Week7内容梳理
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-01
                             </span>
                         <span class="publish-author">
                             
@@ -827,12 +864,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/COMP9311/">
-                        <span class="chip bg-color">COMP9311</span>
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
                     </a>
                     
                     <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">

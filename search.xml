@@ -4,6 +4,62 @@
   
     
     <entry>
+      <title>CentOS7操作系统配置Java</title>
+      <link href="2021/04/15/centos7-pei-zhi-java/"/>
+      <url>2021/04/15/centos7-pei-zhi-java/</url>
+      
+        <content type="html"><![CDATA[<ol><li>从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中</li></ol><p><a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Java官网下载地址</a></p><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415162918.png" alt="image-20210415162907128"></p><ol><li>在服务器中卸载原有Java，运行以下命令，安装Java</li></ol><pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">rpm -qa|grep jdk   // 查看当前系统Java版本rpm -e  jdk版本     // 卸载rpm -ivh jdk-16_linux-x64_bin.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415163309.png" alt="image-20210415163309031"></p><ol><li>设置环境变量</li></ol><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/profilesource /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># /etc/profile里需要粘贴的内容JAVA_HOME=/usr/java/jdk-16   # 本例中，Java默认安装位置为此路径CLASSPATH=%JAVA_HOME%/lib:%JAVA_HOME%/jre/libPATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/binexport PATH CLASSPATH JAVA_HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><ol><li>检查Java环境</li></ol><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -versionecho $JAVA_HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><blockquote><p>本文参考文章：</p><p>CentOS 7 安装 JAVA环境（JDK 1.8）<br><a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a></p><p>centos7使用rpm安装jdk8<br><a href="https://blog.csdn.net/fansenjun/article/details/82256528">https://blog.csdn.net/fansenjun/article/details/82256528</a></p><p>centos rpm安装的 jdk路径在哪和配置在哪<br><a href="https://blog.csdn.net/qq_43313588/article/details/88556527">https://blog.csdn.net/qq_43313588/article/details/88556527</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 已完稿 </tag>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>在kubernetes环境搭建bistoury</title>
+      <link href="2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/"/>
+      <url>2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>bistoury官网：<a href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p><p>K8s环境搭建bistoury参考文章：<a href="https://www.cnblogs.com/xiaoqi/p/Bistoury.html">https://www.cnblogs.com/xiaoqi/p/Bistoury.html</a></p></blockquote><h2 id="Bistoury介绍"><a href="#Bistoury介绍" class="headerlink" title="Bistoury介绍"></a>Bistoury介绍</h2><p>开发者：去哪儿网</p><p>功能：从日志、内存、线程、类信息、调试、机器和系统属性等各个方面对应用进行诊断</p><p>目的：提升开发人员诊断问题的效率和能力</p><p>集成：Alibaba开源的<a href="https://github.com/alibaba/arthas">arthas</a>和唯品会开源的<a href="https://github.com/vipshop/vjtools">vjtools</a></p><h2 id="功能概览"><a href="#功能概览" class="headerlink" title="功能概览"></a>功能概览</h2><p>通过命令行界面查看日志，使用arthas和vjtools的各项功能</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/console.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/console.png" alt="console"></a></p><p>在线debug，在线应用调试神器</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/debug_panel.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/debug_panel.png" alt="debug"></a></p><p>线程级cpu监控，帮助你掌握线程级cpu使用率</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jstack.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jstack.png" alt="jstack_dump"></a></p><p>在web界面查看JVM运行信息，以及各种其它信息</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jvm.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/jvm.png" alt="jvm"></a></p><p>动态给方法添加监控</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/monitor.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/monitor.png" alt="monitor"></a></p><p>线程dump</p><p><a href="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/thread_dump.png"><img src="https://gitee.com/jadepeng/bistoury/raw/master/docs/image/thread_dump.png" alt="thread_dump"></a></p><h2 id="Bistoury架构分析"><a href="#Bistoury架构分析" class="headerlink" title="Bistoury架构分析"></a>Bistoury架构分析</h2><p>Bistoury核心组件包含agent，proxy，ui：</p><ul><li>agent ： 与需要诊断的应用部署到一起，负责具体的诊断命令执行，通过域名连接proxy</li><li>proxy：agent的代理，agent启动时会通过ws和proxy连接注册，proxy可以部署多个，推荐使用域名负载</li><li>ui：ui提供图形化和命令行界面，接收从用户传来的命令，传递命令给proxy，接收从proxy传来的结果并展示给用户。</li></ul><p><a href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/design/design.md">Bistoury的访问流程</a></p><p><a href="https://www.jianshu.com/p/f7202e490156">Bistoury原理分析</a></p><p><a href="https://github.com/qunarcorp/bistoury/blob/master/docs/cn/quick_start.md">Bistoury快速开始</a></p><h2 id="Bistoury-在docker运行"><a href="#Bistoury-在docker运行" class="headerlink" title="Bistoury 在docker运行"></a>Bistoury 在docker运行</h2><p>官方的快速启动命令：</p><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">#!/bin/bash#创建网络echo "start create network"docker network create --subnet=172.19.0.0/16 bistoury#mysql 镜像echo "start run mysql image"docker run --name mysql -p 3307:3306 -e MYSQL_ROOT_PASSWORD=root -d -i --net bistoury --ip 172.19.0.7  registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-db#zk 镜像echo "start run zk image"docker run -d -p 2181:2181 -it --net bistoury --ip 172.19.0.2 registry.cn-hangzhou.aliyuncs.com/bistoury/zk:latestsleep 30#proxy 镜像echo "start run proxy module"docker run -d -p 9880:9880 -p 9881:9881 -p 9090:9090 -i --net bistoury --ip 172.19.0.3 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-proxy --real-ip $1 --zk-address 172.19.0.2:2181 --proxy-jdbc-url jdbc:mysql://172.19.0.7:3306/bistoury#ui 镜像echo "start run ui module"docker run -p 9091:9091  -it -d --net bistoury --ip 172.19.0.4 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-ui --zk-address 172.19.0.2:2181 --ui-jdbc-url jdbc:mysql://172.19.0.7:3306/bistoury#boot 镜像echo "start run demo application"docker  run -it -d  -p 8686:8686 -i --net bistoury --ip 172.19.0.5 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-demo --proxy-host $1:9090docker  run -it -d  -p 8687:8686 -i --net bistoury --ip 172.19.0.6 registry.cn-hangzhou.aliyuncs.com/bistoury/bistoury-demo --proxy-host $1:9090<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>注意，运行时需要传入本机IP地址</p><h2 id="Bistoury-在生产环境运行"><a href="#Bistoury-在生产环境运行" class="headerlink" title="Bistoury 在生产环境运行"></a>Bistoury 在生产环境运行</h2><p>官方推荐部署方式：</p><ul><li>ui 独立部署，推荐部署在多台机器，并提供独立的域名</li><li>proxy 独立部署，推荐部署在多台机器，并提供独立的域名</li><li>agent 需要和应用部署在同一台机器上。推荐在测试环境全环境自动部署，线上环境提供单机一键部署，以及应用下所有机器一键部署</li><li>独立的应用中心，管理所有功能内部应用和机器信息，这是一个和 Bistoury 相独立的系统，Bistoury 从中拿到不断更新的应用和机器信息</li></ul><h2 id="bistoury-application-k8s-Bistoury-on-K8S"><a href="#bistoury-application-k8s-Bistoury-on-K8S" class="headerlink" title="bistoury-application-k8s(Bistoury on K8S)"></a>bistoury-application-k8s(Bistoury on K8S)</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑中 </tag>
+            
+            <tag> 监控系统 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>离散数学课程笔记（7）</title>
       <link href="2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/"/>
       <url>2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/</url>
@@ -547,7 +603,7 @@
       <link href="2021/03/05/quan-bu-biao-qian-he-fen-lei/"/>
       <url>2021/03/05/quan-bu-biao-qian-he-fen-lei/</url>
       
-        <content type="html"><![CDATA[<h2 id="快速复制"><a href="#快速复制" class="headerlink" title="快速复制"></a>快速复制</h2><h3 id="全部标签"><a href="#全部标签" class="headerlink" title="全部标签"></a>全部标签</h3><pre class="line-numbers language-none"><code class="language-none">- COMP9020- COMP9021- COMP9311- 数据库- 离散数学- Python- SQL- Hexo- 游戏- 英语- 工具- 手册- 教程- 课程笔记- 实践操作- 编辑中- 持续更新- 已完稿<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="全部分类"><a href="#全部分类" class="headerlink" title="全部分类"></a>全部分类</h3><pre class="line-numbers language-none"><code class="language-none">UNSW实用工具技术学习<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="UNSW课程"><a href="#UNSW课程" class="headerlink" title="UNSW课程"></a>UNSW课程</h3><ul><li>COMP9020：UNSW课程代码，课程名称为计算机基础（Foundations of Computer Science ）</li><li>COMP9021：UNSW课程代码，课程名称为编程原理（Principles of Programming）</li><li>COMP9311：UNSW课程代码，课程名称为数据库系统（Database Systems ）</li></ul><h3 id="内容与技术"><a href="#内容与技术" class="headerlink" title="内容与技术"></a>内容与技术</h3><ul><li>数据库：数据库与其操作相关</li><li>离散数学：离散数学相关</li><li>Python：Python计算机语言相关</li><li>SQL：SQL语言相关</li><li>Hexo：Hexo技术相关</li><li>游戏：游戏开发相关</li><li>英语：英语学习相关</li></ul><h3 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h3><ul><li>工具：用于本站的记录与维护</li><li>手册：主要用户资料查询的文档</li><li>教程：用于介绍操作流程等性质的文档</li><li>课程笔记：记录课堂所学内容的文档</li><li>实践操作：记录实践操作相关的文档</li></ul><h3 id="文档状态"><a href="#文档状态" class="headerlink" title="文档状态"></a>文档状态</h3><ul><li>编辑中：当前文档正在编辑状态，即还未编写完成</li><li>持续更新：当前文档已包含一定信息，并将在未来持续更新其内容</li><li>已完稿：当前文档已编写完成，未来仅在疏漏、补遗时修改</li></ul><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>UNSW：澳大利亚新南威尔士大学课程相关</li><li>实用工具：可用于实际操作的内容</li><li>技术学习：用于计算机技术学习</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="快速复制"><a href="#快速复制" class="headerlink" title="快速复制"></a>快速复制</h2><h3 id="全部标签"><a href="#全部标签" class="headerlink" title="全部标签"></a>全部标签</h3><pre class="line-numbers language-none"><code class="language-none">- COMP9020- COMP9021- COMP9311- 数据库- 离散数学- Python- SQL- Hexo- 游戏- 英语- 监控系统- 工具- 手册- 教程- 课程笔记- 实践操作- 编辑中- 持续更新- 已完稿<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="全部分类"><a href="#全部分类" class="headerlink" title="全部分类"></a>全部分类</h3><pre class="line-numbers language-none"><code class="language-none">UNSW实用工具技术学习<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h3 id="UNSW课程"><a href="#UNSW课程" class="headerlink" title="UNSW课程"></a>UNSW课程</h3><ul><li>COMP9020：UNSW课程代码，课程名称为计算机基础（Foundations of Computer Science ）</li><li>COMP9021：UNSW课程代码，课程名称为编程原理（Principles of Programming）</li><li>COMP9311：UNSW课程代码，课程名称为数据库系统（Database Systems ）</li></ul><h3 id="内容与技术"><a href="#内容与技术" class="headerlink" title="内容与技术"></a>内容与技术</h3><ul><li>数据库：数据库与其操作相关</li><li>离散数学：离散数学相关</li><li>Python：Python计算机语言相关</li><li>SQL：SQL语言相关</li><li>Hexo：Hexo技术相关</li><li>游戏：游戏开发相关</li><li>英语：英语学习相关</li></ul><h3 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h3><ul><li>工具：用于本站的记录与维护</li><li>手册：主要用户资料查询的文档</li><li>教程：用于介绍操作流程等性质的文档</li><li>课程笔记：记录课堂所学内容的文档</li><li>实践操作：记录实践操作相关的文档</li></ul><h3 id="文档状态"><a href="#文档状态" class="headerlink" title="文档状态"></a>文档状态</h3><ul><li>编辑中：当前文档正在编辑状态，即还未编写完成</li><li>持续更新：当前文档已包含一定信息，并将在未来持续更新其内容</li><li>已完稿：当前文档已编写完成，未来仅在疏漏、补遗时修改</li></ul><h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul><li>UNSW：澳大利亚新南威尔士大学课程相关</li><li>实用工具：可用于实际操作的内容</li><li>技术学习：用于计算机技术学习</li></ul>]]></content>
       
       
       <categories>
