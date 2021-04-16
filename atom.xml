@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-04-15T09:00:03.392Z</updated>
+  <updated>2021-04-16T16:38:47.602Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,59 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我活着是为了什么？</title>
+    <link href="http://szdf123.github.io/2021/04/17/wo-huo-zhao-shi-wei-liao-shi-me/"/>
+    <id>http://szdf123.github.io/2021/04/17/wo-huo-zhao-shi-wei-liao-shi-me/</id>
+    <published>2021-04-16T16:33:35.000Z</published>
+    <updated>2021-04-16T16:38:47.602Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;我的人生理想&quot;&gt;&lt;a href=&quot;#我的人生理想&quot; class=&quot;headerlink&quot; title=&quot;我的人生理想&quot;&gt;&lt;/a&gt;我的人生理想&lt;/h2&gt;&lt;h3 id=&quot;物质生活：宜居城市，现代小楼，有可以长途旅行的汽车，生活富足而平静&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="生活纪实" scheme="http://szdf123.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/"/>
+    
+    
+    <category term="生活" scheme="http://szdf123.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理财训练营（1）</title>
+    <link href="http://szdf123.github.io/2021/04/15/li-cai-xun-lian-ying-1/"/>
+    <id>http://szdf123.github.io/2021/04/15/li-cai-xun-lian-ying-1/</id>
+    <published>2021-04-15T15:38:15.000Z</published>
+    <updated>2021-04-16T17:18:50.688Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt; 本学习笔记根据某投学堂提供资料整理学习&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;什么是某投学堂&quot;&gt;&lt;a href=&quot;#什么是某投学堂&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="理财" scheme="http://szdf123.github.io/tags/%E7%90%86%E8%B4%A2/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux CentOS 综合使用技巧</title>
@@ -573,70 +626,6 @@
     <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
     
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UNSW Y1T1课程笔记索引</title>
-    <link href="http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/"/>
-    <id>http://szdf123.github.io/2021/03/07/unsw-y1t1-ke-cheng-bi-ji-suo-yin/</id>
-    <published>2021-03-07T12:54:12.000Z</published>
-    <updated>2021-03-19T11:53:10.353Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;COMP9020-Foundations-of-Computer-Science&quot;&gt;&lt;a href=&quot;#COMP9020-Foundations-of-Computer-Science&quot; class=&quot;headerlink&quot; title=&quot;COMP9020 </summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="手册" scheme="http://szdf123.github.io/tags/%E6%89%8B%E5%86%8C/"/>
-    
-    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    
-    <category term="COMP9021" scheme="http://szdf123.github.io/tags/COMP9021/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>离散数学课程笔记（4）</title>
-    <link href="http://szdf123.github.io/2021/03/07/chi-san-shu-xue-ke-cheng-bi-ji-4/"/>
-    <id>http://szdf123.github.io/2021/03/07/chi-san-shu-xue-ke-cheng-bi-ji-4/</id>
-    <published>2021-03-07T07:49:36.000Z</published>
-    <updated>2021-03-12T14:05:28.196Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;矩阵（Matrices）&quot;&gt;&lt;a href=&quot;#矩阵（Matrices）&quot; class=&quot;headerlink&quot; title=&quot;矩阵（Matrices）&quot;&gt;&lt;/a&gt;矩阵（Matrices）&lt;/h2&gt;&lt;p&gt;$m\times</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
-    
-    <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
     <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
     
