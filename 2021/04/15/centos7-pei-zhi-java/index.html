@@ -448,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    323
+                    330
                 </div>
                 
 
@@ -473,45 +473,34 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <ol>
-<li>从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中</li>
-</ol>
+                <p>1.从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中</p>
 <p><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Java官网下载地址</a></p>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415162918.png" alt="image-20210415162907128"></p>
-<ol>
-<li>在服务器中卸载原有Java/JDK</li>
-</ol>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415162918.png" alt="Java官网下载列表"></p>
+<p>2.在服务器中卸载原有Java/JDK</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">rpm -qa|grep jdk   // 查看当前系统Java版本
 rpm -e  jdk版本     // 卸载现有JDK<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol>
-<li>若以rpm版本安装，则可运行以下命令，安装Java<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">rpm -ivh jdk-16_linux-x64_bin.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415163309.png" alt="image-20210415163309031"></p>
-<ol>
-<li>若以tar.gz版本安装，则可运行以下命令，安装Java</li>
-</ol>
+<p>3.若以rpm版本安装，则可运行以下命令，安装Java</p>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">rpm -ivh jdk-16_linux-x64_bin.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210415163309.png" alt="RPM安装JAVA"></p>
+<p>4.若以tar.gz版本安装，则可运行以下命令，安装Java</p>
 <pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">mkdir /usr/java
 cd /usr/java 
 tar -zxvf jdk-8u161-linux-x64.tar.gz -C /usr/java<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ol>
-<li>设置环境变量</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">vim /etc/profile
+<p>5.设置环境变量</p>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">vim /etc/profile
 # 安装下方需要粘贴的内容修改该文件
 source /etc/profile<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># /etc/profile里需要粘贴的内容
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell"># /etc/profile里需要粘贴的内容
 
 JAVA_HOME=/usr/java/jdk-16        # 本例中，RPM方法默认安装位置为此路径
 JAVA_HOME=/usr/java/jdk1.8.0_161  # 本例中，tar.gz方法安装位置为此路径
 CLASSPATH=%JAVA_HOME%/lib:%JAVA_HOME%/jre/lib
 PATH=$PATH:$JAVA_HOME/bin:$JAVA_HOME/jre/bin
 export PATH CLASSPATH JAVA_HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol>
-<li>检查Java环境</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">java -version
+<p>6.检查Java环境</p>
+<pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">java -version
 echo $JAVA_HOME<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210416145913.png" alt="查看本地Java版本"></p>
 <blockquote>
 <p><strong>本文参考链接</strong></p>
 <p>CentOS 7 安装 JAVA环境（JDK 1.8）<br><a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html</a></p>

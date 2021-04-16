@@ -50,16 +50,14 @@
     <link href="http://szdf123.github.io/2021/04/15/centos7-pei-zhi-java/"/>
     <id>http://szdf123.github.io/2021/04/15/centos7-pei-zhi-java/</id>
     <published>2021-04-15T07:54:48.000Z</published>
-    <updated>2021-04-16T06:54:53.885Z</updated>
+    <updated>2021-04-16T07:04:42.082Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中&lt;/li&gt;
-&lt;/ol&gt;
+    <summary type="html">&lt;p&gt;1.从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中&lt;/p&gt;
 &lt;p&gt;&lt;a</summary>
         
       
