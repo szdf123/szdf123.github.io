@@ -1,0 +1,1431 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="COMP9020,数学,笔记">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>离散数学课程笔记（5） | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/199.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">离散数学课程笔记（5）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/COMP9020/">
+                                <span class="chip bg-color">COMP9020</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                <span class="chip bg-color">离散数学</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-12
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.2k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="等价关系与划分"><a href="#等价关系与划分" class="headerlink" title="等价关系与划分"></a>等价关系与划分</h2><p>如果关系$\mathcal{R}$满足(R)，(S)，(T)，那么它被叫做<strong>等价关系（equivalence relation）</strong></p>
+<p>每个等价关系$\mathcal{R}$在其定义域$S$上定义<strong>等价类equivalence classes</strong>。</p>
+<p>元素$s \in S$的等价类[s] （写作$\mathcal{R}$）为：</p>
+<script type="math/tex; mode=display">
+[s]_{\mathcal{R}}=\{t\in S :t\mathcal{R}s\}</script><p>这个概念只适用于等价关系$\mathcal{R}$。所有等价类的集合是$S$的一个<strong>分区（partition）</strong>:</p>
+<script type="math/tex; mode=display">
+S=\dot\bigcup_{s\in S}[s]\mathcal{R} \\</script><p>其中，$\dot\bigcup$表示不相交的结合</p>
+<p>等价类是不相交的，并且共同覆盖整个域。每个元素都属于且仅属于一个等价类。</p>
+<p>我们用$s_1,s_2,\dots$代表不同的等价类，对于$s,t \in S$，要么当$s\mathcal{R}t$时，$[s] = [t]$，要么当$s\not\mathcal{R}t$时，$[s]\cap[t] =\emptyset$。</p>
+<p>当$s,t$在同一个等价类中时，我们通常写$s\sim_\mathcal{R} t$。</p>
+<p>相对的，一个集合的划分定义了该集合上的等价关系。</p>
+<p>如果$S=S_1\dot\cup \dots \dot\cup S_k$，那么当s和t属于同一个$S_i$时，会有$s \sim t$。</p>
+<p>如果关系$\sim$在$S$上等价，且$[S]$是相应的划分，那么</p>
+<script type="math/tex; mode=display">
+\nu : S \rightarrow [S], \nu : s \mapsto [s] = \{x \in S:x \sim s\}</script><p>被叫做自然图（natural map）。他总是满射的。</p>
+<p>只有当$\sim$在$S$上有一致性（identity）的时候，$\nu$是1-1映射。</p>
+<p>函数$f:S\rightarrow T$ 在$S$上定义一个等价关系，通过</p>
+<p>$s_1 \sim s_2$当且仅当$f(s_1)=f(s_2)$</p>
+<p>非空的集合$f^{\leftarrow}(t),t\in T$形成相应的划分</p>
+<script type="math/tex; mode=display">
+S=\bigcup_{t\in T}f^{\leftarrow}(t)</script><p>只有当$f$是满射的时候，$f^{\leftarrow}(t)\neq \emptyset$</p>
+<h3 id="同余关系-Congruence-Relations"><a href="#同余关系-Congruence-Relations" class="headerlink" title="同余关系 Congruence Relations"></a>同余关系 Congruence Relations</h3><p>$\mathbb{Z}\rightarrow \mathbb{Z}_p$：将$\mathbb{Z}$划分为具有相同余数（mod p）的数类；这对于素数（prime）$p$来说特别重要</p>
+<script type="math/tex; mode=display">
+\mathbb{Z}=\{0,1,\dots,p-1\}</script><p>我们可以为素数$p$在$\mathbb{Z}_p$上定义所有四种算术运算（具有通常的性质）；当$p$不是质数时除法是有限制的。</p>
+<p>标准符号：$\mathbf{m}\equiv \mathbf{n}\ (mod\ \mathbf{p})$</p>
+<p>$\overset{def}=$m除以$p$的余数= $n$除以$p$的余数</p>
+<p><strong>注意</strong></p>
+<p>$(\mathbb{Z}_p,+,\cdot,0,1)$是称为<strong>环（rings）</strong>的基本代数结构。<br>这些结构在编码理论和密码学中非常重要。</p>
+<h3 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h3><p>$\mathbb{Z}_5=\{0,1,2,3,4\}$</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|c,c,c,c}
++_5 & 0 & 1 & 2 & 3 & 4 \\
+\hline
+0 & 0 & 1 & 2 & 3 & 4 \\
+1 & 1 & 2 & 3 & 4 & 0 \\
+2 & 2 & 3 & 4 & 0 & 1 \\
+3 & 3 & 4 & 0 & 1 & 2 \\
+4 & 4 & 0 & 1 & 2 & 3
+\end{array}
+\quad
+\begin{array}{c|c}
+n & -n \\
+\hline
+0 & 0  \\
+1 & 4  \\
+2 & 3  \\
+3 & 2  \\
+4 & 1 
+\end{array}
+\quad
+\begin{array}{c|c,c,c,c}
+*_5 & 0 & 1 & 2 & 3 & 4 \\
+\hline
+0 & 0 & 0 & 0 & 0 & 0 \\
+1 & 0 & 1 & 2 & 3 & 4 \\
+2 & 0 & 2 & 4 & 1 & 3 \\
+3 & 0 & 3 & 1 & 4 & 2 \\
+4 & 0 & 4 & 3 & 2 & 1
+\end{array}
+\quad
+\begin{array}{c|c}
+n & n^{-1} \\
+\hline
+0 & -  \\
+1 & 1  \\
+2 & 3  \\
+3 & 2  \\
+4 & 1 
+\end{array}</script><h3 id="几何中的等价类"><a href="#几何中的等价类" class="headerlink" title="几何中的等价类"></a>几何中的等价类</h3><p>从矩形开始</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210313010047.png" alt="一个矩形" style="zoom:67%;"></p>
+<p>将$[a, b]$区间内的点与$[c, d]$区间内的点（在这个方向上）识别为一个圆柱体，同时将$[a, c]$和$[b, d]$识别为一个环面。</p>
+<p>矩形内部的点没有“粘”在一起；因此等效类（圆柱体）有一个或两个元素，而环面也有一个类有四个元素（哪四个？）</p>
+<p>将$[a, b]$与$[d, c]$（该方向）识别为单侧莫比斯带（Moebius strip）；此外，将它与标识$[a, c$]和$[b, d]$放在一起，给出了一个单边封闭表面（“克莱因瓶Klein bottle”）。</p>
+<p>克莱因瓶不能嵌入三维空间而没有自交。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210313010644.png" alt="克莱因瓶" style="zoom:50%;"></p>
+<p>通常需要在$[S]$上定义一个函数，对每个等价类$[S]$中的$t\in [S]$进行描述。</p>
+<p>如果$\phi: [S]\rightarrow X$是这样定义的，那么必须</p>
+<ul>
+<li><p>定义$\phi(t)$对所有$t\in S$，确定$\phi(t) \in X$</p>
+</li>
+<li><p>当$t_1 \sim t_2$时，确定$\phi(t_1) = \phi (t_2)$，例如当$[t_1]=[t_2]$</p>
+</li>
+<li><p>定义 $\phi([s])\overset{def}= \phi(s)$</p>
+</li>
+</ul>
+<p>第二个条件对于定义良好的$\phi$至关重要。</p>
+<h2 id="顺序关系-Order-Relations"><a href="#顺序关系-Order-Relations" class="headerlink" title="顺序关系 Order Relations"></a>顺序关系 Order Relations</h2><h3 id="全序（Total-order）"><a href="#全序（Total-order）" class="headerlink" title="全序（Total order）"></a>全序（Total order）</h3><p><strong>全序（Total order）</strong>$\le$在$S$</p>
+<p>(R)$x \le x$对于所有的$x \in S$</p>
+<p>(AS) $x \le y, y\le x \Rightarrow x = y$</p>
+<p>(T)$x\le y, y\le z \Rightarrow x\le z$</p>
+<p>(L)线性-任何两个元素是可比较的：对于所有的$x,y$，要么$x\le y$或$y \le x$，要么$x=y$</p>
+<p>在有限集上，所有的全序都是”<strong>同构的（isomorphic）</strong>”。</p>
+<script type="math/tex; mode=display">
+x_1 \le x_2 \le \cdots \le x_n</script><p>在一个无限的集合上，有相当多的可能性。</p>
+<h3 id="偏序（Partical-Order）"><a href="#偏序（Partical-Order）" class="headerlink" title="偏序（Partical Order）"></a>偏序（Partical Order）</h3><p>$S$上的一个偏序（partial order）$\preceq$满足(R)，(AS)，(T)，不需要(L)</p>
+<p>$(S,\preceq)$叫做<strong>偏序集（poset）</strong>，即偏序的集合</p>
+<p>对于每一个（偏）序，可以关联一个唯一的拟序<strong>（quasi-order）</strong></p>
+<script type="math/tex; mode=display">
+x \prec y 当且仅当 x \preceq y 且 x \neq y</script><p>这满足(AS)和(T)；它满足(L)如果它对应于一个全序（我们可以称它为一个全拟序total quasi-order）；对任意一对$x,y$它都不满足(R)</p>
+<h3 id="哈斯图"><a href="#哈斯图" class="headerlink" title="哈斯图"></a>哈斯图</h3><p>每个优先的偏序集都可以用哈斯图来表示，其中，如果$x \prec y $且没有$z$使$x \prec z \prec y$，那么就从$x$到$y$画一条向上的线。</p>
+<h2 id="排序的概念"><a href="#排序的概念" class="headerlink" title="排序的概念"></a>排序的概念</h2><p><strong>定义</strong></p>
+<p>极小元素和极大元素（它们总是存在于每个有限偏序集中）</p>
+<p>最小和最大——唯一的最小和最大元素</p>
+<p>一个子集$A \subseteq S $的元素中，<strong>lub</strong>（最小上界least upper bound）和glb（最大下界greatest lower bound）</p>
+<p>$lub(A)$——最小元素$x \in S$，例如，$x \succeq a$ 对于所有的$a\in A$</p>
+<p>$glb(A)$——最大元素$x \in S$，例如，$x \preceq a $对于所有的$a\in A$</p>
+<p><strong>晶格Lattice</strong>每一对元素都存在lub和glb的偏序集（通过归纳法，每个有限元素子集都存在晶格）</p>
+<p><strong>注意</strong></p>
+<p>无限格不需要对其元素的任意无限子集有lub(或没有glb)，特别是对其所有元素不可能存在这样的边界。</p>
+<p><strong>例子</strong></p>
+<p>$\mathbb{Z}$——即不是lub也不是glb</p>
+<p>$\mathbb{F}(\mathbb{N})$——所有有限子集，不具有任意lub性质；glb存在，它是交集，因此总是有限的；</p>
+<p>$\mathbb{I}(\mathbb{N})$——所有的无限子集，可能不具有任意的glb；lub是存在的，它是无限的集合。</p>
+<h3 id="有序集合-Well-Ordered-Sets"><a href="#有序集合-Well-Ordered-Sets" class="headerlink" title="有序集合 Well-Ordered Sets"></a>有序集合 Well-Ordered Sets</h3><p><strong>有序集合</strong>：每个子集都有最小的元素。</p>
+<p><strong>注意：</strong></p>
+<p>最大的元素不是必需的。</p>
+<p>有序集合是证明程序终止的重要数学工具。</p>
+<h3 id="偏序集排序-拓扑排序"><a href="#偏序集排序-拓扑排序" class="headerlink" title="偏序集排序-拓扑排序"></a>偏序集排序-拓扑排序</h3><p>对一个偏序集$(S,\preceq)$，任意线性顺序$\leq$与$\prec$是一致的，这叫做<strong>拓扑排序</strong>。一致性意味着$a \preceq b \Rightarrow a \leq b$</p>
+<h3 id="结合排序"><a href="#结合排序" class="headerlink" title="结合排序"></a>结合排序</h3><p><strong>乘积排序（product order）</strong>——可以组合任何部分顺序。一般来说，它只是一个部分的顺序，即使把全部的顺序结合起来。</p>
+<p>对于$s,s’ \in S$，且$t,t’ \in T$，定义</p>
+<script type="math/tex; mode=display">
+(s,t) \preceq (s',t') \quad 如果s \preceq s' 且 t \preceq t'</script><h3 id="函数排序"><a href="#函数排序" class="headerlink" title="函数排序"></a>函数排序</h3><p>$T$——任意集合（没有顺序要求）</p>
+<p>$S$——偏序集合</p>
+<p>$M=\{f:T\rightarrow S\}$——所有从$T$到$S$的集合</p>
+<p>这是一个自然偏序</p>
+<script type="math/tex; mode=display">
+f \preceq g \quad 当且仅当 \forall t \in T(f(t)\preceq g(t))</script><p>实际上，它是$S^{|T|}$上的一个乘积排序。在大多数应用中，$T$是线性排序的；然而，它并不影响在$T$上定义的函数的顺序（只对S上的顺序有影响）。</p>
+<h3 id="实际的序Practical-Orderings"><a href="#实际的序Practical-Orderings" class="headerlink" title="实际的序Practical Orderings"></a>实际的序Practical Orderings</h3><p>它们实际上是有序集的乘积上的总排序。</p>
+<p><strong>词典顺序（Lexicographic order）</strong>——在所有的$\sum^*$上定义。它扩展了已经假定存在于$\sum$上的一个总序。</p>
+<p><strong>Lenlex顺序</strong> ——在整个$\sum^*$上的排序，其中的元素先按照长度排序</p>
+<p>$\sum^{1}\prec \sum^{2}\prec \sum^{3}\prec \cdots$，其中每个$\sum^{(k)}$为字典序。在实践中，它仅被应用于$\sum^*$的有限子集</p>
+<p><strong>锉顺序（Filing order）</strong>——字典顺序限制为相同长度的字符串。 它为每一个$i$分别定义了$\Sigma ^i$的总阶数。</p>
+<p>只有当$|\Sigma|=1$时，词典顺序和Lenlex顺序相同</p>
+<h3 id="一些特性"><a href="#一些特性" class="headerlink" title="一些特性"></a>一些特性</h3><p>如果$\Sigma$是全序的，那么相关的词典顺序或Lenlex顺序偏序$\Sigma^*$也是全序的</p>
+<p>每个有限偏序集有一个哈斯图，同时有一个拓扑排序</p>
+<p>每个有限偏序集不一定有最小值</p>
+<p>每个优先全序集一定有最大值</p>
+<p>一个无限偏序集也可以有最大值</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>等价关系$\sim$，等价类$[S]$</p>
+<p>$\mathbb{Z}$上的特别等价关系：符号$m \equiv n (\mod p)$；$\mathbb{Z}_p$</p>
+<p>排序：全，偏；lub，glb，格lattice，拓扑排序</p>
+<p>哈斯图</p>
+<p>特别排序：乘积排序，字典排序，lenlex排序</p>
+<p>等价类：(R)(S)(T)</p>
+<p>全序：(R)(AS)(T)(L)</p>
+<p>偏序：(R)(AS)(T)</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/03/12/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-5/">http://szdf123.github.io/2021/03/12/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-5/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/COMP9020/">
+                                    <span class="chip bg-color">COMP9020</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                                    <span class="chip bg-color">离散数学</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/15/unsw/comp9311/shu-ju-ku-ji-chu-plpgsql/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/323.jpg" class="responsive-img" alt="数据库基础PLpgSQL">
+                        
+                        <span class="card-title">数据库基础PLpgSQL</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            week3 数据库基础PLpgSQL部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-15
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%89%8B%E5%86%8C/">
+                        <span class="chip bg-color">手册</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/08/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/161.jpg" class="responsive-img" alt="数据库基础课程笔记（2）">
+                        
+                        <span class="card-title">数据库基础课程笔记（2）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week1 数据库系统 关系数据模型部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">66.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

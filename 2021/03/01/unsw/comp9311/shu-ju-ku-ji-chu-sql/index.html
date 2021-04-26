@@ -1,0 +1,2376 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="COMP9311,数据库,笔记,SQL命令">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库基础SQL | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/260.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库基础SQL</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/COMP9311/">
+                                <span class="chip bg-color">COMP9311</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%89%8B%E5%86%8C/">
+                                <span class="chip bg-color">手册</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                                <span class="chip bg-color">持续更新</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-01
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    4.2k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="SQL（Structured-Query-Language）"><a href="#SQL（Structured-Query-Language）" class="headerlink" title="SQL（Structured Query Language）"></a>SQL（Structured Query Language）</h2><p>SQL即结构化查询语言，是关系数据库的标准语言</p>
+<h4 id="SQL-的动词"><a href="#SQL-的动词" class="headerlink" title="SQL 的动词"></a>SQL 的动词</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>SQL功能</th>
+<th>动词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据查询</td>
+<td>Select</td>
+</tr>
+<tr>
+<td>数据定义</td>
+<td>Create,Drop,Alter</td>
+</tr>
+<tr>
+<td>数据操纵</td>
+<td>Insert, Update, Delete</td>
+</tr>
+<tr>
+<td>数据控制</td>
+<td>Grant, Revoke</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h4 id="SQL-的数据定义语句"><a href="#SQL-的数据定义语句" class="headerlink" title="SQL 的数据定义语句"></a>SQL 的数据定义语句</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>操作对象</th>
+<th>创建</th>
+<th>删除</th>
+<th>修改</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模式</td>
+<td>Create Schema</td>
+<td>Drop Schema</td>
+<td></td>
+</tr>
+<tr>
+<td>表</td>
+<td>Create Table</td>
+<td>Drop Table</td>
+<td>Alter Table</td>
+</tr>
+<tr>
+<td>视图</td>
+<td>Create View</td>
+<td>Drop View</td>
+<td></td>
+</tr>
+<tr>
+<td>索引</td>
+<td>Create Index</td>
+<td>Drop Index</td>
+<td>Alter Index</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="定义模式"><a href="#定义模式" class="headerlink" title="定义模式"></a>定义模式</h3><p><strong>CREATE SCHEMA</strong> [&lt;模式名&gt;] <strong>AUTHORIZATION</strong> &lt;用户名&gt;[&lt;表定义子句&gt;|&lt;视图定义子句&gt;|&lt;授权定义子句&gt;]</p>
+<p>CREATE SCHEMA “S-T” AUTHORIZATION WANG;</p>
+<p>其中，模式名可隐藏，默认为&lt;用户名&gt;</p>
+<h2 id="本案例使用的数据"><a href="#本案例使用的数据" class="headerlink" title="本案例使用的数据"></a>本案例使用的数据</h2><p>本教程使用如下数据库表：</p>
+<p>Beers( <em><u>name</u></em>, manf ), Bars( <em><u>name</u></em>, addr, license )<br>Drinkers( <em><u>name</u></em>, addr, phone ), Likes( <em><u>drinker, beer</u></em> )<br>Sells( <u>bar, beer</u>, price ), Frequents( <u><em>drinker, bar</em></u> )</p>
+<p>其中，斜体加下划线内容为主键</p>
+<p>Bars：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Addr</th>
+<th>License</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Australia Hotel</td>
+<td>The Rocks</td>
+<td>123456</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Coogee</td>
+<td>966500</td>
+</tr>
+<tr>
+<td>Lord Nelson</td>
+<td>The Rocks</td>
+<td>123888</td>
+</tr>
+<tr>
+<td>Marble Bar</td>
+<td>Sydney</td>
+<td>122123</td>
+</tr>
+<tr>
+<td>Regent Hotel</td>
+<td>Kingsford</td>
+<td>987654</td>
+</tr>
+<tr>
+<td>Royal Hotel</td>
+<td>Randwick</td>
+<td>938500</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Drinkers：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Addr</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+<td>Randwick</td>
+<td>9385-4444</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Newtown</td>
+<td>9415-3378</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Clovelly</td>
+<td>9665-1234</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Mosman</td>
+<td>9845-4321</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Beers：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Manf</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>80/-</td>
+<td>Caledonian</td>
+</tr>
+<tr>
+<td>Bigfoot Barley Wine</td>
+<td>Sierra Nevada</td>
+</tr>
+<tr>
+<td>Burragorang Bock</td>
+<td>George IV Inn</td>
+</tr>
+<tr>
+<td>Crown Lager</td>
+<td>Carlton</td>
+</tr>
+<tr>
+<td>Fosters Lager</td>
+<td>Carlton</td>
+</tr>
+<tr>
+<td>Invalid Stout</td>
+<td>Carlton</td>
+</tr>
+<tr>
+<td>Melbourne Bitter</td>
+<td>Carlton</td>
+</tr>
+<tr>
+<td>New</td>
+<td>Toohey’s</td>
+</tr>
+<tr>
+<td>Old</td>
+<td>Toohey’s</td>
+</tr>
+<tr>
+<td>Old Admiral</td>
+<td>Lord Nelson</td>
+</tr>
+<tr>
+<td>Pale Ale</td>
+<td>Sierra Nevada</td>
+</tr>
+<tr>
+<td>Premium Lager</td>
+<td>Cascade</td>
+</tr>
+<tr>
+<td>Red</td>
+<td>Toohey’s</td>
+</tr>
+<tr>
+<td>Sheaf Stout</td>
+<td>Toohey’s</td>
+</tr>
+<tr>
+<td>Sparkling Ale</td>
+<td>Cooper’s</td>
+</tr>
+<tr>
+<td>Stout</td>
+<td>Cooper’s</td>
+</tr>
+<tr>
+<td>Three Sheets</td>
+<td>Lord Nelson</td>
+</tr>
+<tr>
+<td>Victoria Bitter</td>
+<td>Carlton</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Frequents：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Drinker</th>
+<th>Bar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+<td>Coogee Bay Hotel</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Lord Nelson</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Coogee Bay Hotel</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Lord Nelson</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Australia Hotel</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Regent Hotel</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Marble Bar</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Likes:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Drinker</th>
+<th>Beer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+<td>Crown Lager</td>
+</tr>
+<tr>
+<td>Adam</td>
+<td>Fosters Lager</td>
+</tr>
+<tr>
+<td>Adam</td>
+<td>New</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Premium Lager</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Sparkling Ale</td>
+</tr>
+<tr>
+<td>John</td>
+<td>80/-</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Bigfoot Barley Wine</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Pale Ale</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Three Sheets</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Sparkling Ale</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Victoria Bitter</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Sells:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Bar</th>
+<th>Beer</th>
+<th>Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Australia Hotel</td>
+<td>Burragorang Bock</td>
+<td>3.5</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>New</td>
+<td>2.25</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Old</td>
+<td>2.5</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Sparkling Ale</td>
+<td>2.8</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Victoria Bitter</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>Lord Nelson</td>
+<td>Three Sheets</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>Lord Nelson</td>
+<td>Old Admiral</td>
+<td>3.75</td>
+</tr>
+<tr>
+<td>Marble Bar</td>
+<td>New</td>
+<td>2.8</td>
+</tr>
+<tr>
+<td>Marble Bar</td>
+<td>Old</td>
+<td>2.8</td>
+</tr>
+<tr>
+<td>Marble Bar</td>
+<td>Victoria Bitter</td>
+<td>2.8</td>
+</tr>
+<tr>
+<td>Regent Hotel</td>
+<td>New</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>Regent Hotel</td>
+<td>Victoria Bitter</td>
+<td>2.2</td>
+</tr>
+<tr>
+<td>Royal Hotel</td>
+<td>New</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>Royal Hotel</td>
+<td>Old</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>Royal Hotel</td>
+<td>Victoria Bitter</td>
+<td>2.3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="SQL语法及样例"><a href="#SQL语法及样例" class="headerlink" title="SQL语法及样例"></a>SQL语法及样例</h2><h3 id="SQL-SELECT"><a href="#SQL-SELECT" class="headerlink" title="SQL SELECT"></a>SQL SELECT</h3><p><strong>语法：</strong>π<sub>{attributes}</sub>(σ<sub>Condition</sub>(Relations))</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT attributes
+FROM relations
+WHERE condition<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong>哪个啤酒是Toohey制造的？</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 指定where语句查询条件的方法
+SELECT Name FROM Beers WHERE Manf = 'Toohey''s';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询Drinkers的名字和地址：π<sub>Name,Addr</sub>(Drinkers)</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 查询结果筛选字段名的方法
+SELECT Name, Addr FROM Drinkers;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询Drinkers的所有信息</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 显示所有字段的方法
+SELECT * FROM Drinkers;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询Beers的所有品牌和制造商</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 显示结果为字段名重命名的方法
+SELECT name AS Brand, manf AS Brewer FROM Beers;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询各个酒吧售卖啤酒的售价，价格用Yen表示</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 修改查询结果数值，并修改显示字段名的方法
+SELECT bar, beer, price*120 AS PriceInYen FROM Sells;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询喜欢Sparkling Ale啤酒的人，并修改显示结果为likes Cooper’s</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 修改查询结果显示内容的方法
+SELECT drinker, 'likes Cooper''s' AS WhoLikes
+FROM Likes
+WHERE beer = 'Sparkling Ale';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询John喜欢的啤酒的酿酒商：π<sub>manf</sub> (σ<sub>drinker=’John′</sub> Likes ⋈ Beers)</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 多表联查的方法
+SELECT Manf FROM Likes, Beers WHERE drinker = 'John' AND beer = name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询哪个酒吧的名字和啤酒的名字相同</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 解决字段名冲突的方法
+SELECT Bars.name
+FROM Bars, Beers
+WHERE Bars.name = Beers.name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询售价大于3.00的啤酒</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 查询时指定表名的用法
+SELECT Sells.beer
+FROM Sells
+WHERE Sells.price &gt; 3.00;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询售卖New啤酒价格与Coogee Bay酒吧售卖Victoria Bitter价格相同的酒吧</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 使用子句查询
+SELECT bar
+FROM Sells
+WHERE beer = 'New'
+	      AND price =
+		(SELECT price
+		  FROM Sells
+		  WHERE bar = 'Coogee Bay Hotel'
+		  AND beer = 'Victoria Bitter' );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 不使用子句查询
+SELECT b2.bar
+FROM Sells b1, Sells b2
+WHERE b1.beer = 'Victoria Bitter' and b1.bar = 'Coogee Bay Hotel' and 
+b1.price = b2.price and b2.beer = 'New';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询John喜欢的啤酒品牌及其制造商</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- IN的使用方法
+SELECT *
+FROM Beers
+WHERE name IN
+	       (SELECT beer
+	        FROM Likes
+	        WHERE drinker = 'John'
+	         );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 不使用IN的查询方法
+SELECT Beers.*
+FROM Beers, Likes
+Where Beers.name = Likes.beer and 
+Likes.drinker = 'John';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询只生产一种啤酒品牌的制造商</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- EXISTS的用法
+SELECT name
+FROM Beers b1
+WHERE NOT EXISTS
+		(SELECT *
+		 FROM Beers
+		 WHERE manf = b1.manf
+		 AND name != b1.name
+		 );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询售价最高的啤酒</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- ALL的使用方法
+SELECT beer
+FROM Sells
+WHERE price &gt;=
+	    ALL(
+	          SELECT price
+	          FROM sells
+	           );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询喜欢喝某品牌啤酒的人，同时他经常去的还售卖此种酒的酒吧</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 交集INTERSECT的用法
+(SELECT *
+  FROM Likes
+)
+	INTERSECT
+(SELECT drinker,beer
+  FROM Sells, Frequents
+  WHERE Frequents.bar = Sells.bar
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：找到售卖Justin喜欢的所有啤酒的酒吧：π<sub>bar,beer</sub>Sells ÷ (π<sub>beer</sub>(σ<sub>drinker=′Justin′ </sub>Likes))</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 除EXCEPT的使用
+select distinct a.bar
+from sells a
+where not exists
+	( (select b.beer from likes b
+	    where b.drinker = 'Justin')
+	    except
+	   (select c.beer from sells c
+	     where c.bar = a.bar )
+	  );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询New啤酒的平均售价</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 平局值AVG的用法
+SELECT AVG(price)        		  
+FROM Sells
+WHERE beer = 'New';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询有多少酒吧售卖啤酒</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- DISTINCT的用法
+SELECT COUNT(DISTINCT bar)
+FROM Sells;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>类似的聚类函数有SUM     AVG    MIN     MAX     COUNT</li>
+</ul>
+<h3 id="SQL-GROUP-BY"><a href="#SQL-GROUP-BY" class="headerlink" title="SQL GROUP BY"></a>SQL GROUP BY</h3><p><strong>语法</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT attributes/aggregations
+FROM relations
+WHERE condition
+GROUP BY attribute<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询有多少种不同的啤酒</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- COUNT的使用方法
+SELECT COUNT(*) FROM Beers;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询每种啤酒制造商制造啤酒的数量</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- GROUP BY的用法
+SELECT manf, COUNT(beer)
+FROM Beers 
+GROUP BY manf;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询每个人其经常去的酒吧New啤酒的平均售价</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- GROUP BY的用法二
+SELECT drinker, AVG(price)
+FROM Frequents, Sells
+WHERE beer = 'New' AND Frequents.bar = Sells.bar
+GROUP BY drinker;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询每个酒吧最便宜的啤酒价格</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- GROUP BY和MIN的用法
+SELECT bar, MIN(price)
+FROM Sells
+GROUP BY BAR<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询郊区的啤酒平均价格，不包括Rock区的酒吧</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- GROUP BY和AVG的用法
+SELECT Bars.addr, AVG(Sells.price)
+FROM Sells, Bars
+WHERE Bars.addr != 'The Rocks'
+AND Sells.bar = Bars.name
+GROUP BY Bars.addr;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-HAVING"><a href="#SQL-HAVING" class="headerlink" title="SQL HAVING"></a>SQL HAVING</h3><p><strong>语法</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT attributes/aggregations
+FROM relations
+WHERE condition (on tuples)
+GROUP BY attribute
+HAVING condition (on group);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：查询流行啤酒的均价</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- HAVING的用法
+SELECT beer, AVG(price)
+FROM Sells
+GROUP BY beer
+HAVING COUNT(bar) &gt; 1;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-CREATE-TABLE-定义表结构"><a href="#SQL-CREATE-TABLE-定义表结构" class="headerlink" title="SQL CREATE TABLE 定义表结构"></a>SQL CREATE TABLE 定义表结构</h3><p><strong>语法</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE TABLE RelName (
+	attribute1 ˜ domain1 ˜ properties
+	attribute2 ˜ domain2 ˜ properties
+	attribute3 ˜ domain3 ˜ properties
+	...
+)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE TABLE Beers (
+	name VARCHAR(20) PRIMARY KEY,
+	manf VARCHAR(20),
+);
+CREATE TABLE Bars (
+	name VARCHAR(30) PRIMARY KEY,
+	addr VARCHAR(30),
+	license INTEGER
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 定义一个主键
+CREATE TABLE Beers (
+	name VARCHAR(20) PRIMARY KEY,
+	manf VARCHAR(20),
+);
+-- 定义多个主键
+CREATE TABLE Beers (
+	name VARCHAR(20),
+	manf VARCHAR(20),
+  PRIMARY KEY(name, manf)
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 指定必须具有唯一值
+attribute domain UNIQUE<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 定制默认值
+CREATE TABLE Likes (
+	drinker VARCHAR(20) DEFAULT 'Joe',
+	beer VARCHAR(30) DEFAULT 'New',
+	PRIMARY KEY(drinker, beer)
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- NOT NULL非空约束
+CREATE TABLE Likes (
+	drinker VARCHAR(20) PRIMARY KEY,
+	beer VARCHAR(30) NOT NULL
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- CHECK约束
+CREATE TABLE Example
+(
+	gender CHAR(1) CHECK (gender IN ('M','F')),
+	Xvalue INT NOT NULL,
+	Yvalue INT CHECK (Yvalue &gt; Xvalue),
+	Zvalue FLOAT CHECK (Zvalue &gt; ( SELECT MAX(price) FROM Sells))
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-INSERT-插入数据"><a href="#SQL-INSERT-插入数据" class="headerlink" title="SQL INSERT 插入数据"></a>SQL INSERT 插入数据</h3><p><strong>语法：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 插入具体数据
+INSERT INTO Relation VALUES (val1, val2, val3, ...)
+-- 按查询结果插入数据
+INSERT INTO Relation ( Subquery );<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 插入一条数据
+INSERT INTO Likes VALUES ('Justin', 'Old');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 按指定字段顺序插入数据
+INSERT INTO Sells(price,bar,beer) VALUES 
+   (2.50, 'Coogee Bay Hotel', 'Pale Ale');<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE TABLE DrinkingBuddies (
+	name varchar(20)
+);
+
+INSERT INTO DrinkingBuddies
+(
+	SELECT DISTINCT f2.drinker
+	FROM Frequents f1, Frequents f2
+	WHERE f1.drinker = 'John'
+		AND f2.drinker != 'John'
+		AND f1.bar = f2.bar
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-DELETE-删除数据"><a href="#SQL-DELETE-删除数据" class="headerlink" title="SQL DELETE 删除数据"></a>SQL DELETE 删除数据</h3><p><strong>语法</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">DELETE FROM Relation
+WHERE Condition<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 按指定条件删除表数据
+DELETE FROM Likes
+WHERE drinker = 'Justin'
+	AND beer = 'Sparkling Ale';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 清空表数据
+DELETE FROM R;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：删除所有与同一制造商生产的啤酒相同的啤酒</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">DELETE FROM Beers b
+WHERE EXISTS
+	( SELECT name
+	   FROM Beers
+	   WHERE manf = b.manf
+	   AND name != b.name);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-UPDTE-更新表数据"><a href="#SQL-UPDTE-更新表数据" class="headerlink" title="SQL UPDTE 更新表数据"></a>SQL UPDTE 更新表数据</h3><p><strong>语法</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">UPDATE R
+SET list of assignments
+WHERE Condition<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 更新一条数据
+UPDATE Drinkers
+SET addr = 'Coogee' ,
+    phone = '9665-4321'
+WHERE name = 'John';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 更新多条数据
+UPDATE Sells
+SET price = 3.00
+WHERE price &gt; 3.00;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 每种啤酒的售价提升10%
+UPDATE Sells
+SET price = price * 1.10;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="ALTER-TABLE-修改表结构语句"><a href="#ALTER-TABLE-修改表结构语句" class="headerlink" title="ALTER TABLE 修改表结构语句"></a>ALTER TABLE 修改表结构语句</h3><p><strong>语法</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">ALTER TABLE Relation Modifications<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 增加表字段
+ALTER TABLE Bars
+ADD phone char(10) DEFAULT 'Unlisted';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><strong>例：</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 增加多个表字段
+ALTER TABLE Bars 
+Add opens NUMERIC(4,2) DEFAULT 10.00 ,
+Add closes NUMERIC(4,2) DEFAULT 23.00 ,
+Add manager VARCHAR(20)
+;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-VIEWS"><a href="#SQL-VIEWS" class="headerlink" title="SQL VIEWS"></a>SQL VIEWS</h3><p><strong>语法</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 创建View
+CREATE VIEW ViewName AS Query
+-- 删除View
+DROP VIEW ViewName<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE VIEW MyBeers AS
+	SELECT name, manf
+	FROM Beers
+	WHERE manf = 'Carlton';
+	SELECT * FROM MyBeers;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE VIEW InnerCityHotels AS
+	SELECT name, license
+	FROM Bars
+	WHERE addr = 'The Rocks' OR addr = 'Sydney';
+SELECT * FROM InnerCityHotels;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">CREATE VIEW InnerCityPubs AS
+	SELECT name AS pub, license AS lic
+	FROM Bars
+	WHERE addr IN ('The Rocks', 'Sydney');
+	
+CREATE VIEW InnerCityPubs(pub,lic) AS
+	SELECT name, license
+	FROM Bars
+	WHERE addr IN ('The Rocks', 'Sydney');
+	
+CREATE VIEW InnerCityHotels AS
+	SELECT name, license
+	FROM Bars
+	WHERE addr IN ('The Rocks', 'Sydney');
+
+SELECT pub FROM InnerCityHotels WHERE lic = '123456';<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>例</strong>：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">-- 通过VIEW添加数据
+CREATE VIEW CityHotels AS
+	SELECT name,addr FROM Bars
+	WHERE addr IN ('The Rocks', 'Sydney');
+
+INSERT INTO CityHotels
+	VALUES ('Jackson''s on George', 'Sydney');
+
+SELECT * FROM CityHotels;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL-DROP-TABLE删除表"><a href="#SQL-DROP-TABLE删除表" class="headerlink" title="SQL DROP TABLE删除表"></a>SQL DROP TABLE删除表</h3><p><strong>语法</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">DROP TABLE RelName;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="SQL的详细规则"><a href="#SQL的详细规则" class="headerlink" title="SQL的详细规则"></a>SQL的详细规则</h2><h3 id="SQL查询"><a href="#SQL查询" class="headerlink" title="SQL查询"></a>SQL查询</h3><p><strong>语法：</strong></p>
+<p><strong>SELECT</strong> attributes <strong>FROM</strong> relations <strong>WHERE</strong> condition</p>
+<p><strong>例：</strong>哪个啤酒是Toohey制造的？</p>
+<p><strong>答：**</strong>SELECT<strong> Name </strong>FROM<strong> Beers </strong>WHERE** Manf = ‘Toohey’’s’;</p>
+<p><strong>结果</strong>：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>New</td>
+</tr>
+<tr>
+<td>Old</td>
+</tr>
+<tr>
+<td>Red</td>
+</tr>
+<tr>
+<td>Sheaf Stout</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>注意：</strong></p>
+<ul>
+<li><p>字符中含有’符号时，需要双写为’’</p>
+</li>
+<li><p>SELECT功能可以使用关系代数中的选择（Select）、投影（Project）、连接（Join）</p>
+</li>
+</ul>
+<h3 id="SQL标示符"><a href="#SQL标示符" class="headerlink" title="SQL标示符"></a>SQL标示符</h3><p>标示符名称用于标识对象，如表、属性、视图等</p>
+<p>SQL中的标识符使用与普通编程语言类似的约定，如：</p>
+<ul>
+<li>必须以字母开头的字母数字序列</li>
+<li>不区分大小写</li>
+<li>不允使用许保留单词</li>
+</ul>
+<h3 id="SQL关键字"><a href="#SQL关键字" class="headerlink" title="SQL关键字"></a>SQL关键字</h3><p>SQL经常使用的关键字有：</p>
+<p>ALTER    AND    CREATE<br>FROM    INSERT    NOT    OR<br>SELECT    TABLE    WHERE</p>
+<p><strong>注：</strong></p>
+<p>对于PostgreSQL的关键字，请参阅相关文档。</p>
+<h3 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h3><p>SQL关系中的所有属性都指定了域</p>
+<p>SQL支持一小部分有用的内置数据类型：字符串、数字、日期、位字符串</p>
+<p>在PostgreSQL中允许自定义数据类型</p>
+<p>各种类型的转换均可用，例如：日期到字符串，字符串到日期，整数为实数……以“使其有意义的方法”自动适应</p>
+<p>自动执行基本域（类型）检查</p>
+<p>约束可以用来“强制”更复杂的域成员条件</p>
+<p>空值（NULL）是所有数据类型的成员</p>
+<p>所有类型均可以使用比较操作符：&lt;    &gt;    &lt;=    &gt;=    =    !=</p>
+<p>在WHERE表达式中可用布尔操作符AND、OR、NOT来组合比较结果</p>
+<p>与NULL的比较结果为FALSE</p>
+<p>可以使用以下命令显式测试NULL：</p>
+<p>attr IS NULL         attr IS NOT NULL</p>
+<p>大多数数据类型也有特定类型的操作可用（例如数字的算术）。实际应用哪些操作取决于实现。</p>
+<h3 id="SQL字符串"><a href="#SQL字符串" class="headerlink" title="SQL字符串"></a>SQL字符串</h3><p>可以使用两种字符串：</p>
+<p><strong>CHAR(n)</strong>…使用n个字节，左对齐，填充空白</p>
+<p>VARCHAR(n)…使用0到n个字节，没有填充</p>
+<p>字符串类型可以通过空白填充或截断来强制转换。</p>
+<p>字符串字面值使用单引号写入。’John’ = “John” = “John “ != “JOHN”</p>
+<p>str1 <strong>&lt;</strong> str2…使用字典顺序进行比较</p>
+<p>str <strong>LIKE</strong>模式…匹配字符串到模式</p>
+<p>两种模式匹配：</p>
+<p><strong>%</strong>匹配任何字符（如 *）<br>_匹配任何单个字符（如 .）</p>
+<p><strong>例如：</strong><br>Name <strong>LIKE</strong> ‘Ja<strong>%</strong>’            以“Ja”开头<br>Name LIKE  ‘<strong>_</strong>i<strong>%</strong>’            名称以“i”作为第二个字母<br>Name <strong>LIKE</strong> ‘%o<strong>%</strong>o<strong>%</strong>’     名称包含两个“o”</p>
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><p>string <strong>||</strong> string … 连接两个字符串</p>
+<p><strong>例如：</strong>‘Post’|| ‘greSQL’ -&gt; PostgreSQL</p>
+<p><strong>LENGTH</strong>(str) … 返回字符串长度</p>
+<p><strong>SUBSTR</strong> (str,开始,长度)……从字符串中提取字符</p>
+<p><strong>substring</strong>(‘Thomas’, 2, 3) -&gt; hom</p>
+<h3 id="SQL日期"><a href="#SQL日期" class="headerlink" title="SQL日期"></a>SQL日期</h3><p>日期只是特殊格式的字符串，通过一系列操作来实现日期语义。</p>
+<p>经典的格式为 DD-Mon-YYYY，如：’18-Aug-1998’</p>
+<p>接受其他格式</p>
+<p>可使用比较运算符&lt;和&gt;进行比较</p>
+<p>(start1, end1) <strong>OVERLAPS</strong> (start2, end2)</p>
+<p>如果第一段日期与第二段日期有重叠，则返回True，否则返回False</p>
+<p><strong>例如：</strong></p>
+<p><strong>SELECT</strong> (DATE ‘2001-02-16’, DATE ‘2001-12-21’) <strong>OVERLAPS</strong> (DATE ‘2001-10-30’, DATE ‘2002-10-30’);  -&gt; 结果: True</p>
+<h3 id="SQL数字"><a href="#SQL数字" class="headerlink" title="SQL数字"></a>SQL数字</h3><p>可以使用各种类型的数字：<br>smallint, int, bigint…2字节，4字节和8字节的整数<br>real, double precision…4字节8字节的浮点数<br>numeric(precision, scale)<br>scale是小数点右侧的小数部分的数。precision是整个数字中所有有效数字的总数</p>
+<p>算数运算符：+  - * / abs ceil floor power sqrt sin …</p>
+<p>一些运算适用于关系中的一列数字：</p>
+<p>AVG (attr)…            属性值的平均值<br>COUNT(attr)…        属性列的行数<br>MIN/MAX(attr)…    最小/最大的attr值<br>SUM(attr)…            attr的值的总和</p>
+<p>NULL 在算术操作生成结果为NULL，但参与列操作时被忽略</p>
+<h3 id="SQL元组和集合"><a href="#SQL元组和集合" class="headerlink" title="SQL元组和集合"></a>SQL元组和集合</h3><p>Tuple和set常量都写成(val1, val2, val3, … )</p>
+<p>正确的解释是从上下文中得出的</p>
+<p><strong>例如：</strong></p>
+<p>Tuple含义：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">Student(stude#, name, course)
+( 2177364, ’Jack Smith’, ’BSc’)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>Set含义</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT name
+FROM Employees
+WHERE job IN (’Lecturer’, ’Tutor’, ’Professor’);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="查询单个关系"><a href="#查询单个关系" class="headerlink" title="查询单个关系"></a>查询单个关系</h3><p>格式（关系代数）：</p>
+<p>从关系R FROM子句</p>
+<p>在 WHERE 子句中使用 Condition 实现 σ </p>
+<p>在 SELECT 子句中使用 Attributes 实现 π </p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT Attributes
+FROM R
+WHERE Conditions<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>从操作上来说，我们考虑的是一个元组变量，其范围涵盖了关系的所有元组。</p>
+<p>操作的语义：</p>
+<pre class="line-numbers language-none"><code class="language-none">FOR EACH tuple T in R DO
+	check whether T satisfies the condition in the WHERE clause
+	IF it does THEN
+		print the attributes of T that are
+		specified in the SELECT clause
+	END
+END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="SQL投影"><a href="#SQL投影" class="headerlink" title="SQL投影"></a>SQL投影</h3><p>假设一个关系R和属性 X ⊆ R.</p>
+<p>π<sub>X</sub> (R) 在SQL中实现如下:</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT X FROM R<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>例子：</strong></p>
+<p>投影drinkers的名字：π<sub>Name</sub>(Drinkers)</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT Name FROM Drinkers;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><strong>结果为：</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+</tr>
+<tr>
+<td>Gernot</td>
+</tr>
+<tr>
+<td>John</td>
+</tr>
+<tr>
+<td>Justin</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>例子：</strong></p>
+<p>drinkers的名字和地址 π<sub>Name,Addr</sub>(Drinkers)</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Name, Addr FROM Drinkers;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果为：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>NAME</th>
+<th>ADDR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+<td>Randwick</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Newtown</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Clovelly</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Mosman</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>符号∗表示所有属性的列表。</p>
+<p>例如：</p>
+<p>drinkers的所有信息：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT * FROM Drinkers;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>ame</th>
+<th>Addr</th>
+<th>Phone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adam</td>
+<td>Randwick</td>
+<td>9385-4444</td>
+</tr>
+<tr>
+<td>Gernot</td>
+<td>Newtown</td>
+<td>9415-3378</td>
+</tr>
+<tr>
+<td>John</td>
+<td>Clovelly</td>
+<td>9665-1234</td>
+</tr>
+<tr>
+<td>Justin</td>
+<td>Mosman</td>
+<td>9845-4321</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="SQL选择"><a href="#SQL选择" class="headerlink" title="SQL选择"></a>SQL选择</h3><p>σ<bar>Cond</bar>(Rel) 在SQL中实现如下:</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT * FROM Rel WHERE Cond<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>例如：找出Regent Hotel对新产品的价格</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT price
+FROM Sells
+WHERE bar = ’Regent Hotel’ AND beer = ’New’;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>结果：<br>| PRICE |<br>| ——- |<br>| 22    |</p>
+<p>条件可以是任意复杂的布尔值表达式，使用前面提到的操作符。</p>
+<p>典型的SELECT查询格式为：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT a1, a2, a3
+FROM Rel
+WHERE Cond<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>这对应于select后面跟着project：</p>
+<p>π<sub>{a1,a2,a3}</sub>(σ<sub>Cond</sub>(Rel))</p>
+<h3 id="使用AS重命名"><a href="#使用AS重命名" class="headerlink" title="使用AS重命名"></a>使用AS重命名</h3><p>Ullman/Widom定义了一个重命名操作符ρ，以避免名称冲突。</p>
+<p>例如，“学术”和“学生”的地址栏</p>
+<p>例子：ρ<sub>Beers(Brand,Brewer)</sub>(Beers)</p>
+<p>给出一个新的关系，使用与Beers相同的数据，但是属性名称改变了。</p>
+<p>SQL提供AS来解决这个问题，它用于SELECT部分。</p>
+<p><strong>例子</strong></p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT name AS Brand, manf AS Brewer FROM Beers;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果：<br>| BRAND| BREWER|<br>| ————————————-| ——————————|<br>| 80/- | Caledonian|<br>| Bigfoot Barley Wine| Sierra Nevada|<br>| Burragorang Bock | George IV Inn|<br>| Crown Lager| Carlton|<br>| Fosters Lager | Carlton|<br>| Invalid Stout| Carlton|</p>
+<h3 id="表达式作为列中的值"><a href="#表达式作为列中的值" class="headerlink" title="表达式作为列中的值"></a>表达式作为列中的值</h3><p>AS还可以用于引入计算值</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT bar, beer, price*120 AS PriceInYen<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>BAR</th>
+<th>BEER</th>
+<th>PRICEINYEN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Australia Hotel</td>
+<td>Burragorang Bock</td>
+<td>420</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>New</td>
+<td>270</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Old</td>
+<td>300</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Sparkling Ale</td>
+<td>336</td>
+</tr>
+<tr>
+<td>Coogee Bay Hotel</td>
+<td>Victoria Bitter</td>
+<td>276</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这只是显示数据库数据，但没有对数据库进行更改</p>
+<h3 id="在结果表中插入文本"><a href="#在结果表中插入文本" class="headerlink" title="在结果表中插入文本"></a>在结果表中插入文本</h3><p>技巧：要将文本放入输出列，请使用带有AS的常量表达式。</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT drinker, ‘likes Cooper’’s’ AS WhoLikes
+FROM Likes
+WHERE beer = ‘Sparkling Ale’;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>结果：<br>|DRINKER|WHOLIKES|<br>|———————|———————|<br>|Gernot|likes Cooper’s|<br>|Justin |likes Cooper’s|</p>
+<h3 id="查询多关系"><a href="#查询多关系" class="headerlink" title="查询多关系"></a>查询多关系</h3><p>找到约翰喜欢的啤酒酿造商。</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Manf FROM Likes, Beers WHERE drinker = ‘John’ AND beer = name;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>结果：<br>| MANF|<br>|——————————|<br>|Caledonian|<br>|Sierra Nevada|<br>|Sierra Nevada|<br>|Lord Nelson|</p>
+<p>注意：可以使用DISTINCT来消除重复项。</p>
+<p>关系代数：π<sub>manf</sub> (σ<sub>drinker=‘John′</sub> Likes ⋈ Beers).</p>
+<p>语法：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Attributes
+FROM R1, R2, ...
+WHERE Condition
+FROM clause contains a list of relations.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>SQL SELECT语句的几个关系：</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Attributes
+FROM R1, R2, ...
+WHERE Condition<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>形式语义（关系代数）：</p>
+<p>从乘积R1 × R2 ×…在FROM子句<br>应用σ使用条件在WHERE子句<br>应用π使用属性在SELECT子句</p>
+<p>SELECT的操作语义:</p>
+<pre class="line-numbers language-none"><code class="language-none">FOR EACH tuple T1 in R1 DO
+	FOR EACH tuple T2 in R2 DO
+	    ...
+	         check WHERE condition for current
+	         assignment of T1, T2, ... vars
+	         IF holds THEN
+		print attributes of T1, T2, ...
+		specified in SELECT	END
+	          END
+	     ...
+
+END<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由于效率的原因，它不以这种方式实现！</p>
+<h3 id="属性名称冲突"><a href="#属性名称冲突" class="headerlink" title="属性名称冲突"></a>属性名称冲突</h3><p>如果选择条件引用两个关系，或关系具有相同名称的属性，则可以使用关系名称来消除歧义。</p>
+<p><strong>例子：</strong></p>
+<p>哪些酒店的名字和啤酒相同?</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT Bars.name
+FROM Bars, Beers
+WHERE Bars.name = Beers.name;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>结果：</p>
+<p>它们都没有，所以结果是空的。</p>
+<p>可以使用这样的限定名，即使没有歧义:</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT Sells.beer
+FROM Sells
+WHERE Sells.price &gt; 3.00;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>建议:<br>只有在绝对必要时才对属性名进行限定。不能使用SQL的AS操作符来解析名称冲突。</p>
+<h3 id="表名称冲突"><a href="#表名称冲突" class="headerlink" title="表名称冲突"></a>表名称冲突</h3><p>如果我们在SELECT中使用同一个关系两次，那么relationship-dot-attribute约定将不起作用。</p>
+<p>要处理这个问题，我们需要在FROM子句中为关系的每个“实例”定义新的名称。</p>
+<p>举例：找几双同一厂商生产的啤酒。</p>
+<p>注意：我们应该避免：<br>将啤酒与自身搭配如(New,New)<br>相同的配对如 (New,Old) (Old,New)</p>
+<pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">SELECT b1.name, b2.name FROM Beers b1, Beers b2 WHERE b1.manf = b2.manf AND b1.name &lt; b2.name;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h3><p>SELECT-FROM-WHERE查询的结果可以在另一个查询的WHERE子句中使用。</p>
+<p>最简单的例子:子查询返回一个元组。可以将结果视为常数值并使用=。</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/03/01/unsw/comp9311/shu-ju-ku-ji-chu-sql/">http://szdf123.github.io/2021/03/01/unsw/comp9311/shu-ju-ku-ji-chu-sql/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/COMP9311/">
+                                    <span class="chip bg-color">COMP9311</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%89%8B%E5%86%8C/">
+                                    <span class="chip bg-color">手册</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                                    <span class="chip bg-color">持续更新</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/01/ji-zhu-xue-xi/ji-suan-ji-ji-zhu-ying-yu-sheng-ci-ben/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/81.jpg" class="responsive-img" alt="计算机技术英语生词本">
+                        
+                        <span class="card-title">计算机技术英语生词本</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在学习计算机技术时遇到的生词
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    技术学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%8B%B1%E8%AF%AD/">
+                        <span class="chip bg-color">英语</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/">
+                        <span class="chip bg-color">持续更新</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/28/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/192.jpg" class="responsive-img" alt="数据库基础课程笔记（3）">
+                        
+                        <span class="card-title">数据库基础课程笔记（3）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week2 数据库基础关系代数部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">66.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

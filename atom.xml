@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-04-18T17:09:52.398Z</updated>
+  <updated>2021-04-26T07:45:24.700Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>离散数学课程笔记（9）</title>
-    <link href="http://szdf123.github.io/2021/04/18/chi-san-shu-xue-ke-cheng-bi-ji-9/"/>
-    <id>http://szdf123.github.io/2021/04/18/chi-san-shu-xue-ke-cheng-bi-ji-9/</id>
-    <published>2021-04-18T13:11:53.000Z</published>
-    <updated>2021-04-18T17:09:52.398Z</updated>
+    <title>更换MacOS的brew源</title>
+    <link href="http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/"/>
+    <id>http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/</id>
+    <published>2021-04-26T07:20:20.000Z</published>
+    <updated>2021-04-26T07:45:24.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;MacOS操作系统在使用&lt;code&gt;brew&lt;/code&gt;命令安装工具时，可能停留在Updating</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="Linux" scheme="http://szdf123.github.io/tags/Linux/"/>
+    
+    <category term="MacOS" scheme="http://szdf123.github.io/tags/MacOS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>理财训练营（2）</title>
+    <link href="http://szdf123.github.io/2021/04/22/ke-cheng-bi-ji/li-cai-xun-lian-ying-2/"/>
+    <id>http://szdf123.github.io/2021/04/22/ke-cheng-bi-ji/li-cai-xun-lian-ying-2/</id>
+    <published>2021-04-21T16:04:42.000Z</published>
+    <updated>2021-04-21T16:50:50.435Z</updated>
     
     
       
@@ -29,9 +58,233 @@
         
         
     <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;Textbook (R &amp;amp; W) - Ch. 9, Sec. 9.1-9.4&lt;/p&gt;
+&lt;p&gt; 本学习笔记根据某投学堂提供资料整理学习&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h2 id=&quot;条件概率与期望-Conditional-Probability-and-Expectation&quot;&gt;&lt;a</summary>
+&lt;h2 id=&quot;初识投资品：人人都该有的4个钱包&quot;&gt;&lt;a href=&quot;#初识投资品：人人都该有的4个钱包&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="理财" scheme="http://szdf123.github.io/tags/%E7%90%86%E8%B4%A2/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bistoury综合资料</title>
+    <link href="http://szdf123.github.io/2021/04/21/ji-zhu-xue-xi/bistoury/bistoury-zong-he-zi-liao/"/>
+    <id>http://szdf123.github.io/2021/04/21/ji-zhu-xue-xi/bistoury/bistoury-zong-he-zi-liao/</id>
+    <published>2021-04-21T08:59:58.000Z</published>
+    <updated>2021-04-22T11:06:55.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://github.com/qunarcorp/bistoury&quot;&gt;bistoury官网&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="监控技术" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bistoury使用及配置</title>
+    <link href="http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-shi-yong-ji-pei-zhi/"/>
+    <id>http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-shi-yong-ji-pei-zhi/</id>
+    <published>2021-04-20T08:58:45.000Z</published>
+    <updated>2021-04-21T08:18:58.070Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;应用注册&quot;&gt;&lt;a href=&quot;#应用注册&quot; class=&quot;headerlink&quot; title=&quot;应用注册&quot;&gt;&lt;/a&gt;应用注册&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;一台主机（ip）只可绑定到一个应用&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;发布信息配置&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="监控技术" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Bistoury搭建及使用问题解决记录</title>
+    <link href="http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/"/>
+    <id>http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/</id>
+    <published>2021-04-20T08:10:05.000Z</published>
+    <updated>2021-04-20T08:29:04.607Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;解决agent无法启动问题&quot;&gt;&lt;a href=&quot;#解决agent无法启动问题&quot; class=&quot;headerlink&quot; title=&quot;解决agent无法启动问题&quot;&gt;&lt;/a&gt;&lt;strong&gt;解决agent无法启动问题&lt;/strong&gt;&lt;/h3&gt;&lt;h4</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="监控技术" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>bistoury功能详解</title>
+    <link href="http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-gong-neng-xiang-jie/"/>
+    <id>http://szdf123.github.io/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-gong-neng-xiang-jie/</id>
+    <published>2021-04-20T08:10:05.000Z</published>
+    <updated>2021-04-21T07:38:36.643Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Bistoury介绍&quot;&gt;&lt;a href=&quot;#Bistoury介绍&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="监控技术" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS搭建Nginx</title>
+    <link href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-nginx/"/>
+    <id>http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-nginx/</id>
+    <published>2021-04-20T06:48:50.000Z</published>
+    <updated>2021-04-22T06:03:46.307Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;使用Yum安装方法&quot;&gt;&lt;a href=&quot;#使用Yum安装方法&quot; class=&quot;headerlink&quot; title=&quot;使用Yum安装方法&quot;&gt;&lt;/a&gt;使用Yum安装方法&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;添加yum源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="CentOS" scheme="http://szdf123.github.io/tags/CentOS/"/>
+    
+    <category term="Nginx" scheme="http://szdf123.github.io/tags/Nginx/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CentOS搭建Zookeeper</title>
+    <link href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-zookeeper/"/>
+    <id>http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-zookeeper/</id>
+    <published>2021-04-20T06:48:50.000Z</published>
+    <updated>2021-04-22T09:32:12.308Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;使用Yum安装方法&quot;&gt;&lt;a href=&quot;#使用Yum安装方法&quot; class=&quot;headerlink&quot; title=&quot;使用Yum安装方法&quot;&gt;&lt;/a&gt;使用Yum安装方法&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;从&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="CentOS" scheme="http://szdf123.github.io/tags/CentOS/"/>
+    
+    <category term="Zookeeper" scheme="http://szdf123.github.io/tags/Zookeeper/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MySQL查询视图、函数及存储过程</title>
+    <link href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/mysql-cha-xun-cun-chu-guo-cheng/"/>
+    <id>http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/mysql-cha-xun-cun-chu-guo-cheng/</id>
+    <published>2021-04-20T06:48:50.000Z</published>
+    <updated>2021-04-20T07:47:20.839Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;查询MySQL视图&quot;&gt;&lt;a href=&quot;#查询MySQL视图&quot; class=&quot;headerlink&quot; title=&quot;查询MySQL视图&quot;&gt;&lt;/a&gt;查询MySQL视图&lt;/h2&gt;&lt;p&gt;查看视图&lt;br&gt;&lt;/p&gt;&lt;pre class=&quot;line-numbers</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="MySQL" scheme="http://szdf123.github.io/tags/MySQL/"/>
+    
+    <category term="视图" scheme="http://szdf123.github.io/tags/%E8%A7%86%E5%9B%BE/"/>
+    
+    <category term="函数" scheme="http://szdf123.github.io/tags/%E5%87%BD%E6%95%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>离散数学课程笔记（9）</title>
+    <link href="http://szdf123.github.io/2021/04/18/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-9/"/>
+    <id>http://szdf123.github.io/2021/04/18/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-9/</id>
+    <published>2021-04-18T13:11:53.000Z</published>
+    <updated>2021-04-25T14:41:52.128Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;条件概率与期望-Conditional-Probability-and-Expectation&quot;&gt;&lt;a href=&quot;#条件概率与期望-Conditional-Probability-and-Expectation&quot; class=&quot;headerlink&quot;</summary>
         
       
     
@@ -52,8 +305,8 @@
   
   <entry>
     <title>离散数学课程笔记（8）</title>
-    <link href="http://szdf123.github.io/2021/04/18/chi-san-shu-xue-ke-cheng-bi-ji-8/"/>
-    <id>http://szdf123.github.io/2021/04/18/chi-san-shu-xue-ke-cheng-bi-ji-8/</id>
+    <link href="http://szdf123.github.io/2021/04/18/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-8/"/>
+    <id>http://szdf123.github.io/2021/04/18/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-8/</id>
     <published>2021-04-18T13:10:29.000Z</published>
     <updated>2021-04-18T13:11:39.819Z</updated>
     
@@ -83,8 +336,8 @@
   
   <entry>
     <title>Python自定义错误</title>
-    <link href="http://szdf123.github.io/2021/04/17/python-zi-ding-yi-cuo-wu/"/>
-    <id>http://szdf123.github.io/2021/04/17/python-zi-ding-yi-cuo-wu/</id>
+    <link href="http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zi-ding-yi-cuo-wu/"/>
+    <id>http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zi-ding-yi-cuo-wu/</id>
     <published>2021-04-17T12:13:08.000Z</published>
     <updated>2021-04-17T12:38:06.375Z</updated>
     
@@ -111,10 +364,10 @@
   
   <entry>
     <title>Python中yield及itertools用法</title>
-    <link href="http://szdf123.github.io/2021/04/17/python-zhong-yield-ji-itertools-yong-fa-copy/"/>
-    <id>http://szdf123.github.io/2021/04/17/python-zhong-yield-ji-itertools-yong-fa-copy/</id>
+    <link href="http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zhong-yield-ji-itertools-yong-fa/"/>
+    <id>http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zhong-yield-ji-itertools-yong-fa/</id>
     <published>2021-04-17T09:18:25.000Z</published>
-    <updated>2021-04-17T12:40:25.139Z</updated>
+    <updated>2021-04-20T08:09:19.568Z</updated>
     
     
       
@@ -138,8 +391,8 @@
   
   <entry>
     <title>我活着是为了什么？</title>
-    <link href="http://szdf123.github.io/2021/04/17/wo-huo-zhao-shi-wei-liao-shi-me/"/>
-    <id>http://szdf123.github.io/2021/04/17/wo-huo-zhao-shi-wei-liao-shi-me/</id>
+    <link href="http://szdf123.github.io/2021/04/17/sheng-huo-ji-shi/wo-huo-zhao-shi-wei-liao-shi-me/"/>
+    <id>http://szdf123.github.io/2021/04/17/sheng-huo-ji-shi/wo-huo-zhao-shi-wei-liao-shi-me/</id>
     <published>2021-04-16T16:33:35.000Z</published>
     <updated>2021-04-16T16:38:47.602Z</updated>
     
@@ -163,8 +416,8 @@
   
   <entry>
     <title>理财训练营（1）</title>
-    <link href="http://szdf123.github.io/2021/04/15/li-cai-xun-lian-ying-1/"/>
-    <id>http://szdf123.github.io/2021/04/15/li-cai-xun-lian-ying-1/</id>
+    <link href="http://szdf123.github.io/2021/04/15/ke-cheng-bi-ji/li-cai-xun-lian-ying-1/"/>
+    <id>http://szdf123.github.io/2021/04/15/ke-cheng-bi-ji/li-cai-xun-lian-ying-1/</id>
     <published>2021-04-15T15:38:15.000Z</published>
     <updated>2021-04-16T17:27:45.996Z</updated>
     
@@ -191,8 +444,8 @@
   
   <entry>
     <title>Linux CentOS 综合使用技巧</title>
-    <link href="http://szdf123.github.io/2021/04/15/linux-centos-zong-he-shi-yong-ji-qiao/"/>
-    <id>http://szdf123.github.io/2021/04/15/linux-centos-zong-he-shi-yong-ji-qiao/</id>
+    <link href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/linux-centos-zong-he-shi-yong-ji-qiao/"/>
+    <id>http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/linux-centos-zong-he-shi-yong-ji-qiao/</id>
     <published>2021-04-15T08:58:30.000Z</published>
     <updated>2021-04-15T09:00:03.392Z</updated>
     
@@ -220,10 +473,10 @@
   
   <entry>
     <title>CentOS7操作系统配置Java</title>
-    <link href="http://szdf123.github.io/2021/04/15/centos7-pei-zhi-java/"/>
-    <id>http://szdf123.github.io/2021/04/15/centos7-pei-zhi-java/</id>
+    <link href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/centos7-pei-zhi-java/"/>
+    <id>http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/centos7-pei-zhi-java/</id>
     <published>2021-04-15T07:54:48.000Z</published>
-    <updated>2021-04-16T07:04:42.082Z</updated>
+    <updated>2021-04-16T07:08:35.594Z</updated>
     
     
       
@@ -250,10 +503,10 @@
   
   <entry>
     <title>在kubernetes环境搭建bistoury</title>
-    <link href="http://szdf123.github.io/2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/"/>
-    <id>http://szdf123.github.io/2021/04/15/zai-k8s-huan-jing-da-jian-bistoury/</id>
+    <link href="http://szdf123.github.io/2021/04/15/ji-zhu-xue-xi/bistoury/zai-kubernetes-huan-jing-da-jian-bistoury/"/>
+    <id>http://szdf123.github.io/2021/04/15/ji-zhu-xue-xi/bistoury/zai-kubernetes-huan-jing-da-jian-bistoury/</id>
     <published>2021-04-15T07:09:22.000Z</published>
-    <updated>2021-04-15T09:08:09.008Z</updated>
+    <updated>2021-04-20T08:26:41.571Z</updated>
     
     
       
@@ -266,19 +519,19 @@
     
     
     
-    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
     
     
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
     
-    <category term="监控系统" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/"/>
+    <category term="监控技术" scheme="http://szdf123.github.io/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>离散数学课程笔记（7）</title>
-    <link href="http://szdf123.github.io/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/"/>
-    <id>http://szdf123.github.io/2021/04/01/chi-san-shu-xue-ke-cheng-bi-ji-7/</id>
+    <link href="http://szdf123.github.io/2021/04/01/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-7/"/>
+    <id>http://szdf123.github.io/2021/04/01/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-7/</id>
     <published>2021-04-01T11:25:01.000Z</published>
     <updated>2021-04-01T12:03:03.307Z</updated>
     
@@ -308,8 +561,8 @@
   
   <entry>
     <title>数据库基础课程笔记（8）</title>
-    <link href="http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/"/>
-    <id>http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/</id>
+    <link href="http://szdf123.github.io/2021/03/28/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/"/>
+    <id>http://szdf123.github.io/2021/03/28/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/</id>
     <published>2021-03-28T12:03:15.000Z</published>
     <updated>2021-03-28T12:52:01.024Z</updated>
     
@@ -332,298 +585,6 @@
     <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础课程笔记（7）</title>
-    <link href="http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-7/"/>
-    <id>http://szdf123.github.io/2021/03/28/shu-ju-ku-ji-chu-ke-cheng-bi-ji-7/</id>
-    <published>2021-03-28T09:02:36.000Z</published>
-    <updated>2021-03-28T15:04:54.277Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;磁盘及文件&quot;&gt;&lt;a href=&quot;#磁盘及文件&quot; class=&quot;headerlink&quot; title=&quot;磁盘及文件&quot;&gt;&lt;/a&gt;磁盘及文件&lt;/h2&gt;&lt;h3 id=&quot;记忆等级&quot;&gt;&lt;a href=&quot;#记忆等级&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础大作业记录（1）</title>
-    <link href="http://szdf123.github.io/2021/03/23/shu-ju-ku-ji-chu-da-zuo-ye-ji-lu-1/"/>
-    <id>http://szdf123.github.io/2021/03/23/shu-ju-ku-ji-chu-da-zuo-ye-ji-lu-1/</id>
-    <published>2021-03-23T13:49:51.000Z</published>
-    <updated>2021-03-30T16:38:59.408Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;目标&quot;&gt;&lt;a href=&quot;#目标&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
-    
-    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>离散数学课程笔记-综合</title>
-    <link href="http://szdf123.github.io/2021/03/22/chi-san-shu-xue-ke-cheng-bi-ji-zong-he/"/>
-    <id>http://szdf123.github.io/2021/03/22/chi-san-shu-xue-ke-cheng-bi-ji-zong-he/</id>
-    <published>2021-03-22T05:46:15.000Z</published>
-    <updated>2021-04-01T11:25:06.442Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;数学符号&quot;&gt;&lt;a href=&quot;#数学符号&quot; class=&quot;headerlink&quot; title=&quot;数学符号&quot;&gt;&lt;/a&gt;数学符号&lt;/h2&gt;&lt;p&gt;正整数$\mathbb{P}$ 自然数$\N$ 整数$\Z$ 有理数$\Q$</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
-    
-    <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>离散数学课程笔记（6）</title>
-    <link href="http://szdf123.github.io/2021/03/21/chi-san-shu-xue-ke-cheng-bi-ji-6/"/>
-    <id>http://szdf123.github.io/2021/03/21/chi-san-shu-xue-ke-cheng-bi-ji-6/</id>
-    <published>2021-03-21T09:17:58.000Z</published>
-    <updated>2021-03-22T04:35:12.812Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;图-Graphs&quot;&gt;&lt;a href=&quot;#图-Graphs&quot; class=&quot;headerlink&quot; title=&quot;图 Graphs&quot;&gt;&lt;/a&gt;图</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9020" scheme="http://szdf123.github.io/tags/COMP9020/"/>
-    
-    <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础实践记录（4）</title>
-    <link href="http://szdf123.github.io/2021/03/18/shu-ju-ku-ji-chu-shi-jian-ji-lu-4/"/>
-    <id>http://szdf123.github.io/2021/03/18/shu-ju-ku-ji-chu-shi-jian-ji-lu-4/</id>
-    <published>2021-03-18T15:41:12.000Z</published>
-    <updated>2021-03-18T15:41:22.630Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;实践目标&quot;&gt;&lt;a href=&quot;#实践目标&quot; class=&quot;headerlink&quot; title=&quot;实践目标&quot;&gt;&lt;/a&gt;实践目标&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;h2 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
-    
-    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础实践记录（3）</title>
-    <link href="http://szdf123.github.io/2021/03/18/shu-ju-ku-ji-chu-shi-jian-ji-lu-3/"/>
-    <id>http://szdf123.github.io/2021/03/18/shu-ju-ku-ji-chu-shi-jian-ji-lu-3/</id>
-    <published>2021-03-18T12:54:33.000Z</published>
-    <updated>2021-03-18T15:40:19.775Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;实践目标&quot;&gt;&lt;a href=&quot;#实践目标&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
-    
-    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础课程笔记（6）</title>
-    <link href="http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/"/>
-    <id>http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-6/</id>
-    <published>2021-03-16T08:15:20.000Z</published>
-    <updated>2021-03-17T14:29:10.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;关系数据库设计&quot;&gt;&lt;a href=&quot;#关系数据库设计&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础课程笔记（5）</title>
-    <link href="http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-5/"/>
-    <id>http://szdf123.github.io/2021/03/16/shu-ju-ku-ji-chu-ke-cheng-bi-ji-5/</id>
-    <published>2021-03-15T17:02:59.000Z</published>
-    <updated>2021-03-16T06:58:10.369Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;关系数据库的范式&quot;&gt;&lt;a href=&quot;#关系数据库的范式&quot; class=&quot;headerlink&quot; title=&quot;关系数据库的范式&quot;&gt;&lt;/a&gt;关系数据库的范式&lt;/h2&gt;&lt;p&gt;优秀数据库设计的标准&lt;/p&gt;
-&lt;p&gt;通过函数(或其他)依赖形式化&lt;/p&gt;
-&lt;h3</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础PLpgSQL</title>
-    <link href="http://szdf123.github.io/2021/03/15/shu-ju-ku-ji-chu-plpgsql/"/>
-    <id>http://szdf123.github.io/2021/03/15/shu-ju-ku-ji-chu-plpgsql/</id>
-    <published>2021-03-15T09:27:19.000Z</published>
-    <updated>2021-03-28T16:32:27.859Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;SQL语言已经具有的特点&quot;&gt;&lt;a href=&quot;#SQL语言已经具有的特点&quot; class=&quot;headerlink&quot; title=&quot;SQL语言已经具有的特点&quot;&gt;&lt;/a&gt;SQL语言已经具有的特点&lt;/h2&gt;&lt;h3 id=&quot;数据类型&quot;&gt;&lt;a href=&quot;#数据类型&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="SQL" scheme="http://szdf123.github.io/tags/SQL/"/>
-    
-    <category term="手册" scheme="http://szdf123.github.io/tags/%E6%89%8B%E5%86%8C/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
     
     <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     

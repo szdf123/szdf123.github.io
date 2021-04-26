@@ -1,0 +1,1490 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="COMP9311,数据库,笔记,课程安排">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库基础课程笔记（1） | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/130.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库基础课程笔记（1）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/COMP9311/">
+                                <span class="chip bg-color">COMP9311</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-08
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="课程安排"><a href="#课程安排" class="headerlink" title="课程安排"></a>课程安排</h2><h4 id="教师及联系方式"><a href="#教师及联系方式" class="headerlink" title="教师及联系方式"></a>教师及联系方式</h4><p>Xuemin Lin<br>School of Computer Science and Engineering<br>Office: K17-503<br>E-mail: lxue@cse.unsw.edu.au<br>Ext: 6493<br><a target="_blank" rel="noopener" href="http://www.cse.unsw.edu.au/~lxue">http://www.cse.unsw.edu.au/~lxue</a></p>
+<h4 id="开课信息"><a href="#开课信息" class="headerlink" title="开课信息"></a>开课信息</h4><p><strong>演讲：</strong><br>    17:00 - 19:00 （周一，澳大利亚时间）           第 1 – 9 周上课<br>    16:00 - 18:00 （周二，澳大利亚时间）           第 1 – 9 周上课<br>共9周。</p>
+<p><strong>实验：</strong></p>
+<p>通过Moodle(<a target="_blank" rel="noopener" href="https://moodle.telt.unsw.edu.au/)在线进行，在“讲座和录音”中（COMP9311">https://moodle.telt.unsw.edu.au/)在线进行，在“讲座和录音”中（COMP9311</a> – Database Systems 2021 T1）<br>第2 - 5、7 - 10周上课（第11周周一复活节补课）<br>咨询：TBA<br>Q&amp;A论坛： <a target="_blank" rel="noopener" href="https://groups.google.com/group/comp9311-21t1">https://groups.google.com/group/comp9311-21t1</a><br>课程的电子邮件： comp9311unsw@gmail.com</p>
+<h4 id="作业安排"><a href="#作业安排" class="headerlink" title="作业安排"></a>作业安排</h4><p>2 个大作业（assignments），1 个项目（project）。所有的作业都需要个人独立完成！</p>
+<ul>
+<li>大作业（50%）：<br>大作业1（Ass 1）：数据建模 + 关系代数（20%）（第2-4周）<br>大作业2（Ass 2）：数据库设计理论 + 数据库存储结构 + 事务处理（30%）（第7-9周）</li>
+<li><p>项目（project） (50%)<br>项目 1: SQL &amp; PLpgSQL (50%)  ( 4-7 周为SQL, 第 8 周为PLpgSQL)<br>逾期提交的惩罚：<br>作业：迟交作业0分<br>项目：迟交第一天扣10%，然后每天扣30%。</p>
+</li>
+<li><p>期末考试：100%<br>如果考试当天你生病了，就不要参加考试。如果已经尝试考试，将不允许再提出医疗特殊考虑要求。</p>
+</li>
+</ul>
+<h4 id="最终成绩计算规则"><a href="#最终成绩计算规则" class="headerlink" title="最终成绩计算规则"></a>最终成绩计算规则</h4><p>最终成绩 = $\sqrt{(ass1+ass2+proj1)∗exam}$</p>
+<h4 id="教科书"><a href="#教科书" class="headerlink" title="教科书"></a>教科书</h4><p>Elmasri &amp; Navathe, Fundamentals of Database Systems, Benjamin/Cummings, 6th Edition, 2010.</p>
+<p>（Elmasri &amp; Navathe，《数据库系统基础》，Benjamin/Cummings，第6版，2010年版）</p>
+<h4 id="参考书籍"><a href="#参考书籍" class="headerlink" title="参考书籍"></a>参考书籍</h4><p>J. D. Ullman &amp; J. Widom, 《数据库系统概论》，武汉大学出版社，1997年版。<br>R. Ramakrishan,《数据库管理系统》，北京:科学出版社，1997年版<br>D. Maier《关系数据库理论》，计算机科学出版社，1983年版</p>
+<h4 id="教学安排"><a href="#教学安排" class="headerlink" title="教学安排"></a>教学安排</h4><div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>Time</strong></th>
+<th><strong>Monday</strong></th>
+<th><strong>Tuesday</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Week 1</td>
+<td>Subject Introduction, Conceptual DB Design (ER)</td>
+<td>Conceptual DB Design (continue), Relational Data Model</td>
+</tr>
+<tr>
+<td>Week 2</td>
+<td>Relational Data Model(continue), Relational Algebra</td>
+<td>SQL</td>
+</tr>
+<tr>
+<td>Week 3</td>
+<td>SQL(continue), PLpgSQL</td>
+<td>Functional Dependencies</td>
+</tr>
+<tr>
+<td>Week 4</td>
+<td>Functional Dependencies (continue), Normal Forms</td>
+<td>Normal Forms (continue)</td>
+</tr>
+<tr>
+<td>Week 5</td>
+<td>Relational DB design</td>
+<td>Relational DB design (continue)</td>
+</tr>
+<tr>
+<td>Week 6</td>
+<td>Disks, Files</td>
+<td>Index</td>
+</tr>
+<tr>
+<td>Week 7</td>
+<td>Transaction Management</td>
+<td>Transaction Management (continue)</td>
+</tr>
+<tr>
+<td>Week 8</td>
+<td>Graph Data and Graph Database</td>
+<td>Graph Pattern Matching</td>
+</tr>
+<tr>
+<td>Week 9</td>
+<td>Towards Big Graph Processing: applications and challenges</td>
+<td>Revisions</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="数据库概念设计"><a href="#数据库概念设计" class="headerlink" title="数据库概念设计"></a>数据库概念设计</h2><pre class="line-numbers language-mermaid" data-language="mermaid"><code class="language-mermaid">graph LR
+a[应用 Appl] --&gt; e[E-R图] --&gt; r[关系数据库 Relational DB]<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="实体关系模型"><a href="#实体关系模型" class="headerlink" title="实体关系模型"></a>实体关系模型</h3><p><strong>实体关系模型</strong>（Entity-Relationship Model，ER）是一种高级概念数据模型。其ER主要用作设计工具。</p>
+<p><strong>实体类型（Entity type）</strong>：具有相同属性的对象组</p>
+<p><strong>实体（Entity）</strong>：实体类型的成员-类似于对象。</p>
+<p><strong>属性（Attribute）</strong>：对象的一个属性</p>
+<p><strong>关系（Relationship）</strong>：对象之间的关系</p>
+<p>ER图可以建模n-元（n-way）关系，通过一个关系对两个对象见建立连接</p>
+<h3 id="实体和属性-Entity-and-Attributes"><a href="#实体和属性-Entity-and-Attributes" class="headerlink" title="实体和属性 Entity and Attributes"></a>实体和属性 Entity and Attributes</h3><p>实体代表现实世界中的事物。属性描述实体的属性。属性可以是：</p>
+<ul>
+<li>简单（原子），例如 sex = ‘ Female ‘</li>
+<li>复合（composite），例如姓名由头衔(Dr)、首字母(C.C.)、姓(Chen)组成</li>
+</ul>
+<p>每个实体都有每个属性的值。属性可以是：</p>
+<ul>
+<li>单值，例如 学生编号，姓名</li>
+<li>多值，例如 关键字=神经网络, 计算机图形, 数据库</li>
+</ul>
+<p>每个简单属性都有一个值集（value set）或叫域（domain），表示该属性可能值的集合。</p>
+<p>在一个复合属性中$A = (A_1,\dots ,A_n)$，假设$V_1,\dots,V_n$为$A_1,\dots ,A_n$的域</p>
+<p>$A$的定义域$V$是$V_1 \times \dots \times V_n$。</p>
+<p>数学上，实体$E$的属性$A$是一个函数</p>
+<script type="math/tex; mode=display">
+A: E \rightarrow ℘(V)</script><p>其中$V$是$A$的定义域，$℘(V)$是$V$的单值属性的幂集，$A(E)$必须是一个单值函数。</p>
+<p>一个属性可以有一个空值，例如：</p>
+<ul>
+<li>没有合适的值，例如，一个学生可能没有兴趣，那么keywords = null</li>
+<li>还不知道真实的值，例如，一个人的结婚日期还不知道：结婚日期= null</li>
+</ul>
+<p>派生属性的值可以从其他属性和实体派生出来，比如学生人数。</p>
+<p><strong>实体类型（entity type）</strong>是一组具有相同属性的实体。它由<strong>实体模式（entity schema）</strong>描述。实体模式由一个名称和一个属性列表构成。</p>
+<p>在特定时刻，单个实体<strong>实例（instances）</strong>集称为实体类型的扩展。</p>
+<p>模型和实例的对比如下：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>模型Schema (Intension)</strong></th>
+<th><strong>RESEACHER</strong><br> <strong>Name,</strong> <strong>Payroll_no**</strong>,<strong> </strong>No_of_students<strong>**, Keywords</strong></th>
+<th><strong>DEPARTMENT Name</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>实例Instances (Extension)</td>
+<td>(Dr C.C. Chen, 230-0013, 3, Neural Networks)  (Dr R. Wilkinson, 231-0091, 1, Databases)</td>
+<td>Computer Science Psychology Management</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>实体类型通常有一个<strong>主键（key）</strong>，即可唯一标识实体的属性组。例如：<br>{工资号}是研究员的主键<br>{名称}是部门的主键</p>
+<p>一个实体可已有多个主键</p>
+<p>一个重要的约束是键约束：在实体类型的任何扩展中，不能有两个实体的键属性具有相同的值。</p>
+<p>模式（schemata）可以用以下两种方式描述：</p>
+<ul>
+<li><p>符合属性()</p>
+</li>
+<li><p>多值属性{}</p>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>CAR **</strong>Registration(Registration No, State), Make, Model, Year, {Colour}**</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>((ARQ) 595, Vic), Datsun, 120Y, 1972, {green}) ((8HR) 696, WA), Mazda, 929, 1979, {grey, black})</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>实体及其属性也可以用实体-关系图（ERDs）来描述。例如：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308170830.png" alt="实体-关系图" style="zoom: 25%;"></p>
+<h3 id="关系-Relationships"><a href="#关系-Relationships" class="headerlink" title="关系 Relationships"></a>关系 Relationships</h3><p><strong>关系（relationship ）</strong>表示事物之间的关联。</p>
+<p>$n$个实体类型$E_1,\dots E_n$之间的关系类型$R$，是这些实体类型之间的一组关联。</p>
+<p>数学上，实体类型$E_1,\dots E_n$之间的关系类型$R$是$E_1 \times \dots \times E_n$的子集。</p>
+<p>每个实例$r = (e_1,\dots , e_n)$在$R$中是一种关系。</p>
+<p>我们说$E_1,\dots E_n$<strong>参与（participate）</strong>$R$ .</p>
+<p>同样，如果$r = (e_1,\dots, e_n)$是$R$的一个实例，我们说每个$e_i$参与$r$。</p>
+<p>$R$的<strong>度（degree）</strong>是参与的实体类型的数量。例如，</p>
+<p>招生可以是研究员、学生和课程之间的三元（3度）关系。</p>
+<p>可以用一个事件图来说明这一点：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308170905.png" alt="事件图" style="zoom:25%;"></p>
+<p>实体及其关系也可以用实体-关系图来表示：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171024.png" alt="实体-关系图" style="zoom:25%;"></p>
+<p>参与关系的每种实体类型在关系中扮演特定的<strong>角色（role）</strong>。</p>
+<p>实体类型可以在不同的关系中扮演不同的角色，或者在一个关系中扮演多个角色。</p>
+<p>可以使用角色名来区分它们。</p>
+<p>例如，ENROLMENT可以是PERSON（作为研究员）、PERSON（作为学生）和COURSE之间的关系，如下图所示:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171126.png" alt="实体类型扮演多种角色" style="zoom:25%;"></p>
+<p>或者，使用ERD：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308171200.png" alt="ERD图" style="zoom:25%;"></p>
+<p>这称为递归关系。</p>
+<h3 id="弱实体类型-Weak-entity-types"><a href="#弱实体类型-Weak-entity-types" class="headerlink" title="弱实体类型 Weak entity types"></a>弱实体类型 Weak entity types</h3><p>有些实体类型没有自己的键，这种实体类型称为弱实体类型。</p>
+<p>弱实体类型的实体可以通过部分键和与另一个实体类型所有者相关联来标识。</p>
+<p>弱实体类型与其所有者之间的关系类型是弱实体类型的<strong>标识关系（dentifying relationship）</strong>。</p>
+<p>例如，一个纳税人TAX PAYER 实体可能与几个由其名称确定的独立实体DEPENDENT相关。在本例中，DEPENDENT称为弱实体，{Name}是它的部分键。</p>
+<p>DEPENDENT和TAX PAYER之间的标识关系是IS DEPENDENT OF。</p>
+<p>TAX PAYER被称为<strong>自己的（own）</strong> DEPENDENT</p>
+<h3 id="关系类型的约束-Constraints-on-relationship-types"><a href="#关系类型的约束-Constraints-on-relationship-types" class="headerlink" title="关系类型的约束 Constraints on relationship types"></a>关系类型的约束 Constraints on relationship types</h3><p>关系类型通常具有某些约束，这些约束用来限制实体在组合实例时的组成方法。它们应该反映正确的因素<br><strong>基数比率约束（Cardinality ratio constraint）</strong>：指定实体可以参与的关系实例的数量。</p>
+<p>例如，一个研究补助金只能支持一个研究项目，但一个研究项目可能需要多个补助金来支持。那么，PROJECT:GRANT就是1:N的关系。</p>
+<p>如下图所示：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308174655.png" alt="关系约束示例" style="zoom:25%;"></p>
+<p>可以在ERD中展示为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180539.png" alt="ERD-1:N" style="zoom:25%;"></p>
+<p>例如：考虑一个AFL(这里替代你最喜欢的团队运动)统计数据的数据库。主教练与俱乐部的关系就是1:1关系的一个例子。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308175257.png" alt="AFL关系图" style="zoom:25%;"></p>
+<p>其ERD为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180801.png" alt="ERD-1:1" style="zoom:25%;"></p>
+<p>例子：一个表示作者和出版社之间N: M关系的实例</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308175812.png" alt="N:M关系实例" style="zoom:25%;"></p>
+<p>其等价ERD为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180844.png" alt="ERD-N:M" style="zoom:25%;"></p>
+<p>另一种可以使用ER模型表示的约束是<strong>参与约束（Participation constraint）</strong></p>
+<p>一个实体在关系中的参与可以是：</p>
+<p>合计（total）：每个实体都必须参与，例如每个出版物都有一个作者</p>
+<p>部分的（partical）：不一定全部。不是每个人都有出版物。</p>
+<p>这可以用ERD表示为：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308180922.png" alt="ERD-N:=M" style="zoom:25%;"></p>
+<h3 id="关系类型的属性-Attributes-of-relationship-types"><a href="#关系类型的属性-Attributes-of-relationship-types" class="headerlink" title="关系类型的属性 Attributes of relationship types"></a>关系类型的属性 Attributes of relationship types</h3><p>关系类型可以有属性。</p>
+<p>例如：一个研究人员可以从事几个项目。她花在一个特定项目上的时间可能是关系WORKS ON的一个属性。</p>
+<p>这可以在ERD中显示如下：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181143.png" alt="关系的属性" style="zoom: 25%;"></p>
+<p>Elmasre/Navathe总结了ERDs所用的符号：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181316.png" alt="ERD图使用符号" style="zoom:50%;"></p>
+<h3 id="增强ER模型EER-Enhanced-ER-EER-model"><a href="#增强ER模型EER-Enhanced-ER-EER-model" class="headerlink" title="增强ER模型EER Enhanced ER (EER) model"></a>增强ER模型EER Enhanced ER (EER) model</h3><p>设计者必须使用另外的建模概念来尽可能准确（accurately）和明确地（explicitly）表示应用程序的需求。</p>
+<p>ER模型有许多扩展。</p>
+<p>专门化（Specialisation）：定义实体类型的一组子类的过程；这种实体类型称为专门化的超类。</p>
+<p>概括：专业化的逆向过程。</p>
+<p>子类继承父类的所有属性。</p>
+<p>专门化涉及以下几个方面：<br>定义实体类型的一组子类，将额外的特定属性与每个子类关联起来。在每个子类和其他实体类型或其他子类之间建立额外的特定关系类型。一个子类可以有多个超类。专门化可以是全部的也可以是部分的；既可以是不相交的，也可以是重叠的。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210308181909.png" alt="专门化EER示例" style="zoom:25%;"></p>
+<h3 id="设计原则-Design-Principles"><a href="#设计原则-Design-Principles" class="headerlink" title="设计原则 Design Principles"></a>设计原则 Design Principles</h3><p>诚实（Faithfulness）：反映现实需要（reflect reality）</p>
+<p>避免冗余（Avoid redundancy）</p>
+<p>选择正确的元素（element）</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/03/08/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/">http://szdf123.github.io/2021/03/08/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/COMP9311/">
+                                    <span class="chip bg-color">COMP9311</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/08/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/161.jpg" class="responsive-img" alt="数据库基础课程笔记（2）">
+                        
+                        <span class="card-title">数据库基础课程笔记（2）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week1 数据库系统 关系数据模型部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-08
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/07/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-4/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/223.jpg" class="responsive-img" alt="数据库基础课程笔记（4）">
+                        
+                        <span class="card-title">数据库基础课程笔记（4）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 Week3 数据库基础函数依赖部分相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-07
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">66.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

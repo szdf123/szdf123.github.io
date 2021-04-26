@@ -1,0 +1,1625 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="COMP9311,数据库,笔记">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>数据库基础实践记录（2） | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/215.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">数据库基础实践记录（2）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/COMP9311/">
+                                <span class="chip bg-color">COMP9311</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                <span class="chip bg-color">数据库</span>
+                            </a>
+                        
+                            <a href="/tags/SQL/">
+                                <span class="chip bg-color">SQL</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                                <span class="chip bg-color">实践操作</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-03-04
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    3.3k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul>
+<li>使用SQL数据定义语言指定模式</li>
+<li>定义数据约束</li>
+<li>将元组加载到数据库</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/9.3/interactive/index.html">PostgreSQL 用户手册</a></p>
+<ul>
+<li><p>本次任务的目的是为有很多部门的公司建立一个简单的数据库。要求如下：</p>
+</li>
+<li><p>每个部门有一个管理者（manager）</p>
+</li>
+<li><p>每个部门有一条使命宣言（mission statement），其由一组关键词构成，如承诺、服务、创新等</p>
+</li>
+<li><p>公司使用数字标识各个部门</p>
+</li>
+<li><p>对每个员工，需要记录姓名及税务档案编号（tax file number），以及他们每周的工作时长，单位小时</p>
+</li>
+<li><p>每个员工可能任职于多个部门，需要记录他们在每个部门花费的时长占总时长的比例</p>
+</li>
+<li><p>每个员工最少就职于一个部门</p>
+</li>
+<li><p>部门的管理者任全职</p>
+</li>
+</ul>
+<p>据此，ER图可设计如下：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210304010802.png" alt="ER图"></p>
+<p>本次实验依据此图做数据库表结构设计</p>
+<p>假设该公司的具体情况如下：</p>
+<ul>
+<li>有三个部门：行政（Administration）、研发（Research）、销售（Sales）</li>
+<li>行政部门编号为 #001</li>
+<li>行政部门的使命是：创新（innovation）、可靠（reliability）、盈利（profit）</li>
+<li>研发部门编号为 #003</li>
+<li>研究的使命是：创新（innovation）、科技（technology）</li>
+<li>销售部有编号为 #002</li>
+<li>销售的使命是：以客户为中心（customer-focus），不断成长（growth）</li>
+<li>行政管理工作由John Smith负责，他每周工作40小时</li>
+<li>研发工作由Walter Wong负责，他每周工作50小时</li>
+<li>销售经理是Pradeep Sharma，她每周工作30个小时</li>
+<li>Tom Robbins每周工作35小时，一半时间做行政工作，一半时间做销售</li>
+<li>Adam Spencer每周工作50小时，大部分时间(90%)在销售部门，其余时间在行政部门</li>
+<li>Susan Ryan每周在行政部门工作60个小时</li>
+<li>Steven Smooth是一名全职销售人员(每周45小时)</li>
+<li>Max Schmidt, Maria Orlowska和Yusif Budianto全职从事研发工作(每周40小时)</li>
+</ul>
+<p>以下数据来自澳大利亚税务局，给出了上述每个雇员的税务档案号码:</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th><strong>Employee</strong></th>
+<th><strong>Tax File #</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Yusif Budianto</td>
+<td>777-654-321</td>
+</tr>
+<tr>
+<td>Maria Orlowska</td>
+<td>123-987-654</td>
+</tr>
+<tr>
+<td>Tom Robbins</td>
+<td>323-626-929</td>
+</tr>
+<tr>
+<td>Susan Ryan</td>
+<td>993-893-864</td>
+</tr>
+<tr>
+<td>Max Schmidt</td>
+<td>419-813-573</td>
+</tr>
+<tr>
+<td>Pradeep Sharma</td>
+<td>222-333-444</td>
+</tr>
+<tr>
+<td>John Smith</td>
+<td>123-234-456</td>
+</tr>
+<tr>
+<td>Steven Smooth</td>
+<td>632-647-973</td>
+</tr>
+<tr>
+<td>Adam Spencer</td>
+<td>747-400-123</td>
+</tr>
+<tr>
+<td>Walter Wong</td>
+<td>326-888-711</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><h3 id="1-下载3个SQL文件"><a href="#1-下载3个SQL文件" class="headerlink" title="1. 下载3个SQL文件"></a>1. 下载3个SQL文件</h3><p>  其中:<br>  schema.sql：含上述ER设计的关系模式，只是它缺少图中建议的所有约束，也缺少一些常识或应用程序约束</p>
+<p>data.sql：包含一组有效的元组，根据上面的描述填充这个模式，并满足所有的域约束</p>
+<p>bad.sql：包含此模式的无效元组集合</p>
+<p>以上文件位于/home/cs9311/web/21T1/lab/02中，复制这些文件到私有目录下，并查阅编辑。</p>
+<h3 id="2-创建一个新数据库来保存公司信息"><a href="#2-创建一个新数据库来保存公司信息" class="headerlink" title="2. 创建一个新数据库来保存公司信息"></a>2. 创建一个新数据库来保存公司信息</h3><p>登录grieg服务器，使用<code>createdb</code>命令创建company数据库</p>
+<h3 id="3-将模式加载到数据库"><a href="#3-将模式加载到数据库" class="headerlink" title="3. 将模式加载到数据库"></a>3. 将模式加载到数据库</h3><p>输入以下命令，载入模式文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql company -f schema.sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>执行此命令后，正常情况下，将会创建出4个表。</p>
+<p>如果再次执行此命令，应该会得到一些ERROR级别信息。</p>
+<p>在PostgreSQL控制台中通过文件载入SQL文件的方法为：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql company									# 先进入到PostgreSQL控制台中，并指定company数据库
+company=# \i schema.sql				# 通过\i 命令，载入文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>输入以下命令，查看现有数据库表信息：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">company=# \d												# 查看所有表结构
+company=# \d Employees							# 查看Employees表结构
+company=# select * from Employees;	# 查看Employees表数据<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-将有效数据加载到模式中"><a href="#4-将有效数据加载到模式中" class="headerlink" title="4. 将有效数据加载到模式中"></a>4. 将有效数据加载到模式中</h3><p>将data.sql加载到数据库中</p>
+<pre class="line-numbers language-none"><code class="language-none">psql company -f data.sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时，可通过PostgreSQL控制台查看表数据</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Employees;						# 查询所有Employees表数据
+select count(*) from Departments;		# 统计部门总数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>根据输出结果，试着回答以下问题：</p>
+<ul>
+<li>哪位员工每周工作时间最长?</li>
+<li>销售部经理姓什么?</li>
+<li>每个员工每周在每个部门工作多少小时?</li>
+</ul>
+<h3 id="5-将无效数据加载到模式中"><a href="#5-将无效数据加载到模式中" class="headerlink" title="5. 将无效数据加载到模式中"></a>5. 将无效数据加载到模式中</h3><p>运行以下命令，将bad.sql加载到模式中</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql company -f bad.sql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>查看数据库表，可知这些数据为垃圾数据，能够被加入到数据库中，是因为数据库中的各个主键、约束等都没有设置。</p>
+<p>现在，使用<code>drop</code>命令，删除company数据库。</p>
+<h3 id="6-向模式中添加约束"><a href="#6-向模式中添加约束" class="headerlink" title="6. 向模式中添加约束"></a>6. 向模式中添加约束</h3><p>原始的模式配置文件没有任何约束，仅做了如下的定义：</p>
+<ul>
+<li>Employees.hoursPweek属性必须是一个浮点数</li>
+<li>Employees.givenName是一个长度不超过30个字符的字符串</li>
+<li>员工税务文件编号为11个字符的字符串</li>
+</ul>
+<p>现在，你自己考虑如何增加限制，使错误数据无法添加到数据库中</p>
+<p>从ER图看，有一些缺失显而易见，比如缺少主键和外键约束。</p>
+<p>现在，你需要实现的需求是：</p>
+<ul>
+<li>所有的TFN都是’ddd-ddd-ddd’的形式，其中每个d代表一个数字</li>
+<li>每个人都有名，但不一定有姓(如Prince)。</li>
+<li>没有人可以每周工作超过一周的时间(每周有7*24 = 168小时)</li>
+<li>每周工作负小时是没有意义的</li>
+<li>所有部门代码都是由三位数字组成的</li>
+<li>两个部门不能有相同的名称或相同的经理</li>
+<li>员工在部门工作的时间百分比必须大于零</li>
+<li>一个员工可能会在一个特定的部门中花费他们全部的时间</li>
+</ul>
+<p>修改schema.sql文件，来实现上述要求。</p>
+<p>可以使用以下命令，重复执行来检查/载入schema.sql文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ createdb company
+$ psql company -f schema.sql
+ ... Produces error messages ....
+ ... Fix schema definition using editor in other window ...
+$ dropdb company
+$ createdb company
+$ psql company -f schema.sql
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由于PostgreSQL在创建和销毁数据库的时候花费时间太长，你可以运行drop.sql，直接清空数据库，而无需重新创建和销毁数据库。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ createdb company   ... You only need to do this once ...
+$ psql company
+...
+company=# \i schema.sql
+ ... Produces notices about creating tables, etc ...
+ ... along with error messages if there are problems with your schema definition ...
+company=# \i drop.sql
+ ... Produces a bunch of DROP TABLE messages ...
+ ... May also produce ERRORS if some tables weren't created above ...
+ ... These ERRORS can obviously be ignored ...
+company=# \i schema.sql
+ ... Produces notices about creating tables, etc ...
+ ... along with error messages if there are problems with your schema definition ...
+company=# \i drop.sql
+...
+ ... Continue like this until the schema loads successfully ...
+ ... i.e. until \i schema.sql produces no ERROR messages ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意，根据PostgreSQL的规则，有时其在提示错误信息时给出的行号不是实际问题的行号。因此当出现错误信息时，需要自行判断问题所在位置。</p>
+<h3 id="7-将有效数据加载到新数据库中"><a href="#7-将有效数据加载到新数据库中" class="headerlink" title="7. 将有效数据加载到新数据库中"></a>7. 将有效数据加载到新数据库中</h3><p>当成功载入schema后，运行以下命令，加载数据库数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">psql company
+    ...
+company=# \i data.sql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>由于数据库增加了限制，在加载这些数据时可能会产生错误。思考如何修改这些数据，使他们能够加载成功。</p>
+<p>实现这些功能的一种常规操作步骤如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ createdb company
+$ psql company -f schema.sql
+$ psql company -f data.sql
+ ... Produces error messages ...
+ ... Fix data.sql using editor in other window ...
+$ dropdb company
+$ createdb company
+$ psql company -f schema.sql
+$ psql company -f data.sql
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>由于这种操作方式太过繁琐，因此建议使用clean.sql脚本，直接清除数据库表中的全部数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ psql company
+...
+company=# \i data.sql
+ ... If it produces error messages ...
+ ... fix data.sql using editor in other window ...
+company=# \i clean.sql
+ ... Produces messages about deleting tuples ...
+company=# \i data.sql
+ ... Repeat until this step produces no errors ...
+...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>当成功载入数据后，接下来就该准备载入bad.sql中的数据。</p>
+<p>注意，你可以试着修改clean.sql中的语句顺序，执行后看看会有什么区别。</p>
+<p>drop.sql的作用是删除全部数据库表，clean.sql的作用是删除全部表中的数据。</p>
+<h3 id="8-拒绝插入无效数据"><a href="#8-拒绝插入无效数据" class="headerlink" title="8. 拒绝插入无效数据"></a>8. 拒绝插入无效数据</h3><p>当完整插入data数据后，尝试插入bad数据：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ psql company
+...
+company=# \i bad.sql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>所有bad中的数据在插入数据库时均应出现ERROR错误提示。如果有数据被插入到数据库，说明schema中限制条件不足。</p>
+<p>重复以下操作，直到数据库拒绝全部bad.sql中的数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">$ psql company
+...
+company=# \i schema.sql
+ ... Produces notices about creating tables, etc ...
+company=# \i data.sql
+ ... Produces INSERT messages; loads valid data ...
+company=# \i bad.sql
+ ... If it produces any INSERT messages, your schema is
+ incorrect, so you should use a text editor to change schema.sql ...
+company=# \i drop.sql
+ ... Produces DROP TABLE messages; leaves empty database ...
+company=# \i schema.sql
+ ... Produces notices about creating tables, etc ...
+company=# \i data.sql
+ ... Produces INSERT messages; loads valid data...
+company=# \i bad.sql
+...
+ ... Continue like this until your schema is correct
+ i.e. until you receive only ERROR messages from \i bad.sql ...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="9-挑战-复杂的约束1"><a href="#9-挑战-复杂的约束1" class="headerlink" title="9. 挑战:复杂的约束1"></a>9. 挑战:复杂的约束1</h3><p><strong>练习:</strong></p>
+<p>考虑如何实现以下约束:</p>
+<ul>
+<li>没有一个工人可以有超过100%的时间分配</li>
+</ul>
+<p>可以使用以下语句，作为测试SQL，插入非法数据：</p>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">insert into WorksFor values ('747-400-123','003',10);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>提示:你将需要使用<a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/9.3/static/plpgsql.html">PLpgSQL</a>和 <a target="_blank" rel="noopener" href="http://www.postgresql.org/docs/9.3/static/triggers.html">triggers</a>，我们将在几周的课程中讨论。</p>
+<h3 id="10-挑战-复杂的约束2"><a href="#10-挑战-复杂的约束2" class="headerlink" title="10. 挑战:复杂的约束2"></a>10. 挑战:复杂的约束2</h3><p>考虑上述ER设计的一个变体，其中每个员工只为一个部门工作:</p>
+<p><img src="https://www.cse.unsw.edu.au/~cs9311/21T1/lab/02/Pic/schema2.png" alt="ER图-变体"></p>
+<p>这可能会对关系模式造成的改变如下：</p>
+<ul>
+<li><p>现在员工和部门之间的关系是n:1而不是n:m</p>
+</li>
+<li><p>WorksFor表将被Employees表中的一个非空外键所取代(非空，因为每个员工都必须为一个部门工作)</p>
+</li>
+<li><p>属性“fraction”可以被删除，因为该分数总是100%</p>
+</li>
+</ul>
+<p>修改现有模式，使其正确地实现新的ER模型，然后尝试插入一些数据。</p>
+<p>正确修改后，可能会出现这样的问题：如果想要增加新员工，比如已经存在一个部门才能与这个员工关联；；但是，在没有可以作为部门经理的员工前，不能插入任何部门元组。</p>
+<p>如何解决这个问题呢?</p>
+<p>有两种应对策略：</p>
+<ul>
+<li><p>移除一些与Employees.worksFor属性或Departments.manager属性相关联的约束</p>
+<ul>
+<li><p>好处：</p>
+<p>1）这将允许在插入employee元组或Departments元组时，另一个元组非必须存在</p>
+</li>
+<li><p>缺点：</p>
+<p>1） 这样做意味着ER模型所隐含的一些语义，如员工必须为某些部门工作，而部门必须有一个经理被删除了</p>
+<p>2）在填充数据库之后，可以通过alter table命令添加约束，但是此时，如果已经存在无效数据的话，这些数据将被保留。</p>
+<p>3）如果需要添加由新员工管理的新部门，则需要再次删除约束，将添加的内容添加到数据库，然后恢复约束。</p>
+</li>
+</ul>
+</li>
+<li><p>更好的方法是，同时插入一个新雇员和一个新部门，这两个操作合并为一组操作进行处理。延迟约束检查到两个元组都插入完成之后。如果两个元组都满足coinstaints，那么操作是成功的。如果约束不满足，那么两个元组都应该被删除。将多个更新作为一个操作处理的方法称为事务。</p>
+</li>
+</ul>
+<p>PostgreSQL有一个方法可以指定约束检查延迟到事务结束时进行。在create table语句的文档中有关于可延迟约束的描述，在set constraints文档中有更多的解释。现在可以开始阅读这些文档，然后找出实现方法。</p>
+<p><strong>练习</strong>: 尝试实现这两种方案来处理“相互依赖的”外键约束。</p>
+<h2 id="本练习需要用到的技术总结"><a href="#本练习需要用到的技术总结" class="headerlink" title="本练习需要用到的技术总结"></a>本练习需要用到的技术总结</h2><h4 id="Shell及数据库命令："><a href="#Shell及数据库命令：" class="headerlink" title="Shell及数据库命令："></a>Shell及数据库命令：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">createdb company							# 创建company数据库
+dropdb company								# 删除company数据库
+psql company								# 进入company数据库
+psql company -f schema.sql					# 数据库company载入schema.sql文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="PostgreSQL命令："><a href="#PostgreSQL命令：" class="headerlink" title="PostgreSQL命令："></a>PostgreSQL命令：</h4><pre class="line-numbers language-SQL" data-language="SQL"><code class="language-SQL">company=# \d									// 查看所有表结构
+company=# \d Employees							// 查看Employees表结构
+company=# \i schema.sql							// 在PostgreSQL控制台中载入SQL文件<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h4 id="SQL语句"><a href="#SQL语句" class="headerlink" title="SQL语句"></a>SQL语句</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">select * from Employees;								# 查询所有Employees表数据
+select count(*) from Departments;						# 统计部门总数
+create table tablename(attributes)  					# 建表语句
+insert into WorksFor values ('747-400-123','003',10);	# 向表中插入数据
+delete from WorksFor;									# 删除表数据
+drop table WorksFor;									# 删除表定义<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="SQL表定义及约束"><a href="#SQL表定义及约束" class="headerlink" title="SQL表定义及约束"></a>SQL表定义及约束</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">// 属性定义相关
+char(11)						// 字符，长度11
+varchar(30)						// 变长字符，长度30
+float							// 浮点类型
+
+// 属性约束相关
+PRIMARY KEY						// 增加主键约束
+NOT NULL						// 非空约束
+UNIQUE							// 唯一性约束
+REFERENCE tablename(keyname)	// 外键约束
+CHECK(condition)				// 内容约束，其中condition是约束条件
+
+// CHECK约束条件表达式相关
+key LIKE 'express'				// 按SQL表达式约束
+key SIMILAR TO 'express'		// 按正则表达式约束
+key &gt;= and or &lt;= value			// 键的值在数值范围内的约束<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="SQL样例"><a href="#SQL样例" class="headerlink" title="SQL样例"></a>SQL样例</h4><pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">// 建表语句
+create table Employees (
+	tfn         char(11) PRIMARY KEY check(tfn SIMILAR TO '\d{3}-\d{3}-\d{3}'),
+	givenName   varchar(30) NOT NULL,
+	familyName  varchar(30),
+	hoursPweek  float check(hoursPweek &gt;=0 and hoursPweek &lt;=168)
+);
+
+create table Departments (
+	id          char(3) PRIMARY KEY check( id SIMILAR TO '\d{3}'),
+	name        varchar(100) UNIQUE,
+	manager     char(11) UNIQUE references Employees(tfn)
+);
+
+create table DeptMissions (
+	department  char(3) REFERENCES Departments(id),
+	keyword     varchar(20) not null
+);
+
+create table WorksFor (
+	employee    char(11) REFERENCES Employees(tfn) not null,
+	department  char(3) REFERENCES Departments(id) not null,
+	percentage  float check(percentage&gt;=0 and percentage&lt;=100)
+);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">// 清空表数据
+delete from WorksFor;
+delete from DeptMissions;
+delete from Departments;
+delete from Employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">// 删除表定义
+drop table WorksFor;
+drop table DeptMissions;
+drop table Departments;
+drop table Employees;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/03/04/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/">http://szdf123.github.io/2021/03/04/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/COMP9311/">
+                                    <span class="chip bg-color">COMP9311</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                                    <span class="chip bg-color">数据库</span>
+                                </a>
+                            
+                                <a href="/tags/SQL/">
+                                    <span class="chip bg-color">SQL</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                                    <span class="chip bg-color">实践操作</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/03/04/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-3/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/137.jpg" class="responsive-img" alt="离散数学课程笔记（3）">
+                        
+                        <span class="card-title">离散数学课程笔记（3）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9020离散数学Week3函数和关系（Functions and Relations）相关内容
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9020/">
+                        <span class="chip bg-color">COMP9020</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">离散数学</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/03/03/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/184.jpg" class="responsive-img" alt="数据库基础实践记录（1）">
+                        
+                        <span class="card-title">数据库基础实践记录（1）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            COMP9311 数据库基础实践课Week 2内容：设置PostgreSQL服务器
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/COMP9311/">
+                        <span class="chip bg-color">COMP9311</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                        <span class="chip bg-color">数据库</span>
+                    </a>
+                    
+                    <a href="/tags/SQL/">
+                        <span class="chip bg-color">SQL</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">实践操作</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">66.7k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>
