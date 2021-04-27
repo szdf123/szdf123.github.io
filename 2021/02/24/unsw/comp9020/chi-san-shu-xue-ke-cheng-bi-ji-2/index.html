@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.4k
+                    2.6k
                 </div>
                 
 
@@ -477,7 +477,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Week-2"><a href="#Week-2" class="headerlink" title="Week 2"></a>Week 2</h2><h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h3 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h3><script type="math/tex; mode=display">
+                <h2 id="Logical-逻辑"><a href="#Logical-逻辑" class="headerlink" title="Logical 逻辑"></a>Logical 逻辑</h2><h4 id="逻辑等价-Logical-Equivalence"><a href="#逻辑等价-Logical-Equivalence" class="headerlink" title="逻辑等价  Logical Equivalence"></a>逻辑等价  Logical Equivalence</h4><script type="math/tex; mode=display">
 \begin{align} \mbox{Excluded Middle} \qquad p\lor \lnot p & \equiv \top \\
 \mbox{Contradiction} \qquad p\wedge \lnot p & \equiv \bot \\
 \mbox{Idempotence} \qquad \quad p\lor p & \equiv p \\
@@ -498,7 +498,7 @@ p \land (q \lor r) & \equiv (p \land q)\lor (p \land r) \\
 \mbox {Implication} \qquad \qquad p \Rightarrow q & \equiv \lnot p \lor q \\
 p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 
-\end{align}</script><p><strong>Example</strong></p>
+\end{align}</script><p><strong>例</strong></p>
 <script type="math/tex; mode=display">
 \begin{array} 
 ((r \land \lnot p ) \lor (r \land q)) \lor (( \lnot r \land \lnot p ) \lor (\lnot r \land q)) \\
@@ -530,6 +530,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 </tbody>
 </table>
 </div>
+<h3 id="公式的可满足性-Satisfifiability-of-Formulas"><a href="#公式的可满足性-Satisfifiability-of-Formulas" class="headerlink" title="公式的可满足性 Satisfifiability of Formulas"></a>公式的可满足性 Satisfifiability of Formulas</h3><p>如果在某种情况下，其值可为真值，则这个个公式是<strong>可满足的satisfiable</strong>。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -550,7 +551,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 </tbody>
 </table>
 </div>
-<h5 id="Example"><a href="#Example" class="headerlink" title="Example:"></a>Example:</h5><p>根据例题描述，得出：</p>
+<h5 id="例"><a href="#例" class="headerlink" title="例:"></a>例:</h5><p>若：</p>
 <ul>
 <li>$J \Rightarrow \lnot S$</li>
 <li>$S \Rightarrow K$</li>
@@ -584,30 +585,23 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 </tbody>
 </table>
 </div>
-<h5 id="Exercise-2-7-14"><a href="#Exercise-2-7-14" class="headerlink" title="Exercise 2.7.14:"></a>Exercise 2.7.14:</h5><p>Which of the following formulae are always true?</p>
+<h5 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h5><p>下列哪个公式总为真？</p>
 <p>(a) $(p \land (p \Rightarrow q)) \Rightarrow q \color{Green}{\checkmark}$</p>
 <p>(b) $((p \lor q) \land \lnot p) \Rightarrow \lnot q\color{Red}{\times}$</p>
-<p>(e) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
-<p>(f) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
-<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p><strong>permises</strong> 前提：包含一些论点的陈述句</p>
+<p>(c) $((p\Rightarrow q) \lor (q \Rightarrow r)) \Rightarrow (p \Rightarrow r)\color{Red}{\times}$</p>
+<p>(d) $(p \land q) \Rightarrow q\color{Green}{\checkmark}$</p>
+<h3 id="有效性、蕴涵、参数-Validity-Entailment-Arguments"><a href="#有效性、蕴涵、参数-Validity-Entailment-Arguments" class="headerlink" title="有效性、蕴涵、参数 Validity, Entailment, Arguments"></a>有效性、蕴涵、参数 Validity, Entailment, Arguments</h3><p> <strong>前提permises</strong>：包含一些论点的陈述句</p>
 <ul>
-<li><p>The conclusion <em>logically follows</em> from the premises.</p>
+<li><p>结论从前提逻辑地推导出来</p>
 </li>
-<li><p>The conclusion is a <em>logical consequence</em> of the premises.</p>
+<li><p>结论是前提的逻辑推论</p>
 </li>
-<li><p>The premises <strong>entail</strong> the conclusion.</p>
-</li>
-</ul>
-<p><strong>DEF</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
-<h4 id="Applications-III-Reasoning-About-Requirements-Specififications"><a href="#Applications-III-Reasoning-About-Requirements-Specififications" class="headerlink" title="Applications III: Reasoning About Requirements/Specififications"></a><strong>Applications III:</strong> <strong>Reasoning About Requirements/Specififications</strong></h4><ul>
-<li><p>The requirements cannot be implemented if  $\phi_1 \land \dots \land \phi_n$ is not satisfifiable.</p>
-</li>
-<li><p>if $\phi_1 , \dots , \phi_n \vDash \psi$ then every correct implementation of the requirements <em>R</em> will be such that <em>C</em> is always true in the resulting system.</p>
-</li>
-<li><p>If $\phi_1 , \dots , \phi_{n-1} \vDash \phi_n$, then the condition $\phi_n$ of the specifification is redundant and need not be stated in the specifification.</p>
+<li><p>前提<strong>蕴含entail</strong>结论</p>
 </li>
 </ul>
-<h3 id="Validity-of-Formulas-公式的有效性"><a href="#Validity-of-Formulas-公式的有效性" class="headerlink" title="Validity of Formulas 公式的有效性"></a>Validity of Formulas 公式的有效性</h3><h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
+<p><strong>定义</strong>： $\phi_1,\dots,\phi_n \vDash \phi $</p>
+<h3 id="公式的有效性-Validity-of-Formulas"><a href="#公式的有效性-Validity-of-Formulas" class="headerlink" title="公式的有效性 Validity of Formulas"></a>公式的有效性 Validity of Formulas</h3><p>如果公式$\phi$对其基本命题的所有真值赋值为T，那么它就是<strong>有效的valid</strong>，或者<strong>重言式tautology</strong>，记为$\vDash \phi$。</p>
+<h3 id="Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性"><a href="#Validity-Equivalence-and-Entailment-有效性，等价性和蕴含性" class="headerlink" title="Validity, Equivalence and Entailment 有效性，等价性和蕴含性"></a>Validity, Equivalence and Entailment 有效性，等价性和蕴含性</h3><h5 id="定理-Theorem"><a href="#定理-Theorem" class="headerlink" title="定理 Theorem"></a>定理 Theorem</h5><p>以下等价</p>
 <ul>
 <li><p>$\phi_1,\dots,\phi_n\vDash\psi$</p>
 </li>
@@ -618,61 +612,62 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 <li><p>$\phi \equiv \psi \ \mbox{if and only if} \vDash \phi \Leftrightarrow \psi$</p>
 </li>
 </ul>
-<h2 id="Proof-Roles-and-Methods-证明规则与方法"><a href="#Proof-Roles-and-Methods-证明规则与方法" class="headerlink" title="Proof Roles and Methods 证明规则与方法"></a>Proof Roles and Methods 证明规则与方法</h2><h3 id="Proof-Roles-and-Methods-Proof-by-Cases-按案例证明"><a href="#Proof-Roles-and-Methods-Proof-by-Cases-按案例证明" class="headerlink" title="Proof Roles and Methods: Proof by Cases 按案例证明"></a>Proof Roles and Methods: Proof by Cases 按案例证明</h3><p>To prove A, we have</p>
+<h2 id="证明规则与方法-Proof-Roles-and-Methods"><a href="#证明规则与方法-Proof-Roles-and-Methods" class="headerlink" title="证明规则与方法 Proof Roles and Methods"></a>证明规则与方法 Proof Roles and Methods</h2><h3 id="按案例证明-Proof-Roles-and-Methods-Proof-by-Cases"><a href="#按案例证明-Proof-Roles-and-Methods-Proof-by-Cases" class="headerlink" title="按案例证明 Proof Roles and Methods: Proof by Cases"></a>按案例证明 Proof Roles and Methods: Proof by Cases</h3><p>为了证明A，我们有</p>
 <ul>
 <li><p>$B_1 \lor \dots \lor B_n$</p>
 </li>
 <li><p>$B_i \Rightarrow A \ \mbox{for each } i = 1 \dots n$</p>
 </li>
 </ul>
-<p>$\forall$ means “for all”</p>
-<p>$ \exists$ Means “there exist(s)”</p>
-<p><strong>Goldbach’s conjecture</strong></p>
+<p>$\forall$ 意思是“所有”</p>
+<p>$ \exists$ 意思是“存在”</p>
+<p><strong>哥德巴赫猜想 Goldbach’s conjecture</strong></p>
 <p>$\forall n \in 2 \mathbb {N} ( n &gt; 2 \Rightarrow \exists p, q \in \mathbb {N} (p,q \in PRIMES \land n=p+1))$ </p>
-<h5 id="Exercise"><a href="#Exercise" class="headerlink" title="Exercise"></a>Exercise</h5><p>Which of the following is a tautology?</p>
+<h5 id="练习-1"><a href="#练习-1" class="headerlink" title="练习"></a>练习</h5><p>下列哪项是同义重述?</p>
 <p>$\forall x(\exists y( P(x,y))) \Rightarrow \exists y(\forall x (P(x,y)))\color {Red} \times$</p>
 <p>$ \exists y(\forall x (P(x,y))) \Rightarrow \forall x(\exists y( P(x,y))) \color {Green} \checkmark$</p>
-<h3 id="Proof-of-the-Contrapositive-证明逆否命题"><a href="#Proof-of-the-Contrapositive-证明逆否命题" class="headerlink" title="Proof of the Contrapositive 证明逆否命题"></a>Proof of the Contrapositive 证明逆否命题</h3><p>We want to prove $ A \Rightarrow B$</p>
-<p>To prove it , we show $ \lnot B \Rightarrow \lnot A$ and invoke the equivalence $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
-<p><strong>Example</strong></p>
-<p>The square root of an irrational number is irrational:</p>
+<h3 id="证明逆否命题-Proof-of-the-Contrapositive"><a href="#证明逆否命题-Proof-of-the-Contrapositive" class="headerlink" title="证明逆否命题 Proof of the Contrapositive"></a>证明逆否命题 Proof of the Contrapositive</h3><p>我们想证明 $ A \Rightarrow B$</p>
+<p>为了证明这个表达式，我们转换为 $ \lnot B \Rightarrow \lnot A$ 然后使用用等价性 $(A \Rightarrow B) \equiv (\lnot B \Rightarrow \lnot A)$</p>
+<p><strong>练习</strong></p>
+<p>无理数的平方根是无理数：</p>
 <p>$\forall x \in \mathbb {R}(x\notin \mathbb {Q} \Rightarrow \sqrt {x} \notin \mathbb {Q})$</p>
-<p>To prove this, we can prove:</p>
-<p>$\sqrt x \in \mathbb {Q} \Rightarrow x \ zai \mathbb {Q}$</p>
-<p>$\sqrt x = \frac {p}{q} \ \mbox {for some } p,q \in \mathbb {Z} \\<br>\Rightarrow x = \frac {p^2}{q^2}$</p>
-<h3 id="Proof-by-Contradiction-反证法"><a href="#Proof-by-Contradiction-反证法" class="headerlink" title="Proof by Contradiction 反证法"></a>Proof by Contradiction 反证法</h3><p>We want to prove $A$. To prove it, we assume $\lnot A$ , and derive both $B$ and $\lnot B$ for some proposition $B$.</p>
-<p>(Hard part: working out what $B$ should be.)</p>
-<p><strong>Example</strong></p>
+<p>为了证明这一点，我们可以证明：</p>
+<p>$\sqrt x \in \mathbb {Q} \Rightarrow x \in \mathbb {Q}$</p>
+<p>$\sqrt x = \frac {p}{q} \ $对于一些$p,q \in \mathbb {Z} $</p>
+<p>$\Rightarrow x = \frac {p^2}{q^2}$</p>
+<h3 id="反证法-Proof-by-Contradiction"><a href="#反证法-Proof-by-Contradiction" class="headerlink" title="反证法 Proof by Contradiction"></a>反证法 Proof by Contradiction</h3><p>我们想证明$A$。为了证明这一点，我们假设 $\lnot A$ ，并为某些命题$B$派生$B$和$\lnot B$。</p>
+<p>（难点是：计算出$B$应该是多少。）</p>
+<p><strong>例子</strong></p>
 <ul>
-<li><p>$\sqrt{2}$ is irrational</p>
+<li><p>$\sqrt{2}$ 是无理数</p>
 </li>
-<li><p>There exist an infinite number of primes</p>
+<li><p>存在无数个质数</p>
 </li>
 </ul>
 <p>$\sqrt{2}=\frac{p}{q}$</p>
 <p>$\Rightarrow 2q^2 = p^2$</p>
-<p>$\Rightarrow p^2 \mbox{ is even } \Rightarrow p \mbox{ is even } \Rightarrow p=2\cdot r$</p>
+<p>$\Rightarrow p^2 \mbox{ 为偶数 } \Rightarrow p \mbox{ 为偶数 } \Rightarrow p=2\cdot r$</p>
 <p>$\Rightarrow 2q^2 = 4 r^2$</p>
 <p>$\Rightarrow q^2 = 2 r^2$</p>
-<p>$\Rightarrow q^2 \mbox{ is even } \Rightarrow q \mbox{ is even }$</p>
-<p>but $p,q$ must relative prime, so there is a contradiction</p>
-<h2 id="substitution-替换"><a href="#substitution-替换" class="headerlink" title="substitution 替换"></a>substitution 替换</h2><p>Substitution is the process of replacing every occurrence of some symbol by an expression.</p>
-<p>We can substitute logical expressions for logical variables.</p>
-<h3 id="Substitution-Rules"><a href="#Substitution-Rules" class="headerlink" title="Substitution Rules"></a>Substitution Rules</h3><p>(a) if $\vDash \phi(P)$ then $\vDash \phi ( \alpha)$</p>
-<p>(b) if $\alpha \equiv \beta$ then $\phi(\alpha) \equiv \phi(\beta)$</p>
-<h2 id="Boolean-Functions-布尔函数"><a href="#Boolean-Functions-布尔函数" class="headerlink" title="Boolean Functions 布尔函数"></a>Boolean Functions 布尔函数</h2><p>A Boolean function of one variable is also called <strong>unary(一元的)</strong>.</p>
-<p>A function of two variables is called <strong>binary(二元的)</strong>.</p>
-<p>A function of <em>n</em> input variables is called <strong>n-ary(n元的)</strong>.</p>
-<h3 id="Boolean-Arithmetic"><a href="#Boolean-Arithmetic" class="headerlink" title="Boolean Arithmetic"></a>Boolean Arithmetic</h3><p>Consider truth values with operations $\land \lor \lnot $ <strong>algebraic structure</strong>:</p>
-<p>$\mathbb{B}={0,1}$ with ‘Boolean’ arithmetic</p>
+<p>$\Rightarrow q^2 \mbox{ 为偶数 } \Rightarrow q \mbox{ 为偶数 }$</p>
+<p>但是$p,q$一定互为质数，产生矛盾</p>
+<h2 id="替换-substitution"><a href="#替换-substitution" class="headerlink" title="替换 substitution"></a>替换 substitution</h2><p>替换是用表达式替换每一个符号的过程。</p>
+<p>我们可以用逻辑表达式代替逻辑变量。</p>
+<h3 id="替换规则-Substitution-Rules"><a href="#替换规则-Substitution-Rules" class="headerlink" title="替换规则 Substitution Rules"></a>替换规则 Substitution Rules</h3><p>(a) 如果 $\vDash \phi(P)$ 那么 $\vDash \phi ( \alpha)$</p>
+<p>(b) 如果 $\alpha \equiv \beta$ 那么 $\phi(\alpha) \equiv \phi(\beta)$</p>
+<h2 id="布尔函数-Boolean-Functions"><a href="#布尔函数-Boolean-Functions" class="headerlink" title="布尔函数 Boolean Functions"></a>布尔函数 Boolean Functions</h2><p>只有一个变量的布尔函数也被称为 <strong>unary(一元的)</strong>.</p>
+<p>有两个变量的函数被称为 <strong>binary(二元的)</strong>.</p>
+<p>有<em>n</em>个输入变量的函数被称为 <strong>n-ary(n元的)</strong>.</p>
+<h3 id="布尔运算-Boolean-Arithmetic"><a href="#布尔运算-Boolean-Arithmetic" class="headerlink" title="布尔运算 Boolean Arithmetic"></a>布尔运算 Boolean Arithmetic</h3><p>考虑带操作的真值 $\land \lor \lnot $ <strong>代数结构 algebraic structure</strong>：</p>
+<p>$\mathbb{B}=\{0,1\}$ 的布尔运算：</p>
 <p>$a\cdot b, a+b,a^\prime = 1-a$</p>
 <ul>
-<li>$pq$ is for $p \cdot q$</li>
-<li>$\bar{p}$ is more common than $p^\prime$</li>
-<li>$\bar{(\cdot )}$ obviates the need for some parentheses</li>
+<li>$pq$ 表示 $p \cdot q$</li>
+<li>$\bar{p}$ 表示方法比 $p^\prime$ 更频繁</li>
+<li>$\bar{(\cdot )}$ 省去了一些括号的需要</li>
 </ul>
-<h4 id="Applications-IV-Digital-Circuits-应用四-数字电路"><a href="#Applications-IV-Digital-Circuits-应用四-数字电路" class="headerlink" title="Applications IV: Digital Circuits 应用四:数字电路"></a>Applications IV: Digital Circuits 应用四:数字电路</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
-<h3 id="Definition-Boolean-Algebra-布尔代数的定义"><a href="#Definition-Boolean-Algebra-布尔代数的定义" class="headerlink" title="Definition Boolean Algebra 布尔代数的定义"></a>Definition Boolean Algebra 布尔代数的定义</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
+<h4 id="应用四-数字电路-Applications-IV-Digital-Circuits"><a href="#应用四-数字电路-Applications-IV-Digital-Circuits" class="headerlink" title="应用四:数字电路 Applications IV: Digital Circuits"></a>应用四:数字电路 Applications IV: Digital Circuits</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227170629.png" alt="image-20210227170629279"></p>
+<h3 id="布尔代数的定义-Definition-Boolean-Algebra"><a href="#布尔代数的定义-Definition-Boolean-Algebra" class="headerlink" title="布尔代数的定义 Definition Boolean Algebra"></a>布尔代数的定义 Definition Boolean Algebra</h3><p><strong>commutative:</strong> $ x + y = y + x$</p>
 <p>$ x \cdot y = y \cdot x$</p>
 <p><strong>associative:</strong> $(x + y) + z = x + (y + z)$ </p>
 <p>$(x \cdot y) \cdot z = x \cdot ( y\cdot z)$</p>
@@ -687,7 +682,7 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 \mbox{join: } (a_1,a_2)+(b_1,b_2) \mapsto (a_1 = b_1, a_2 + b_2) \\
 \mbox{join: } (a_1,a_2)\cdot(b_1,b_2) \mapsto (a_1 \cdot b_1, a_2 \cdot b_2) \\
 \mbox{complementation: } (a_1,a_2)^\prime \mapsto(a_1^\prime,a_2^\prime)</script><p>$T={(0,0),(0,1),(1,0),(1,1)}$</p>
-<h4 id="Boolean-Expressions"><a href="#Boolean-Expressions" class="headerlink" title="Boolean Expressions"></a>Boolean Expressions</h4><div class="table-container">
+<h4 id="布尔表达式-Boolean-Expressions"><a href="#布尔表达式-Boolean-Expressions" class="headerlink" title="布尔表达式 Boolean Expressions"></a>布尔表达式 Boolean Expressions</h4><div class="table-container">
 <table>
 <thead>
 <tr>
@@ -698,45 +693,45 @@ p \Leftrightarrow q & \equiv  (p \Rightarrow q) \land (q \Rightarrow p)
 </thead>
 <tbody>
 <tr>
-<td>propositional atoms</td>
+<td>原子命题 propositional atoms</td>
 <td>$p,q,\dots$</td>
 <td>$p,q,\dots$</td>
 </tr>
 <tr>
-<td>conjunction</td>
+<td>结合 conjunction</td>
 <td>$p\land q$</td>
 <td>$p\cdot q$ or $pq$</td>
 </tr>
 <tr>
-<td>disjunction</td>
+<td>析取 disjunction</td>
 <td>$p\lor q$</td>
 <td>$p + q$</td>
 </tr>
 <tr>
-<td>negation</td>
+<td>否定 negation</td>
 <td>$\lnot p$</td>
 <td>$p^\prime$</td>
 </tr>
 </tbody>
 </table>
 </div>
-<h3 id="Terminology-and-Rules-术语和规则"><a href="#Terminology-and-Rules-术语和规则" class="headerlink" title="Terminology and Rules 术语和规则"></a>Terminology and Rules 术语和规则</h3><ul>
-<li><p>a <strong>literal</strong> is an expression $p$ or $p^\prime$, where $p$ is a propositonal atom</p>
+<h3 id="术语和规则-Terminology-and-Rules"><a href="#术语和规则-Terminology-and-Rules" class="headerlink" title="术语和规则 Terminology and Rules"></a>术语和规则 Terminology and Rules</h3><ul>
+<li><p>一个<strong>文字literal</strong>是一个表达式$p$或$p’$素数，其中$p$是一个命题原子</p>
 </li>
-<li><p>An expression is in <strong>CNF</strong> (conjunctive normal form,合取范式) is it has the form</p>
+<li><p>一个表达式为<strong>CNF（合取范式conjunctive normal form</strong>），如果它的形式为</p>
 <script type="math/tex; mode=display">
 \prod_{i} C_i</script></li>
 </ul>
-<p>where each <strong>clause</strong> $C_i$ is a disjunction of literals e.g. $p+q+r^\prime$. </p>
+<p>其中每个<strong>子句clause</strong> $C_i$是字面量的分离 如. $p+q+r^\prime$. </p>
 <ul>
-<li>An expression is in <strong>DNF</strong> (disjunctive normal form, 析取范式) if it has the form <script type="math/tex; mode=display">
+<li>如果一个表达式具有这种形式，那么它就是<strong>DNF（析取范式disjunctive normal form）</strong><script type="math/tex; mode=display">
 \sum_{i}C_i</script></li>
 </ul>
-<p>where each clause $C_i$ is a conjunction of literals e.g. $pqr^\prime$</p>
+<p>其中每个子句$C_i$是一个合取字面值 如$pqr^\prime$</p>
 <ul>
-<li><p>CNF and DNF are named after their top level operators; no deeper nesting of $\cdot$  or $+$ is permitted.</p>
+<li><p>CNF和DNF以它们的顶级操作符命名；$\cdot$或$+$不允许更深的嵌套。</p>
 </li>
-<li><p>any given variable appears only once in one clause</p>
+<li><p>任何给定的变量在一个子句中只出现一次</p>
 </li>
 </ul>
 <script type="math/tex; mode=display">
@@ -745,29 +740,29 @@ x + x =x,\ xx=x \\
 xx^\prime = 0,\ x + x^\prime = 1 \\
 
 x \cdot 0 = 0,\ x \cdot 1 = x,\ x + 0 = x,\ x +1 =1</script><ul>
-<li>DNF perferred, as well as few terms </li>
+<li>DNF优先</li>
 </ul>
 <script type="math/tex; mode=display">
 \begin{array}
 xx + xy & = x \quad \mbox{(absorption)} \\
 xy + xy^\prime & = x \quad \mbox{(combining the opposites)}
 \end{array}</script><ul>
-<li>every Boolean expression $\phi$  has an equivalent expression in CNF or DNF</li>
-<li><strong>De morgan’s laws</strong></li>
+<li>每个布尔表达式$\phi$在CNF或DNF中有一个等价的表达式</li>
+<li><strong>德摩根定律 De morgan’s laws</strong></li>
 </ul>
 <script type="math/tex; mode=display">
 (x+y)^\prime = x^\prime \cdot y^\prime \\
 (x \cdot y )^\prime = x^\prime + y^\prime \\
-(x^\prime)^\prime = x</script><h3 id="Canonical-Form-DNF-规范形式DNF"><a href="#Canonical-Form-DNF-规范形式DNF" class="headerlink" title="Canonical Form DNF 规范形式DNF"></a>Canonical Form DNF 规范形式DNF</h3><script type="math/tex; mode=display">
+(x^\prime)^\prime = x</script><h3 id="规范形式DNF-Canonical-Form-DNF"><a href="#规范形式DNF-Canonical-Form-DNF" class="headerlink" title="规范形式DNF Canonical Form DNF"></a>规范形式DNF Canonical Form DNF</h3><script type="math/tex; mode=display">
 \mathcal{l}=\begin{cases} X_i \quad if\ \pi(x_i)=1 \\
 x_i^\prime \quad if \ \pi(x_i)=0
 \end{cases} \\
-\mbox{product}\ t_\pi = \mathcal{l}_1\cdot\mathcal{l}_2\cdot \ \dots \ \cdot \mathcal{l}_n</script><p><strong>Example</strong></p>
-<p>If $\pi(x_1)=1 $ and $\pi(x_2)=0$ , then $t_\pi=x_1\cdot x_2^\prime$</p>
-<p>The <strong>canonical DNF</strong> of $E$ is</p>
+\mbox{product}\ t_\pi = \mathcal{l}_1\cdot\mathcal{l}_2\cdot \ \dots \ \cdot \mathcal{l}_n</script><p><strong>例</strong></p>
+<p>如果 $\pi(x_1)=1 $ 且 $\pi(x_2)=0$ ，那么 $t_\pi=x_1\cdot x_2^\prime$</p>
+<p>$E$的<strong>规范DNF</strong>是</p>
 <script type="math/tex; mode=display">
-E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
-<p>if E is defined by</p>
+E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>例</strong></p>
+<p>如果E是由此定义</p>
 <div class="table-container">
 <table>
 <thead>
@@ -801,18 +796,18 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 </tbody>
 </table>
 </div>
-<p>Then $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
-<p>it can be simplified to  $x+{y}’$</p>
-<h3 id="Karnaugh-Maps-卡诺图"><a href="#Karnaugh-Maps-卡诺图" class="headerlink" title="Karnaugh Maps 卡诺图"></a>Karnaugh Maps 卡诺图</h3><ul>
-<li><p>The rectangles can go ‘around the corner’/the actual map should be seen as a <em>torus</em>.</p>
+<p>那么 $E^{dnf} = {x}’{y}’+x{y}’+xy$</p>
+<p>可以简化为  $x+{y}’$</p>
+<h3 id="卡诺图-Karnaugh-Maps"><a href="#卡诺图-Karnaugh-Maps" class="headerlink" title="卡诺图 Karnaugh Maps"></a>卡诺图 Karnaugh Maps</h3><ul>
+<li><p>矩形可以绕着角落移动，即实际的卡诺图应该被视为一个<em>环面</em>。</p>
 </li>
-<li><p>Rectangles must have sides of 1, 2 or 4 squares (three adjacent cells are useless).</p>
+<li><p>矩形的边必须是1、2或4个正方形(三个相邻的单元格是无用的)。</p>
 </li>
 </ul>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210227223730.png" alt="K Maps计算过程图" style="zoom: 33%;"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210228135344.jpg" alt="使用卡诺图计算CNF及DNF方法"></p>
 <p><em>本图由freakyuito整理</em></p>
-<h3 id="Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数"><a href="#Boolean-Algebras-in-Computer-Science-计算机科学中的布尔代数" class="headerlink" title="Boolean Algebras in Computer Science 计算机科学中的布尔代数"></a>Boolean Algebras in Computer Science 计算机科学中的布尔代数</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
+<h3 id="计算机科学中的布尔代数-Boolean-Algebras-in-Computer-Science"><a href="#计算机科学中的布尔代数-Boolean-Algebras-in-Computer-Science" class="headerlink" title="计算机科学中的布尔代数 Boolean Algebras in Computer Science"></a>计算机科学中的布尔代数 Boolean Algebras in Computer Science</h3><p> 一些数据结构有类似自然法则的运算符，如$\land \lor \lnot$</p>
 <h4 id="只包含0和1的n元布尔运算规则："><a href="#只包含0和1的n元布尔运算规则：" class="headerlink" title="只包含0和1的n元布尔运算规则："></a>只包含0和1的n元布尔运算规则：</h4><p>加（join）：$(1,0,0,1) + (1,1,0,0) = (1,1,0,1)$</p>
 <p>乘（meet）：$(1,0,0,1)\cdot (1,1,0,0) = (1,0,0,0)$</p>
 <p>补集（complementation）：${(1,0,0,1)}’=(0,1,1,0)$</p>
@@ -866,6 +861,10 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
 <p>逻辑蕴涵$\vDash$</p>
 <p>证明方法：反证法，证明逆否命题，按案例证明</p>
 <p>布尔代数，CNF，DNF，规范形式，卡诺图（Karnaugh maps）</p>
+<blockquote>
+<p><strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 2, Sec. 2.2-2.5; Ch. 10. Sec. 10.1-10.5</p>
+</blockquote>
 
                 
             </div>
@@ -1418,7 +1417,7 @@ E^{dnf}=\sum_{E(\pi)=1}t_\pi</script><p><strong>Example</strong></p>
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66.7k</span>&nbsp;字
+                class="white-color">67k</span>&nbsp;字
             
             
             

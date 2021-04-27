@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-04-26T07:45:24.700Z</updated>
+  <updated>2021-04-27T02:15:34.479Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/"/>
     <id>http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/</id>
     <published>2021-04-26T07:20:20.000Z</published>
-    <updated>2021-04-26T07:45:24.700Z</updated>
+    <updated>2021-04-27T02:15:34.479Z</updated>
     
     
       
@@ -220,7 +220,7 @@
     <link href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-zookeeper/"/>
     <id>http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-zookeeper/</id>
     <published>2021-04-20T06:48:50.000Z</published>
-    <updated>2021-04-22T09:32:12.308Z</updated>
+    <updated>2021-04-27T02:15:43.662Z</updated>
     
     
       
@@ -248,7 +248,7 @@
     <link href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/mysql-cha-xun-cun-chu-guo-cheng/"/>
     <id>http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/mysql-cha-xun-cun-chu-guo-cheng/</id>
     <published>2021-04-20T06:48:50.000Z</published>
-    <updated>2021-04-20T07:47:20.839Z</updated>
+    <updated>2021-04-27T08:43:12.739Z</updated>
     
     
       
@@ -476,14 +476,14 @@
     <link href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/centos7-pei-zhi-java/"/>
     <id>http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/centos7-pei-zhi-java/</id>
     <published>2021-04-15T07:54:48.000Z</published>
-    <updated>2021-04-16T07:08:35.594Z</updated>
+    <updated>2021-04-27T02:15:22.715Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;1.从官网下载Java SDK，本文样例为rpm版本，下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中&lt;/p&gt;
+    <summary type="html">&lt;p&gt;1.从官网下载Java SDK。安装Java环境有rpm版本和使用tar.gz两种方式。比如下载文件为 jdk-16_linux-x64_bin.rpm，上传至要安装Java环境的服务器中&lt;/p&gt;
 &lt;p&gt;&lt;a</summary>
         
       

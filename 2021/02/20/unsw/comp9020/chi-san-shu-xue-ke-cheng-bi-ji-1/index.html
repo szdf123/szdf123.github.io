@@ -414,8 +414,8 @@
                                 <span class="chip bg-color">离散数学</span>
                             </a>
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.1k
                 </div>
                 
 
@@ -490,7 +490,7 @@
 <p>如果$k&gt;0$且$m\leq n$，那么$k$在$[m,n]$中的次数为：</p>
 <script type="math/tex; mode=display">
 \lfloor \frac{n}{k} \rfloor - \lfloor \frac{m-1}{k} \rfloor</script><p>对任意非整数$n$，有：$\lceil n \rceil - \lfloor n \rfloor = 1$</p>
-<h2 id="可除性-Divisibility"><a href="#可除性-Divisibility" class="headerlink" title="可除性 Divisibility"></a>可除性 Divisibility</h2><p><strong>定义：</strong></p>
+<h3 id="可除性-Divisibility"><a href="#可除性-Divisibility" class="headerlink" title="可除性 Divisibility"></a>可除性 Divisibility</h3><p><strong>定义：</strong></p>
 <p>令$m,n \in \mathbb{Z}$，则$m|n$表示$m$是$n$的一个<strong>除数divisor</strong>，定义为$n=k\cdot m$，其中$k\in \mathbb{Z}$。也可以表述为$n$可被$m$整除，$n$是$m$的倍数等。</p>
 <p>$m\not | n$，即$m|n$的否定式</p>
 <p>整除的概念适用于所有整数（正整数、负整数、零）</p>
@@ -506,17 +506,22 @@
 <p>$gcd(0,n)=|n|$</p>
 <p><strong>最小公倍数Least common multiple</strong>  $lcm(m,n)$</p>
 <p>注：即使$m$或$n$是负数，$gcd(m, n)$ 和 $lcm(m,n)$总是取正数</p>
-<h2 id="绝对值-Absolute-Value"><a href="#绝对值-Absolute-Value" class="headerlink" title="绝对值 Absolute Value"></a>绝对值 Absolute Value</h2><script type="math/tex; mode=display">
+<h3 id="绝对值-Absolute-Value"><a href="#绝对值-Absolute-Value" class="headerlink" title="绝对值 Absolute Value"></a>绝对值 Absolute Value</h3><script type="math/tex; mode=display">
 |x| = \begin{cases}
 x & x \geq 0 \\
 -x & x<0
 \end{cases}</script><p>事实上，$gcd(m,n)\cdot lcm(m,n)=|m|\cdot|n|$</p>
 <p>若$lcm(m,n)=n$，那么$m$一定是$n$的除数</p>
 <h3 id="欧几里得的gcd算法-Euclid’s-gcd-Algorithm"><a href="#欧几里得的gcd算法-Euclid’s-gcd-Algorithm" class="headerlink" title="欧几里得的gcd算法 Euclid’s gcd Algorithm"></a>欧几里得的gcd算法 Euclid’s gcd <strong>Algorithm</strong></h3><script type="math/tex; mode=display">
-f(m,n)= \begin{cases}
+gcd(m,n)= \begin{cases}
 m & m=n \\
-f(m-n,n) & m > n \\
-f(m,n-m) & m < n
+gcd(m-n,n) & m > n \\
+gcd(m,n-m) & m < n
+\end{cases}</script><p>另一种算法</p>
+<script type="math/tex; mode=display">
+gcd(m,n)= \begin{cases}
+m & n=0 \\
+gcd(n,m \mod n) & n > 0
 \end{cases}</script><h2 id="集合-Sets"><a href="#集合-Sets" class="headerlink" title="集合 Sets"></a>集合 Sets</h2><p>集合由其元素的集合定义。</p>
 <p>$x\in S$ 表示x是集合S中的一个元素</p>
 <h3 id="子集-Subsets"><a href="#子集-Subsets" class="headerlink" title="子集 Subsets"></a>子集 Subsets</h3><p>$S\subseteq T$，表示S是T的子集。</p>
@@ -545,10 +550,10 @@ f(m,n-m) & m < n
 <p>补集complement $A^C$</p>
 <h3 id="文氏图"><a href="#文氏图" class="headerlink" title="文氏图"></a>文氏图</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210426003001.png" alt="文氏图"></p>
 <h3 id="集合操作符运算规则"><a href="#集合操作符运算规则" class="headerlink" title="集合操作符运算规则"></a>集合操作符运算规则</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210426003156.png" alt="集合操作符运算规则"></p>
-<h2 id="笛卡儿积-Cartesian-Product"><a href="#笛卡儿积-Cartesian-Product" class="headerlink" title="笛卡儿积 Cartesian Product"></a>笛卡儿积 Cartesian Product</h2><p>$S \times T$，$S^2=S \times S$，$S^3 = S \times S \times S$</p>
+<h3 id="笛卡儿积-Cartesian-Product"><a href="#笛卡儿积-Cartesian-Product" class="headerlink" title="笛卡儿积 Cartesian Product"></a>笛卡儿积 Cartesian Product</h3><p>$S \times T$，$S^2=S \times S$，$S^3 = S \times S \times S$</p>
 <p>$\emptyset\times S = \emptyset$</p>
 <p>$|S \times T|=|S|\cdot |T|$</p>
-<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p>$S \mapsto T$的映射$f$</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>$S \mapsto T$的映射$f$</p>
 <p>$f(x) = y$</p>
 <h2 id="标准语言"><a href="#标准语言" class="headerlink" title="标准语言"></a>标准语言</h2><p>$\Sigma$ 字母表，有限非空集</p>
 <p><strong>单词word</strong> 从$\Sigma$生成的任意有限字符串符号</p>
@@ -699,8 +704,8 @@ f(m,n-m) & m < n
                                     <span class="chip bg-color">离散数学</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -957,7 +962,7 @@ f(m,n-m) & m < n
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9020 离散数学相关内容
+                            COMP9020 离散数学数、集合、单词、逻辑相关内容
                         
                     </div>
                     <div class="publish-info">
@@ -988,8 +993,8 @@ f(m,n-m) & m < n
                         <span class="chip bg-color">离散数学</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
                     </a>
                     
                     <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1196,7 +1201,7 @@ f(m,n-m) & m < n
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">66.7k</span>&nbsp;字
+                class="white-color">67k</span>&nbsp;字
             
             
             
