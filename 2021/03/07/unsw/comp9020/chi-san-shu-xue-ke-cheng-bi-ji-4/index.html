@@ -553,15 +553,15 @@ S=\{(c,t,r):c 在t时间在r教室\} \subseteq C \times T \times R</script><p>�
 \mathcal{R}\subseteq 比赛 \times 成绩 \times 年份 \times 运动员</script><h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><p>关系在计算机科学中普遍存在</p>
 <ul>
 <li>数据库是关系的集合</li>
-<li>常见的数据结构(例如图)是关系</li>
+<li>常见的数据结构（例如图）是关系</li>
 <li>任何顺序都是一个关系</li>
 <li>函数/程序/程序计算其输入和输出之间的关系</li>
 </ul>
 <h3 id="n元关系（n-ary-Relations）"><a href="#n元关系（n-ary-Relations）" class="headerlink" title="n元关系（n-ary Relations）"></a>n元关系（n-ary Relations）</h3><p>关系可以定义同时连接$k≥1$个域$D_1,\dots,D_k$。</p>
 <p>在数据库中允许1元关系(n=1)。</p>
-<p>更多的时候是二元关系(binary relations)</p>
+<p>更多的时候是<strong>二元关系(binary relations)</strong></p>
 <script type="math/tex; mode=display">
-\mathcal{R} \subseteq S \times T; \mathcal{R}=\{(s,t):某些属性连接s,t\}</script><p>有关联的$s,t$可以写作$(s,t)\in \mathcal{R}$或$s\mathcal{R}t$，没有关联的项目记作$(s,t)\not\in \mathcal{R}$或$s\mathcal{R}t$</p>
+\mathcal{R} \subseteq S \times T; \mathcal{R}=\{(s,t):某些属性连接s,t\}</script><p>有关联的$s,t$可以写作$(s,t)\in \mathcal{R}$或$s\mathcal{R}t$，没有关联的项目记作$(s,t)\not\in \mathcal{R}$或$s\not\mathcal{R}t$</p>
 <p>$\mathcal{R}$可定义为</p>
 <ul>
 <li><p>相关k元组的显式枚举(二元关系中的有序对)；</p>
@@ -581,7 +581,7 @@ S=\{(c,t,r):c 在t时间在r教室\} \subseteq C \times T \times R</script><p>�
 \circ & \bullet & \bullet & \bullet \\
 \bullet & \bullet & \circ & \circ
 \end{bmatrix}</script><h3 id="单个域上的关系（Relations-on-a-Single-Domain）"><a href="#单个域上的关系（Relations-on-a-Single-Domain）" class="headerlink" title="单个域上的关系（Relations on a Single Domain）"></a>单个域上的关系（Relations on a Single Domain）</h3><p>特别重要的是同一集合的元素之间的二元关系。我们说’ R是S上的二元关系’，如果$\mathcal{R}\subseteq S \times S$</p>
-<h2 id="特殊（简单的）关系-（Special-Trivial-Relations）"><a href="#特殊（简单的）关系-（Special-Trivial-Relations）" class="headerlink" title="特殊（简单的）关系 （Special (Trivial) Relations）"></a>特殊（简单的）关系 （Special (Trivial) Relations）</h2><p><strong>一致性（Identity）</strong>$E=\{(x,x):x \in S\}$</p>
+<h3 id="特殊（简单的）关系-（Special-Trivial-Relations）"><a href="#特殊（简单的）关系-（Special-Trivial-Relations）" class="headerlink" title="特殊（简单的）关系 （Special (Trivial) Relations）"></a>特殊（简单的）关系 （Special (Trivial) Relations）</h3><p><strong>一致性（Identity）</strong>$E=\{(x,x):x \in S\}$</p>
 <p><strong>空（Empty）</strong>：$\empty$</p>
 <p><strong>普遍性（Universal）</strong>$U = S \times S$</p>
 <h3 id="二元关系的重要特性"><a href="#二元关系的重要特性" class="headerlink" title="二元关系的重要特性"></a>二元关系的重要特性</h3><p>对于$\mathcal{R}\subseteq S \times S$，可能有以下属性</p>
@@ -594,7 +594,7 @@ S=\{(c,t,r):c 在t时间在r教室\} \subseteq C \times T \times R</script><p>�
 (T) & \text{传递性（ transitive）} & (x,y),(y,z) \in \mathcal{R} \Rightarrow (x,z) \in \mathcal{R} & \forall x,y,z \in S
 \end{array}</script><p>如果一个对象、概念等的任何实例都没有违反该属性的任何定义语句，那么它就被认为满足该属性。</p>
 <h3 id="属性的交互（Interaction-of-Properties）"><a href="#属性的交互（Interaction-of-Properties）" class="headerlink" title="属性的交互（Interaction of Properties）"></a>属性的交互（Interaction of Properties）</h3><p>关系既可以是对称的（symmetric），也可以是反对称的（ antisymmetric）。即当$R$仅由某些对$(x, x)$组成时，$x∈S$。</p>
-<p>一种关系不能同时是自反的（reflflexive ）和非自反的（antireflflexive），除非$S=\empty$</p>
+<p>一种关系不能同时是自反的（reflflexive ）和反自反的（antireflflexive），除非$S=\empty$</p>
 <p>注意：</p>
 <p>nonrelexive $\neq$ antireflexive/irreflexive</p>
 <p>nonsymmetric $\neq$ antisymmetric</p>
@@ -1217,7 +1217,7 @@ S=\{(c,t,r):c 在t时间在r教室\} \subseteq C \times T \times R</script><p>�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字
+                class="white-color">69.6k</span>&nbsp;字
             
             
             

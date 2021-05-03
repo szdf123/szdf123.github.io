@@ -483,25 +483,26 @@
 <p><strong>有向图（Directed Graph）</strong>由点和弧构成。</p>
 <p>当$x=y$时，边$\{x,y\}$与弧$(x,y)$组成<strong>环（loops）</strong>。一般的，我们仅讨论无环图。</p>
 <p>有限集合的二元关系对应于有向图。对称关系对应于无向图。</p>
-<h3 id="计算机科学中的图"><a href="#计算机科学中的图" class="headerlink" title="计算机科学中的图"></a>计算机科学中的图</h3><ul>
+<h4 id="计算机科学中的图"><a href="#计算机科学中的图" class="headerlink" title="计算机科学中的图"></a>计算机科学中的图</h4><ul>
 <li>WWW（万维网）可以看做由网页作为节点，超链接作为弧组成的超大图</li>
 <li>一段程序可能的状态可以构成一个有向图</li>
 <li>地图可以看做一个无向图，其中每个国家的边界由边表示</li>
 </ul>
 <h3 id="顶点的度-Vertex-Degrees"><a href="#顶点的度-Vertex-Degrees" class="headerlink" title="顶点的度 Vertex Degrees"></a>顶点的度 Vertex Degrees</h3><p>图$G$中顶点$v$的<strong>度数（Degree）</strong>定义为：$deg(v)=|\{w\in V(G):(v,w)\in E(G)\}|$，即与该顶点连接的边的数目</p>
 <p><strong>正则图（Regular graph）</strong>：所有顶点的度数相同</p>
-<p><strong>度数序列（Degree sequence）</strong>：$D_0,D_1,D_2,…,D_k$，其中$度数为$i$的顶点的数量</p>
+<p><strong>度数序列（Degree sequence）</strong>：$D_0,D_1,D_2,…,D_k$，其中度数为$i$的顶点的数量</p>
 <p>$\sum_{v\in V}deg(v)=2\cdot|E(G)|$，即顶点的度数和为2倍的边的数量，因此，顶点的度数和一定为偶数。也就是说，顶点度数的集合中，只能有偶数个基数顶点度数。</p>
 <h3 id="通路-Paths"><a href="#通路-Paths" class="headerlink" title="通路 Paths"></a>通路 Paths</h3><p><strong>通路（Path）</strong>是图中连接起来的边，其中边和点都不必须完全不同</p>
 <p>通路的<strong>长度（Length）</strong>即边的数量：$n$</p>
 <p>长度为r的<strong>子通路</strong>：$(e_m,e_{m+1},…,e_{m+r-1})$</p>
 <p>长度为0的通路：单个顶点$v_0$</p>
 <p><strong>连通图（Connected graph）</strong>：每个顶点都有通路连接</p>
-<p>图$G$的连接组成：不包含在G的较大连通子图中的连通子图</p>
-<h3 id="回路-Cycles"><a href="#回路-Cycles" class="headerlink" title="回路 Cycles"></a>回路 Cycles</h3><p><strong>简单通路（Simple path）</strong>：对路径中的每个边，$e_i\neq e_j(i\neq j)$</p>
-<p><strong>闭合通路（Closed path）</strong>：$v_0=v_n$</p>
-<p><strong>回路（Cycles）</strong>：闭合简单路径，除了$v_0=v_n$以外，所有$v_i$均不相同</p>
+<p>图$G$的连接<strong>组成component</strong>：G中没有比其更大的连通子图的连通子图</p>
+<h3 id="回路-Cycles"><a href="#回路-Cycles" class="headerlink" title="回路 Cycles"></a>回路 Cycles</h3><p><strong>简单通路（simple path）</strong>：对路径中的每个边，$e_i\neq e_j(i\neq j)$</p>
+<p><strong>闭合通路（closed path）</strong>：$v_0=v_n$</p>
+<p><strong>回路（cycles）</strong>：闭合简单路径，除了$v_0=v_n$以外，所有$v_i$均不相同</p>
 <p><strong>非回路通路（Acyclic path）</strong>：对于路径中的所有的顶点，$v_i\neq v_j(i\neq j)$</p>
+<p><strong>注：</strong></p>
 <p>当且仅当移除路径中的一条边以后，路径变为非回路通路，那么这个通路就是回路$C_n=(e_1,…,e_n)$</p>
 <p>当边和顶点数相同，且没有恰当的子通路时，C是一个回路</p>
 <p><strong>恰当的子通路（proper subpath）</strong>：没有环存在的子通路</p>
@@ -520,9 +521,14 @@
 <li>$G$是非回路的，但如果在现有的顶点中增加任意一条边，就有回路出现</li>
 </ul>
 <p>对于$n$个顶点的树，$n\ge 3$，则：</p>
-<p>$|E(T)|$并不永远等于$n$</p>
-<p>最少一个顶点的度数为2</p>
-<p>最少有两个顶点，$deg(v_1)=deg(v_2)$</p>
+<ul>
+<li><p>$|E(T)|$并不永远等于$n$</p>
+</li>
+<li><p>最少一个顶点的度数为2</p>
+</li>
+<li><p>最少有两个顶点，$deg(v_1)=deg(v_2)$</p>
+</li>
+</ul>
 <p>有根的树叫<strong>根树（Rooted tree）</strong>，这指定了数的起源：总是从根开始，从父节点到子节点。这也定义了节点的层级，即离根的距离。</p>
 <p>根树的<strong>高度（Height）</strong>是最大顶点层级。</p>
 <p><strong>有向非环图DAG（directed, acyclic graph）</strong></p>
@@ -530,9 +536,10 @@
 <p>当两个图之间存在至少一个图同构时，他们被称为同构图。</p>
 <p>具有2、3、4、5个顶点的非同构树为：</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210321194717.png" alt="具有2、3、4、5个顶点的非同构树" style="zoom: 33%;"></p>
-<h3 id="自同构和不对称图-Automorphisms-and-Asymmetric-Graphs"><a href="#自同构和不对称图-Automorphisms-and-Asymmetric-Graphs" class="headerlink" title="自同构和不对称图 Automorphisms and Asymmetric Graphs"></a>自同构和不对称图 Automorphisms and Asymmetric Graphs</h3><p>同构图与自身相同的图称为自同构图（Automorphism）</p>
-<p>每个图都至少包含平凡自同构</p>
-<p>没有非平凡自同构图的图叫做不对称图。最小的非平凡不对称图有6个顶点：</p>
+<h3 id="自同构和不对称图-Automorphisms-and-Asymmetric-Graphs"><a href="#自同构和不对称图-Automorphisms-and-Asymmetric-Graphs" class="headerlink" title="自同构和不对称图 Automorphisms and Asymmetric Graphs"></a>自同构和不对称图 Automorphisms and Asymmetric Graphs</h3><p>同构图与自身相同的图称为自同构图<em>Automorphism</em></p>
+<p>每个图都至少包含平凡自同构<em>trivial automorphism</em></p>
+<p>没有非平凡自同构图 <em>non-trivial automorphisms</em> 的图叫做不对称图 <em>asymmetric</em>。</p>
+<p>最小的非平凡不对称图有6个顶点：</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210321195117.png" alt="一个最小的非平凡不同构图" style="zoom:33%;"></p>
 <p>类似的图一共有8个。</p>
 <h3 id="遍历边"><a href="#遍历边" class="headerlink" title="遍历边"></a>遍历边</h3><p><strong>欧拉通路（Euler path）</strong>：包含图G中每条边1次的通路</p>
@@ -559,6 +566,7 @@
 <p><strong>哈密顿回路（Hamiltonian circuit）</strong>：除了最后一个顶点，访问每一个顶点一次，最后回到初始顶点</p>
 <p>找到这个回路或证明它不存在很难——最坏的情况是NP完全问题</p>
 <p>这两种情况下，存在哈密顿回路：对于$m\ge3$，$K_m$；如果$m=n且m,n\ge2时，K_{m,n}$</p>
+<p>对于$K_{n,n}$图，一共有$c=2(n!)^2$个哈密顿回路。</p>
 <p>没有什么明显的方法可以确定非平凡的图没有哈密顿回路。</p>
 <p>相反，如果给定一个回路，就可以立即验证它是否是哈密顿回路。</p>
 <h3 id="着色-Colouring"><a href="#着色-Colouring" class="headerlink" title="着色 Colouring"></a>着色 Colouring</h3><p>非正式用法：为每个顶点（例如电力网络或交通网络中的一个节点）指定一个“颜色”，使由一条边连接的顶点具有不同的颜色。</p>
@@ -584,6 +592,7 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
 <li>对于回路$C_n$，$\kappa(C_3)=3$，$\kappa(C_4)=\kappa(C_5)=…=2$</li>
 </ul>
 <p>$\kappa(G)$与$\chi(G)$的差异是显然的，仅当$\kappa(G)=2$，这不意味着G是双边的。例如，环路$C_n$对每个基数n有$\chi(C_n)=3$</p>
+<p>对于无向图，有$max_{v\in V}deg(v)+1\ge \chi(G) \ge \kappa(G)$</p>
 <h3 id="平面图形-Planar-Graphs"><a href="#平面图形-Planar-Graphs" class="headerlink" title="平面图形 Planar Graphs"></a>平面图形 Planar Graphs</h3><p>如果一个图的各边不相交而能嵌入一个平面中，则该图是<strong>平面的（Planar）</strong>。</p>
 <p>定理：如果图形是平面的，它可以嵌入一个平面（无自交），使其所有边都是直线。</p>
 <p>两个最小的非平面图为：</p>
@@ -603,6 +612,10 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
 <p>汉密尔顿通路和回路Hamiltonian paths and circuits (点遍历vertex traversal)</p>
 <p>图形特点Graph properties</p>
 <p>着色数chromatic number $(G)$, 团数clique number $κ(G)$, 平面化planarity</p>
+<blockquote>
+<p><strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 3, Sec. 3.2; Ch. 6. Sec. 6.1-6.5</p>
+</blockquote>
 
                 
             </div>
@@ -1171,7 +1184,7 @@ c(v)\neq c(w)</script><p>足以实现这种映射的最小$n$称为图$G = (E, V
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字
+                class="white-color">69.6k</span>&nbsp;字
             
             
             

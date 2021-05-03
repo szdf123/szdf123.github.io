@@ -503,7 +503,7 @@ S=\bigcup_{t\in T}f^{\leftarrow}(t)</script><p>只有当$f$是满射的时候，
 \mathbb{Z}=\{0,1,\dots,p-1\}</script><p>我们可以为素数$p$在$\mathbb{Z}_p$上定义所有四种算术运算（具有通常的性质）；当$p$不是质数时除法是有限制的。</p>
 <p>标准符号：$\mathbf{m}\equiv \mathbf{n}\ (mod\ \mathbf{p})$</p>
 <p>$\overset{def}=$m除以$p$的余数= $n$除以$p$的余数</p>
-<p><strong>注意</strong></p>
+<p><strong>注</strong></p>
 <p>$(\mathbb{Z}_p,+,\cdot,0,1)$是称为<strong>环（rings）</strong>的基本代数结构。<br>这些结构在编码理论和密码学中非常重要。</p>
 <h3 id="模运算"><a href="#模运算" class="headerlink" title="模运算"></a>模运算</h3><p>$\mathbb{Z}_5=\{0,1,2,3,4\}$</p>
 <script type="math/tex; mode=display">
@@ -545,7 +545,9 @@ n & n^{-1} \\
 2 & 3  \\
 3 & 2  \\
 4 & 1 
-\end{array}</script><h3 id="几何中的等价类"><a href="#几何中的等价类" class="headerlink" title="几何中的等价类"></a>几何中的等价类</h3><p>从矩形开始</p>
+\end{array}</script><p>注：逆运算的算法为</p>
+<p>$1<em>1=1;2</em>3=1;3<em>2=1;4</em>4=1$</p>
+<h3 id="几何中的等价类"><a href="#几何中的等价类" class="headerlink" title="几何中的等价类"></a>几何中的等价类</h3><p>从矩形开始</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210313010047.png" alt="一个矩形" style="zoom:67%;"></p>
 <p>将$[a, b]$区间内的点与$[c, d]$区间内的点（在这个方向上）识别为一个圆柱体，同时将$[a, c]$和$[b, d]$识别为一个环面。</p>
 <p>矩形内部的点没有“粘”在一起；因此等效类（圆柱体）有一个或两个元素，而环面也有一个类有四个元素（哪四个？）</p>
@@ -575,12 +577,12 @@ x_1 \le x_2 \le \cdots \le x_n</script><p>在一个无限的集合上，有相�
 <p>$(S,\preceq)$叫做<strong>偏序集（poset）</strong>，即偏序的集合</p>
 <p>对于每一个（偏）序，可以关联一个唯一的拟序<strong>（quasi-order）</strong></p>
 <script type="math/tex; mode=display">
-x \prec y 当且仅当 x \preceq y 且 x \neq y</script><p>这满足(AS)和(T)；它满足(L)如果它对应于一个全序（我们可以称它为一个全拟序total quasi-order）；对任意一对$x,y$它都不满足(R)</p>
+x \prec y 当且仅当 x \preceq y 且 x \neq y</script><p>这满足(AS)和(T)；如果它对应于一个全序（我们可以称它为一个全拟序total quasi-order）它满足(L)；对任意一对$x,y$它都不满足(R)</p>
 <h3 id="哈斯图"><a href="#哈斯图" class="headerlink" title="哈斯图"></a>哈斯图</h3><p>每个优先的偏序集都可以用哈斯图来表示，其中，如果$x \prec y $且没有$z$使$x \prec z \prec y$，那么就从$x$到$y$画一条向上的线。</p>
 <h2 id="排序的概念"><a href="#排序的概念" class="headerlink" title="排序的概念"></a>排序的概念</h2><p><strong>定义</strong></p>
 <p>极小元素和极大元素（它们总是存在于每个有限偏序集中）</p>
 <p>最小和最大——唯一的最小和最大元素</p>
-<p>一个子集$A \subseteq S $的元素中，<strong>lub</strong>（最小上界least upper bound）和glb（最大下界greatest lower bound）</p>
+<p>一个子集$A \subseteq S $的元素中，<strong>lub</strong>（最小上界least upper bound）和<strong>glb</strong>（最大下界greatest lower bound）</p>
 <p>$lub(A)$——最小元素$x \in S$，例如，$x \succeq a$ 对于所有的$a\in A$</p>
 <p>$glb(A)$——最大元素$x \in S$，例如，$x \preceq a $对于所有的$a\in A$</p>
 <p><strong>晶格Lattice</strong>每一对元素都存在lub和glb的偏序集（通过归纳法，每个有限元素子集都存在晶格）</p>
@@ -613,7 +615,7 @@ f \preceq g \quad 当且仅当 \forall t \in T(f(t)\preceq g(t))</script><p>实�
 <h3 id="一些特性"><a href="#一些特性" class="headerlink" title="一些特性"></a>一些特性</h3><p>如果$\Sigma$是全序的，那么相关的词典顺序或Lenlex顺序偏序$\Sigma^*$也是全序的</p>
 <p>每个有限偏序集有一个哈斯图，同时有一个拓扑排序</p>
 <p>每个有限偏序集不一定有最小值</p>
-<p>每个优先全序集一定有最大值</p>
+<p>每个有限全序集一定有最大值</p>
 <p>一个无限偏序集也可以有最大值</p>
 <h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p>等价关系$\sim$，等价类$[S]$</p>
 <p>$\mathbb{Z}$上的特别等价关系：符号$m \equiv n (\mod p)$；$\mathbb{Z}_p$</p>
@@ -623,6 +625,10 @@ f \preceq g \quad 当且仅当 \forall t \in T(f(t)\preceq g(t))</script><p>实�
 <p>等价类：(R)(S)(T)</p>
 <p>全序：(R)(AS)(T)(L)</p>
 <p>偏序：(R)(AS)(T)</p>
+<blockquote>
+<p> <strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 3, Sec. 3.4-3.5; Ch. 11. Sec. 11.1-11.2</p>
+</blockquote>
 
                 
             </div>
@@ -1195,7 +1201,7 @@ f \preceq g \quad 当且仅当 \forall t \in T(f(t)\preceq g(t))</script><p>实�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字
+                class="white-color">69.6k</span>&nbsp;字
             
             
             

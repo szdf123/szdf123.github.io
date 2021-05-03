@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    369
+                    372
                 </div>
                 
 
@@ -483,17 +483,17 @@
 <p>$T$——$f$上域（codomain），符号Codom(f)</p>
 <p>$\{f(x):x \in Dom(f)\}$——$f$镜像(image)，符号$Im(f)$</p>
 <script type="math/tex; mode=display">
-Im(f)\subseteq Codom(f)</script><p>每个函数都把它的定义域映射到它的上域，但只是映射到它的像上。</p>
+Im(f)\subseteq Codom(f)</script><p>每个函数都把它的定义域映<strong>into</strong>射到它的上域，但只是映射<strong>onto</strong>到它的像上。</p>
 <h3 id="复合函数（Composition-of-Functions）"><a href="#复合函数（Composition-of-Functions）" class="headerlink" title="复合函数（Composition of Functions）"></a>复合函数（Composition of Functions）</h3><p>$f:x \mapsto y, f:A \mapsto B$</p>
 <p>第一个式子表示x映射到y，第二个式子表示B是在f下A的映射，$f:B=\{f(s):s \in A\}$</p>
 <p><strong>定义</strong>：复合函数描述为$g\circ f:x\mapsto g(f(x))$，要求$Im(f)\subseteq Dom(g)$</p>
-<p>如果一个函数将集合映射到自身，例如，当$Dom(f)=Codom(f)$，同时也因此$Im(f)\subseteq Dom(f)$，那么该函数可以与自身组合，这被叫做<strong>迭代</strong></p>
+<p>如果一个函数将集合映射到自身，例如，当$Dom(f)=Codom(f)$，同时也因此$Im(f)\subseteq Dom(f)$，那么该函数可以与自身组合，这被叫做<strong>迭代iterated</strong></p>
 <script type="math/tex; mode=display">
-f \circ f, f\circ f \circ f, \dots, 也写做 f^2,f^3,\dots</script><p>组合是联合的（associative）</p>
+f \circ f, f\circ f \circ f, \dots, \text{也写做} f^2,f^3,\dots</script><p>组合是<strong>联合的associative</strong></p>
 <script type="math/tex; mode=display">
-h \circ (g \circ f) = (h \circ g) \circ f, 可写作h \circ g \circ f</script><p>S函数的统一性（identity）</p>
+h \circ (g \circ f) = (h \circ g) \circ f, \text{可写作}h \circ g \circ f</script><p>S函数的<strong>同一性identity</strong></p>
 <script type="math/tex; mode=display">
-Id_S(x)=x,x\in S; Dom(i)=Condom(i)=Im(i)=S</script><p>对于$g:s\rightarrow T \quad g\circ Id_S = g, Id_T \circ g =g$</p>
+Id_S(x)=x,x\in S; Dom(i)=Codom(i)=Im(i)=S</script><p>对于$g:s\rightarrow T \quad g\circ Id_S = g, Id_T \circ g =g$</p>
 <h4 id="gcd例子"><a href="#gcd例子" class="headerlink" title="gcd例子"></a>gcd例子</h4><p>考虑gcd为高阶函数，定义为</p>
 <script type="math/tex; mode=display">
 gcd(f)(m,n)=\begin{cases} m & \text{if} \quad m=n \\
@@ -503,20 +503,23 @@ f(m,n-m) & \text{if} \quad m<n
 <p>也就是说，它将每个部分函数(从一对正整数到一个正整数)映射到同一类型的(部分)函数。这种函数中最糟糕的是“无处定义”的函数。</p>
 <script type="math/tex; mode=display">
 f_\bot (m,n)=\bot</script><p>偏函数（partial function）$f: S \not \rightarrow T$ 是一个函数$f:S’ \rightarrow T 当 S’\subseteq S$</p>
-<h3 id="函数的性质"><a href="#函数的性质" class="headerlink" title="函数的性质"></a>函数的性质</h3><p>如果上域的每个元素被域中至少一个x映射到，则函数叫做<strong>onto</strong>(或满射<strong>surjective</strong>)。</p>
+<h2 id="函数的性质"><a href="#函数的性质" class="headerlink" title="函数的性质"></a>函数的性质</h2><h3 id="满射onto"><a href="#满射onto" class="headerlink" title="满射onto"></a>满射onto</h3><p>如果上域codomain的每个元素被域中至少一个x映射到，则函数叫做<strong>onto</strong>(或满射<strong>surjective</strong>)。</p>
 <script type="math/tex; mode=display">
-Im(f) = T</script><h3 id="1-1-函数"><a href="#1-1-函数" class="headerlink" title="1-1 函数"></a>1-1 函数</h3><p>如果不同的x对应不同的y，则叫做1-1或单射函数</p>
+Im(f) = T</script><h3 id="1-1-函数"><a href="#1-1-函数" class="headerlink" title="1-1 函数"></a>1-1 函数</h3><p>如果不同的x对应不同的y，则叫做<strong>1-1 one-to-one</strong>或<strong>单射injective</strong>函数</p>
 <script type="math/tex; mode=display">
-f(x)=f(y)\Rightarrow x=y</script><h3 id="逆函数Inverse-Functions"><a href="#逆函数Inverse-Functions" class="headerlink" title="逆函数Inverse Functions"></a>逆函数Inverse Functions</h3><p><strong>定义</strong></p>
+f(x)=f(y)\Rightarrow x=y</script><h3 id="逆函数-Inverse-Functions"><a href="#逆函数-Inverse-Functions" class="headerlink" title="逆函数 Inverse Functions"></a>逆函数 Inverse Functions</h3><p><strong>定义</strong></p>
 <p>对给定的函数$f:S\rightarrow T$，$f^{-1}:T\rightarrow S$，满足$f^{-1}\circ f=Id_S$</p>
 <p>例如， $f^{-1}(f(x))=x，\forall x \in S$</p>
-<p>当f既为1-1又为满射时存在</p>
+<p>当$f$既为1-1又为满射时存在</p>
 <p><strong>逆镜像</strong>（inverse image）$f^{\leftarrow}(B)=\{s \in S : f(s) \in B\} \subseteq S$</p>
 <p>对于$t \in T$ ，写作$f^{\leftarrow}(t)$对于集合$f^{\leftarrow}(\{t\})$</p>
 <p>如果$f^{-1}$存在，那么$f^{\leftarrow}(t)=\{f^{-1}(t)\}$</p>
 <p>$f(\empty)=\empty , f^{\leftarrow}(\empty)=\empty$</p>
-<p>对于有限的集合$S$和$f：S\rightarrow S $，属性</p>
-<p>满射，并且1-1 是等价的（equivalent）</p>
+<p>对于有限的集合$S$和$f：S\rightarrow S $，满射和1-1 是等价的（equivalent）</p>
+<blockquote>
+<p> <strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 1, Sec. 1.7; Ch. 3. Sec. 3.1, 3.3</p>
+</blockquote>
 
                 
             </div>
@@ -1077,7 +1080,7 @@ f(x)=f(y)\Rightarrow x=y</script><h3 id="逆函数Inverse-Functions"><a href="#�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字
+                class="white-color">69.6k</span>&nbsp;字
             
             
             

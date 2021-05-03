@@ -498,6 +498,45 @@
   </entry>
   
   <entry>
+    <title>Windown10通过Vagrant搭建CentOS7虚拟机.md</title>
+    <link href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/"/>
+    <id>http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/</id>
+    <published>2021-04-15T07:54:48.000Z</published>
+    <updated>2021-04-29T08:28:13.778Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;下载并安装Vagrant及VMBOX&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;下载CentOS7的Box&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;载入Box到系统中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;参</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="CentOS" scheme="http://szdf123.github.io/tags/CentOS/"/>
+    
+    <category term="Windows" scheme="http://szdf123.github.io/tags/Windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>在kubernetes环境搭建bistoury</title>
     <link href="http://szdf123.github.io/2021/04/15/ji-zhu-xue-xi/bistoury/zai-kubernetes-huan-jing-da-jian-bistoury/"/>
     <id>http://szdf123.github.io/2021/04/15/ji-zhu-xue-xi/bistoury/zai-kubernetes-huan-jing-da-jian-bistoury/</id>
@@ -529,7 +568,7 @@
     <link href="http://szdf123.github.io/2021/04/01/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-7/"/>
     <id>http://szdf123.github.io/2021/04/01/unsw/comp9020/chi-san-shu-xue-ke-cheng-bi-ji-7/</id>
     <published>2021-04-01T11:25:01.000Z</published>
-    <updated>2021-04-01T12:03:03.307Z</updated>
+    <updated>2021-05-03T16:10:42.199Z</updated>
     
     
       
@@ -549,38 +588,7 @@
     
     <category term="离散数学" scheme="http://szdf123.github.io/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/"/>
     
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础课程笔记（8）</title>
-    <link href="http://szdf123.github.io/2021/03/28/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/"/>
-    <id>http://szdf123.github.io/2021/03/28/unsw/comp9311/shu-ju-ku-ji-chu-ke-cheng-bi-ji-8/</id>
-    <published>2021-03-28T12:03:15.000Z</published>
-    <updated>2021-03-28T12:52:01.024Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;文件组织和索引&quot;&gt;&lt;a href=&quot;#文件组织和索引&quot; class=&quot;headerlink&quot; title=&quot;文件组织和索引&quot;&gt;&lt;/a&gt;文件组织和索引&lt;/h2&gt;&lt;h3 id=&quot;成本模型&quot;&gt;&lt;a href=&quot;#成本模型&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
     
     <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     

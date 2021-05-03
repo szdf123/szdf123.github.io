@@ -414,8 +414,8 @@
                                 <span class="chip bg-color">离散数学</span>
                             </a>
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    337
+                    2.7k
                 </div>
                 
 
@@ -478,15 +478,138 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="归纳，递归，Big-Oh符号-Induction-Recursion-Big-Oh-Notation"><a href="#归纳，递归，Big-Oh符号-Induction-Recursion-Big-Oh-Notation" class="headerlink" title="归纳，递归，Big-Oh符号 Induction, Recursion, Big-Oh Notation"></a>归纳，递归，Big-Oh符号 Induction, Recursion, Big-Oh Notation</h2><h3 id="归纳推理-Inductive-Reasoning"><a href="#归纳推理-Inductive-Reasoning" class="headerlink" title="归纳推理 Inductive Reasoning"></a>归纳推理 Inductive Reasoning</h3><p>假设我们想要得出这种形式的结论：$P(x)$对于所有的$x$都属于某种类型</p>
-<p>归纳推理(如哲学中所理解的那样)是从例子出发的。</p>
-<p>例如：已知“这只天鹅是白色的，那只天鹅也是白色的，事实上每只天鹅都是白色的。我所见过的天鹅都是白色的。”<br>结论：”每只天鹅都是白色的“</p>
-<p>注意：这可能是发现假说的好方法，但这不是一个有效的推理原则！</p>
-<p>数学归纳法 是一种有效的变体。</p>
-<h3 id="数学归纳法-Mathematical-induction"><a href="#数学归纳法-Mathematical-induction" class="headerlink" title="数学归纳法 Mathematical induction"></a>数学归纳法 Mathematical induction</h3><p>数学归纳法不仅基于一组例子，而且基于从已知P存在的情况中推导出新的$P(x)$情况的规则。</p>
+<p>正如哲学中所理解的那样，归纳推理是从例子出发的。</p>
+<p>例如：已知“这只天鹅是白色的，那只天鹅也是白色的，事实上每只天鹅都是白色的。我所见过的天鹅都是白色的。”</p>
+<p>结论：”每只天鹅都是白色的“</p>
+<p>注意：这对发现假说来说，确实是个好方法，但这不是一个有效的推理原则！</p>
+<p><strong>数学归纳法</strong> <em>Mathematical induction</em> 是一种有效的变体。</p>
+<h3 id="数学归纳法-Mathematical-Induction"><a href="#数学归纳法-Mathematical-Induction" class="headerlink" title="数学归纳法 Mathematical Induction"></a>数学归纳法 Mathematical Induction</h3><p>数学归纳法不仅基于一组例子，而且基于从已知P存在的情况中推导出新的$P(x)$情况的规则。</p>
 <p>数学归纳法推理的一般结构：</p>
 <p><strong>基本情况Base Case[B]</strong>：$P(a_1), P(a_2),…. P(a_n)$对于一个小的例子集$a_1…a_n$(通常 n = 1)</p>
-<p><strong>归纳步骤 Inductive Step[I]</strong>: 如果$P(x)$在某些情况下$x = x_1,…, x_k$成立，那么$P(y)$对于新的情况$y$是成立的，以某种方式由$x_1,…,x_k$。</p>
+<p><strong>归纳步骤 Inductive Step[I]</strong>: 如果$P(x)$在某些情况下$x = x_1,…, x_k$成立，那么以某种方式由$x_1,…,x_k$构成的$y$，$P(y)$成立。</p>
 <p><strong>结论 Conclusion</strong>: 从$a_1…a_n$开始，并重复应用已有值构造y的方法，我们最终可以构造所有感兴趣的域内的值。</p>
+<h3 id="关于-mathbb-N-的数学归纳-Mathematical-Induction-on-mathbb-N"><a href="#关于-mathbb-N-的数学归纳-Mathematical-Induction-on-mathbb-N" class="headerlink" title="关于$\mathbb{N}$的数学归纳 Mathematical Induction on $\mathbb{N}$"></a>关于$\mathbb{N}$的数学归纳 Mathematical Induction on $\mathbb{N}$</h3><p>假设从$x=0$开始，重复构建$x \mapsto x +1$。那么，也就构建了</p>
+<p>$0, 0+1=1, 1+1=2,2+1=3,3+1=4,…$</p>
+<p>这被称为$\mathbb{N}$</p>
+<p>$\mathbb{N}$的数学归纳法对应原理：</p>
+<p><strong>基础情形</strong> <em>Base Case</em>[B]: $P(0)$</p>
+<p><strong>归纳过程</strong> <em>Inductive Step</em>[I]: $\forall k \ge 0(P(k)\Rightarrow(k+1))$</p>
+<p><strong>结论</strong> <em>Conclusion</em>: $\forall n \in \mathbb{N}\ P(n)$</p>
+<h3 id="归纳假设-Inductive-Hypothesis"><a href="#归纳假设-Inductive-Hypothesis" class="headerlink" title="归纳假设 Inductive Hypothesis"></a>归纳假设 Inductive Hypothesis</h3><p>为了证明$k≥0$时的归纳步骤[I]， $P(k)\Rightarrow P(k + 1)$，我们通常进行如下步骤：</p>
+<p><strong>假设</strong>  <em>Assume</em> P(k)，对任意$k \ge 0$</p>
+<p>​    $\vdots$  （推理步骤，通常使用$P(k)$假设）</p>
+<p>推导出$P(k+1)$</p>
+<p>此处，$P(k)$为称为<strong>归纳假设</strong> <em>Inductive Hypothesis</em></p>
+<p><strong>定理</strong>：</p>
+<p>对任意$n \in \mathbb{N}$，有</p>
+<script type="math/tex; mode=display">
+P(n):\quad \sum_{i=0}^{n}i=\frac{n(n+1)}{2}</script><h3 id="从m开始的归纳-Induction-From-m-Upwards"><a href="#从m开始的归纳-Induction-From-m-Upwards" class="headerlink" title="从m开始的归纳 Induction From $m$ Upwards"></a>从m开始的归纳 Induction From $m$ Upwards</h3><p>如果</p>
+<p>[B] $P(m)$</p>
+<p>[I] $\forall k \ge m(P(k)\rightarrow P(k+1))$</p>
+<p>那么</p>
+<p>[C] $\forall n \ge m(P(n))$</p>
+<p><strong>定理：</strong></p>
+<p>对于任意的$n\ge 1$，$8^n-2^n$可被6整除</p>
+<h3 id="推理步骤-Induction-Steps-mathcal-l-gt-1"><a href="#推理步骤-Induction-Steps-mathcal-l-gt-1" class="headerlink" title="推理步骤 Induction Steps  $ \mathcal{l} > 1$"></a>推理步骤 Induction Steps  $ \mathcal{l} &gt; 1$</h3><p>如果</p>
+<p>[B] $P(m)$</p>
+<p>[I] $P(k)\Rightarrow P(k+\mathcal{l})\quad \forall k\ge m$</p>
+<p>那么</p>
+<p>[C] $P(n)$ 对于所有的第 $\mathcal{l}$个 $n \ge m$</p>
+<h3 id="强归纳-Strong-Induction"><a href="#强归纳-Strong-Induction" class="headerlink" title="强归纳 Strong Induction"></a>强归纳 Strong Induction</h3><p>这是一个归纳假设更强的版本。<br>我们不使用P(k)只适用于一个值，而是使用k之前的所有值。</p>
+<p>如果</p>
+<p>[B] $P(m)$</p>
+<p>[I] $[p(m)\land P(m_1)\land \dots \land P(k)]\Rightarrow P(k+1)\ \forall k \ge m$</p>
+<p>那么</p>
+<p>[C] $P(n)$ 对于所有的 $n \ge m$</p>
+<h3 id="负整数，逆向归纳-Negative-Integers-Backward-Induction"><a href="#负整数，逆向归纳-Negative-Integers-Backward-Induction" class="headerlink" title="负整数，逆向归纳 Negative Integers, Backward Induction"></a>负整数，逆向归纳 Negative Integers, Backward Induction</h3><p><strong> 注：</strong><br>归纳法可以对$\mathbb{Z}$的任何元素最小的子集进行。因此m可以是负数。如，[b] $m = -10^6$。<br>我们可以在”相反”方向$p(m) \Rightarrow p(m - 1)$上应用归纳法，它意味着以相反的顺序考虑整数，即n之后的下一个数是$n - 1$。这种归纳法可以用来证明所有$n≤m$时的某个$p(n)$。<br>有时需要推理所有整数$\mathbb{Z}$。这需要两个单独的简单归纳法证明：一个对$\mathbb{Z}$，另一个对$-\mathbb{Z}$。它们都会形成一些相同的初始值，比如0。之后，先证明正整数情形，再证明负整数情形。</p>
+<h3 id="前后向归纳-Forward-Backward-Induction"><a href="#前后向归纳-Forward-Backward-Induction" class="headerlink" title="前后向归纳 Forward-Backward Induction"></a>前后向归纳 Forward-Backward Induction</h3><p>思考：<br>为了证明$P(n) \ \forall n \ge k_0$，</p>
+<ul>
+<li>核实$P(k_0)$</li>
+<li>证明$P(k_i) 对无穷k_0 &lt; k_1 &lt; k_2 &lt; k_3 &lt; …$</li>
+<li>填充空隙<br>$P(k_1) ⇒ P(k_1- 1) ⇒ P(k_1-2) ⇒ . . . ⇒ P(k_0 + 1)$<br>$P(k_2) ⇒ P(k_2- 1) ⇒ P(k_2-2) ⇒ . . . ⇒ P(k_1 + 1)$</li>
+</ul>
+<h3 id="无限下降-Infinite-Descent"><a href="#无限下降-Infinite-Descent" class="headerlink" title="无限下降 Infinite Descent"></a>无限下降 Infinite Descent</h3><p>欧拉定理：对于平面连接图G，有</p>
+<script type="math/tex; mode=display">
+V-E+F=2</script><p>其中，F为面数，E为边数，V为顶点数</p>
+<h3 id="结构归纳-Structural-Induction"><a href="#结构归纳-Structural-Induction" class="headerlink" title="结构归纳 Structural Induction"></a>结构归纳 Structural Induction</h3><p>归纳法不仅适用于自然数(和整数)，而且一般适用于任何部分有序集。<br>基本的方法总是一样的——我们需要验证这一点<br>[I] 对于任何给定的对象，如果该属性对其所有的前身(“较小的”对象)都有效，那么它对对象本身也有效<br>[B] 该属性适用于所有最小对象——没有前身的对象；它们通常是非常简单的对象，可以立即验证</p>
+<p>定理：<br>在任何有根的树中，叶节点的数量都比有右兄弟节点的顶点的数量多1。</p>
+<p><img src="/Users/ykj/Library/Application Support/typora-user-images/image-20210503225015919.png" alt="树的叶子节点和右兄弟节点"></p>
+<h3 id="递归定义-Recursive-Definitions"><a href="#递归定义-Recursive-Definitions" class="headerlink" title="递归定义 Recursive Definitions"></a>递归定义 Recursive Definitions</h3><p>它们包括基(B)和递归过程(R)。<br>递归定义序列时(通常)<br>(B) 一些初始条款被指定，也许只有第一个；<br>(R) 后面的术语表示为前面术语的函数表达式。</p>
+<p>(R)又称<strong>递归公式</strong> <em>recurrence formula</em></p>
+<h3 id="关于递归定义的归纳证明"><a href="#关于递归定义的归纳证明" class="headerlink" title="关于递归定义的归纳证明"></a>关于递归定义的归纳证明</h3><p>关于递归定义函数的证明通常是根据定义的结构进行数学归纳法。</p>
+<p>阿克曼数字 <em>Ackermann’s numbers</em>: $(2, 4, 6, 6553, …)$</p>
+<script type="math/tex; mode=display">
+b_n = 2^{b_{n-1}}</script><h3 id="递归定义的正确性-Correctness-of-Recursive-Definitions"><a href="#递归定义的正确性-Correctness-of-Recursive-Definitions" class="headerlink" title="递归定义的正确性 Correctness of Recursive Definitions"></a>递归定义的正确性 Correctness of Recursive Definitions</h3><p>如果后一项的计算可以简化为(B)中给出的初始值，则递归公式是正确的。</p>
+<p>在应用递归构造之前，对定义的边界(极限)情况进行评估。</p>
+<h3 id="相互递归-Mutual-Recursion"><a href="#相互递归-Mutual-Recursion" class="headerlink" title="相互递归 Mutual Recursion"></a>相互递归 Mutual Recursion</h3><p>一些更复杂的程序采用了两个过程相互调用的技术。当然，它应该被设计成每个连续调用引用更小的参数，这样整个过程就会终止。这种方法常用于计算机图形学，特别是用于生成分形图像(包括各种想象的风景)。</p>
+<h2 id="大o符号-动机-Big-Oh-Notation-Motivation"><a href="#大o符号-动机-Big-Oh-Notation-Motivation" class="headerlink" title="大o符号:动机 Big-Oh Notation: Motivation"></a>大o符号:动机 Big-Oh Notation: Motivation</h2><p>我们希望能够讨论一个程序/算法所需的资源(运行时间、内存、能量消耗)，作为其输入大小n的函数f (n)。</p>
+<h3 id="增长的次序-Order-of-Growth"><a href="#增长的次序-Order-of-Growth" class="headerlink" title="增长的次序 Order of Growth"></a>增长的次序 Order of Growth</h3><p>增长的顺序提供了一种方法来抽象这两个问题，并专注于什么是函数大小的本质，通过说“(复杂的)函数g是大致相同的大小(对于大的输入)(简单的)函数f”</p>
+<h3 id="渐近上界-Asymptotic-Upper-Bounds"><a href="#渐近上界-Asymptotic-Upper-Bounds" class="headerlink" title="渐近上界 Asymptotic Upper Bounds"></a>渐近上界 Asymptotic Upper Bounds</h3><h3 id="“Big-Oh”渐近上界-“Big-Oh”-Asymptotic-Upper-Bounds"><a href="#“Big-Oh”渐近上界-“Big-Oh”-Asymptotic-Upper-Bounds" class="headerlink" title="“Big-Oh”渐近上界 “Big-Oh” Asymptotic Upper Bounds"></a>“Big-Oh”渐近上界 “Big-Oh” Asymptotic Upper Bounds</h3><p>定义：<br>令$f,g:\mathbb{N} \rightarrow \mathbb{R}$，我们说$g$渐近小于$f$(或:$f$是$g$的上界)，如果存在$n_0\in N$，且实常数$c &gt; 0$对于所有$N≥n_0$，</p>
+<script type="math/tex; mode=display">
+g(n) ≤ c · f (n)</script><p>对于所有渐近小于$f$的函数$g$，写作$\mathcal{O}(f (n))$。</p>
+<p>传统的记录符号为：</p>
+<script type="math/tex; mode=display">
+g(n) = \mathcal{O}(f (n))</script><p>一般地，</p>
+<ul>
+<li><p>对于常数$a_k \dots a_0$，</p>
+<script type="math/tex; mode=display">
+a_k n^k + a_{k-1} n ^{k-1} + \dots + a_0 = \mathcal{O}(n^k)</script></li>
+<li><p>所有的$\log _b x$都有相同的阶数，不管b的值是多少</p>
+<script type="math/tex; mode=display">
+\mathcal{O}(\log_2 n) = \mathcal{O}(\log_3 n) = \dots = \mathcal{O}(\log_{10} n) = \dots</script></li>
+<li><p>指数$r^n,s^n$到不同的基$r &lt; s$有不同的阶数，例如，对于所有的$n$没有c &gt; 0使$3^n &lt; c·2^n$</p>
+<script type="math/tex; mode=display">
+\mathcal{O}(r^n)\not\subseteq \mathcal{O}(s^n) \not\subseteq \mathcal{O}(t^n) \dots \quad for\ r < s < t \dots</script></li>
+<li><p>多项式类似</p>
+<script type="math/tex; mode=display">
+\mathcal{O}(n^k) \not\subseteq \mathcal{O}(n^l) \not\subseteq \mathcal{O}(n^m) \dots \quad for\ k < l < m \dots</script></li>
+</ul>
+<p>以下是在分析程序性能(算法复杂度)时最常见的一些函数：</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+1, \log \log n, \log n, \sqrt{n}, \sqrt{n}(\log n), \sqrt{n}(\log n)^2 \\
+n, n \log \log n, n \log n, n^{1.5}, n^2, n^3 \\
+2^n, 2^n \log n, n2^n, 3^n \\
+n!, n^n, n^{2n}, \dots, n^{n^2} , n^{2^n}
+\end{array}</script><p>符号:$\mathcal{O}(1)≡ const$，尽管技术上它可以是在两个常数c和d之间变化的任何函数。</p>
+<h3 id="大θ符号-Big-Theta-Notation"><a href="#大θ符号-Big-Theta-Notation" class="headerlink" title="大θ符号 Big-Theta Notation"></a>大θ符号 Big-Theta Notation</h3><p><strong>定义：</strong><br>两个函数$f, g$如果以相同的方式伸缩，它们的增长顺序是相同的：<br>存在$n_0∈\mathbb{N}$，实常数$c &gt; 0, d &gt; 0$，对于所有$N≥n_0$，有</p>
+<script type="math/tex; mode=display">
+c·f (N)≤g(N)≤d·f (N)</script><p>对于与$f$具有相同增长阶的所有函数$g$的类，写$Θ(f (n))$。</p>
+<p>如果$g∈O(f)$，则$f$是(给出)$g$的增长阶的上界；如果$g∈Θ(f)$，我们称它为<strong>紧界</strong> <em>tight bound</em>。</p>
+<p>注意这一点，有对称性</p>
+<script type="math/tex; mode=display">
+g ∈ Θ(f ) \Leftrightarrow f ∈ Θ(g)</script><p>很明显，有</p>
+<script type="math/tex; mode=display">
+Θ(f (n)) ⊆ \mathcal{O}(f (n))</script><p>同时，“大O”不是一个对称关系</p>
+<script type="math/tex; mode=display">
+g ∈ \mathcal{O}(f ) \not\Rightarrow f ∈ \mathcal{O}(g)</script><h3 id="分析算法的复杂性"><a href="#分析算法的复杂性" class="headerlink" title="分析算法的复杂性"></a>分析算法的复杂性</h3><p>我们想知道当输入量增加时算法的运行时间是多少。为了避免特定计算平台的变化，我们以基本操作的数量而不是时钟时间来衡量性能。<br>通常我们将四种算术运算、比较运算和逻辑运算视为基本运算；它们占用一个处理器周期(或固定数量的周期)。</p>
+<p>确定算法复杂度的一种典型方法，即对其运行时间的渐近估计，是将操作数的递归式写成输入大小的函数。<br>然后我们将递归式求解到一个大小的阶数。</p>
+<h3 id="普遍式"><a href="#普遍式" class="headerlink" title="普遍式"></a>普遍式</h3><p>算法复杂度的递归通常涉及到子问题规模的<strong>线性减少</strong> <em>linear reduction</em>。<br><em>定理：</em><br>情行1：</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+T(n) = T(n - 1) + bn^k \\
+T(n) = \mathcal{O}(n^{k+1})
+\end{array}</script><p>情行2：</p>
+<script type="math/tex; mode=display">
+\begin{array}{}
+T(n) = cT(n - 1) + bn^k, c>1 \\
+T(n) = \mathcal{O}(c^n)
+\end{array}</script><p>这与分治算法形成了对比，在分治算法中，我们通过对某个c(通常是c = 2)的子问题递归来解决规模为n的问题。</p>
+<h3 id="主定理-Master-Theorem"><a href="#主定理-Master-Theorem" class="headerlink" title="主定理 Master Theorem"></a>主定理 Master Theorem</h3><p><strong>定理：</strong><br>以下案例涵盖了实践中出现的许多分治法：</p>
+<script type="math/tex; mode=display">
+T(n) = d^α · T (\frac{n}{d}) + \mathcal{O}(n^β)</script><p>情行1：$α &gt; β$，$T(n) = O(n^α)$<br>情行2：$α = β$，$T(n) = O(n^α\log n)$<br>情行3：$α &lt; β$，$T(n) = O(n^β)$</p>
+<p>当我们将一个规模为$n$的问题简化为几个规模为$n/d$的子问题时，就会出现这种情况。如果这些子问题的数量是$d^α$，而合并这些更小的解的代价是$n^β$，那么总代价取决于$α$和$β$的相对大小。</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>数学归纳法 Mathematical induction<br>基本情况，归纳假设$P(k)$<br>结论：归纳步骤$∀k (P(k)\Rightarrow P(k + 1))$</li>
+<li>变化 Variations:<br>强型、前后型、结构型。</li>
+<li>递归定义 recursive definitions<br>“大-哦”符号$\mathcal{O}(f (n))$为一类函数<br>$f (n)$是上界;$Θ(f (n))$</li>
+<li>分析算法的复杂性，求解递归</li>
+<li>线性缩减的一般结果指数约简(“主定理”)</li>
+</ul>
+<blockquote>
+<p><strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 4, Sec. 4.2-4.6</p>
+</blockquote>
 
                 
             </div>
@@ -559,8 +682,8 @@
                                     <span class="chip bg-color">离散数学</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1043,7 +1166,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">67k</span>&nbsp;字
+                class="white-color">69.6k</span>&nbsp;字
             
             
             

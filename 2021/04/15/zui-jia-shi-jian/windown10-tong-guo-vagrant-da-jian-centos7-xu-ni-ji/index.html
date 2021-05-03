@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="MySQL,存储过程,视图,函数">
+    <meta name="keywords" content="Windows,Vagrant,虚拟机">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>CentOS搭建Nginx | 本杰明学习笔记</title>
+    <title>Windown10通过Vagrant搭建CentOS7虚拟机.md | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/62.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/141.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">CentOS搭建Nginx</h1>
+                    <h1 class="description center-align post-title">Windown10通过Vagrant搭建CentOS7虚拟机.md</h1>
                 </div>
             </div>
         </div>
@@ -406,12 +406,16 @@
                     
                     <div class="article-tag">
                         
+                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                <span class="chip bg-color">编辑中</span>
+                            </a>
+                        
                             <a href="/tags/CentOS/">
                                 <span class="chip bg-color">CentOS</span>
                             </a>
                         
-                            <a href="/tags/Nginx/">
-                                <span class="chip bg-color">Nginx</span>
+                            <a href="/tags/Windows/">
+                                <span class="chip bg-color">Windows</span>
                             </a>
                         
                     </div>
@@ -435,7 +439,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-20
+                    2021-04-15
                 </div>
                 
 
@@ -444,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    146
                 </div>
                 
 
@@ -469,208 +473,19 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="使用Yum安装方法"><a href="#使用Yum安装方法" class="headerlink" title="使用Yum安装方法"></a>使用Yum安装方法</h2><ol>
-<li>添加yum源</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">rpm -Uvh http://nginx.org/packages/centos/7/noarch/RPMS/nginx-release-centos-7-0.el7.ngx.noarch.rpm<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>或在/etc/yum.repo.d/目录下，新建新Yum源<br></p><pre class="line-numbers language-none"><code class="language-none">[nginx-stable]
-name=nginx stable repo
-baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
-gpgcheck=1
-enabled=1
-gpgkey=https://nginx.org/keys/nginx_signing.key
-
-[nginx-mainline]
-name=nginx mainline repo
-baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
-gpgcheck=1
-enabled=0
-gpgkey=https://nginx.org/keys/nginx_signing.key<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p></p>
-<ol>
-<li>安装Nginx</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum search nginx			# 查看yum源是否包含nginx
-yum install -y nginx	# 安装Nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<ol>
-<li><p>启动Nginx并设置开机自动运行</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 启动Nginx
-systemctl start nginx
-# 系统开机自动启动Nginx
-systemctl enable nginx
-# 查看Nginx状态
-systemctl status nginx<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <ol>
+<li><p>下载并安装Vagrant及VMBOX</p>
 </li>
-<li><p>访问Nginx</p>
+<li><p>下载CentOS7的Box</p>
 </li>
+<li><p>载入Box到系统中</p>
+</li>
+<li></li>
 </ol>
-<ul>
-<li>Nginx默认占用端口为80</li>
-<li>默认配置文件在 /etc/nginx/nginx.conf </li>
-<li>项目部署目录为 /usr/share/nginx/html/</li>
-</ul>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">lsof -i:80	# 查看80端口占用情况<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol>
-<li>配置nginx下载目录</li>
-</ol>
-<pre class="line-numbers language-properties" data-language="properties"><code class="language-properties"># 在nginx配置文件中增加下载目录
-# 此配置的文件下载目录为/data/download
-    location ~ ^/download { 
-        root            /data/;
-        autoindex on;  # 开启目录文件列表
-        autoindex_exact_size on;  # 显示出文件的确切大小，单位是bytes
-        autoindex_localtime on;  # 显示的文件时间为文件的服务器时间
-        charset utf-8,gbk;  # 避免中文乱码
-    }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="使用安装包安装Nginx方法"><a href="#使用安装包安装Nginx方法" class="headerlink" title="使用安装包安装Nginx方法"></a>使用安装包安装Nginx方法</h2><ol>
-<li><p>下载Nginx安装包，并解压</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">wget http://nginx.org/download/nginx-1.9.9.tar.gz
-tar -zxvf nginx-1.9.9.tar.gz<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-</li>
-<li><p>进入Nginx目录，安装编译Nginx</p>
-</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 可将Nginx安装至 /usr/local/nginx
-
-./configure
-make
-make install
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol>
-<li><p>查看修改Nginx配置文件nginx.conf</p>
-</li>
-<li><p>启动Nginx服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">/usr/local/nginx/sbin
-./nginx		# 启动命令
-ps -ef | grep nginx		# 查看nginx服务是否启动成功<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
-</ol>
-<h2 id="nginx配置文件说明"><a href="#nginx配置文件说明" class="headerlink" title="nginx配置文件说明"></a>nginx配置文件说明</h2><pre class="line-numbers language-properties" data-language="properties"><code class="language-properties">
-#user  nobody;
-worker_processes  1; #工作进程：数目。根据硬件调整，通常等于cpu数量或者2倍cpu数量。
- 
-#错误日志存放路径
-#error_log  logs/error.log;
-#error_log  logs/error.log  notice;
-#error_log  logs/error.log  info;
- 
-#pid        logs/nginx.pid; # nginx进程pid存放路径
- 
- 
-events {
-    worker_connections  1024; # 工作进程的最大连接数量
-}
- 
- 
-http {
-    include       mime.types; #指定mime类型，由mime.type来定义
-    default_type  application/octet-stream;
- 
-    # 日志格式设置
-    #log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
-    #                  '$status $body_bytes_sent "$http_referer" '
-    #                  '"$http_user_agent" "$http_x_forwarded_for"';
- 
-    #access_log  logs/access.log  main; #用log_format指令设置日志格式后，需要用access_log来指定日志文件存放路径
-					
-    sendfile        on; #指定nginx是否调用sendfile函数来输出文件，对于普通应用，必须设置on。
-			如果用来进行下载等应用磁盘io重负载应用，可设着off，以平衡磁盘与网络io处理速度，降低系统uptime。
-    #tcp_nopush     on; #此选项允许或禁止使用socket的TCP_CORK的选项，此选项仅在sendfile的时候使用
- 
-    #keepalive_timeout  0;  #keepalive超时时间
-    keepalive_timeout  65;
- 
-    #gzip  on; #开启gzip压缩服务
- 
-    #虚拟主机
-    server {
-        listen       80;  #配置监听端口号
-        server_name  localhost; #配置访问域名，域名可以有多个，用空格隔开
- 
-        #charset koi8-r; #字符集设置
- 
-        #access_log  logs/host.access.log  main;
- 
-        location / {
-            root   html;
-            index  index.html index.htm;
-        }
-        #错误跳转页
-        #error_page  404              /404.html; 
- 
-        # redirect server error pages to the static page /50x.html
-        #
-        error_page   500 502 503 504  /50x.html;
-        location = /50x.html {
-            root   html;
-        }
- 
-        # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-        #
-        #location ~ \.php$ {
-        #    proxy_pass   http://127.0.0.1;
-        #}
- 
-        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-        #
-        #location ~ \.php$ { #请求的url过滤，正则匹配，~为区分大小写，~*为不区分大小写。
-        #    root           html; #根目录
-        #    fastcgi_pass   127.0.0.1:9000; #请求转向定义的服务器列表
-        #    fastcgi_index  index.php; # 如果请求的Fastcgi_index URI是以 / 结束的, 该指令设置的文件会被附加到URI的后面并保存在变量$fastcig_script_name中
-        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
-        #    include        fastcgi_params;
-        #}
- 
-        # deny access to .htaccess files, if Apache's document root
-        # concurs with nginx's one
-        #
-        #location ~ /\.ht {
-        #    deny  all;
-        #}
-    }
- 
- 
-    # another virtual host using mix of IP-, name-, and port-based configuration
-    #
-    #server {
-    #    listen       8000;
-    #    listen       somename:8080;
-    #    server_name  somename  alias  another.alias;
- 
-    #    location / {
-    #        root   html;
-    #        index  index.html index.htm;
-    #    }
-    #}
- 
- 
-    # HTTPS server
-    #
-    #server {
-    #    listen       443 ssl;  #监听端口
-    #    server_name  localhost; #域名
- 
-    #    ssl_certificate      cert.pem; #证书位置
-    #    ssl_certificate_key  cert.key; #私钥位置
- 
-    #    ssl_session_cache    shared:SSL:1m;
-    #    ssl_session_timeout  5m; 
- 
-    #    ssl_ciphers  HIGH:!aNULL:!MD5; #密码加密方式
-    #    ssl_prefer_server_ciphers  on; # ssl_prefer_server_ciphers  on; #
- 
- 
-    #    location / {
-    #        root   html;
-    #        index  index.html index.htm;
-    #    }
-    #}
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>参考资料</strong></p>
-<p>centOS7安装nginx及nginx配置<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37345604/article/details/90034424">https://blog.csdn.net/qq_37345604/article/details/90034424</a></p>
-<p>CentOS7中使用yum安装Nginx的方法<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/songxingzhu/p/8568432.html">https://www.cnblogs.com/songxingzhu/p/8568432.html</a></p>
-<p>CentOS7.X中使用yum安装nginx的方法<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/opsprobe/p/10773582.html">https://www.cnblogs.com/opsprobe/p/10773582.html</a></p>
-<p>nginx配置下载目录<br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1366668">https://cloud.tencent.com/developer/article/1366668</a></p>
+<p>Vagrant Cloud - 官网CentOS7-box下载地址<br><a target="_blank" rel="noopener" href="https://app.vagrantup.com/centos/boxes/7">https://app.vagrantup.com/centos/boxes/7</a></p>
+<p>vagrant在windows下的使用<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/xiang--liu/p/9710351.html">https://www.cnblogs.com/xiang--liu/p/9710351.html</a><br>1<br>vagrant使用三种网络配置<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zc474235918/article/details/51039150">https://blog.csdn.net/zc474235918/article/details/51039150</a><br>1<br>vagrant调整内存大小<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/yageeart/article/details/72840763">https://blog.csdn.net/yageeart/article/details/72840763</a><br>1<br><a target="_blank" rel="noopener" href="http://www.fancyecommerce.com/2017/06/06/vagrant-%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E6%98%A0%E5%B0%84%EF%BC%8C%E5%B0%86windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%A0%E5%B0%84%E5%88%B0linux%E4%B8%AD/">http://www.fancyecommerce.com/2017/06/06/vagrant-%E8%AE%BE%E7%BD%AE%E6%96%87%E4%BB%B6%E6%98%A0%E5%B0%84%EF%BC%8C%E5%B0%86windows%E6%96%87%E4%BB%B6%E5%A4%B9%E6%98%A0%E5%B0%84%E5%88%B0linux%E4%B8%AD/</a><br>1<br>vagrant报unknownfilesystemtype’vboxsf’解决方<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43066287/article/details/99703093">https://blog.csdn.net/weixin_43066287/article/details/99703093</a></p>
 </blockquote>
 
                 
@@ -698,7 +513,7 @@ http {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-nginx/">http://szdf123.github.io/2021/04/20/zui-jia-shi-jian/centos-da-jian-nginx/</a>
+                    <a href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/">http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -736,12 +551,16 @@ http {
                     
                         <div class="article-tag">
                             
+                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
+                                    <span class="chip bg-color">编辑中</span>
+                                </a>
+                            
                                 <a href="/tags/CentOS/">
                                     <span class="chip bg-color">CentOS</span>
                                 </a>
                             
-                                <a href="/tags/Nginx/">
-                                    <span class="chip bg-color">Nginx</span>
+                                <a href="/tags/Windows/">
+                                    <span class="chip bg-color">Windows</span>
                                 </a>
                             
                         </div>
@@ -917,25 +736,82 @@ http {
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-gong-neng-xiang-jie/">
+                <a href="/2021/04/15/zui-jia-shi-jian/centos7-pei-zhi-java/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/170.jpg" class="responsive-img" alt="bistoury功能详解">
+                        <img src="/medias/featureimages/331.jpg" class="responsive-img" alt="CentOS7操作系统配置Java">
                         
-                        <span class="card-title">bistoury功能详解</span>
+                        <span class="card-title">CentOS7操作系统配置Java</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            bistoury功能详解
+                            CentOS7操作系统配置Java
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/Linux/">
+                        <span class="chip bg-color">Linux</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/15/ji-zhu-xue-xi/bistoury/zai-kubernetes-huan-jing-da-jian-bistoury/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/171.jpg" class="responsive-img" alt="在kubernetes环境搭建bistoury">
+                        
+                        <span class="card-title">在kubernetes环境搭建bistoury</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            在kubernetes环境搭建bistoury
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -957,59 +833,6 @@ http {
                     
                     <a href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/">
                         <span class="chip bg-color">监控技术</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/04/20/zui-jia-shi-jian/centos-da-jian-zookeeper/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="CentOS搭建Zookeeper">
-                        
-                        <span class="card-title">CentOS搭建Zookeeper</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            CentOS搭建Zookeeper
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
-                                    最佳实践
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/CentOS/">
-                        <span class="chip bg-color">CentOS</span>
-                    </a>
-                    
-                    <a href="/tags/Zookeeper/">
-                        <span class="chip bg-color">Zookeeper</span>
                     </a>
                     
                 </div>
