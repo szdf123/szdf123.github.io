@@ -533,7 +533,7 @@ P(n):\quad \sum_{i=0}^{n}i=\frac{n(n+1)}{2}</script><h3 id="从m开始的归纳-
 V-E+F=2</script><p>其中，F为面数，E为边数，V为顶点数</p>
 <h3 id="结构归纳-Structural-Induction"><a href="#结构归纳-Structural-Induction" class="headerlink" title="结构归纳 Structural Induction"></a>结构归纳 Structural Induction</h3><p>归纳法不仅适用于自然数(和整数)，而且一般适用于任何部分有序集。<br>基本的方法总是一样的——我们需要验证这一点<br>[I] 对于任何给定的对象，如果该属性对其所有的前身(“较小的”对象)都有效，那么它对对象本身也有效<br>[B] 该属性适用于所有最小对象——没有前身的对象；它们通常是非常简单的对象，可以立即验证</p>
 <p>定理：<br>在任何有根的树中，叶节点的数量都比有右兄弟节点的顶点的数量多1。</p>
-<p><img src="/Users/ykj/Library/Application Support/typora-user-images/image-20210503225015919.png" alt="树的叶子节点和右兄弟节点"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210504004826.png" alt="树的叶子节点和右兄弟节点"></p>
 <h3 id="递归定义-Recursive-Definitions"><a href="#递归定义-Recursive-Definitions" class="headerlink" title="递归定义 Recursive Definitions"></a>递归定义 Recursive Definitions</h3><p>它们包括基(B)和递归过程(R)。<br>递归定义序列时(通常)<br>(B) 一些初始条款被指定，也许只有第一个；<br>(R) 后面的术语表示为前面术语的函数表达式。</p>
 <p>(R)又称<strong>递归公式</strong> <em>recurrence formula</em></p>
 <h3 id="关于递归定义的归纳证明"><a href="#关于递归定义的归纳证明" class="headerlink" title="关于递归定义的归纳证明"></a>关于递归定义的归纳证明</h3><p>关于递归定义函数的证明通常是根据定义的结构进行数学归纳法。</p>
@@ -1166,7 +1166,7 @@ T(n) = d^α · T (\frac{n}{d}) + \mathcal{O}(n^β)</script><p>情行1：$α &gt;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.6k</span>&nbsp;字
+                class="white-color">74.3k</span>&nbsp;字
             
             
             
@@ -1380,22 +1380,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 

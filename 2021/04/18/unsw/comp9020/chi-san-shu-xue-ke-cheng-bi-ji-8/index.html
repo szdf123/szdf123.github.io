@@ -414,8 +414,8 @@
                                 <span class="chip bg-color">离散数学</span>
                             </a>
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
                             </a>
                         
                             <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    8
+                    798
                 </div>
                 
 
@@ -477,7 +477,69 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="统计与概率-Counting-and-Probability"><a href="#统计与概率-Counting-and-Probability" class="headerlink" title="统计与概率 Counting and Probability"></a>统计与概率 Counting and Probability</h2>
+                <h2 id="统计与概率-Counting-and-Probability"><a href="#统计与概率-Counting-and-Probability" class="headerlink" title="统计与概率 Counting and Probability"></a>统计与概率 Counting and Probability</h2><h3 id="计算技术"><a href="#计算技术" class="headerlink" title="计算技术"></a>计算技术</h3><p>总体思路：从一些基本集合，以一种结构化的方式寻找方法、算法或精确公式来计算不同集合或派生集合中的元素数量。</p>
+<h3 id="基本统计规则"><a href="#基本统计规则" class="headerlink" title="基本统计规则"></a>基本统计规则</h3><p><strong>结合律</strong> <em>Union rule</em>：<br>对不相交的$S$和$T$，有</p>
+<script type="math/tex; mode=display">
+|S\cup T| = |S| + |T|</script><p>若$S_1,S_2,\dots S_n$两两不相交，则</p>
+<script type="math/tex; mode=display">
+|S_1 \cup \dots \cup S_n| = \sum|S_i|</script><p><strong>乘积率</strong> <em>Product rule</em>：</p>
+<script type="math/tex; mode=display">
+|S_1 \times \dots \times S_k| = |S_1| \cdot |S_2| \cdots |S_k| = \prod _{i=1}^{k}|S_i|</script><p>如果所有的$S_i=S$，且$|S|=m$，那么$|S^k|=m^k$</p>
+<p>对于有限函数$S\rightarrow T$，可能的组合数为$|T|^{|S|}$</p>
+<p>对于有n个点的完全图:</p>
+<ul>
+<li>长度为3的路径数量为 $n\cdot (n-1)^3$</li>
+<li>长度为3，各点不同的路径数量为 $n(n-1)(n-2)(n-3)$</li>
+<li>长度为3，各边不同的路径数量为 $n(n-1)(n-2)^2$</li>
+</ul>
+<h4 id="容斥定理-Inclusion-Exclusion"><a href="#容斥定理-Inclusion-Exclusion" class="headerlink" title="容斥定理 Inclusion-Exclusion"></a>容斥定理 Inclusion-Exclusion</h4><p>两个集合：</p>
+<script type="math/tex; mode=display">
+|A\cup B| = |A| + |B| - |A\cap B|</script><p>三个集合：</p>
+<script type="math/tex; mode=display">
+|A \cup B \cup C | = |A| + |B| + |C| - |A \cap B| - |A\cap C| - |B \cap C| + |A \cap B \cap C |</script><p>注：</p>
+<p>容斥定理通常是非正式的应用，没有明确或明确地说明为什么要减去或放回某些数量。</p>
+<p>推论：<br>如果 $|S\cup T|=|S| + |T|$，那么 $S$ 和 $T$ 不相交<br>如果 $|\cup_{i=1}^{n}S_i|=\sum_{i=1}^n|S_i|$，那么 $S_i$ 互不相交<br>如果 $|T\setminus S|=|T|-|S|$，那么 $S\subseteq T$</p>
+<p><strong>排列</strong> <em>Permutations</em><br>n个元素的全排列数为：</p>
+<script type="math/tex; mode=display">
+n! = n \cdot (n-1)\cdots 1, 0!=1!=!</script><p><strong>r-排列</strong> <em>r-permutations</em><br>n个元素中r个元素的排列数为：</p>
+<script type="math/tex; mode=display">
+\Pi(n,r)=n\cdot (n-1)\cdots (n-r+1)=\frac{n!}{(n-r)!}</script><p><strong>r-组合</strong> <em>r-combinations</em></p>
+<script type="math/tex; mode=display">
+\left( \begin{array}{} n \\ r \end{array} \right) = \frac{n!}{(n-r)!r!}=\frac{n\cdot (n-1)\cdots (n-r+1)}{1\cdot 2 \cdots r}</script><p>注：</p>
+<p>这些数字通常被称为二项式系数，因为：</p>
+<script type="math/tex; mode=display">
+(a+b)^n = a^n + \left(\begin{array}{} n \\ 1 \end{array}\right) a^{n-1}b + \left( \begin{array}{} n \\ 2 \end{array} \right) a ^{n-2}b^2 + \dots + b^n = \sum_{i=0}^{n}\left( \begin{array}{} n \\ i \end{array} \right)a^{n-i}b^i</script><p>在实数领域$\alpha \in \mathbb{R}$，有</p>
+<script type="math/tex; mode=display">
+\left( \begin{array}{} \alpha \\ r \end{array} \right) = \frac{\alpha\cdot (\alpha-1)\cdots (\alpha-r+1)}{ r!}</script><h3 id="计数扑克牌型-Poker-Hands"><a href="#计数扑克牌型-Poker-Hands" class="headerlink" title="计数扑克牌型 Poker Hands"></a>计数扑克牌型 Poker Hands</h3><p>52张扑克牌可为：$\{A, 2-10, J, Q, K\} \times \{\textcolor{black}{\spadesuit} \text{spade},\textcolor{red}{\heartsuit}  \text{heart}, \textcolor{black}{\clubsuit} \text{club},\textcolor{red}{\diamondsuit} \text{diamond} \} $ </p>
+<p>“4 of a kind” 4张相同<br>“flushes” 同花<br>“straight” 顺</p>
+<h3 id="基本概率-Elementary-Probability"><a href="#基本概率-Elementary-Probability" class="headerlink" title="基本概率 Elementary Probability"></a>基本概率 Elementary Probability</h3><p>样本空间：</p>
+<script type="math/tex; mode=display">
+\Omega = \{ \omega_1, \dots, \omega_n \}</script><p>当每一种可能性概率相同时，即$P(\omega_i)=\frac{1}{n}$</p>
+<p>这被称为$Ω$上的<strong>均匀概率分布</strong> <em>uniform probability distribution</em></p>
+<p>对于<strong>非均匀概率</strong> <em>Non-uniform Probability</em><br>令$P(\omega_1)=p_1, P(\omega_2)=p_2, \dots, P(\omega_n)=p_n$<br>那么，</p>
+<script type="math/tex; mode=display">
+\sum_{i=1}^{n}p_i=1</script><h3 id="事件-Events"><a href="#事件-Events" class="headerlink" title="事件 Events"></a>事件 Events</h3><p><strong>事件</strong> <em>Event</em> -结果集合= $Ω$的子集</p>
+<script type="math/tex; mode=display">
+P(E)=\sum_{\omega \in E}P(\omega)</script><p>一般有$P(\emptyset)=0, P(\Omega)=1, P(E^C)=1-P(E)$</p>
+<h3 id="递归在概率计算中的应用"><a href="#递归在概率计算中的应用" class="headerlink" title="递归在概率计算中的应用"></a>递归在概率计算中的应用</h3><p>给定n次抛硬币，连续两次正面朝上的概率是多少?计算n = 5, 10, 20，…</p>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><ul>
+<li>统计 Counting<ul>
+<li>结合律，乘积律，$n!, \Pi(n,r) \left( \begin{array}{} n \\ r \end{array} \right)$</li>
+<li>容斥原理 inclusion-exclusion principle</li>
+</ul>
+</li>
+<li>概率 Probability<ul>
+<li>事件Event</li>
+<li>容斥 inclusion-exclusion</li>
+<li>递归 recursion</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p><strong>参考资料</strong></p>
+<p>Textbook (R &amp; W) - Ch. 5, Sec. 5.1-5.3</p>
+</blockquote>
+
                 
             </div>
             <hr/>
@@ -549,8 +611,8 @@
                                     <span class="chip bg-color">离散数学</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
                                 </a>
                             
                                 <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1033,7 +1095,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.6k</span>&nbsp;字
+                class="white-color">74.3k</span>&nbsp;字
             
             
             
@@ -1247,22 +1309,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 

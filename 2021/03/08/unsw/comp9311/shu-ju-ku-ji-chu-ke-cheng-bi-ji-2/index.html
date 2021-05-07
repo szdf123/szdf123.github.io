@@ -496,10 +496,10 @@
 <p>请注意，这是关系的一个属性，它不依赖于当前的关系实例</p>
 <p><strong>候选键（candidate key）</strong>是一个超键，它的<strong>恰当的（proper）</strong>子集都不是超键。</p>
 <p>键是由应用程序决定的</p>
-<p>例如，如果${Name}$是唯一的，那么它是PLAYER的候选键；否则，我们需要使用整个元组，或者创建一个候选键，比如PID</p>
+<p>例如，如果 {Name} 是唯一的，那么它是PLAYER的候选键；否则，我们需要使用整个元组，或者创建一个候选键，比如PID</p>
 <p>{Goals}通常不能成为候选关键，因为不同的玩家<strong>可能</strong>拥有相同数量的目标</p>
 <p>{Name, Goals}是超键，但如果{Name}是键，则不是候选键。</p>
-<p><strong>主键（primary key）</strong>是指定的候选键。在许多应用程序中，如果没有一个自然的主键，那么有必要发明一个主键——通常这将是一个非负整数，例如Person_number。当一个关系模式有几个候选键时，通常最好选择一个具有单个属性或少量属性的主键。</p>
+<p><strong>主键（primary key, PK）</strong>是指定的候选键。在许多应用程序中，如果没有一个自然的主键，那么有必要发明一个主键——通常这将是一个非负整数，例如Person_number。当一个关系模式有几个候选键时，通常最好选择一个具有单个属性或少量属性的主键。</p>
 <h3 id="完整性约束-Integrity-constraints"><a href="#完整性约束-Integrity-constraints" class="headerlink" title="完整性约束 Integrity constraints"></a>完整性约束 Integrity constraints</h3><p>完整性约束有几种类型，是关系模型不可或缺的一部分：</p>
 <ul>
 <li>键约束（Key constraint）：候选键值对于每个关系实例必须是唯一的</li>
@@ -507,11 +507,11 @@
 <li>参照完整性（Referential integrity）：这种约束与”外键”有关</li>
 <li>引用完整性：FK的值必须出现在另一个关系中，否则完全为Null</li>
 </ul>
-<p><strong>外键（Foreign keys）</strong>用于引用另一个关系中的元组。</p>
+<p><strong>外键（Foreign keys, FK）</strong>用于引用另一个关系中的元组。</p>
 <p>如果一个关系模式的属性$R_1$是外键，则其需要满足：</p>
 <ul>
 <li>这些属性与另一个关系模式$R_2$的主键中的属性具有相同的域</li>
-<li>元组$t_1 (R_1)$中的FK值要么作为$R2$中某个元组$t2$的PK值，要么为Null</li>
+<li>元组$t_1 (R_1)$中的FK值要么作为$R_2$中某个元组$t_2$的PK值，要么为Null</li>
 </ul>
 <h4 id="检查更新的约束-Checking-constraints-on-updates"><a href="#检查更新的约束-Checking-constraints-on-updates" class="headerlink" title="检查更新的约束 Checking constraints on updates"></a>检查更新的约束 Checking constraints on updates</h4><p>为了维护数据库的完整性，我们需要在进行更新之前对要更新的数据进行检查，检查其是否违反完整性约束</p>
 <p>例如，假设我们有如下的带有外键的模式：</p>
@@ -1146,7 +1146,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.6k</span>&nbsp;字
+                class="white-color">74.3k</span>&nbsp;字
             
             
             
@@ -1360,22 +1360,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 

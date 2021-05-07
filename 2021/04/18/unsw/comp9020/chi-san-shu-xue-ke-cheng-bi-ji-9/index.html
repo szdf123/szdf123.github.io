@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.3k
                 </div>
                 
 
@@ -491,7 +491,9 @@ A ⊆ B & ⇒ P(B|A) = 1 \\
 P(A ∩ B|B) & = P(A|B) \\
 P(∅|A) & = 0 \ 对于\ A \neq ∅ \\
 P(A|Ω) & = P(A) \\
-P(A^c|B) & = 1 - P(A|B)
+P(A^c|B) & = 1 - P(A|B) \\
+P(A^c\cap B) & = P(B) - P(A\cap B) \\
+P(A) & = P(A|B) P(B)+ P(A|B^c)P(B^c)
 \end{align}</script><p>注意：</p>
 <p>$P(A|B)$与$P(A|B^C)$不相关</p>
 <p>$P(A|B),P(B|A),P(A^C|B^C),P(B^C|A^C)$不相关</p>
@@ -516,7 +518,7 @@ P(A^C|B) = P(A^C) 或 P(A|B^C) = P(A) 或 P(A^C|B^C) = P(A^C)</script><p>最后�
 </ul>
 <p>对于独立的$A_1,\dots,A_n$，对所有的可能集$A_{i_{1}},A_{i_{2}},\dots,A_{i_{k}}$</p>
 <p>$P(A_{i_{1}} \cap A_{i_{2}} \cap \dots \cap A_{i_{k}})=P(A_{i_{1}})\cdot P(A_{i_{2}}) \cdots P(A_{i_{k}})$</p>
-<p>这通常被称为<strong>完全独立 <em>full</em> independence</strong></p>
+<p>这通常被称为<strong>完全独立</strong>  <strong><em>full independence</em></strong></p>
 <p>两两独立是一个较弱的概念。</p>
 <p>我们也可以构造一个$n$个事件的集合，其中任意$k$个事件是独立的，而任意$k + 1$个事件是相互依赖的</p>
 <p>总体可能性：$P(A)=P(A|B)\cdot P(B) + P(A|B^C)\cdot P(B^C)$</p>
@@ -532,9 +534,10 @@ E(c · X) = c · E(X)</script><p><strong>二项身份</strong> binomial identity
 <p><strong>注意</strong>：如果$X_1 X_2…， X_n$是独立的恒等分布随机变量，则$E(X_1 + X_2 +…+ X_n)$和$E(nX_1)$是一样的，但它们是非常不同的随机变量。</p>
 <p><strong>几何级数 geometric progressions</strong></p>
 <p><strong>定理</strong>：看到概率为p的事件的平均试验次数是$A = \frac{1}{p}$。</p>
-<h3 id="标准差和方差-Standard-Deviation-and-Variance"><a href="#标准差和方差-Standard-Deviation-and-Variance" class="headerlink" title="标准差和方差 Standard Deviation and Variance"></a>标准差和方差 Standard Deviation and Variance</h3><p><strong>定义</strong>：对于具有期望值（或:均值）的随机变量$X\ µ= E(X)$，$X$的标准差为</p>
+<h3 id="标准差和方差-Standard-Deviation-and-Variance"><a href="#标准差和方差-Standard-Deviation-and-Variance" class="headerlink" title="标准差和方差 Standard Deviation and Variance"></a>标准差和方差 Standard Deviation and Variance</h3><p><strong>定义</strong>：对于具有期望值（或:均值）的随机变量$X\ µ= E(X)$，$X$的<strong>标准差 <em>standard deviation</em> </strong>为</p>
 <script type="math/tex; mode=display">
-\sigma=\sqrt{E((X-\mu )^2)}</script><p>标准差和方差测量随机变量值的分布情况。对于随机选择的$ω$， $σ^2$越小，我们就越确信$X(ω)$接$近E(X)$。</p>
+\sigma=\sqrt{E((X-\mu )^2)}</script><p>X的<strong>方差 <em>variance</em></strong>为：$\sigma^2$</p>
+<p>标准差和方差测量随机变量值的分布情况。对于随机选择的$ω$， $σ^2$越小，我们就越确信$X(ω)$接$近E(X)$。</p>
 <p><strong>注意</strong>：方差可以计算为$E((X-µ)^2 ) = E(X^2)- µ^2$</p>
 <h3 id="累积分布函数-Cumulative-Distribution-Functions"><a href="#累积分布函数-Cumulative-Distribution-Functions" class="headerlink" title="累积分布函数 Cumulative Distribution Functions"></a>累积分布函数 Cumulative Distribution Functions</h3><p><strong>定义</strong>：定义整数随机变量$X$的累积分布函数$CDF_X: \mathbb{Z}→\mathbb{R}$为</p>
 <script type="math/tex; mode=display">
@@ -542,8 +545,8 @@ CDF_X(y)\mapsto \sum_{k\leq y} {P(X=k)}</script><p>$CDF_X (y)$累积在$y$之前
 <h4 id="例如：二项分布-Binomial-Distributions"><a href="#例如：二项分布-Binomial-Distributions" class="headerlink" title="例如：二项分布 Binomial Distributions"></a>例如：二项分布 Binomial Distributions</h4><p><strong>定义</strong>：二项随机变量计算n个独立实验中成功的次数，每个实验的概率为p。</p>
 <script type="math/tex; mode=display">
 P(X=k)=(\begin{matrix} n \\ k\end{matrix})p^k(1-p)^{n-k} \\
-CDF_B(y)\mapsto \sum_{k\leq y}(\begin{matrix} n \\ k\end{matrix})p^k(1-p)^{n-k}</script><p><strong>定理</strong>：如果$X$是一个基于$n$和$p$的二项分布随机变量，那么$E(X) = n·p$，$ σ^2 = n·p·(1 - p)$</p>
-<h3 id="正态分布-Normal-Distribution"><a href="#正态分布-Normal-Distribution" class="headerlink" title="正态分布 Normal Distribution"></a>正态分布 Normal Distribution</h3><p>对于大n，二项分布可以近似为<strong>正态分布normal distributions</strong>（又称<strong>高斯分布 Gaussian distributions</strong>），其均值$µ= n·p$，方差$σ^2 = n·p·(1 - p)$。</p>
+CDF_B(y)\mapsto \sum_{k\leq y}(\begin{matrix} n \\ k\end{matrix})p^k(1-p)^{n-k}</script><p><strong>定理</strong>：如果$X$是一个基于$n$次和概率$p$的二项分布随机变量，那么$E(X) = n·p$，$ σ^2 = n·p·(1 - p)$</p>
+<h3 id="正态分布-Normal-Distribution"><a href="#正态分布-Normal-Distribution" class="headerlink" title="正态分布 Normal Distribution"></a>正态分布 Normal Distribution</h3><p>如果n非常大，二项分布可以近似为<strong>正态分布normal distributions</strong>（又称<strong>高斯分布 Gaussian distributions</strong>），其均值$µ= n·p$，方差$σ^2 = n·p·(1 - p)$。</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210419010801.png" alt="正态分布"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li>条件概率$P(A |b)$，独立性$A⊥B$</li>
@@ -900,8 +903,8 @@ CDF_B(y)\mapsto \sum_{k\leq y}(\begin{matrix} n \\ k\end{matrix})p^k(1-p)^{n-k}<
                         <span class="chip bg-color">离散数学</span>
                     </a>
                     
-                    <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                        <span class="chip bg-color">编辑中</span>
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
                     </a>
                     
                     <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
@@ -1108,7 +1111,7 @@ CDF_B(y)\mapsto \sum_{k\leq y}(\begin{matrix} n \\ k\end{matrix})p^k(1-p)^{n-k}<
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.6k</span>&nbsp;字
+                class="white-color">74.3k</span>&nbsp;字
             
             
             
@@ -1322,22 +1325,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 

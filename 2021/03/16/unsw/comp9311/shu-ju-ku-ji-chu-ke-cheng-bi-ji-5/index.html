@@ -499,9 +499,9 @@ F = \{Prof →Fac\_Dept, Course → Crs\_Dept\}</script><p>注意，超键是一
 S → \{Prof,  Course,  Fac\_Dept, Crs\_Dept\} ∈ F^+</script><p>因此，这里唯一的候选关键字是$ \{Prof, Course\}$</p>
 <p>产生这些问题，是因为$Fac_Dept$只取决于$Prof$而不取决于$Course$；同样，$Crs_Dept$只取决于$Course$而不取决于$Prof$。</p>
 <p>我们可以使用函数依赖来识别和避免这些问题。</p>
-<h3 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h3><p>质数（prime）属性是候选键的一部分。其他属性是非素数的。</p>
+<h3 id="第二范式（2NF）"><a href="#第二范式（2NF）" class="headerlink" title="第二范式（2NF）"></a>第二范式（2NF）</h3><p>主（prime）属性是候选键的一部分。其他属性均为非主属性。</p>
 <p><strong>定义</strong>：在一个FD $X\rightarrow Y$中，如果没有$Z \subset X$使$Z \rightarrow Y$，那么$Y$是<strong>完全函数依赖</strong>于$X$（fully functionally dependent）的。否则$Y$部分依赖于$X$。</p>
-<p><strong>定义</strong>（第二范式）：如果所有非素数属性在功能上完全依赖于候选键，那么关系模式就是第二范式（2NF）。</p>
+<p><strong>定义</strong>（第二范式）：如果所有非主属性在功能上完全依赖于候选键，那么关系模式就是第二范式（2NF）。</p>
 <p>如果数据库模式的所有关系都在2NF中，那么它就是在2NF中。</p>
 <p>可能的2NF为：</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316012707.png" alt="2NF表结构" style="zoom:67%;"></p>
@@ -518,7 +518,7 @@ S → \{Prof,  Course,  Fac\_Dept, Crs\_Dept\} ∈ F^+</script><p>因此，这�
 <p>例如， 当 {Course} → {Room} 且 {Room} → {Room_Cap} 成立，且 {Room} 不是任意键的子集时，Room_Cap 传递依赖于{Course}。</p>
 <p><strong>定义（第三范式）</strong>：如果对所有形式为X→A的非平凡（non-trivial）FD成立，或者X是超键或A是素数属性，则关系模式是第三范式(3NF)。</p>
 <p>注意：如果Y是X的子集，那么FD X→Y就是平凡的（trivial）。</p>
-<p><strong>转换定义</strong>：如果每个非素数属性在功能上完全依赖于键，而不是传递地依赖于任何键，那么关系模式就是第三范式。</p>
+<p><strong>转换定义</strong>：如果每个非主属性在功能上完全依赖于键，而不是传递地依赖于任何键，那么关系模式就是第三范式。</p>
 <p>如果数据库模式的所有关系都在3NF中，那么它就是在3NF中。</p>
 <p>TEACHES可以分解为3NF：</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210316014833.png" alt="3NF数据库表" style="zoom:67%;"></p>
@@ -1109,7 +1109,7 @@ S → \{Prof,  Course,  Fac\_Dept, Crs\_Dept\} ∈ F^+</script><p>因此，这�
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">69.6k</span>&nbsp;字
+                class="white-color">74.3k</span>&nbsp;字
             
             
             
@@ -1323,22 +1323,6 @@ $(function () {
     
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 
