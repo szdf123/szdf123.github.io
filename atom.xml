@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-05-07T13:53:44.195Z</updated>
+  <updated>2021-05-11T12:12:54.588Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>COMP9311数据库期末要点复习</title>
-    <link href="http://szdf123.github.io/2021/05/07/unsw/comp9311/comp9311-shu-ju-ku-qi-mo-yao-dian-fu-xi/"/>
-    <id>http://szdf123.github.io/2021/05/07/unsw/comp9311/comp9311-shu-ju-ku-qi-mo-yao-dian-fu-xi/</id>
+    <title>Maven命令</title>
+    <link href="http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/"/>
+    <id>http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/</id>
+    <published>2021-05-11T09:00:05.000Z</published>
+    <updated>2021-05-11T12:12:54.588Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;Maven-Lifecycle-命令&quot;&gt;&lt;a href=&quot;#Maven-Lifecycle-命令&quot; class=&quot;headerlink&quot; title=&quot;Maven Lifecycle 命令&quot;&gt;&lt;/a&gt;Maven Lifecycle 命令&lt;/h2&gt;&lt;p&gt;mvn</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
+    
+    <category term="Maven" scheme="http://szdf123.github.io/tags/Maven/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据库基础期末要点复习</title>
+    <link href="http://szdf123.github.io/2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/"/>
+    <id>http://szdf123.github.io/2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/</id>
     <published>2021-05-07T13:53:46.000Z</published>
-    <updated>2021-05-07T13:53:44.195Z</updated>
+    <updated>2021-05-07T15:58:47.103Z</updated>
     
     
       
@@ -555,45 +582,6 @@
     <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
     
     <category term="Linux" scheme="http://szdf123.github.io/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Windown10通过Vagrant搭建CentOS7虚拟机.md</title>
-    <link href="http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/"/>
-    <id>http://szdf123.github.io/2021/04/15/zui-jia-shi-jian/windown10-tong-guo-vagrant-da-jian-centos7-xu-ni-ji/</id>
-    <published>2021-04-15T07:54:48.000Z</published>
-    <updated>2021-04-29T08:28:13.778Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;下载并安装Vagrant及VMBOX&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;下载CentOS7的Box&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;载入Box到系统中&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;参</summary>
-        
-      
-    
-    
-    
-    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-    <category term="CentOS" scheme="http://szdf123.github.io/tags/CentOS/"/>
-    
-    <category term="Windows" scheme="http://szdf123.github.io/tags/Windows/"/>
     
   </entry>
   

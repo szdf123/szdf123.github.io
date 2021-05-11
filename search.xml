@@ -4,9 +4,36 @@
   
     
     <entry>
-      <title>COMP9311数据库期末要点复习</title>
-      <link href="2021/05/07/unsw/comp9311/comp9311-shu-ju-ku-qi-mo-yao-dian-fu-xi/"/>
-      <url>2021/05/07/unsw/comp9311/comp9311-shu-ju-ku-qi-mo-yao-dian-fu-xi/</url>
+      <title>Maven命令</title>
+      <link href="2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/"/>
+      <url>2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Maven-Lifecycle-命令"><a href="#Maven-Lifecycle-命令" class="headerlink" title="Maven Lifecycle 命令"></a>Maven Lifecycle 命令</h2><p>mvn clean            清除编译产生的target文件夹内容</p><p>mvn validate        验证项目是否正确并且所有必要的信息均可用</p><p>mvn compile        对src/main/java目录的下的代码进行编译</p><p>mvn test                测试命令,或执行src/test/java/下所有junit的测试用例</p><p>mvn package        打包项目</p><p>mvn verify            对集成测试的结果进行任何检查，以确保符合质量标准</p><p>mvn install            打包后将其安装在本地仓库</p><p>mvn site                生成站点目录</p><p>mvn deploy        </p><h2 id="package-install-deploy三者关联"><a href="#package-install-deploy三者关联" class="headerlink" title="package,install,deploy三者关联"></a>package,install,deploy三者关联</h2><p>mvn clean package    依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)等７个阶段。<br>mvn clean install        依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)、install等8个阶段。<br>mvn clean deploy        依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)、install、deploy等９个阶段。</p><h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>mvn -version                     查看maven的版本及配置信息</p><p>mvn archetype:create       -DgroupId=    DartifactId=    构建java项目</p><p>mvn archetype:create       -DgroupId=    DartifactId=    -DarchetypeArtifactId=maven-archetype-webapp 创建web项目</p><p>mvn compile                    编译项目代码</p><p>mvn package                   打包项目</p><p>mvn package -Dmaven.test.skip=true   打包项目时跳过单元测试</p><p>mvn test                        运行单元测试</p><p>mvn clean                    清除编译产生的target文件夹内容，可以配合相应命令一起使用，如mvn clean package， mvn clean test</p><p>mvn install                    打包后将其安装在本地仓库</p><p>mvn deploy                    打包后将其安装到pom文件中配置的远程仓库</p><p>mvn eclipse:eclipse      将maven生成eclipse项目结构</p><p>mvn eclipse:clean         清除maven项目中eclipse的项目结构</p><p>mvn site                            生成站点目录</p><p>mvn dependency:list            显示所有已经解析的所有依赖</p><p>mvn dependency:tree            以树的结构展示项目中的依赖</p><p>mvn dependency:analyze    对项目中的依赖进行分析，依赖未使用，使用单未引入</p><p>mvn tomcat:run                    启动tomcat</p><blockquote><p><strong>参考资料</strong></p><p>maven命令<br><a href="https://blog.csdn.net/zflovecf/article/details/80831467">https://blog.csdn.net/zflovecf/article/details/80831467</a></p><p>Maven的常用命令 - clean compile test package install<br><a href="https://blog.csdn.net/u012887259/article/details/111570702">https://blog.csdn.net/u012887259/article/details/111570702</a></p><p>一篇文章学懂Maven（附带对idea中clean，validate，complie，test，package，verify，install，site，deploy用法）<br><a href="https://blog.csdn.net/qq_40547893/article/details/110091275">https://blog.csdn.net/qq_40547893/article/details/110091275</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑中 </tag>
+            
+            <tag> Maven </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据库基础期末要点复习</title>
+      <link href="2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/"/>
+      <url>2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/</url>
       
         <content type="html"><![CDATA[<blockquote><p>本文转载自 <a href="https://mubu.com/doc/1jff_OxSqV">9311数据库期末要点复习</a>——IF</p></blockquote><h2 id="一、绪论"><a href="#一、绪论" class="headerlink" title="一、绪论"></a>一、绪论</h2><h2 id="二、关系数据库"><a href="#二、关系数据库" class="headerlink" title="二、关系数据库"></a>二、关系数据库</h2><ul><li><p>关系模式</p><ul><li><p>关系模式：对关系的描述</p></li><li><p>关系：关系是一张表，一张二维表</p></li><li><p>关系中有哪些需要描述</p><ul><li><p>关系中的属性</p></li><li><p>属性来自哪些域</p></li><li><p>属性与域之间的映射关系</p></li><li><p>关系的表示 R（U, D, DOM, F）</p><ul><li><p>R：关系名</p></li><li><p>U：所有属性名</p></li><li><p>D：属性来自哪些域</p></li><li><p>DOM：属性和域的映射</p></li><li><p>F：属性间的依赖关系</p></li></ul></li></ul></li><li><p>关系数据库：关系数据库也有关系数据库模式</p></li></ul></li><li><p>关系操作</p><ul><li><p>插入、查询、删除、修改</p></li><li><p>查询：选择、投影、连接、除法（一般出现‘全部’时使用）、并、差、交、笛卡尔积</p></li><li><p>查询基本操作：选择、投影、并、差、笛卡尔积</p></li></ul></li><li><p>关系语言的分类</p><ul><li><p>！关系代数语言</p><ul><li><p>四种基本运算：并、差、交、笛卡尔积</p></li><li><p>专门的关系运算：选择、投影、连接、除法</p><ul><li>除法：用来表示全体的，比如说他全都包含了，就可以被留下来</li></ul></li><li><p>悬浮元组：R 和 S 在自然连接中，被舍弃的元组</p></li><li><p>特殊的连接（不同情况保留悬浮元组的自然连接）：外连接、左外连接、右外连接</p></li></ul></li><li><p>关系演算语言</p></li><li><p>具有关系代数和关系演算的SQL语言（详见第三章）</p></li></ul></li><li><p>关系的完整性</p><ul><li><p>实体完整性：主码唯一且非空</p></li><li><p>参照完整性：外码要么为空，要么就要对应另一个表的主码</p></li><li><p>用户定义完整性：自己定义的完整性，比如年龄在18-60岁，身高多少之类的</p></li></ul></li></ul><h2 id="三、SQL"><a href="#三、SQL" class="headerlink" title="三、SQL"></a>三、SQL</h2><ul><li><p>SQL特点</p><ul><li><p>SQL包括：数据查询、数据操作、数据定义、数据控制</p></li><li><p>非过程语言</p></li><li><p>SQL特点</p><ul><li><p>综合统一：把定义，修改，删除，连接，安全性，完整性，事务控制，动态SQL等统一起来</p></li><li><p>高度非过程化：层次模型和网络模型是过程化的，关系模型是非过程化的</p></li><li><p>面向集合的操作方式</p></li><li><p>以同一种语法结构提供多种使用方式：即可以独立，也可以嵌入到Java或者C++中</p></li><li><p>语言简洁，易学易用</p></li></ul></li></ul></li><li><p>SQL的基本概念</p><ul><li><p>外模式：视图、部分基本表</p></li><li><p>模式：若干基本表</p></li><li><p>内模式：若干存储文件</p></li><li><p>一个关系对应一张基本表，一个或多个基本表对应一个存储文件</p></li></ul></li><li><p>SQL的基本语法</p><ul><li><p>数据定义：包括模式定义、表定义、视图和索引的定义</p><ul><li><p>模式（create schema&lt;模式名&gt; authorization&lt;用户名&gt; / drop schema&lt;模式名&gt;）</p></li><li><p>表（create/drop table）</p></li><li><p>视图（create/drop view）</p></li><li><p>索引（create/drop index）</p></li><li><p>一个DBMS建立多个数据库，一个数据库建立多个模式，一个模式包含多个表、视图、索引</p></li></ul></li><li><p>数据查询</p><ul><li><p>数据查询（select(去重distinct，聚合函数(count、sum、avg、max、min))\\from\\where\\order by (DESC)\\group by\\having）</p></li><li><p>全体查询：包括 exists的查询，union、intersect（并、交）</p></li></ul></li><li><p>数据更新</p><ul><li><p>数据插入（insert into &lt;表名&gt; [列名] values()）</p></li><li><p>更新数据（update &lt;表名&gt; set &lt;列名&gt;=&lt;表达式&gt; [where…]）</p></li><li><p>删除数据（delete from &lt;表名&gt; [where…]）</p></li><li><p>空值判断（IS NULL / IS NOT NULL）</p></li></ul></li><li><p>视图</p><ul><li><p>建立视图（create view &lt;视图名&gt; as &lt;子查询&gt; [with check option] 行列子集视图）</p></li><li><p>删除视图（drop view &lt;视图名&gt; [CASCADE级联/RESTRICT限制]）</p></li><li><p>视图的作用</p><ul><li><p>视图能够简化用户操作</p></li><li><p>视图用多种角度看待同一数据</p></li><li><p>提供一定程度的数据独立性</p></li><li><p>提供安全保护</p></li><li><p>利用视图清晰地表达查询</p></li></ul></li></ul></li></ul></li></ul><h2 id="四、数据库安全性"><a href="#四、数据库安全性" class="headerlink" title="四、数据库安全性"></a>四、数据库安全性</h2><ul><li><p>数据库安全性概述</p><ul><li><p>不安全因素</p><ul><li><p>非授权对数据库的恶意存取和破坏</p></li><li><p>数据库中重要的数据泄露</p></li><li><p>安全环境的脆弱性</p></li></ul></li><li><p>自主存取控制方法</p><ul><li><p>grant (grant &lt;权限&gt; on table &lt;表名&gt; to &lt;用户&gt;) </p></li><li><p>revoke (revoke &lt;权限&gt; on table &lt;表名&gt; to &lt;用户&gt;)</p></li><li><p>创建用户（create user <username> with）</username></p></li></ul></li></ul></li><li><p>数据库安全性控制</p><ul><li><p>用户身份鉴别：静态口令、动态口令、生物特征、智能卡</p></li><li><p>存取控制</p></li><li><p>自主存取控制方法</p></li><li><p>授权：授予grant与回收revoke</p></li><li><p>数据库角色：角色指的是一类人，比如教师、学生、家长。可以给一类人授权</p></li></ul></li><li><p>视图机制：为不同的用户定义不同的视图，把不需要的数据隐藏，这样用户就不会进行误操作</p></li><li><p>审计：把对数据库的所有操作都记录到审计日志中，然后就可以通过日志审查这个里面是否存在非法行为</p></li><li><p>数据加密：通过一些加密算法，把明文变成密文</p></li></ul><h2 id="五、数据库完整性"><a href="#五、数据库完整性" class="headerlink" title="五、数据库完整性"></a>五、数据库完整性</h2><ul><li><p>正确性、相容性</p><ul><li><p>正确性：符合现实世界语义</p></li><li><p>相容性：同一对象在不同表中的数据符合逻辑的</p></li><li><p>为维护完整性，需要实现如下功能</p><ul><li><p>提供定义完整性约束条件的机制</p></li><li><p>提供完整性检查的方法</p></li><li><p>进行违约处理</p></li></ul></li></ul></li><li><p>三大完整性</p><ul><li><p>实体完整性：主码唯一且非空</p></li><li><p>参照完整性：外码的约束</p></li><li><p>用户定义完整性：属性上约束条件的定义</p><ul><li><p>非空 NOT NULL</p></li><li><p>列值为一 UNIQUE</p></li><li><p>满足某一条件表达式 check</p></li></ul></li><li><p>创建的时候用check进行约束</p></li><li><p>用constraint进行完整性约束</p></li><li><p>删除完整性</p></li></ul></li><li><p>断言</p><ul><li><p>创建断言（create assertion &lt;断言名&gt; <check子句>）</check子句></p><ul><li>只有符合check()里面的表达式才可以执行成功，否则就会执行失败</li></ul></li><li><p>删除断言（drop assertion &lt;断言名&gt;）</p></li></ul></li><li><p>触发器</p><ul><li><p>触发器：用户定义在关系表上的一类有时间驱动的特殊过程。由某个触发事件引发的事务</p></li><li><p>建立触发器（create trigger &lt;触发器名&gt; {BEFORE|AFTER} &lt;触发事件&gt; on &lt;表名&gt; Referencing new|old roe as &lt;变量&gt; for each {row|statement} [when &lt;触发条件&gt;] &lt;触发动作体&gt;）</p></li><li><p>触发器不能定义在视图上</p></li><li><p>触发器类型</p><ul><li><p>行级触发器 for each row</p></li><li><p>语句触发器 for each statement</p></li></ul></li><li><p>删除触发器（create trigger &lt;触发器名&gt; on &lt;表名&gt;）</p></li></ul></li></ul><h2 id="六、关系数据理论"><a href="#六、关系数据理论" class="headerlink" title="六、关系数据理论"></a>六、关系数据理论</h2><ul><li><p>存在的问题（数据冗余、更新异常、插入异常、删除异常）</p></li><li><p>补充概念</p><ul><li><p>函数依赖</p><ul><li><p>非平凡函数依赖 -&gt; 部分函数依赖</p></li><li><p>平凡函数依赖 -&gt; 完全函数依赖</p></li></ul></li><li><p>码</p><ul><li><p>候选码：这样一个集合，它可以推出所有的属性，但是他的任意一个真子集无法推出所有属性</p><ul><li><p>只出现在左边的一定是候选码</p></li><li><p>只出现在右边的一定不是候选码</p></li><li><p>左右都出现的不一定</p></li><li><p>左右都不出现的一定是候选码</p></li></ul></li><li><p>闭包：x的闭包是指由x能推出来的所有属性</p></li><li><p>超码：能推出所有属性的属性集，候选码是最小的超码</p></li><li><p>主码：从候选码中任意挑出一个为主码</p></li><li><p>主属性：包含在任意一个候选码中的属性</p></li><li><p>非主属性：不包含在候选码中的属性</p></li><li><p>码：主码、候选码都简称码</p></li><li><p>全码：所有属性都是码，称为全码</p></li></ul></li></ul></li><li><p>规范化-几个范式</p><ul><li><p>1NF：表中无表</p></li><li><p>2NF：在1NF的基础上，不存在非主属性对码的部分函数依赖</p></li><li><p>3NF：在2NF的基础上，不存在非主属性对码的传递函数依赖（全码一定是3NF，因为全码没有非主属性）</p></li><li><p>BCNF：在3NF的基础上，不存在主属性对码的部分和传递函数依赖</p></li></ul></li><li><p>！数据依赖的公理系统</p><ul><li><p>Armstrong公理系统：自反律、增广律、传递律</p></li><li><p>合并规则、伪传递规则、分解规则</p></li><li><p>最小函数依赖集（不唯一）</p><ul><li><p>F 中的每一个依赖，都不可以被其他的依赖推出，且右边一定是单元素</p></li><li><p>步骤</p><ul><li><p>把右边的元素拆分成单个的</p></li><li><p>对所有的依赖一一排查找出多余的（排查x-&gt;y：去掉x-&gt;y，求x闭包，如果包含y则多余，剔除；反之保留）</p></li><li><p>左部最小化</p></li></ul></li></ul></li></ul></li><li><p>！模式分解</p><ul><li><p>准则：无损连接性、保持函数依赖</p><ul><li><p>无损连接：画ab表。①题中R中已经存在的记a，不存在的记b。②遍历F中的依赖关系，如果两个R对同一个依赖关系的左边都是a，而其中一个R在依赖关系右边也是a，则另一个R在此依赖关系右边的b转换成a。③遍历结束，如果有任意一个R全a，则为无损连接</p></li><li><p>判断是否保持函数依赖：判断题中几个R在不下推的情况下，包含F的哪些依赖关系，如果F中全部满足则保持依赖，否则不保持</p></li></ul></li><li><p>分解成3NF步骤</p><ul><li><p>求出最小函数依赖集</p></li><li><p>把不在F中的属性全部找出来，单独分一类，并从这些属性删除</p></li><li><p>把每一个依赖左边的相同的分成一类</p></li><li><p>如果候选码没有出现在分类中，把任意一个候选码作为一类</p></li></ul></li></ul></li></ul><h2 id="七、数据库设计"><a href="#七、数据库设计" class="headerlink" title="七、数据库设计"></a>七、数据库设计</h2><ul><li><p>数据库设计的基本步骤</p><ul><li><p>需求分析</p></li><li><p>概念结构设计：ER图、数据字典（数据项、数据结构、数据流数据存储、处理过程）</p></li><li><p>逻辑结构设计：把ER图转换成逻辑模型</p></li><li><p>物理结构设计：逻辑模型转换为物理模型</p></li><li><p>数据库实施：写SQL代码</p></li><li><p>数据库运行和维护：性能检测、转储、恢复</p></li></ul></li><li><p>需求分析</p></li><li><p>！概念设计（ER图）</p><ul><li><p>矩形表示实体；椭圆表示属性（虚线为派生属性，双线为多值属性）；菱形表示联系<img src="https://api2.mubu.com/v3/document_image/734261ab-406c-42a4-9263-5dbecaa38ac2-9610017.jpg" alt="img"></p></li><li><p>联系：两个实体之间的联系（1：1，1：N，M：N），联系也可以拥有属性</p></li></ul></li><li><p>！逻辑结构设计（ER图转化为表结构）</p><ul><li><p>1：1 转换为主码</p></li><li><p>1：N 转换为外码（添加到N方）</p></li><li><p>M：N 转换为一张表</p></li><li><p>一个实体一张表；此外，一个多对多关系一张表两个主属性为主码，多值属性与主属性一张表为主码</p></li><li><p>部分参与为单实线，全部参与为双实线</p></li></ul></li><li><p>物理结构设计</p><ul><li><p>确定物理结构</p></li><li><p>对物理结构进行评价</p></li><li><p>实际关系模式的存取方法</p></li></ul></li><li><p>数据库的实施和维护</p></li></ul><h2 id="八、数据库编程"><a href="#八、数据库编程" class="headerlink" title="八、数据库编程"></a>八、数据库编程</h2><ul><li><p>嵌入式SQL：SQL语句写到其他编程Java，C++</p><ul><li><p>处理过程</p><ul><li><p>预编译转化为函数调用</p></li><li><p>主语言再编译</p></li><li><p>变成主语言所编译的内容</p></li></ul></li><li><p>与主语言之间的通信</p><ul><li><p>SQL给主语言传递状态</p></li><li><p>主语言给SQL提供参数</p></li><li><p>SQL把查询结构交给主语言处理，通常用主变量和游标实现</p></li></ul></li><li><p>主变量：SQL使用主语言的变量，前面加冒号，如：name</p></li><li><p>游标：一个缓冲区，存放SQL的执行结果</p></li><li><p>动态SQL：执行的时候才确定SQL子句，使用动态SQL</p></li></ul></li><li><p>过程SQL：基本结构是块</p><ul><li><p>块的基本结构</p><ul><li><p>定义部分（DECLARE//变量、常量、游标、异常）</p></li><li><p>执行部分（BEGIN//SQL语句、过程化SQL的流程）</p></li><li><p>控制语句（EXCEPTION//异常处理部分//END）</p></li></ul></li><li><p>变量和常量的定义</p></li></ul></li><li><p>存储过程</p><ul><li><p>创建存储过程</p></li><li><p>执行SQL语句</p></li><li><p>修改存储过程</p></li><li><p>删除存储过程</p></li></ul></li><li><p>函数</p><ul><li><p>创建函数 create or replace function &lt;函数名&gt; (参数…) return &lt;类型&gt; AS &lt;过程化SQL块&gt;</p></li><li><p>执行函数 CALL\SELECT 函数(参数…)</p></li><li><p>修改函数 alter function &lt;函数名1&gt; rename to &lt;函数名2&gt;</p></li></ul></li><li><p>ODBC编程</p></li></ul><h2 id="九、关系查询和优化"><a href="#九、关系查询和优化" class="headerlink" title="九、关系查询和优化"></a>九、关系查询和优化</h2><ul><li><p>查询处理</p><ul><li><p>查询语句—查询分析—查询检查—查询优化—查询执行</p></li><li><p>查询优化包括代数优化和物理优化</p></li></ul></li><li><p>！代数优化</p><ul><li><p>规则</p><ul><li><p>连接、笛卡尔积的交换律</p></li><li><p>连接、笛卡尔积的结合律</p></li><li><p>投影的串接定律</p></li><li><p>选择的串接定律</p></li><li><p>选择和投影操作的交换律</p></li><li><p>选择和笛卡尔积的交换律</p></li><li><p>选择与并的分配律</p></li><li><p>选择与差运算的分配律</p></li><li><p>选择对自然连接的分配律</p></li><li><p>投影和笛卡尔积的分配律</p></li><li><p>投影与并的分配律</p></li></ul></li><li><p>查询树的算法</p><ul><li><p>选择运算尽可能先做</p></li><li><p>投影运算和选择运算同时进行</p></li><li><p>把投影同其前或后的双目运算结合起来</p></li></ul></li></ul></li><li><p>物理优化</p></li></ul><h2 id="十、数据库恢复技术"><a href="#十、数据库恢复技术" class="headerlink" title="十、数据库恢复技术"></a>十、数据库恢复技术</h2><ul><li><p>事务</p><ul><li><p>四大特性（ACID）</p><ul><li><p>A—原子性：要么不做要么全做</p></li><li><p>C—一致性：一致性与原子性密切相关，要么全做要么不做，否则就会造成数据不一致。如银行汇款，两边都有操作才行</p></li><li><p>I—隔离性：一个事务的执行不能被其他事务干扰</p></li><li><p>D—持久性：数据库的改变是永久的</p></li></ul></li></ul></li><li><p>事物的种类</p><ul><li><p>故障的种类</p><ul><li><p>事物内部故障：采取REDO重做和UNDO撤销技术</p></li><li><p>系统故障：系统突然停转，系统要重启</p></li><li><p>介质故障：硬件损坏</p></li><li><p>计算机病毒</p></li></ul></li></ul></li><li><p>恢复技术</p><ul><li><p>数据转储：对失败的事物重新执行</p></li><li><p>日志文件：记录事物对数据的更新操作的文件</p></li></ul></li><li><p>恢复策略</p><ul><li><p>事务故障：事务异常终止，那么就撤销之前的所有操作</p></li><li><p>系统故障：还没执行完的事务UNDO，丢失的事务REDO</p></li><li><p>介质故障：重装数据库，重做已完成的事物</p></li></ul></li><li>有检查点的恢复</li><li><img src="https://api2.mubu.com/v3/document_image/e8d3d647-8534-4d32-a18e-e49e257809a9-9610017.jpg" alt="img"></li></ul><h2 id="十一、并发控制"><a href="#十一、并发控制" class="headerlink" title="十一、并发控制"></a>十一、并发控制</h2><ul><li><p>并发带来的问题和解决</p><ul><li>问题</li></ul></li></ul><pre><code>  - 丢失修改：修改的数据丢失  - 读脏数据：读取了已撤回的无效数据  - 不可重复读：同一事物中，连续两次读到的数据不一样- 解决方法  - 排他锁：写锁，X锁  - 共享锁：读锁，S锁- 封锁协议  - 一级封锁协议（解决丢死修改）：修改时，必须加X锁，直到结束  - 二级封锁协议（解决读脏数据）：读的时候，加S锁，用完就放  - 三级封锁协议（解决不可重复读）：读的时候，加S锁，直到结束</code></pre><ul><li><p>活锁和死锁</p><ul><li><p>活锁：该锁永远等待得不到机会上锁</p></li><li><p>死锁：多个锁互相等待，互相谦让，没人上锁</p></li></ul></li><li><p>可串行性</p><ul><li><p>并发调度中的某一次结果与串行调度一致，称为可串行化，可串行化是事务正确调度的准则</p></li><li><p>两段锁协议</p></li><li><p><img src="https://api2.mubu.com/v3/document_image/a38a6bb4-2326-4bce-8839-ec22423c4aec-9610017.jpg" alt="img"></p></li><li><p>判断冲突可串行化（优先图存在环，S不是冲突可串行的；反之则是）</p></li></ul></li></ul><pre><code>  - 优先图画法：结点：S中的事务。弧：Ti-&gt;Tj （pi，pj涉及同一数据库元素），pi在qj之前且至少一个是写动作  - ![img](https://api2.mubu.com/v3/document_image/ba44f70e-29f5-42ba-ab56-a1c5be9b9733-9610017.jpg)</code></pre><ul><li>封锁的粒度：封锁粒度大，并发度小，开销小；封锁粒度小，并发度大，开销大</li></ul><h2 id="十二、B树、B-树"><a href="#十二、B树、B-树" class="headerlink" title="十二、B树、B+树"></a>十二、B树、B+树</h2><ul><li><p>B+树记录数量：间隔数^层数*格数</p></li><li><p><a href="https://blog.csdn.net/u014453898/article/details/112469113?ops_request_misc=%7B%22request%5Fid%22%3A%22162038860616780262576719%22%2C%22scm%22%3A%2220140713.130102334..%22%7D&amp;request_id=162038860616780262576719&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-112469113.first_rank_v2_pc_rank_v29&amp;utm_term=B%2B树">B数、B+树增删操作</a></p></li></ul><ul><li><a href="https://www.bilibili.com/video/BV1P5411e7rU">数据库必考题视频链接</a></li></ul><blockquote><p><strong>参考资料</strong></p><p><a href="https://mubu.com/doc/1jff_OxSqV">9311数据库期末要点复习</a>——IF</p></blockquote>]]></content>
       
@@ -700,7 +727,7 @@
             
             <tag> 实践操作 </tag>
             
-            <tag> 编辑中 </tag>
+            <tag> 已完稿 </tag>
             
         </tags>
       
@@ -771,39 +798,6 @@
     
     
     <entry>
-      <title>数据库基础实践记录（4）</title>
-      <link href="2021/03/18/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-4/"/>
-      <url>2021/03/18/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-4/</url>
-      
-        <content type="html"><![CDATA[<h2 id="实践目标"><a href="#实践目标" class="headerlink" title="实践目标"></a>实践目标</h2><ul><li><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> UNSW </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
-            <tag> SQL </tag>
-            
-            <tag> 实践操作 </tag>
-            
-            <tag> 编辑中 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>数据库基础实践记录（3）</title>
       <link href="2021/03/18/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-3/"/>
       <url>2021/03/18/unsw/comp9311/shu-ju-ku-ji-chu-shi-jian-ji-lu-3/</url>
@@ -828,7 +822,7 @@
             
             <tag> 实践操作 </tag>
             
-            <tag> 编辑中 </tag>
+            <tag> 已完稿 </tag>
             
         </tags>
       
