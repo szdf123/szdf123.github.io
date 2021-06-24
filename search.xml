@@ -4,6 +4,87 @@
   
     
     <entry>
+      <title>数据结构与算法（3）</title>
+      <link href="2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/"/>
+      <url>2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/</url>
+      
+        <content type="html"><![CDATA[<h2 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> UNSW </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑中 </tag>
+            
+            <tag> COMP9024 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据结构与算法（2）</title>
+      <link href="2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2/"/>
+      <url>2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2/</url>
+      
+        <content type="html"><![CDATA[<h2 id="算法复杂度"><a href="#算法复杂度" class="headerlink" title="算法复杂度"></a>算法复杂度</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2>]]></content>
+      
+      
+      <categories>
+          
+          <category> UNSW </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 编辑中 </tag>
+            
+            <tag> COMP9024 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>数据结构与算法（1）</title>
+      <link href="2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-1/"/>
+      <url>2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-1/</url>
+      
+        <content type="html"><![CDATA[<h2 id="关于课程"><a href="#关于课程" class="headerlink" title="关于课程"></a>关于课程</h2><p><a href="https://www.cse.unsw.edu.au/~cs9024/21T2/">课程主页</a></p><p><a href="http://moodle.telt.unsw.edu.au/course/view.php?id=60162">moodle主页</a></p><p>教科书：</p><ul><li>Algorithms in C, Parts 1-4, Robert Sedgewick</li><li>Algorithms in C, Part 5, Robert Sedgewick</li></ul><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210619221842.png" alt="教科书封皮"></p><h3 id="每周测试-Weekly-Assessments"><a href="#每周测试-Weekly-Assessments" class="headerlink" title="每周测试 Weekly Assessments"></a>每周测试 Weekly Assessments</h3><p>第2-5，7-10周，每次2分，共计16分</p><h3 id="大作业-Large-Assignment"><a href="#大作业-Large-Assignment" class="headerlink" title="大作业 Large Assignment"></a>大作业 Large Assignment</h3><p>发布于期中测试后，截止与第10周，共计12分</p><h3 id="期中考试"><a href="#期中考试" class="headerlink" title="期中考试"></a>期中考试</h3><p>第六周，7月9日，1小时在线测试，共计12分</p><p>格式：一些多选题，一些开放问题</p><h3 id="期末考试"><a href="#期末考试" class="headerlink" title="期末考试"></a>期末考试</h3><p>在考试周，2小时在线测试，共计60分。期末成绩必须超过25分。</p><p>格式：一些多选题，一些开放问题</p><h3 id="最终成绩"><a href="#最终成绩" class="headerlink" title="最终成绩"></a>最终成绩</h3><p>如果平时成绩大于25分，则总分为 全部平时成绩+期末成绩</p><p>否则，按 期末成绩*100/60 计算</p><p>期末成绩必须超过25分，总成绩必须超过50分</p><h2 id="C-语言"><a href="#C-语言" class="headerlink" title="C 语言"></a>C 语言</h2><h3 id="C语言基本结构"><a href="#C语言基本结构" class="headerlink" title="C语言基本结构"></a>C语言基本结构</h3><pre class="line-numbers language-c" data-language="c"><code class="language-c">// include files// global definitions// function definitionsfunction_type f(arguments) {   // local variables   // body of function  return …;}.// main functionint main(arguments) {   // local variables   // body of main function   return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="求最大公约数"><a href="#求最大公约数" class="headerlink" title="求最大公约数"></a>求最大公约数</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt;int f(int m, int n) {   while (m != n) {      if (m &gt; n) { m = m-n;      } else { n = n-m;      }   }   return m;}int main(void) {   printf("%d\n", f(30,18));   return 0;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h4 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h4><pre class="line-numbers language-C" data-language="C"><code class="language-C">#include &lt;stdio.h&gt; // include standard I/O library defs and functions#define SIZE 6     // define a symbolic constantvoid insertionSort(int array[], int n) {  // function headers must provide types   int i;                                 // each variable must have a type   for (i = 1; i &lt; n; i++) {              // for-loop syntax      int element = array[i];                                                          int j = i-1;      while (j &gt;= 0 &amp;&amp; array[j] &gt; element) {  // logical AND         array[j+1] = array[j];         j--;                                 // abbreviated assignment j=j-1       }      array[j+1] = element;                   // statements terminated by ;   }                                          // code blocks enclosed in { } }int main(void) {                              // main: program starts here   int numbers[SIZE] = { 3, 6, 5, 2, 4, 1 };  /* array declaration                                                 and initialisation */   int i;   insertionSort(numbers, SIZE);   for (i = 0; i &lt; SIZE; i++)      printf("%d\n", numbers[i]);             // printf defined in &lt;stdio&gt;   return 0;           // return program status (here: no error) to environment}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="使用gcc编译"><a href="#使用gcc编译" class="headerlink" title="使用gcc编译"></a>使用gcc编译</h3><pre class="line-numbers language-Shell" data-language="Shell"><code class="language-Shell">gcc prog.c./a.outgcc -Wall prog.c# 编译时给出详细提示gcc -o prog prog.c# 指定编译文件名称<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="printf-命令"><a href="#printf-命令" class="headerlink" title="printf()命令"></a>printf()命令</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">printf(format-string, expr1, expr2, …);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><div class="table-container"><table><thead><tr><th>字符</th><th>作用</th><th>字符</th><th>作用</th></tr></thead><tbody><tr><td><code>%d</code></td><td>十进制数</td><td><code>%f</code></td><td>浮点数</td></tr><tr><td><code>%c</code></td><td>字符</td><td><code>%s</code></td><td>字符串</td></tr><tr><td><code>\n</code></td><td>换行</td><td><code>\"</code></td><td>双引号</td></tr></tbody></table></div><p>使用样例</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">num = 3;printf("The cube of %d is %d.\n", num, num*num*num);// 显示结果为 The cube of 3 is 27.id  = 'z';num = 1234567;printf("Your \"login ID\" will be in the form of %c%d.\n", id, num);// 显示结果为 Your "login ID" will be in the form of z1234567.printf("%8.3f\n", 3.14159);// 显示结果为 3.142<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="C语言常用符号"><a href="#C语言常用符号" class="headerlink" title="C语言常用符号"></a>C语言常用符号</h3><p>; {} + - <em> / % = += -= </em>= /= %= ++ —</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">// 注意这两种用法的区别k++;n = k--;++k;n = --k;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="条件分支"><a href="#条件分支" class="headerlink" title="条件分支"></a>条件分支</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">if (expression) {   some statements;}if (expression) {   some statements1;} else {   some statements2;}if (expression1) {   statements1;} else if (exp2) {   statements2;} else if (exp3) {   statements3;} else {   statements4;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>判断格式&gt; &gt;= &lt; &lt;= == != &amp;&amp; || !</p><h3 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">while (expression) {    some statements; }do {   some statements;   } while (expression);for (expr1; expr2; expr3) {   some statements;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">return-type function-name(parameters) {    declarations    statements    return …;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>函数在执行到return后返回并终止</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">return expression;return;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>char 字符  int 整型  float 浮点   double 双精度浮点</p><h3 id="聚合数据类型"><a href="#聚合数据类型" class="headerlink" title="聚合数据类型"></a>聚合数据类型</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">char s[50];int v[100];struct student {char name[30]; nt zID;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">int  a[20];char b[10];<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define MAX 20int i;int fact[MAX];fact[0] = 1;for (i = 1; i &lt; MAX; i++) {    fact[i] = i * fact[i-1];}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>定义数组初始值的几种方法</p><pre class="line-numbers language-C" data-language="C"><code class="language-C">char s[6]   = {'h', 'e', 'l', 'l', 'o', '\0'};char t[6]   = "hello";int fib[20] = {1, 1}; // fib[2] fib[3] ... 未定义int vec[]   = {5, 4, 3, 2, 1};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="符号常量-symbolic-constant"><a href="#符号常量-symbolic-constant" class="headerlink" title="符号常量 symbolic constant"></a>符号常量 symbolic constant</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">#define NAME replacement_text#define SPEED_OF_LIGHT 299792458.0#define ERROR_MESSAGE "Out of memory.\n"<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><h3 id="读取输入值"><a href="#读取输入值" class="headerlink" title="读取输入值"></a>读取输入值</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">scanf(format-string, expr1, expr2, …);int value = atoi(string);// 转换字符至整型<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre><h3 id="定义新类型"><a href="#定义新类型" class="headerlink" title="定义新类型"></a>定义新类型</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef ExistingDataType NewTypeName;typedef float Temperature;typedef int Matrix[20][20];typedef float Real;Real complex_calculation(Real a, Real b) {Real c = log(a+b); … return c;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="结构体-struct"><a href="#结构体-struct" class="headerlink" title="结构体 struct"></a>结构体 struct</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">typedef struct {       char name[30];       int  zID;} StudentT;typedef struct {int day, month;} DateT;typedef struct {int hour, minute;} TimeT;typedef struct {char   plate[7];   // e.g. "DSA42X"double speed;        DateT  d;TimeT  t;} TicketT;DateT christmas;christmas.day   =   25;christmas.month =   12;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="抽象数据类型-ADT"><a href="#抽象数据类型-ADT" class="headerlink" title="抽象数据类型 ADT"></a>抽象数据类型 ADT</h3><ul><li>ADO = abstract data object  抽象的数据对象</li><li>ADT = abstract data type  抽象数据类型</li></ul><h3 id="栈和队列-Stack-vs-Queue"><a href="#栈和队列-Stack-vs-Queue" class="headerlink" title="栈和队列 Stack vs Queue"></a>栈和队列 Stack vs Queue</h3><p>堆栈 Stack </p><pre class="line-numbers language-C" data-language="C"><code class="language-C">// Stack ADO header file#define MAXITEMS 10void StackInit();      // set up empty stackint  StackIsEmpty();   // check whether stack is emptyvoid StackPush(char);  // insert char on top of stackchar StackPop();       // remove char from top of stack<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><pre class="line-numbers language-C" data-language="C"><code class="language-C">gcc -c Stack.c// 产生 Stack.o，从Stack.c和Stack.hgcc -c brackets.c// 产生 brackets.c，从brackets.c和brackets.hgcc -o rbt brackets.o Stack.o// 连接 brackets.o Stack.o，生成RBT可执行程序<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> UNSW </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 已完稿 </tag>
+            
+            <tag> COMP9024 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Maven命令</title>
       <link href="2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/"/>
       <url>2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/</url>
