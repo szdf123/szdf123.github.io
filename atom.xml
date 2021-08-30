@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-06-28T07:05:55.778Z</updated>
+  <updated>2021-08-30T16:04:18.074Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用SSH配置Hexo连接Github</title>
+    <link href="http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/"/>
+    <id>http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/</id>
+    <published>2021-08-30T15:14:03.000Z</published>
+    <updated>2021-08-30T16:04:18.074Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;一、查看本地Github相关配置&quot;&gt;&lt;a href=&quot;#一、查看本地Github相关配置&quot; class=&quot;headerlink&quot; title=&quot;一、查看本地Github相关配置&quot;&gt;&lt;/a&gt;一、查看本地Github相关配置&lt;/h3&gt;&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
+    
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="Hexo" scheme="http://szdf123.github.io/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>MacOS系统搭建C语言开发环境</title>
@@ -543,33 +572,6 @@
         
     <summary type="html">&lt;pre class=&quot;line-numbers language-Python&quot; data-language=&quot;Python&quot;&gt;&lt;code class=&quot;language-Python&quot;&gt;class CustomizeError(BaseException):
     def</summary>
-        
-      
-    
-    
-    
-    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Python中yield及itertools用法</title>
-    <link href="http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zhong-yield-ji-itertools-yong-fa/"/>
-    <id>http://szdf123.github.io/2021/04/17/ji-zhu-xue-xi/python/python-zhong-yield-ji-itertools-yong-fa/</id>
-    <published>2021-04-17T09:18:25.000Z</published>
-    <updated>2021-04-20T08:09:19.568Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;yield&quot;&gt;&lt;a href=&quot;#yield&quot; class=&quot;headerlink&quot;</summary>
         
       
     

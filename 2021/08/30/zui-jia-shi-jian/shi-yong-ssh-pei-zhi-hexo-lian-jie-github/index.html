@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Maven,Java">
+    <meta name="keywords" content="Hexo,SSH,Github">
     <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Maven命令 | 本杰明学习笔记</title>
+    <title>使用SSH配置Hexo连接Github | 本杰明学习笔记</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -285,12 +285,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/301.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/129.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Maven命令</h1>
+                    <h1 class="description center-align post-title">使用SSH配置Hexo连接Github</h1>
                 </div>
             </div>
         </div>
@@ -406,12 +406,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                <span class="chip bg-color">编辑中</span>
+                            <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                                <span class="chip bg-color">实践操作</span>
                             </a>
                         
-                            <a href="/tags/Maven/">
-                                <span class="chip bg-color">Maven</span>
+                            <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                <span class="chip bg-color">已完稿</span>
+                            </a>
+                        
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -422,8 +426,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                技术学习
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                最佳实践
                             </a>
                         
                     </div>
@@ -435,7 +439,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-11
+                    2021-08-30
                 </div>
                 
 
@@ -444,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    513
+                    232
                 </div>
                 
 
@@ -469,38 +473,40 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="Maven-Lifecycle-命令"><a href="#Maven-Lifecycle-命令" class="headerlink" title="Maven Lifecycle 命令"></a>Maven Lifecycle 命令</h2><p>mvn clean            清除编译产生的target文件夹内容</p>
-<p>mvn validate        验证项目是否正确并且所有必要的信息均可用</p>
-<p>mvn compile        对src/main/java目录的下的代码进行编译</p>
-<p>mvn test                测试命令,或执行src/test/java/下所有junit的测试用例</p>
-<p>mvn package        打包项目</p>
-<p>mvn verify            对集成测试的结果进行任何检查，以确保符合质量标准</p>
-<p>mvn install            打包后将其安装在本地仓库</p>
-<p>mvn site                生成站点目录</p>
-<p>mvn deploy        </p>
-<h2 id="package-install-deploy三者关联"><a href="#package-install-deploy三者关联" class="headerlink" title="package,install,deploy三者关联"></a>package,install,deploy三者关联</h2><p>mvn clean package    依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)等７个阶段。<br>mvn clean install        依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)、install等8个阶段。<br>mvn clean deploy        依次执行了clean、resources、compile、testResources、testCompile、test、jar(打包)、install、deploy等９个阶段。</p>
-<h2 id="Maven常用命令"><a href="#Maven常用命令" class="headerlink" title="Maven常用命令"></a>Maven常用命令</h2><p>mvn -version                     查看maven的版本及配置信息</p>
-<p>mvn archetype:create       -DgroupId=    DartifactId=    构建java项目</p>
-<p>mvn archetype:create       -DgroupId=    DartifactId=    -DarchetypeArtifactId=maven-archetype-webapp 创建web项目</p>
-<p>mvn compile                    编译项目代码</p>
-<p>mvn package                   打包项目</p>
-<p>mvn package -Dmaven.test.skip=true   打包项目时跳过单元测试</p>
-<p>mvn test                        运行单元测试</p>
-<p>mvn clean                    清除编译产生的target文件夹内容，可以配合相应命令一起使用，如mvn clean package， mvn clean test</p>
-<p>mvn install                    打包后将其安装在本地仓库</p>
-<p>mvn deploy                    打包后将其安装到pom文件中配置的远程仓库</p>
-<p>mvn eclipse:eclipse      将maven生成eclipse项目结构</p>
-<p>mvn eclipse:clean         清除maven项目中eclipse的项目结构</p>
-<p>mvn site                            生成站点目录</p>
-<p>mvn dependency:list            显示所有已经解析的所有依赖</p>
-<p>mvn dependency:tree            以树的结构展示项目中的依赖</p>
-<p>mvn dependency:analyze    对项目中的依赖进行分析，依赖未使用，使用单未引入</p>
-<p>mvn tomcat:run                    启动tomcat</p>
+                <h3 id="一、查看本地Github相关配置"><a href="#一、查看本地Github相关配置" class="headerlink" title="一、查看本地Github相关配置"></a>一、查看本地Github相关配置</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 查看Git环境配置
+git config --list
+
+# 配置 user.name 和 user.email
+it config --global user.name "用户名随意"
+git config --global user.email  "123456@qq.com" #填写github注册的邮箱<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="二、生成本地SSH-Key"><a href="#二、生成本地SSH-Key" class="headerlink" title="二、生成本地SSH Key"></a>二、生成本地SSH Key</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 进入SSH Key默认生成目录
+sudo su
+cd ~/.ssh
+ls
+
+# 生成秘钥
+ssh-keygen -t rsa -C "github登录邮箱"
+
+# 查看公钥
+cat id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="三、配置SSH-Key-至-Github"><a href="#三、配置SSH-Key-至-Github" class="headerlink" title="三、配置SSH Key 至 Github"></a>三、配置SSH Key 至 Github</h3><p>登录Github，点击setting</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210830233441.png" alt="image-20210830233039054"></p>
+<p>点击 SSH and GPG keys，然后点击New SSH key</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210830233512.png" alt="image-20210830233505459"></p>
+<p>取个名字，并粘贴密钥。</p>
+<p>注意，一定要粘贴公钥，不要粘贴私钥！</p>
+<h3 id="四、验证连接"><a href="#四、验证连接" class="headerlink" title="四、验证连接"></a>四、验证连接</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 输入此命令，显示successful表示成功
+ssh -T git@github.com <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/20210831000307.png" alt="image-20210830233840571"></p>
+<h3 id="五、配置Hexo"><a href="#五、配置Hexo" class="headerlink" title="五、配置Hexo"></a>五、配置Hexo</h3><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">deploy:   #部署部分的设置
+  type: git
+  repo: git@github.com:你的用户名/你的仓库名.git  #设置仓库为ssh格式
+  branch: master <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 执行此命令，推送hexo
+hexo g -d <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <blockquote>
 <p><strong>参考资料</strong></p>
-<p>maven命令<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zflovecf/article/details/80831467">https://blog.csdn.net/zflovecf/article/details/80831467</a></p>
-<p>Maven的常用命令 - clean compile test package install<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012887259/article/details/111570702">https://blog.csdn.net/u012887259/article/details/111570702</a></p>
-<p>一篇文章学懂Maven（附带对idea中clean，validate，complie，test，package，verify，install，site，deploy用法）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40547893/article/details/110091275">https://blog.csdn.net/qq_40547893/article/details/110091275</a></p>
+<p>Hexo使用SSH连接GitHub<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_42569846/article/details/105808683">https://blog.csdn.net/weixin_42569846/article/details/105808683</a></p>
 </blockquote>
 
                 
@@ -528,7 +534,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/">http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/</a>
+                    <a href="http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/">http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -566,12 +572,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/">
-                                    <span class="chip bg-color">编辑中</span>
+                                <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                                    <span class="chip bg-color">实践操作</span>
                                 </a>
                             
-                                <a href="/tags/Maven/">
-                                    <span class="chip bg-color">Maven</span>
+                                <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                                    <span class="chip bg-color">已完稿</span>
+                                </a>
+                            
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -743,50 +753,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-1/">
+                <a href="/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/148.jpg" class="responsive-img" alt="数据结构与算法（1）">
+                        <img src="/medias/featureimages/129.jpg" class="responsive-img" alt="使用SSH配置Hexo连接Github">
                         
-                        <span class="card-title">数据结构与算法（1）</span>
+                        <span class="card-title">使用SSH配置Hexo连接Github</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9024 Week 1 课程大纲及主要内容
+                            使用SSH配置Hexo连接Github
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-19
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-30
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/UNSW/" class="post-category">
-                                    UNSW
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">实践操作</span>
+                    </a>
                     
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                    <a href="/tags/COMP9024/">
-                        <span class="chip bg-color">COMP9024</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -800,31 +816,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/">
+                <a href="/2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/93.jpg" class="responsive-img" alt="数据库基础期末要点复习">
+                        <img src="/medias/featureimages/335.jpg" class="responsive-img" alt="MacOS系统搭建C语言开发环境">
                         
-                        <span class="card-title">数据库基础期末要点复习</span>
+                        <span class="card-title">MacOS系统搭建C语言开发环境</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            COMP9311 数据库期末要点复习
+                            Mac系统搭建C语言开发环境
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-07
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/UNSW/" class="post-category">
-                                    UNSW
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
                                 </a>
                             
                             
@@ -834,20 +850,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/COMP9311/">
-                        <span class="chip bg-color">COMP9311</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">
-                        <span class="chip bg-color">数据库</span>
-                    </a>
-                    
                     <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
                         <span class="chip bg-color">已完稿</span>
                     </a>
                     
-                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">课程笔记</span>
+                    <a href="/tags/MacOS/">
+                        <span class="chip bg-color">MacOS</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C</span>
                     </a>
                     
                 </div>
