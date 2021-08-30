@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-06-19T15:52:14.395Z</updated>
+  <updated>2021-06-28T07:05:55.778Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MacOS系统搭建C语言开发环境</title>
+    <link href="http://szdf123.github.io/2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/"/>
+    <id>http://szdf123.github.io/2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/</id>
+    <published>2021-06-28T02:33:24.000Z</published>
+    <updated>2021-06-28T07:05:55.778Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h3 id=&quot;下载IDE&quot;&gt;&lt;a href=&quot;#下载IDE&quot; class=&quot;headerlink&quot; title=&quot;下载IDE&quot;&gt;&lt;/a&gt;下载IDE&lt;/h3&gt;&lt;p&gt;MacOS 自带C语言环境，因此可以直接执行gcc命令编译C语言文件&lt;/p&gt;
+&lt;pre</summary>
+        
+      
+    
+    
+    
+    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
+    
+    
+    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
+    
+    <category term="MacOS" scheme="http://szdf123.github.io/tags/MacOS/"/>
+    
+    <category term="C" scheme="http://szdf123.github.io/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>数据结构与算法（3）</title>
@@ -551,31 +581,6 @@
     <category term="Python" scheme="http://szdf123.github.io/tags/Python/"/>
     
     <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>我活着是为了什么？</title>
-    <link href="http://szdf123.github.io/2021/04/17/sheng-huo-ji-shi/wo-huo-zhao-shi-wei-liao-shi-me/"/>
-    <id>http://szdf123.github.io/2021/04/17/sheng-huo-ji-shi/wo-huo-zhao-shi-wei-liao-shi-me/</id>
-    <published>2021-04-16T16:33:35.000Z</published>
-    <updated>2021-04-16T16:38:47.602Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;我的人生理想&quot;&gt;&lt;a href=&quot;#我的人生理想&quot; class=&quot;headerlink&quot; title=&quot;我的人生理想&quot;&gt;&lt;/a&gt;我的人生理想&lt;/h2&gt;&lt;h3 id=&quot;物质生活：宜居城市，现代小楼，有可以长途旅行的汽车，生活富足而平静&quot;&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="生活纪实" scheme="http://szdf123.github.io/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/"/>
-    
-    
-    <category term="生活" scheme="http://szdf123.github.io/tags/%E7%94%9F%E6%B4%BB/"/>
     
   </entry>
   

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>MacOS系统搭建C语言开发环境</title>
+      <link href="2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/"/>
+      <url>2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/</url>
+      
+        <content type="html"><![CDATA[<h3 id="下载IDE"><a href="#下载IDE" class="headerlink" title="下载IDE"></a>下载IDE</h3><p>MacOS 自带C语言环境，因此可以直接执行gcc命令编译C语言文件</p><pre class="line-numbers language-C" data-language="C"><code class="language-C"># 编译gcc test.c -o test.o# 执行./test.o<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre><p>MacOS可使用的C语言IDE有VSCode、CLion、Eclipse、Xcode等</p><p><a href="https://www.jetbrains.com/clion/download/#section=mac">Clion的官网下载地址</a></p><h3 id="编译运行单个C语言文件"><a href="#编译运行单个C语言文件" class="headerlink" title="编译运行单个C语言文件"></a>编译运行单个C语言文件</h3><p>在Clion的plugin中，安装 Single File Execution 插件即可。</p><p><a href="https://plugins.jetbrains.com/plugin/8352-c-c--single-file-execution">Single File Execution官方说明</a></p><blockquote><p><strong>参考资料</strong></p><p>Mac系统搭建C语言开发环境<br><a href="https://blog.csdn.net/weixin_45895753/article/details/104246986">https://blog.csdn.net/weixin_45895753/article/details/104246986</a></p><p>Mac上配置c/c++环境(例：CLion)<br><a href="https://blog.csdn.net/kevinmeanscool/article/details/87174823">https://blog.csdn.net/kevinmeanscool/article/details/87174823</a></p><p>【CLion】新手使用之编译运行单个文件</p><p><a href="https://blog.csdn.net/mukvintt/article/details/110770505">https://blog.csdn.net/mukvintt/article/details/110770505</a></p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 最佳实践 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 已完稿 </tag>
+            
+            <tag> MacOS </tag>
+            
+            <tag> C </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>数据结构与算法（3）</title>
       <link href="2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/"/>
       <url>2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/</url>
