@@ -20,11 +20,11 @@
       
         <tags>
             
-            <tag> 实践操作 </tag>
-            
             <tag> 已完稿 </tag>
             
             <tag> Hexo </tag>
+            
+            <tag> 实践操作 </tag>
             
         </tags>
       
@@ -78,9 +78,9 @@
       
         <tags>
             
-            <tag> 编辑中 </tag>
-            
             <tag> COMP9024 </tag>
+            
+            <tag> 编辑中 </tag>
             
         </tags>
       
@@ -105,9 +105,9 @@
       
         <tags>
             
-            <tag> 编辑中 </tag>
-            
             <tag> COMP9024 </tag>
+            
+            <tag> 编辑中 </tag>
             
         </tags>
       
@@ -186,13 +186,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -217,9 +217,9 @@
       
         <tags>
             
-            <tag> 手册 </tag>
-            
             <tag> 持续更新 </tag>
+            
+            <tag> 手册 </tag>
             
         </tags>
       
@@ -336,33 +336,6 @@
     
     
     <entry>
-      <title>Bistoury搭建及使用问题解决记录</title>
-      <link href="2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/"/>
-      <url>2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/</url>
-      
-        <content type="html"><![CDATA[<h3 id="解决agent无法启动问题"><a href="#解决agent无法启动问题" class="headerlink" title="解决agent无法启动问题"></a><strong>解决agent无法启动问题</strong></h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>打开UI后，页面提示agent没有启动</p><h4 id="排查过程"><a href="#排查过程" class="headerlink" title="排查过程"></a>排查过程</h4><p>查看agent日志，提示某个GC命令不存在，推测为java版本问题。由于之前在官网下载的Java最新版本，使之不兼容一些原有命令。</p><h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>删除系统中的java，并重新根据要求，安装Jdk1.8，重新启动bistoury，问题解决。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p>Bistoury官网及使用文档：<a href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p><h3 id="排查arthas未正常启动问题"><a href="#排查arthas未正常启动问题" class="headerlink" title="排查arthas未正常启动问题"></a>排查arthas未正常启动问题</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>UI启动后，在主机信息-文件信息下报错：</p><p>Agent error: java.lang.IllegalStateException—-can not init bistoury, start arthas error, pid [30043],Agent JAR loaded but agent failed to initialize</p><h4 id="排查过程-1"><a href="#排查过程-1" class="headerlink" title="排查过程"></a>排查过程</h4><p>官方文档中有提及：agent attach时加载初始化类失败，即arthas未成功加载。</p><p>其日志目录为：<strong>/root/logs/arthas/arthas.log</strong></p><p>日志中关键错误信息：</p><p>java.lang.IllegalStateException: can not find lib class, [org.springframework.web.servlet.DispatcherServlet]</p><p>官方参考启动命令：</p><p><strong>./quick_ start.sh -c org.springframework.web.servlet.DispatcherServlet  -p 1024 start</strong></p><p>询问曹奇<strong>org.springframework.web.servlet.DispatcherServlet</strong> 的引用方式，发现实际上helloworld-jenkins-pipeline.war包并没有正确放置正确，放在tomcat里的是个zip包！</p><h4 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h4><p>根据参考资料，尝试使用以下命令重新启动</p><p>./quick_start.sh -c  org.springframework.web.servlet.DispatcherServlet  -p 30043 -i 172.20.59.153 start</p><p>问题仍未解决</p><p>配置idea，重新构建出helloworld-jenkins-pipeline.war包，并重新启动bistoury，该问题解决</p><h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p>官方FAQ：<a href="https://github.com/lqnasa/bistoury/blob/master/docs/cn/FAQ.md">https://github.com/lqnasa/bistoury/blob/master/docs/cn/FAQ.md</a></p><p>Spring 官网下载地址：<a href="https://repo.spring.io/webapp/#/artifacts/browse/tree/General/libs-release-local/org/springframework/spring/5.2.9.RELEASE">https://repo.spring.io/webapp/#/artifacts/browse/tree/General/libs-release-local/org/springframework/spring/5.2.9.RELEASE</a></p><p>官网下载Spring的jar包教程：<a href="https://blog.csdn.net/qq_35661171/article/details/86165467">https://blog.csdn.net/qq_35661171/article/details/86165467</a></p><h4 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h4><h4 id="排查过程-2"><a href="#排查过程-2" class="headerlink" title="排查过程"></a>排查过程</h4><h4 id="解决办法-2"><a href="#解决办法-2" class="headerlink" title="解决办法"></a>解决办法</h4><h4 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h4>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 持续更新 </tag>
-            
-            <tag> 监控技术 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>bistoury功能详解</title>
       <link href="2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-gong-neng-xiang-jie/"/>
       <url>2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-gong-neng-xiang-jie/</url>
@@ -380,6 +353,33 @@
         <tags>
             
             <tag> 编辑中 </tag>
+            
+            <tag> 监控技术 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Bistoury搭建及使用问题解决记录</title>
+      <link href="2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/"/>
+      <url>2021/04/20/ji-zhu-xue-xi/bistoury/bistoury-da-jian-ji-shi-yong-wen-ti-jie-jue-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<h3 id="解决agent无法启动问题"><a href="#解决agent无法启动问题" class="headerlink" title="解决agent无法启动问题"></a><strong>解决agent无法启动问题</strong></h3><h4 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h4><p>打开UI后，页面提示agent没有启动</p><h4 id="排查过程"><a href="#排查过程" class="headerlink" title="排查过程"></a>排查过程</h4><p>查看agent日志，提示某个GC命令不存在，推测为java版本问题。由于之前在官网下载的Java最新版本，使之不兼容一些原有命令。</p><h4 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h4><p>删除系统中的java，并重新根据要求，安装Jdk1.8，重新启动bistoury，问题解决。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p>Bistoury官网及使用文档：<a href="https://github.com/qunarcorp/bistoury">https://github.com/qunarcorp/bistoury</a></p><h3 id="排查arthas未正常启动问题"><a href="#排查arthas未正常启动问题" class="headerlink" title="排查arthas未正常启动问题"></a>排查arthas未正常启动问题</h3><h4 id="问题描述-1"><a href="#问题描述-1" class="headerlink" title="问题描述"></a>问题描述</h4><p>UI启动后，在主机信息-文件信息下报错：</p><p>Agent error: java.lang.IllegalStateException—-can not init bistoury, start arthas error, pid [30043],Agent JAR loaded but agent failed to initialize</p><h4 id="排查过程-1"><a href="#排查过程-1" class="headerlink" title="排查过程"></a>排查过程</h4><p>官方文档中有提及：agent attach时加载初始化类失败，即arthas未成功加载。</p><p>其日志目录为：<strong>/root/logs/arthas/arthas.log</strong></p><p>日志中关键错误信息：</p><p>java.lang.IllegalStateException: can not find lib class, [org.springframework.web.servlet.DispatcherServlet]</p><p>官方参考启动命令：</p><p><strong>./quick_ start.sh -c org.springframework.web.servlet.DispatcherServlet  -p 1024 start</strong></p><p>询问曹奇<strong>org.springframework.web.servlet.DispatcherServlet</strong> 的引用方式，发现实际上helloworld-jenkins-pipeline.war包并没有正确放置正确，放在tomcat里的是个zip包！</p><h4 id="解决办法-1"><a href="#解决办法-1" class="headerlink" title="解决办法"></a>解决办法</h4><p>根据参考资料，尝试使用以下命令重新启动</p><p>./quick_start.sh -c  org.springframework.web.servlet.DispatcherServlet  -p 30043 -i 172.20.59.153 start</p><p>问题仍未解决</p><p>配置idea，重新构建出helloworld-jenkins-pipeline.war包，并重新启动bistoury，该问题解决</p><h4 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h4><p>官方FAQ：<a href="https://github.com/lqnasa/bistoury/blob/master/docs/cn/FAQ.md">https://github.com/lqnasa/bistoury/blob/master/docs/cn/FAQ.md</a></p><p>Spring 官网下载地址：<a href="https://repo.spring.io/webapp/#/artifacts/browse/tree/General/libs-release-local/org/springframework/spring/5.2.9.RELEASE">https://repo.spring.io/webapp/#/artifacts/browse/tree/General/libs-release-local/org/springframework/spring/5.2.9.RELEASE</a></p><p>官网下载Spring的jar包教程：<a href="https://blog.csdn.net/qq_35661171/article/details/86165467">https://blog.csdn.net/qq_35661171/article/details/86165467</a></p><h4 id="问题描述-2"><a href="#问题描述-2" class="headerlink" title="问题描述"></a>问题描述</h4><h4 id="排查过程-2"><a href="#排查过程-2" class="headerlink" title="排查过程"></a>排查过程</h4><h4 id="解决办法-2"><a href="#解决办法-2" class="headerlink" title="解决办法"></a>解决办法</h4><h4 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 持续更新 </tag>
             
             <tag> 监控技术 </tag>
             
@@ -485,11 +485,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -516,11 +516,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -547,9 +547,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 已完稿 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -574,9 +574,9 @@
       
         <tags>
             
-            <tag> Python </tag>
-            
             <tag> 已完稿 </tag>
+            
+            <tag> Python </tag>
             
         </tags>
       
@@ -651,11 +651,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 持续更新 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -680,11 +680,11 @@
       
         <tags>
             
-            <tag> Java </tag>
-            
             <tag> 已完稿 </tag>
             
             <tag> Linux </tag>
+            
+            <tag> Java </tag>
             
         </tags>
       
@@ -709,11 +709,11 @@
       
         <tags>
             
-            <tag> 编辑中 </tag>
-            
             <tag> CentOS </tag>
             
             <tag> Windows </tag>
+            
+            <tag> 编辑中 </tag>
             
         </tags>
       
@@ -765,11 +765,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -798,11 +798,11 @@
             
             <tag> COMP9311 </tag>
             
-            <tag> 数据库 </tag>
-            
             <tag> 编辑中 </tag>
             
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -827,13 +827,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -858,15 +858,15 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 实践操作 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 实践操作 </tag>
-            
-            <tag> 已完稿 </tag>
             
         </tags>
       
@@ -891,11 +891,11 @@
       
         <tags>
             
+            <tag> 持续更新 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 持续更新 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -922,11 +922,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -953,15 +953,15 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 实践操作 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 实践操作 </tag>
-            
-            <tag> 已完稿 </tag>
             
         </tags>
       
@@ -986,13 +986,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1017,13 +1017,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1048,17 +1048,17 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 手册 </tag>
+            
+            <tag> 课程笔记 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 手册 </tag>
-            
-            <tag> 已完稿 </tag>
-            
-            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -1083,11 +1083,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -1114,13 +1114,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1145,13 +1145,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1176,13 +1176,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1207,21 +1207,21 @@
       
         <tags>
             
-            <tag> COMP9020 </tag>
-            
-            <tag> COMP9311 </tag>
-            
-            <tag> 手册 </tag>
-            
             <tag> 持续更新 </tag>
+            
+            <tag> COMP9020 </tag>
             
             <tag> COMP9021 </tag>
             
             <tag> COMP9024 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> COMP9331 </tag>
             
             <tag> COMP9414 </tag>
+            
+            <tag> 手册 </tag>
             
         </tags>
       
@@ -1246,11 +1246,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -1277,9 +1277,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 持续更新 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1304,11 +1304,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -1335,15 +1335,15 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 实践操作 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 实践操作 </tag>
-            
-            <tag> 已完稿 </tag>
             
         </tags>
       
@@ -1368,15 +1368,15 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 实践操作 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 实践操作 </tag>
-            
-            <tag> 已完稿 </tag>
             
         </tags>
       
@@ -1403,11 +1403,11 @@
             
             <tag> Python </tag>
             
-            <tag> 游戏 </tag>
-            
             <tag> 手册 </tag>
             
             <tag> 编辑中 </tag>
+            
+            <tag> 游戏 </tag>
             
         </tags>
       
@@ -1432,9 +1432,9 @@
       
         <tags>
             
-            <tag> 英语 </tag>
-            
             <tag> 持续更新 </tag>
+            
+            <tag> 英语 </tag>
             
         </tags>
       
@@ -1459,17 +1459,17 @@
       
         <tags>
             
+            <tag> 持续更新 </tag>
+            
             <tag> COMP9311 </tag>
+            
+            <tag> 手册 </tag>
+            
+            <tag> 课程笔记 </tag>
             
             <tag> 数据库 </tag>
             
             <tag> SQL </tag>
-            
-            <tag> 手册 </tag>
-            
-            <tag> 持续更新 </tag>
-            
-            <tag> 课程笔记 </tag>
             
         </tags>
       
@@ -1494,13 +1494,13 @@
       
         <tags>
             
-            <tag> COMP9311 </tag>
-            
-            <tag> 数据库 </tag>
-            
             <tag> 已完稿 </tag>
             
+            <tag> COMP9311 </tag>
+            
             <tag> 课程笔记 </tag>
+            
+            <tag> 数据库 </tag>
             
         </tags>
       
@@ -1583,11 +1583,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
@@ -1614,9 +1614,9 @@
       
         <tags>
             
-            <tag> 工具 </tag>
-            
             <tag> 持续更新 </tag>
+            
+            <tag> 工具 </tag>
             
         </tags>
       
@@ -1645,9 +1645,9 @@
             
             <tag> 教程 </tag>
             
-            <tag> Python </tag>
-            
             <tag> 已完稿 </tag>
+            
+            <tag> Python </tag>
             
             <tag> Hexo </tag>
             
@@ -1674,11 +1674,11 @@
       
         <tags>
             
+            <tag> 已完稿 </tag>
+            
             <tag> COMP9020 </tag>
             
             <tag> 离散数学 </tag>
-            
-            <tag> 已完稿 </tag>
             
             <tag> 课程笔记 </tag>
             
