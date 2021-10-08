@@ -1,0 +1,1373 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="COMP9517,笔记">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>计算机视觉课程笔记（1） | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/353.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">计算机视觉课程笔记（1）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
+                            </a>
+                        
+                            <a href="/tags/COMP9517/">
+                                <span class="chip bg-color">COMP9517</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+                                <span class="chip bg-color">计算机视觉</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-09-19
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.2k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="What-is-computer-vision"><a href="#What-is-computer-vision" class="headerlink" title="What is computer vision?"></a>What is computer vision?</h2><p><strong>Computer science perspective</strong>：Computer vision is the interdisciplinary field that develops theories and methods to allow computers extract relevant information from digital images or videos</p>
+<p><strong>Computer engineering perspective</strong>：Computer vision is the interdisciplinary field that develops algorithms and tools to automate perceptual tasks normally performed by the human visual system</p>
+<h4 id="Human-vision-has-its-limitations"><a href="#Human-vision-has-its-limitations" class="headerlink" title="Human vision has its limitations"></a><strong>Human vision has its limitations</strong></h4><p>• Intensities, shapes, patterns, motions can be misinterpreted</p>
+<p>• Is labor intensive, time-consuming, subjective, error-prone</p>
+<h4 id="Computer-vision-can-potentially-improve-this"><a href="#Computer-vision-can-potentially-improve-this" class="headerlink" title="Computer vision can potentially improve this"></a><strong>Computer vision can potentially improve this</strong></h4><p>• Can work day and night without getting tired</p>
+<p>• Analyses information quantitatively and objectively</p>
+<p>• Is potentially more accurate, precise, reproducible</p>
+<h3 id="Application-image-classification-and-captioning"><a href="#Application-image-classification-and-captioning" class="headerlink" title="Application: image classification and captioning"></a>Application: image classification and captioning</h3><h3 id="Goals-and-challenges-of-computer-vision"><a href="#Goals-and-challenges-of-computer-vision" class="headerlink" title="Goals and challenges of computer vision"></a>Goals and challenges of computer vision</h3><p>Extract useful information from images, both metric and semantic<br>• Data heterogeneity, ambiguity, and complexity are a big challenge<br>• Significant progress in recent years due to improvements in processing power, memory, storage capacity, data availability<br>• Computer vision workflow: images &gt; measurements &gt; models &gt; algorithms for learning and inference</p>
+<p>Requires understanding of the <strong>physics of imaging</strong> and the use of <strong>mathematical and statistical models</strong> for information extraction</p>
+<p>要求理解成像的物理原理，并使用数学和统计模型进行信息提取</p>
+<h3 id="Critical-issues-in-computer-vision"><a href="#Critical-issues-in-computer-vision" class="headerlink" title="Critical issues in computer vision"></a>Critical issues in computer vision</h3><p>• <strong>Sensing</strong>: how do sensors obtain images of the world?</p>
+<p>• <strong>Encoding</strong>: how do images encode information of the scene?</p>
+<p>• <strong>Representation</strong>: what are appropriate representations of objects?</p>
+<p>• <strong>Algorithmics</strong>: what are appropriate algorithms to process image information and construct scene descriptions?</p>
+<h3 id="Low-level-computer-vision"><a href="#Low-level-computer-vision" class="headerlink" title="Low-level computer vision"></a>Low-level computer vision</h3><p>This is almost entirely <strong>digital image processing</strong> (image in &gt; image out)</p>
+<p>• <strong>Sensing</strong>: image capture and digitisation</p>
+<p>• <strong>Preprocessing</strong>: suppress noise and enhance object features</p>
+<p>• <strong>Segmentation</strong>: separate objects from background and partition them</p>
+<p>• <strong>Description</strong>: compute features which difffferentiate objects</p>
+<p>• <strong>Classifification</strong>: assign labels to image segments (regions)</p>
+<h3 id="High-level-computer-vision"><a href="#High-level-computer-vision" class="headerlink" title="High-level computer vision"></a>High-level computer vision</h3><p>This is about knowledge construction, representation, and inference</p>
+<p>• <strong>Recognition</strong>: identify objects based on low-level information</p>
+<p>• <strong>Interpretation</strong>: assign meaning to groups of recognized objects</p>
+<p>• <strong>Scene analysis</strong>: complete understanding of the captured scene</p>
+<h3 id="Assumed-knowledge"><a href="#Assumed-knowledge" class="headerlink" title="Assumed knowledge"></a>Assumed knowledge</h3><p>To do this course successfully you should:</p>
+<p>• Be able to program well in <strong>Python</strong> or willing to learn it independently</p>
+<p>• Be familiar with <strong>data structures and algorithms</strong> and basic <strong>statistics</strong></p>
+<p>• Be able/learn to <strong>use and integrate software packages</strong> (OpenCV, Scikit-Learn, Keras)</p>
+<p>• Be familiar with <strong>vector calculus and linear algebra</strong> or willing to learn it independently</p>
+<h3 id="What-is-image-formation-什么是图像构成"><a href="#What-is-image-formation-什么是图像构成" class="headerlink" title="What is image formation? 什么是图像构成"></a>What is image formation? 什么是图像构成</h3><p>Image formation occurs when a <strong>sensor registers radiation</strong> that has <strong>interacted with physical objects</strong></p>
+<h3 id="Geometry-of-image-formation-成像几何"><a href="#Geometry-of-image-formation-成像几何" class="headerlink" title="Geometry of image formation 成像几何"></a>Geometry of image formation 成像几何</h3><p>Mapping world coordinates (3D) to image coordinates (2D)</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210919224443766.png" alt="image-20210919224443766"></p>
+<p>f = focal length    焦距</p>
+<p>c = centre of the camera    相机的中心</p>
+<h3 id="Dimensionality-reduction-machine"><a href="#Dimensionality-reduction-machine" class="headerlink" title="Dimensionality reduction machine"></a>Dimensionality reduction machine</h3><h3 id="Projective-geometry-摄影几何"><a href="#Projective-geometry-摄影几何" class="headerlink" title="Projective geometry 摄影几何"></a>Projective geometry 摄影几何</h3><p>Lost: Length and area are not preserved</p>
+<p>Preserved: Straight lines are still straight</p>
+<h3 id="Vanishing-points-and-lines"><a href="#Vanishing-points-and-lines" class="headerlink" title="Vanishing points and lines"></a>Vanishing points and lines</h3><p>Parallel lines in the world intersect in the image at a “vanishing point”</p>
+<h3 id="Projection-maths"><a href="#Projection-maths" class="headerlink" title="Projection maths"></a>Projection maths</h3><p>world coordinates &gt; image coordinates</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210919225745745.png" alt="image-20210919225745745"></p>
+<h3 id="Perspective-projection"><a href="#Perspective-projection" class="headerlink" title="Perspective projection"></a>Perspective projection</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210919230003328.png" alt="image-20210919230003328"></p>
+<h3 id="Affine-projection-仿射投影"><a href="#Affine-projection-仿射投影" class="headerlink" title="Affine projection 仿射投影"></a>Affine projection 仿射投影</h3><p>Camera always remains at roughly constant distance from the scene</p>
+<p>如果 m = -f’ / z0，z0是常数，那么 (x’, y’) = ( -mx, -my)</p>
+<p>Orthographic projection when <em>m</em> is normalised to –1:</p>
+<p>(x’, y’) = (x, y)</p>
+<h3 id="Beyond-pinholes-radial-distortions-径向畸变"><a href="#Beyond-pinholes-radial-distortions-径向畸变" class="headerlink" title="Beyond pinholes: radial distortions 径向畸变"></a>Beyond pinholes: radial distortions 径向畸变</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210919231456088.png" alt="image-20210919231456088"></p>
+<h3 id="Electromagnetic-spectrum"><a href="#Electromagnetic-spectrum" class="headerlink" title="Electromagnetic spectrum"></a>Electromagnetic spectrum</h3><p>Colour spaces: RGB</p>
+<p>Colour spaces: HSV</p>
+<p>Colour spaces: YCbCr</p>
+<p>Colour spaces: L*a*b*</p>
+<h3 id="Digitisation-by-spatial-sampling"><a href="#Digitisation-by-spatial-sampling" class="headerlink" title="Digitisation by spatial sampling"></a>Digitisation by spatial sampling</h3><p>– Spatial discretisation of a picture function <em>F</em>(<em>x</em>,<em>y</em>) </p>
+<p>– Uses a (typically rectangular) grid of sampling points:</p>
+<p><em>x</em> = <em>j</em>Δ<em>x</em>, <em>y</em> = <em>k</em>Δ<em>y | j</em> = 1…<em>M</em>, <em>k</em> = 1…<em>N</em> </p>
+<p>– The Δ<em>x</em>, Δ<em>y</em> are called the <strong>sampling intervals</strong></p>
+<h3 id="Spatial-resolution"><a href="#Spatial-resolution" class="headerlink" title="Spatial resolution"></a>Spatial resolution</h3><p>Human faces can be recognized at 64 x 64 pixels per face</p>
+<h3 id="Quantisation-量子化"><a href="#Quantisation-量子化" class="headerlink" title="Quantisation 量子化"></a>Quantisation 量子化</h3><p><strong>Levels per pixel:</strong></p>
+<p>8 bits = 2^8 = 256</p>
+<p>12 bits = 2^12 = 4,096</p>
+<p>16 bits = 2^16 = 65,536</p>
+<p>24 bits = 2^24 = 16,777,216</p>
+<p><strong>Image processing</strong> = image in &gt; image out</p>
+<p><strong>Image analysis</strong> = image in &gt; features out</p>
+<p><strong>Computer vision</strong> = image in &gt; interpretation out</p>
+<h4 id="Two-main-types-of-image-processing-operations"><a href="#Two-main-types-of-image-processing-operations" class="headerlink" title="Two main types of image processing operations:"></a>Two main types of image processing operations:</h4><p>– Spatial domain operations (in image space) 空间域操作(图像空间)</p>
+<p>– Transform domain operations (mainly in Fourier space) 变换域操作(主要在傅里叶空间)</p>
+<h4 id="Two-main-types-of-spatial-domain-operations"><a href="#Two-main-types-of-spatial-domain-operations" class="headerlink" title="Two main types of spatial domain operations:"></a>Two main types of spatial domain operations:</h4><p>– Point operations (intensity transformations on individual pixels) 点操作(对单个像素的强度转换)</p>
+<p>– Neighbourhood operations (spatial filtering on groups of pixels) 邻域操作(对像素组进行空间滤波)</p>
+<h3 id="Spatial-domain-operations"><a href="#Spatial-domain-operations" class="headerlink" title="Spatial domain operations"></a>Spatial domain operations</h3><p>General form of spatial domain operations: 𝑔(𝑥, 𝑦) = 𝑇 [𝑓 (𝑥, 𝑦) ]</p>
+<p>𝑓 (𝑥, 𝑦) is the input image</p>
+<p>𝑔(𝑥, 𝑦) is the processed image</p>
+<p>𝑇 [ . ] is the operator applied at (𝑥𝑥, 𝑦𝑦)</p>
+<p>Point operations: 𝑇 operates on individual pixels</p>
+<p>𝑇: ℝ ⟶ ℝ 𝑔(𝑥, 𝑦) = 𝑇 [𝑓 (𝑥, 𝑦) ]</p>
+<p>Neighbourhood operations: 𝑇 operates on multiple pixels</p>
+<p>𝑇: ℝ ^2⟶ ℝ 𝑔(𝑥, 𝑦) = 𝑇 [𝑓 (𝑥, 𝑦), 𝑓 (𝑥 + 1, 𝑦), 𝑓 (𝑥 -1 , 𝑦), … ]</p>
+<p>Contrast stretching 对比度拉伸</p>
+<p>Intensity thresholding 强度阈值</p>
+<p>Automatic intensity thresholding</p>
+<p>Otsu’s method for computing the threshold</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920010917959.png" alt="image-20210920010917959"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920011223098.png" alt="image-20210920011223098"></p>
+<h4 id="Multi-level-thresholding"><a href="#Multi-level-thresholding" class="headerlink" title="Multi-level thresholding"></a>Multi-level thresholding</h4><h4 id="Intensity-inversion-强度反演"><a href="#Intensity-inversion-强度反演" class="headerlink" title="Intensity inversion 强度反演"></a>Intensity inversion 强度反演</h4><h4 id="Log-transformation"><a href="#Log-transformation" class="headerlink" title="Log transformation"></a>Log transformation</h4><p>𝑠 = 𝑐  log (1 + 𝑟)</p>
+<p>where 𝑟 is the input intensity, 𝑠 is the output intensity, and 𝑐 is a constant</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920011617283.png" alt="image-20210920011617283"></p>
+<h4 id="Power-transformation-电源转换"><a href="#Power-transformation-电源转换" class="headerlink" title="Power transformation 电源转换"></a>Power transformation 电源转换</h4><p>𝑠 = 𝑐 𝑟 ^ γ</p>
+<p>where 𝑐 and 𝛾 are constants</p>
+<p>– Similar to log transformation</p>
+<p>– Represents a whole family of transformations by varying 𝛾 </p>
+<p>– Many devices respond according to a power law (gamma correction)</p>
+<p>– Useful for general-purpose contrast manipulation</p>
+<h4 id="Piecewise-linear-transformations"><a href="#Piecewise-linear-transformations" class="headerlink" title="Piecewise linear transformations"></a>Piecewise linear transformations</h4><h4 id="Piecewise-contrast-stretching-分段对比拉伸"><a href="#Piecewise-contrast-stretching-分段对比拉伸" class="headerlink" title="Piecewise contrast stretching 分段对比拉伸"></a>Piecewise contrast stretching 分段对比拉伸</h4><p>• One of the simplest piecewise linear transformations</p>
+<p>• Increases the dynamic range of gray levels in images</p>
+<p>• Used in display devices or recording media to span full range</p>
+<h4 id="Gray-level-slicing-灰度分割"><a href="#Gray-level-slicing-灰度分割" class="headerlink" title="Gray-level slicing 灰度分割"></a>Gray-level slicing 灰度分割</h4><p>Two different slicing approaches:<br>1) High value for all gray levels in a range of interest and low value for all others (produces a binary image)<br>2) Brighten a desired range of gray levels while preserving background and other gray-scale tones of the image</p>
+<h4 id="Bit-plane-slicing-位平面切片"><a href="#Bit-plane-slicing-位平面切片" class="headerlink" title="Bit-plane slicing 位平面切片"></a>Bit-plane slicing 位平面切片</h4><p> Highlights contribution to total image by specific bits</p>
+<p>• An image with <em>n</em> bits/pixel has <em>n</em> bit-planes</p>
+<p>• Slicing can be useful for image compression</p>
+<h4 id="Histogram-of-pixel-intensities-像素强度直方图"><a href="#Histogram-of-pixel-intensities-像素强度直方图" class="headerlink" title="Histogram of pixel intensities 像素强度直方图"></a>Histogram of pixel intensities 像素强度直方图</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920013014466.png" alt="image-20210920013014466"></p>
+<h4 id="Histogram-processing-直方图处理"><a href="#Histogram-processing-直方图处理" class="headerlink" title="Histogram processing 直方图处理"></a>Histogram processing 直方图处理</h4><p><strong>Histogram equalization</strong></p>
+<p>Aim: To get an image with equally distributed intensity levels over the full intensity range</p>
+<p>目的:获得在全强度范围内均匀分布强度的图像</p>
+<p>• <strong>Histogram specification</strong> (also called <strong>histogram matching</strong>)</p>
+<p>Aim: To get an image with a specified intensity distribution, determined by the shape of the histogram</p>
+<p>目的:根据直方图的形状，得到具有指定强度分布的图像</p>
+<h4 id="Histogram-equalization-直方图均衡化"><a href="#Histogram-equalization-直方图均衡化" class="headerlink" title="Histogram equalization 直方图均衡化"></a>Histogram equalization 直方图均衡化</h4><p>Let 𝑟 ∈ [ 0, 𝐿 − 1 ] represent gray levels of the image</p>
+<p>𝑟 = 0 represents black and 𝑟 = 𝐿 − 1 represents white</p>
+<p>s=T(r)   0 &lt;= r &lt;= L-1</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920014324947.png" alt="image-20210920014324947"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920015247768.png" alt="image-20210920015247768"></p>
+<h4 id="Arithmetic-and-logical-operations"><a href="#Arithmetic-and-logical-operations" class="headerlink" title="Arithmetic and logical operations"></a>Arithmetic and logical operations</h4><p>Defined on a pixel-by-pixel basis between two images</p>
+<h4 id="Averaging"><a href="#Averaging" class="headerlink" title="Averaging"></a>Averaging</h4><p>Fi(x,y)=g(x,y) + ni(x,y)</p>
+<p>E[fi(x,y)]=g(x,y)  VAR[fi(x,y)]=Var[ni(x,y)]=σ^2(x,y)</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210920020549436.png" alt="image-20210920020549436"></p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/09/19/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-1/">http://szdf123.github.io/2021/09/19/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-1/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
+                                </a>
+                            
+                                <a href="/tags/COMP9517/">
+                                    <span class="chip bg-color">COMP9517</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+                                    <span class="chip bg-color">计算机视觉</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-0/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/166.jpg" class="responsive-img" alt="神经网络与深度学习（0）">
+                        
+                        <span class="card-title">神经网络与深度学习（0）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            神经网络与深度学习 Week0
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-23
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                    <a href="/tags/COMP9444/">
+                        <span class="chip bg-color">COMP9444</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/129.jpg" class="responsive-img" alt="使用SSH配置Hexo连接Github">
+                        
+                        <span class="card-title">使用SSH配置Hexo连接Github</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用SSH配置Hexo连接Github
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-30
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" class="post-category">
+                                    最佳实践
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/">
+                        <span class="chip bg-color">已完稿</span>
+                    </a>
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/">
+                        <span class="chip bg-color">实践操作</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">90.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

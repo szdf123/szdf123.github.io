@@ -1,0 +1,1475 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="GSOE9210,笔记">
+    <meta name="description" content="超龄程序员，UNSW计算机专业就读中">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>工程决策结构（2） | 本杰明学习笔记</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">本杰明学习笔记</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/usefullinks" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>常用链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">本杰明学习笔记</div>
+        <div class="logo-desc">
+            
+            超龄程序员，UNSW计算机专业就读中
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/usefullinks" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			常用链接
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+<script src="/libs/cryptojs/crypto-js.min.js"></script>
+<script>
+    (function() {
+        let pwd = '';
+        if (pwd && pwd.length > 0) {
+            if (pwd !== CryptoJS.SHA256(prompt('请输入访问本文章的密码')).toString(CryptoJS.enc.Hex)) {
+                alert('密码错误，将返回主页！');
+                location.href = '/';
+            }
+        }
+    })();
+</script>
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/317.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">工程决策结构（2）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">课程笔记</span>
+                            </a>
+                        
+                            <a href="/tags/GSOE9210/">
+                                <span class="chip bg-color">GSOE9210</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/UNSW/" class="post-category">
+                                UNSW
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-09-26
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.3k
+                </div>
+                
+
+                
+
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="Decisions-under-complete-uncertainty-ignorance-完全不确定-无知下的决定"><a href="#Decisions-under-complete-uncertainty-ignorance-完全不确定-无知下的决定" class="headerlink" title="Decisions under complete uncertainty/ignorance 完全不确定/无知下的决定"></a>Decisions under complete uncertainty/ignorance 完全不确定/无知下的决定</h2><h3 id="Ignorance-and-possibility-无知和可能性"><a href="#Ignorance-and-possibility-无知和可能性" class="headerlink" title="Ignorance and possibility 无知和可能性"></a>Ignorance and possibility 无知和可能性</h3><p>Ignorance = possibilities without probabilities </p>
+<p>无知=没有可能性的可能性</p>
+<p>行动可能不会决定一个独特的结果;“状态”是指一种情况的某些方面，当与可能的行动相结合时，就会区分出不同的结果。</p>
+<p>选择/评估无知行为的理性决策规则</p>
+<h3 id="Decisions-under-uncertainty-不确定性下的决策方法"><a href="#Decisions-under-uncertainty-不确定性下的决策方法" class="headerlink" title="Decisions under uncertainty 不确定性下的决策方法"></a>Decisions under uncertainty 不确定性下的决策方法</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926014644185.png" alt="image-20210926014644185"></p>
+<p>How should <em>V</em> (S) and <em>V</em> (F) be defined?</p>
+<p>How should <em>V</em> (over actions) depend on <em>v</em> (over outcomes)?</p>
+<h3 id="Lotteries-彩票"><a href="#Lotteries-彩票" class="headerlink" title="Lotteries 彩票"></a>Lotteries 彩票</h3><p><strong>Definition (Lottery)</strong>: A <em>lottery</em> over a finite set of states <em>S</em>, and outcomes, or <em>prizes</em>, Ω, is a</p>
+<p>function <em>`</em> : <em>S →</em> Ω. The lottery <em>`</em> is written:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926014656604.png" alt="image-20210926014656604"></p>
+<p><strong>Corollary</strong>: The problem of evaluating actions amounts to the problem of determining how to compare and/or evaluate lotteries.</p>
+<p>推论：评价行为的问题相当于决定如何比较和/或评价彩票的问题。</p>
+<h3 id="Decisions-under-uncertainty-ignorance-不确定性下的决定-无知"><a href="#Decisions-under-uncertainty-ignorance-不确定性下的决定-无知" class="headerlink" title="Decisions under uncertainty: ignorance 不确定性下的决定:无知"></a>Decisions under uncertainty: ignorance 不确定性下的决定:无知</h3><h4 id="possibilities"><a href="#possibilities" class="headerlink" title="possibilities"></a>possibilities</h4><p><strong>Definition (Decision rule)</strong>: A <em>decision rule</em> is a way of choosing, for each decision problem, an action or set of actions.</p>
+<p><strong>定义(决策规则)</strong>：一个<em>决策规则</em>是一种选择方法，对于每个决策问题，一个行动或一组行动。</p>
+<p>A <em>decision rule</em> or <em>decision procedure</em> is a way of choosing, for each decision problem, a set of ‘preferred’ actions.</p>
+<p>决策规则或决策程序是对每个决策问题选择一组“首选”行动的方法。</p>
+<p>Rational decision rules under ignorance:</p>
+<ul>
+<li><p>Optimistic <em>MaxiMax</em> rule: “nothing ventured, nothing gained”</p>
+</li>
+<li><p>Wald’s pessimistic <em>Maximin</em> rule: “better to be safe than sorry”</p>
+</li>
+<li><p><em>Hurwicz</em>’s mixed optimistic-pessimistic rule: degree of optimism/pessimism</p>
+</li>
+<li><p>Savage’s <em>miniMax Regret</em> rule: least <em>regret</em></p>
+</li>
+<li><p>Laplace’s <em>principle of insuficient reason</em></p>
+</li>
+</ul>
+<p><strong>Approach</strong>: assign values (<em>V</em> ) to actions based on preferences over outcomes (<em>v</em>)</p>
+<p>方法: 根据偏好而非结果(<em>V</em>)为行动赋值(<em>V</em>)</p>
+<h4 id="MaxiMax"><a href="#MaxiMax" class="headerlink" title="MaxiMax"></a>MaxiMax</h4><p><strong>MaxiMax(MM):</strong> associate with each action states which yields the most preferred outcome</p>
+<p>将每个产生最优结果的行动状态联系起来</p>
+<p>MaxiMax选择在这些行为中产生偏好最大结果的行为</p>
+<ul>
+<li><p>For each action find best possible outcome over all possible states;</p>
+</li>
+<li><p>Choose actions/rows with maximal value</p>
+</li>
+<li><p>Equivalently: find maximum value of entire table, choose row/action with this value</p>
+</li>
+<li><p>r_MM(ω) = arg max{M(A)| A ∈ A}</p>
+</li>
+</ul>
+<h4 id="Risk-attitudes"><a href="#Risk-attitudes" class="headerlink" title="Risk attitudes"></a>Risk attitudes</h4><p><em>MaxiMax</em> is a decision rule for extreme <em>risk takers</em></p>
+<p><em>MaxiMax</em> is ‘rational’ decision rule for decision-makers with risk-taking attitudes/preferences</p>
+<p>In some cases it may be wise to be <em>risk averse</em></p>
+<p>What might a risk averse decision rule look like?</p>
+<h4 id="Maximin-Mm-best-in-the-worst-case"><a href="#Maximin-Mm-best-in-the-worst-case" class="headerlink" title="Maximin (Mm): best in the worst case"></a><em>Maximin</em> (Mm): best in the worst case</h4><ul>
+<li><p>For each action find worst possible outcome under all possible cases/states</p>
+</li>
+<li><p><em>m</em>(A) sometimes called the <em>security level</em> of action A</p>
+</li>
+<li><p>Choose the action/row with the maximum of these</p>
+</li>
+<li>r_Mm(ω) = arg max{m(A) | A ∈ A}</li>
+</ul>
+<h3 id="Hurwicz’s-optimism-index-维奇的乐观指数"><a href="#Hurwicz’s-optimism-index-维奇的乐观指数" class="headerlink" title="Hurwicz’s optimism index 维奇的乐观指数"></a><em>Hurwicz</em>’s optimism index 维奇的乐观指数</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926021441355.png" alt="image-20210926021441355"></p>
+<ul>
+<li><p>For each action/row, find minima (<em>m</em>) and maxima (<em>M</em>)</p>
+</li>
+<li><p>Calculate weighted sum based on <em>optimism index</em> <em>α</em> <em>∈</em> [0<em>,</em> 1]</p>
+</li>
+<li><p>Choose the row/action that maximises this value</p>
+</li>
+</ul>
+<h3 id="Best-response-actions"><a href="#Best-response-actions" class="headerlink" title="Best response actions"></a>Best response actions</h3><p><strong>Definition (Better actions)</strong>: An action A is <em>better</em> than action B in state <em>s</em> iff A’s outcome in <em>s</em> preferred to B’s.</p>
+<p>定义(更好的行动):在A的结果优于B的情况下，行动A比行动B要好。</p>
+<p>Definition (Best response): An action A is a best response in state s iff no other action is better than A in state s.</p>
+<p>定义(最好的回应):如果在状态中没有其他行动优于A，则行动A是最佳响应。</p>
+<h3 id="Regret-后悔"><a href="#Regret-后悔" class="headerlink" title="Regret 后悔"></a>Regret 后悔</h3><p><strong>Definition (Regret):</strong> The <em>regret</em>, or <em>opportunity loss</em>, of an action in a state is the difference between the action’s value and that of the best response for that state.</p>
+<p><strong>定义(遗憾):</strong>一种状态下行为的“遗憾”或“机会损失”是该行为的价值与该状态的最佳对策之间的差异。</p>
+<h3 id="miniMax-Regret-极小极大后悔"><a href="#miniMax-Regret-极小极大后悔" class="headerlink" title="miniMax Regret 极小极大后悔"></a>miniMax Regret 极小极大后悔</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926022438417.png" alt="image-20210926022438417"></p>
+<ul>
+<li><p>For each column/state <em>s</em>, find its maximum value (M_s)</p>
+</li>
+<li><p>Construct the regret table: <em>R</em>(<em>ω</em>) = <em>M</em>_s - <em>v</em>(<em>ω</em>)</p>
+</li>
+<li><p>For each action/row find the maximum regret: </p>
+</li>
+</ul>
+<p><em>V</em> (A) = max<em>{R</em>(<em>ω</em>(A<em>, s</em>)) <em>|</em> <em>s</em> <em>∈ S}</em></p>
+<ul>
+<li>Choose the row/action that minimises the regret: A_3</li>
+</ul>
+<h3 id="Laplace’s-principle-of-insuficient-reason-拉普拉斯不充分推理原理"><a href="#Laplace’s-principle-of-insuficient-reason-拉普拉斯不充分推理原理" class="headerlink" title="Laplace’s principle of insuficient reason 拉普拉斯不充分推理原理"></a>Laplace’s principle of insuficient reason 拉普拉斯不充分推理原理</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926022959776.png" alt="image-20210926022959776"></p>
+<ul>
+<li><p><em>Assume</em> each state is equally likely</p>
+</li>
+<li><p>For each row/action calculate the mean value</p>
+</li>
+<li><p>Choose the row/action with maximum value</p>
+</li>
+</ul>
+<h3 id="Decision-rules"><a href="#Decision-rules" class="headerlink" title="Decision rules"></a>Decision rules</h3><p>For a value function <em>V</em> on actions, a decision rule <em>r_V</em> is defined by:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926160811493.png" alt="image-20210926160811493"></p>
+<h3 id="Summary-小结"><a href="#Summary-小结" class="headerlink" title="Summary 小结"></a>Summary 小结</h3><ul>
+<li><p>Ignorance: more than one possible state; likelihoods unknown</p>
+</li>
+<li><p>Lotteries: uncertain situations</p>
+</li>
+<li><p>Risk attitudes</p>
+</li>
+<li><p>Best response/action</p>
+</li>
+<li><p>Some decision rules under complete uncertainty (ignorance):</p>
+<ul>
+<li><p>Optimistic <em>MaxiMax</em> rule: “nothing ventured, nothing gained”</p>
+</li>
+<li><p>Wald’s pessimistic <em>Maximin</em> rule: “its better to be safe than sorry”</p>
+</li>
+<li><p><em>Hurwicz</em>’s mixed optimistic-pessimistic rule: use an <em>optimism index</em> <em>α</em></p>
+</li>
+<li><p>Savage’s <em>miniMax Regret</em> rule; least <em>opportunity loss</em></p>
+</li>
+<li><p>Laplace’s <em>principle of insufficient reason</em> rule</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="The-Maximin-principle-极大极小原则"><a href="#The-Maximin-principle-极大极小原则" class="headerlink" title="The Maximin principle 极大极小原则"></a>The <em>Maximin</em> principle 极大极小原则</h3><p><strong>Definition (The <em>Maximin</em> principle)</strong>: Assume only minimally preferred outcomes occur and choose actions that lead to most preferred among these.</p>
+<p><strong>定义(<em>Maximin</em>原则)</strong>:假设只出现最小偏好的结果，并选择导致这些结果中最偏好的行动。</p>
+<p><em>Maximin</em> and <em>miniMax Regret</em> follow <em>Maximin</em> principle: original values vs regrets</p>
+<p><em>Maximin</em> principle is main decision principle used under complete uncertainty</p>
+<p>We’ve seen <em>Maximin</em> and <em>miniMax Regret</em> on decision tables, but what about more complex decision problems (<em>e.g</em>., multiple decision points)?</p>
+<h3 id="Multi-stage-decisions-多阶段决策"><a href="#Multi-stage-decisions-多阶段决策" class="headerlink" title="Multi-stage decisions 多阶段决策"></a>Multi-stage decisions 多阶段决策</h3><p>案例：保洁公司是否要研发新产品，要建立多大的工厂问题。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926162524220.png" alt="image-20210926162524220"></p>
+<h4 id="Node-evaluation-节点评价"><a href="#Node-evaluation-节点评价" class="headerlink" title="Node evaluation 节点评价"></a>Node evaluation 节点评价</h4><p>Each decision problem is assigned a ‘value’ by a decision rule</p>
+<p>The <em>Maximin</em> algorithm for decision trees:</p>
+<ul>
+<li><ol>
+<li>Begin at leaves</li>
+</ol>
+</li>
+<li><ol>
+<li>At parent node:</li>
+</ol>
+<ul>
+<li><p>2.1 if a chance node, prune all children except the minimally preferred</p>
+</li>
+<li><p>2.2 if a decision node, by <em>elimination principle</em>, prune all children except the maximally preferred</p>
+</li>
+<li><p>2.3 propagate (unique) value up to parent node</p>
+</li>
+</ul>
+</li>
+<li><ol>
+<li>Repeat previous step until root is reached</li>
+</ol>
+</li>
+</ul>
+<p>Value of root is value of the problem (under <em>Maximin</em>)</p>
+<h2 id="Normalisation-标准化"><a href="#Normalisation-标准化" class="headerlink" title="Normalisation 标准化"></a>Normalisation 标准化</h2><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926163751773.png" alt="image-20210926163751773"></p>
+<p>Model as a 2-ary (dyadic) function: <em>ω</em> : <em>A × S →</em> Ω</p>
+<p><strong>For Decision table:</strong></p>
+<p>row = action  column = state</p>
+<p>Interpretation: B = <em>ω</em>(D<em>, o</em>) means “B is the outcome of action D in state <em>o</em>”</p>
+<h3 id="Trees-and-tables"><a href="#Trees-and-tables" class="headerlink" title="Trees and tables"></a>Trees and tables</h3><p>Multiple trees may correspond to the same table</p>
+<p>Going from tables (<em>normal form</em>) to trees (<em>extensive form</em>) is straight forward, but the converse can be tricky</p>
+<p><strong>Definition (Strategy):</strong> A <em>strategy</em> (or <em>policy</em> or <em>plan</em>) is a procedure that specifies the selection of an action at every <em>reachable</em> decision point.</p>
+<p><strong>定义(策略)</strong>:一个<em>策略</em>(或<em>政策</em>或<em>计划</em>)是一个过程，它规定了在每个<em>可到达的</em>决策点选择一个行动。</p>
+<p><strong>Encoding:</strong></p>
+<p><em>α</em>/A says: <em>At the decision node reached via path</em> <em>α</em> <em>choose action A.</em></p>
+<h4 id="Representing-information-代表信息"><a href="#Representing-information-代表信息" class="headerlink" title="Representing information 代表信息"></a>Representing information 代表信息</h4><h2 id="Preference-偏好"><a href="#Preference-偏好" class="headerlink" title="Preference 偏好"></a>Preference 偏好</h2><h3 id="Indifference-equal-preference-无差异-平等的偏好"><a href="#Indifference-equal-preference-无差异-平等的偏好" class="headerlink" title="Indifference: equal preference 无差异:平等的偏好"></a>Indifference: equal preference 无差异:平等的偏好</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926170320207.png" alt="image-20210926170320207"></p>
+<p><strong>Definition (Indifference):</strong> If two actions A and B are <em>equally preferred</em> then the agent is said to be <em>indifferent</em> between A and B.</p>
+<p><strong>定义(无差异)</strong>：如果两个行为A和B是“同等优先”的，那么代理在A和B之间是“无差异”的。</p>
+<p><strong>Definition (Indifference class):</strong> An <em>indifference class</em> is a non-empty set of all actions/outcomes between which an agent is indifferent.</p>
+<p><strong>定义(无差异类):</strong>一个<em>无差异类</em>是一个非空的集合，它包含所有的行为/结果，其中每一个代理是无差异的。</p>
+<p>For a given action A <em>∈ A</em>, the indifference class of A is given by</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926170552892.png" alt="image-20210926170552892"></p>
+<p>Indifference classes partition set of all actions<br>Different agents have different preferences over outcomes/actions, hence different indifference classes<br>Different decision rules evaluate actions differently; i.e., produce different indifference classes</p>
+<h3 id="Graphical-representation-图形化表示"><a href="#Graphical-representation-图形化表示" class="headerlink" title="Graphical representation 图形化表示"></a>Graphical representation 图形化表示</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926170936199.png" alt="image-20210926170936199"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926170943728.png" alt="image-20210926170943728"></p>
+<p>Let v_i(a) = v(a, s_i) be the value of action a in state s_i. Each action a corresponds to a point (v1, v2), where v_i = v(a, s_i). </p>
+<h3 id="Indifference-curves-Maximin"><a href="#Indifference-curves-Maximin" class="headerlink" title="Indifference curves: Maximin"></a>Indifference curves: <em>Maximin</em></h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926171618217.png" alt="image-20210926171618217"></p>
+<h3 id="Graphing-regret"><a href="#Graphing-regret" class="headerlink" title="Graphing regret"></a>Graphing regret</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926171650600.png" alt="image-20210926171650600"></p>
+<h3 id="Generalised-dominance-全面主导地位"><a href="#Generalised-dominance-全面主导地位" class="headerlink" title="Generalised dominance 全面主导地位"></a>Generalised dominance 全面主导地位</h3><p><strong>Definition (Strict dominance)</strong>: Strategy A <em>strictly dominates</em> B iff every outcome of A is more preferred than the corresponding outcome of B.</p>
+<p><strong>定义(严格优势)</strong>：策略A <em>严格优势</em> B，如果A的每个结果都比B的相应结果更优。</p>
+<p><strong>Definition (Weak dominance)</strong>：Strategy A <em>weakly dominates</em> B iff every outcome of A is no less preferred than the corresponding outcome of B, and some outcome is more preferred.</p>
+<p><strong>定义(弱优势)</strong>：策略A <em>弱优势</em> B，如果A的每个结果都不比B的相应结果更受欢迎，并且有一些结果更受欢迎。</p>
+<h3 id="Dominance-and-best-response-显性和最佳反应"><a href="#Dominance-and-best-response-显性和最佳反应" class="headerlink" title="Dominance and best response 显性和最佳反应"></a>Dominance and best response 显性和最佳反应</h3><p><strong>Corollary</strong>: <em>Strategy A strictly dominates B iff A is a better response than B in each</em> <em>possible state.</em></p>
+<p><strong>推论</strong>：策略A严格优于策略B，如果在每个可能的状态下，策略A都比策略B更好</p>
+<p><strong>Corollary</strong>: Strategy A weakly dominates B iff A is a better response than B in some possible state and B is not a better response than A in any state.</p>
+<p><strong>推论</strong>: 策略A弱于策略B, iff A在某些可能状态下比B更好，而B在任何状态下都不是比A更好的对策。</p>
+<p><strong>Dominance principle</strong>: A rational agent should never choose a dominated strategy.</p>
+<p><strong>优势原则</strong>：理性的行为人永远不应该选择劣势策略。</p>
+<h4 id="Admissible-actions-容许的行为"><a href="#Admissible-actions-容许的行为" class="headerlink" title="Admissible actions 容许的行为"></a>Admissible actions 容许的行为</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926212337833.png" alt="image-20210926212337833"></p>
+<p><strong>Definition (Admissible)</strong>: An action is <em>admissible</em> iff it is not dominated by any other action. An action which is not admissible is said to be <em>inadmissible</em>. The set of all admissible actions is called the <em>admissible frontier</em>.</p>
+<p><strong>定义(可接受的)</strong>:如果一个行为不受其他行为的支配，那么这个行为就是“可接受的”。不可受理的行为被称为“不可受理”。所有可容许行为的集合称为<em>可容许边界</em>。</p>
+<h4 id="Dominance-MaxiMax-and-Maximin"><a href="#Dominance-MaxiMax-and-Maximin" class="headerlink" title="Dominance: MaxiMax and Maximin"></a>Dominance: <em>MaxiMax</em> and <em>Maximin</em></h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926212610220.png" alt="image-20210926212610220"></p>
+<p><strong>Definition (Dominance elimination)</strong>: A decision rule is said to satisfy (strict/weak) <em>dominance elimination</em> if it never chooses actions that are (strictly/weakly) dominated.</p>
+<p><strong>定义(优势消除)</strong>：如果一个决策规则从未选择(严格/弱)劣势行为，那么它就被认为满足(严格/弱)劣势消除*。</p>
+<p>Dominated actions can be discarded under any rule that satisfies dominance elimination</p>
+<h4 id="Dominance-summary"><a href="#Dominance-summary" class="headerlink" title="Dominance summary"></a>Dominance summary</h4><p>Rules that satisfy strict/weak dominance elimination.</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210926212749408.png" alt="image-20210926212749408"></p>
+<h4 id="Rule-axioms-规则公理"><a href="#Rule-axioms-规则公理" class="headerlink" title="Rule axioms 规则公理"></a>Rule axioms 规则公理</h4><p>The following criteria can be used to assess the suitability of decision rules:</p>
+<p><strong>Axiom of dominance</strong>: A decision rule should never choose a dominated action.</p>
+<p><strong>支配原则</strong>:决策规则永远不应该选择支配行为。</p>
+<p><strong>Axiom of invariance</strong>: A decision rule’s choices should be independent of representation.</p>
+<p><strong>不变公理</strong>：决策规则的选择应该独立于表示。</p>
+<p><strong>Axiom of solubility</strong>: A decision rule should always select at least one action.</p>
+<p><strong>溶解度公理</strong>:决策规则应该总是选择至少一个行动。</p>
+<p><strong>Axiom of independence</strong>: Adding a duplicate state should not affect a rule’s decision.</p>
+<p><strong>独立原则</strong>：添加重复状态不应影响规则的决定。</p>
+<h4 id="Contingency-plans-应急行动"><a href="#Contingency-plans-应急行动" class="headerlink" title="Contingency plans 应急行动"></a>Contingency plans 应急行动</h4><p><strong>Definition (Contingent action)</strong>: A <em>contingent action</em> or <em>conditional action</em> is an action that combines other actions depending on a contingency or condition. A contingent action is also called a <em>strategy</em> or <em>plan</em>.</p>
+<p><strong>定义(偶然性行动)</strong>:偶然性行动或条件性行动是根据偶然性或条件结合其他行动的行动。应急行动也称为“战略”或“计划”。</p>
+<h3 id="Summary-decisions-under-complete-uncertainty-总结-完全不确定性下的决策"><a href="#Summary-decisions-under-complete-uncertainty-总结-完全不确定性下的决策" class="headerlink" title="Summary: decisions under complete uncertainty 总结:完全不确定性下的决策"></a>Summary: decisions under complete uncertainty 总结:完全不确定性下的决策</h3><ul>
+<li><p><em>Maximin</em> in extensive form</p>
+</li>
+<li><p>Multi-stage decisions</p>
+</li>
+<li><p>Extensive to normal form translation</p>
+</li>
+<li><p>Information in extensive form</p>
+</li>
+<li><p>Graphical visualisation</p>
+</li>
+<li><p>Indifference</p>
+</li>
+<li><p>Dominance and admissibility</p>
+</li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Benjamin</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://szdf123.github.io/2021/09/26/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-2/">http://szdf123.github.io/2021/09/26/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-2/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Benjamin</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">课程笔记</span>
+                                </a>
+                            
+                                <a href="/tags/GSOE9210/">
+                                    <span class="chip bg-color">GSOE9210</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat,qq,weibo,douban,twitter,facebook,google,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/09/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-2/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="计算机视觉课程笔记（2）">
+                        
+                        <span class="card-title">计算机视觉课程笔记（2）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            计算机视觉课程笔记Week2
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-27
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                    <a href="/tags/COMP9517/">
+                        <span class="chip bg-color">COMP9517</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/">
+                        <span class="chip bg-color">计算机视觉</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/09/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/348.jpg" class="responsive-img" alt="工程决策结构（1）">
+                        
+                        <span class="card-title">工程决策结构（1）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            工程决策结构 Week1
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-25
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/UNSW/" class="post-category">
+                                    UNSW
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">课程笔记</span>
+                    </a>
+                    
+                    <a href="/tags/GSOE9210/">
+                        <span class="chip bg-color">GSOE9210</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">Benjamin</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+                &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                        class="white-color">90.2k</span>
+            
+            
+            
+                
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/szdf123" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:BenjaminUNSW@163.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>
