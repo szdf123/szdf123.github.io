@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-10-02T14:51:37.330Z</updated>
+  <updated>2021-10-13T14:50:34.473Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,112 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>全链路监控</title>
+    <link href="http://szdf123.github.io/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/"/>
+    <id>http://szdf123.github.io/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/</id>
+    <published>2021-10-11T09:21:25.000Z</published>
+    <updated>2021-10-13T14:50:34.473Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;名词&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#名词&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="全链路监控" scheme="http://szdf123.github.io/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉课程笔记（4）</title>
+    <link href="http://szdf123.github.io/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-4/"/>
+    <id>http://szdf123.github.io/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-4/</id>
+    <published>2021-10-09T02:50:26.000Z</published>
+    <updated>2021-10-09T16:44:27.260Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;pattern-recognition-模式识别&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#pattern-recognition-模式识别&quot;&gt;&lt;/a&gt; Pattern Recognition 模式识别&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9517" scheme="http://szdf123.github.io/tags/COMP9517/"/>
+    
+    <category term="计算机视觉" scheme="http://szdf123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉课程笔记（3）</title>
+    <link href="http://szdf123.github.io/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-3/"/>
+    <id>http://szdf123.github.io/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-3/</id>
+    <published>2021-10-09T02:42:50.000Z</published>
+    <updated>2021-10-09T02:43:34.125Z</updated>
+    
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9517" scheme="http://szdf123.github.io/tags/COMP9517/"/>
+    
+    <category term="计算机视觉" scheme="http://szdf123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工程决策结构（4）</title>
+    <link href="http://szdf123.github.io/2021/10/08/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-4/"/>
+    <id>http://szdf123.github.io/2021/10/08/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-4/</id>
+    <published>2021-10-08T14:45:08.000Z</published>
+    <updated>2021-10-08T16:13:49.362Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;bayes-decisions-贝叶斯决策&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#bayes-decisions-贝叶斯决策&quot;&gt;&lt;/a&gt; Bayes decisions 贝叶斯决策&lt;/h2&gt;
+&lt;h3</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="GSOE9210" scheme="http://szdf123.github.io/tags/GSOE9210/"/>
+    
+  </entry>
   
   <entry>
     <title>mac安装OpenCV</title>
@@ -49,8 +155,8 @@ pip</summary>
   
   <entry>
     <title>OpenCV使用手册</title>
-    <link href="http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/opencv/opencv-shi-yong-shou-ce/"/>
-    <id>http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/opencv/opencv-shi-yong-shou-ce/</id>
+    <link href="http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/ai/opencv-shi-yong-shou-ce/"/>
+    <id>http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/ai/opencv-shi-yong-shou-ce/</id>
     <published>2021-10-01T06:59:50.000Z</published>
     <updated>2021-10-01T08:07:34.356Z</updated>
     
@@ -59,7 +165,8 @@ pip</summary>
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Matplotlib-Pyplot&quot;&gt;&lt;a href=&quot;#Matplotlib-Pyplot&quot; class=&quot;headerlink&quot; title=&quot;Matplotlib Pyplot&quot;&gt;&lt;/a&gt;Matplotlib Pyplot&lt;/h2&gt;&lt;pre</summary>
+    <summary type="html">&lt;h2 id=&quot;matplotlib-pyplot&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#matplotlib-pyplot&quot;&gt;&lt;/a&gt; Matplotlib Pyplot&lt;/h2&gt;
+&lt;pre class=&quot;line-numbers</summary>
         
       
     
@@ -79,14 +186,15 @@ pip</summary>
     <link href="http://szdf123.github.io/2021/10/01/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-3/"/>
     <id>http://szdf123.github.io/2021/10/01/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-3/</id>
     <published>2021-10-01T06:17:22.000Z</published>
-    <updated>2021-10-08T08:36:28.113Z</updated>
+    <updated>2021-10-08T16:34:01.694Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Lesson-1-Visualisation-可视化&quot;&gt;&lt;a href=&quot;#Lesson-1-Visualisation-可视化&quot; class=&quot;headerlink&quot; title=&quot;Lesson 1: Visualisation 可视化&quot;&gt;&lt;/a&gt;Lesson</summary>
+    <summary type="html">&lt;h2 id=&quot;week-3&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#week-3&quot;&gt;&lt;/a&gt; Week 3&lt;/h2&gt;
+&lt;h3 id=&quot;lesson-1-visualisation-可视化&quot;&gt;&lt;a</summary>
         
       
     
@@ -106,14 +214,15 @@ pip</summary>
     <link href="http://szdf123.github.io/2021/09/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-2/"/>
     <id>http://szdf123.github.io/2021/09/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-2/</id>
     <published>2021-09-27T02:10:09.000Z</published>
-    <updated>2021-10-08T02:53:36.440Z</updated>
+    <updated>2021-10-09T02:42:54.692Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Image-Processing-II-图像处理二&quot;&gt;&lt;a href=&quot;#Image-Processing-II-图像处理二&quot; class=&quot;headerlink&quot; title=&quot;Image Processing II 图像处理二&quot;&gt;&lt;/a&gt;Image</summary>
+    <summary type="html">&lt;h2 id=&quot;image-processing-ii-图像处理二&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#image-processing-ii-图像处理二&quot;&gt;&lt;/a&gt; Image Processing II 图像处理二&lt;/h2&gt;
+&lt;h3</summary>
         
       
     
@@ -458,124 +567,6 @@ pip</summary>
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
     
     <category term="Maven" scheme="http://szdf123.github.io/tags/Maven/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据库基础期末要点复习</title>
-    <link href="http://szdf123.github.io/2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/"/>
-    <id>http://szdf123.github.io/2021/05/07/unsw/comp9311/shu-ju-ku-ji-chu-qi-mo-yao-dian-fu-xi/</id>
-    <published>2021-05-07T13:53:46.000Z</published>
-    <updated>2021-09-01T13:34:49.874Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;本文转载自 &lt;a href=&quot;https://mubu.com/doc/1jff_OxSqV&quot;&gt;9311数据库期末要点复习&lt;/a&gt;——IF&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;一、绪论&quot;&gt;&lt;a href=&quot;#一、绪论&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9311" scheme="http://szdf123.github.io/tags/COMP9311/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="数据库" scheme="http://szdf123.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>UNSW 关于学校</title>
-    <link href="http://szdf123.github.io/2021/05/04/unsw/unsw-guan-yu-xue-xiao/"/>
-    <id>http://szdf123.github.io/2021/05/04/unsw/unsw-guan-yu-xue-xiao/</id>
-    <published>2021-05-04T12:36:55.000Z</published>
-    <updated>2021-09-01T13:34:49.899Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;学校校历&quot;&gt;&lt;a href=&quot;#学校校历&quot; class=&quot;headerlink&quot; title=&quot;学校校历&quot;&gt;&lt;/a&gt;学校校历&lt;/h3&gt;&lt;h4 id=&quot;开学时间&quot;&gt;&lt;a href=&quot;#开学时间&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="手册" scheme="http://szdf123.github.io/tags/%E6%89%8B%E5%86%8C/"/>
-    
-    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>更换MacOS的brew源</title>
-    <link href="http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/"/>
-    <id>http://szdf123.github.io/2021/04/26/zui-jia-shi-jian/geng-huan-macos-de-brew-yuan/</id>
-    <published>2021-04-26T07:20:20.000Z</published>
-    <updated>2021-09-01T13:34:49.796Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;p&gt;MacOS操作系统在使用&lt;code&gt;brew&lt;/code&gt;命令安装工具时，可能停留在Updating</summary>
-        
-      
-    
-    
-    
-    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="Linux" scheme="http://szdf123.github.io/tags/Linux/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="MacOS" scheme="http://szdf123.github.io/tags/MacOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>理财训练营（2）</title>
-    <link href="http://szdf123.github.io/2021/04/22/ke-cheng-bi-ji/li-cai-xun-lian-ying-2/"/>
-    <id>http://szdf123.github.io/2021/04/22/ke-cheng-bi-ji/li-cai-xun-lian-ying-2/</id>
-    <published>2021-04-21T16:04:42.000Z</published>
-    <updated>2021-09-01T13:34:49.858Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt; 本学习笔记根据某投学堂提供资料整理学习&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;初识投资品：人人都该有的4个钱包&quot;&gt;&lt;a href=&quot;#初识投资品：人人都该有的4个钱包&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="理财" scheme="http://szdf123.github.io/tags/%E7%90%86%E8%B4%A2/"/>
     
   </entry>
   
