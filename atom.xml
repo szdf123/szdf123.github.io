@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-10-13T14:50:34.473Z</updated>
+  <updated>2021-10-14T12:16:55.591Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,62 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>numpy使用手册</title>
+    <link href="http://szdf123.github.io/2021/10/14/ji-zhu-xue-xi/ai/numpy-shi-yong-shou-ce/"/>
+    <id>http://szdf123.github.io/2021/10/14/ji-zhu-xue-xi/ai/numpy-shi-yong-shou-ce/</id>
+    <published>2021-10-14T12:12:30.000Z</published>
+    <updated>2021-10-14T12:16:55.591Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;pre class=&quot;line-numbers language-python&quot; data-language=&quot;python&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;import numpy as np
+# 定义 2 行 3 列，全0数组
+a =</summary>
+        
+      
+    
+    
+    
+    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="持续更新" scheme="http://szdf123.github.io/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/"/>
+    
+    <category term="人工智能" scheme="http://szdf123.github.io/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络与深度学习（3）</title>
+    <link href="http://szdf123.github.io/2021/10/14/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-3/"/>
+    <id>http://szdf123.github.io/2021/10/14/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-3/</id>
+    <published>2021-10-14T11:33:46.000Z</published>
+    <updated>2021-10-14T13:06:49.027Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;综述&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#综述&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
+    
+  </entry>
   
   <entry>
     <title>全链路监控</title>
@@ -158,7 +214,7 @@ pip</summary>
     <link href="http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/ai/opencv-shi-yong-shou-ce/"/>
     <id>http://szdf123.github.io/2021/10/01/ji-zhu-xue-xi/ai/opencv-shi-yong-shou-ce/</id>
     <published>2021-10-01T06:59:50.000Z</published>
-    <updated>2021-10-01T08:07:34.356Z</updated>
+    <updated>2021-10-14T12:21:11.868Z</updated>
     
     
       
@@ -513,60 +569,6 @@ pip</summary>
     <category term="COMP9024" scheme="http://szdf123.github.io/tags/COMP9024/"/>
     
     <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构与算法（1）</title>
-    <link href="http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-1/"/>
-    <id>http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-1/</id>
-    <published>2021-06-19T14:13:45.000Z</published>
-    <updated>2021-09-01T13:34:49.865Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;关于课程&quot;&gt;&lt;a href=&quot;#关于课程&quot; class=&quot;headerlink&quot; title=&quot;关于课程&quot;&gt;&lt;/a&gt;关于课程&lt;/h2&gt;&lt;p&gt;&lt;a</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9024" scheme="http://szdf123.github.io/tags/COMP9024/"/>
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Maven命令</title>
-    <link href="http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/"/>
-    <id>http://szdf123.github.io/2021/05/11/ji-zhu-xue-xi/java/maven-ming-ling/</id>
-    <published>2021-05-11T09:00:05.000Z</published>
-    <updated>2021-09-01T13:34:49.639Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;Maven-Lifecycle-命令&quot;&gt;&lt;a href=&quot;#Maven-Lifecycle-命令&quot; class=&quot;headerlink&quot; title=&quot;Maven Lifecycle 命令&quot;&gt;&lt;/a&gt;Maven Lifecycle 命令&lt;/h2&gt;&lt;p&gt;mvn</summary>
-        
-      
-    
-    
-    
-    <category term="技术学习" scheme="http://szdf123.github.io/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-    <category term="Maven" scheme="http://szdf123.github.io/tags/Maven/"/>
     
   </entry>
   
