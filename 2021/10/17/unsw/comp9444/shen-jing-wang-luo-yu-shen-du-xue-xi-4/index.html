@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>神经网络与深度学习（4） | Hexo</title>
+  <meta name="description" content="convolutional neural networks 卷积神经网络 progressively deeper networks  逐步深入网络 backpropagation n. 反向传播 weight initialisation, batch normalisation, residual networks and dense networks 权值初始化、批处理归一化、残差网络和密集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络与深度学习（4）">
+<meta property="og:url" content="http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/index.html">
+<meta property="og:site_name" content="本杰明学习笔记">
+<meta property="og:description" content="convolutional neural networks 卷积神经网络 progressively deeper networks  逐步深入网络 backpropagation n. 反向传播 weight initialisation, batch normalisation, residual networks and dense networks 权值初始化、批处理归一化、残差网络和密集">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/2muVvYRiH2vXb7Xx8BIbGPIN.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/azHBaeiQlMkMmcSUFVhokEwr.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/JTHGgHNmXsjeZhstVEAw8HXN.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ef1gGb1c6OQtztA5qzx3poFc.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230304461.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230339521.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230408592.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/k4aKsVYKnmSbeILl1E4kYSQt.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231015204.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231322766.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ef1gGb1c6OQtztA5qzx3poFc-20211017231356927.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/QET9VLGN5Vquhz6K4apbLC4J.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/Yl8uqo7XUrlwgjahjT36MiAX.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ZAy1JlxKMOUiSOstZ2UzvaGy.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/LEkFHjmTpLMEL6GAggCbqsif.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231922865.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/yj21hHxbbbgYA5ZEpFqs8spm.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232605360.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232720341.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232901824.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/jTzOm6iay2Uryn8a8MIgZ2DX.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017233513855.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018111133170.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018111145031.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162028877.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162447080.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162802310.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162822589.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162957127.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163019154.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163107521.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163801875.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164408104.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164552141.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164614149.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165030004.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165148154.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165216568.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165700104.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165801759.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165821689.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165744918.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165821689.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170147416.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170244455.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170357029.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170933363.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171245915.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171254735.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171457486.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171724954.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018172016107.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171955496.png">
+<meta property="article:published_time" content="2021-10-17T14:32:29.000Z">
+<meta property="article:modified_time" content="2021-10-19T07:25:56.071Z">
+<meta property="article:author" content="Benjamin">
+<meta property="article:tag" content="课程笔记">
+<meta property="article:tag" content="COMP9444">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/2muVvYRiH2vXb7Xx8BIbGPIN.png">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://szdf123.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">本杰明</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Programmer &amp; Product Manager</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/szdf123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>学习技术，热爱生活</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/UNSW/">UNSW</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">实用工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/">生活纪实</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9020/" rel="tag">COMP9020</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9021/" rel="tag">COMP9021</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9024/" rel="tag">COMP9024</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9311/" rel="tag">COMP9311</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9331/" rel="tag">COMP9331</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9414/" rel="tag">COMP9414</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9444/" rel="tag">COMP9444</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9517/" rel="tag">COMP9517</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/" rel="tag">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSOE9210/" rel="tag">GSOE9210</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" rel="tag">全链路监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" rel="tag">实践操作</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" rel="tag">已完稿</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%8C/" rel="tag">手册</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" rel="tag">持续更新</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" rel="tag">监控技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" rel="tag">编辑中</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a><span class="tag-list-count">39</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/C/" style="font-size: 13px;">C</a> <a href="/tags/COMP9020/" style="font-size: 13.62px;">COMP9020</a> <a href="/tags/COMP9021/" style="font-size: 13px;">COMP9021</a> <a href="/tags/COMP9024/" style="font-size: 13.23px;">COMP9024</a> <a href="/tags/COMP9311/" style="font-size: 13.85px;">COMP9311</a> <a href="/tags/COMP9331/" style="font-size: 13px;">COMP9331</a> <a href="/tags/COMP9414/" style="font-size: 13px;">COMP9414</a> <a href="/tags/COMP9444/" style="font-size: 13.46px;">COMP9444</a> <a href="/tags/COMP9517/" style="font-size: 13.38px;">COMP9517</a> <a href="/tags/CentOS/" style="font-size: 13.15px;">CentOS</a> <a href="/tags/GSOE9210/" style="font-size: 13.31px;">GSOE9210</a> <a href="/tags/Hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.08px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.23px;">Linux</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/MacOS/" style="font-size: 13.08px;">MacOS</a> <a href="/tags/Maven/" style="font-size: 13px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/OpenCV/" style="font-size: 13px;">OpenCV</a> <a href="/tags/Python/" style="font-size: 13.31px;">Python</a> <a href="/tags/SQL/" style="font-size: 13.38px;">SQL</a> <a href="/tags/Windows/" style="font-size: 13px;">Windows</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 13px;">人工智能</a> <a href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">全链路监控</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 13px;">图像处理</a> <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" style="font-size: 13.31px;">实践操作</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13.23px;">工具</a> <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" style="font-size: 13.92px;">已完稿</a> <a href="/tags/%E6%89%8B%E5%86%8C/" style="font-size: 13.38px;">手册</a> <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" style="font-size: 13.69px;">持续更新</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.08px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.77px;">数据库</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 13px;">游戏</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13.08px;">理财</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13px;">生活</a> <a href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" style="font-size: 13.31px;">监控技术</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 13.54px;">离散数学</a> <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" style="font-size: 13.54px;">编辑中</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 13.38px;">计算机视觉</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">课程笔记</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="title">计算机视觉课程笔记（7）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-27T15:00:06.000Z" itemprop="datePublished">2021-10-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="title">计算机视觉课程笔记（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-25T10:36:12.000Z" itemprop="datePublished">2021-10-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="title">工程决策结构（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-25T02:43:06.000Z" itemprop="datePublished">2021-10-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="title">神经网络与深度学习（ass1）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T14:32:48.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="title">神经网络与深度学习（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T13:15:05.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-UNSW/COMP9444/神经网络与深度学习（4）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      神经网络与深度学习（4）
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/" class="article-date">
+	  <time datetime="2021-10-17T14:32:29.000Z" itemprop="datePublished">2021-10-17</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/UNSW/">UNSW</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/COMP9444/" rel="tag">COMP9444</a>, <a class="article-tag-link-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.4k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p><em><strong>convolutional neural networks</strong></em> 卷积神经网络</p>
+<p><em><strong>progressively deeper networks</strong></em>  逐步深入网络</p>
+<p><em><strong>backpropagation</strong></em> n. 反向传播</p>
+<p><em><strong>weight initialisation, batch normalisation, residual networks and dense networks</strong></em> 权值初始化、批处理归一化、残差网络和密集网络</p>
+<h2 id="综述"><a class="markdownIt-Anchor" href="#综述"></a> 综述</h2>
+<p>本节课我们将研究一个典型PyTorch程序的基本结构和组件，并运行一些简单的示例。我们还将学习如何分析神经网络的隐藏单元动力学。</p>
+<h2 id="图像分类image-classification"><a class="markdownIt-Anchor" href="#图像分类image-classification"></a> 图像分类(Image Classification)</h2>
+<p>最常用的三种图像分类数据集是MNIST、CIFAR-10和ImageNet</p>
+<h3 id="mnist-数据集mnist-dataset"><a class="markdownIt-Anchor" href="#mnist-数据集mnist-dataset"></a> MNIST 数据集(MNIST Dataset)</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/2muVvYRiH2vXb7Xx8BIbGPIN.png" alt="img"></p>
+<p>MNIST手写数字数据集于1998年发布，由50,000张训练图像和10,000张测试图像组成。这些图像是黑白的，分辨率为28×28像素。</p>
+<h3 id="cifar-10数据集cifar-10-dataset"><a class="markdownIt-Anchor" href="#cifar-10数据集cifar-10-dataset"></a> CIFAR-10数据集(CIFAR-10 Dataset)</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/azHBaeiQlMkMmcSUFVhokEwr.png" alt="img"></p>
+<p>CIFAR-10数据集于2009年推出，由10个不同类别的6万张分辨率为32times×32的彩色图像组成。</p>
+<h3 id="imagenet-数据集imagenet-dataset"><a class="markdownIt-Anchor" href="#imagenet-数据集imagenet-dataset"></a> ImageNet 数据集(ImageNet Dataset)</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/JTHGgHNmXsjeZhstVEAw8HXN.jpeg" alt="img"></p>
+<p>ImageNet数据集由1000个不同类别的120万张图像组成，并成为ImageNet LSVRC竞赛的基础。</p>
+<p>2012年，利用名为AlexNet的8层卷积神经网络，ImageNet数据集在预测准确性方面取得了重大进展。随后的增强允许更深入的网络被训练，并达到更高的准确性。</p>
+<h2 id="卷积网络-convolutional-networks"><a class="markdownIt-Anchor" href="#卷积网络-convolutional-networks"></a> 卷积网络 Convolutional Networks</h2>
+<p><strong>卷积层</strong>(<strong>convolutional layer</strong>): 对图像的不同部分应用相同的权重。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ef1gGb1c6OQtztA5qzx3poFc.png" alt="img"></p>
+<p>卷积神经网络一般由以下几部分组成:</p>
+<p><strong>卷积层 convolutional</strong> <strong>layers</strong>:从前一层提取平移不变特征</p>
+<p><strong>子采样或池化层 subsampling or pooling layers</strong>:将前一层多个单元的激活合并为一个单元</p>
+<p><strong>全连接层 fully connected</strong> <strong>layers</strong>:收集空间扩散信息</p>
+<p><strong>输出层 output layer</strong>:在类之间选择</p>
+<h4 id="视觉皮层-visual-cortex"><a class="markdownIt-Anchor" href="#视觉皮层-visual-cortex"></a> 视觉皮层 Visual cortex</h4>
+<h2 id="卷积的细节convolution-in-detail"><a class="markdownIt-Anchor" href="#卷积的细节convolution-in-detail"></a> 卷积的细节(Convolution in Detail)</h2>
+<h3 id="卷积运算符convolution-operator"><a class="markdownIt-Anchor" href="#卷积运算符convolution-operator"></a> 卷积运算符(Convolution operator)</h3>
+<p><strong>连续卷积(Continuous convolution)</strong></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230304461.png" alt="image-20211017230304461"></p>
+<p><strong>离散卷积(Discrete convolution)</strong></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230339521.png" alt="image-20211017230339521"></p>
+<p><strong>二维卷积(Two-dimensional convolution)</strong></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017230408592.png" alt="image-20211017230408592"></p>
+<h3 id="卷积网络层convolutional-network-layer"><a class="markdownIt-Anchor" href="#卷积网络层convolutional-network-layer"></a> 卷积网络层(Convolutional Network Layer)</h3>
+<p>图像高度J×图像宽度K，图层数L，过滤器尺寸M×N</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/k4aKsVYKnmSbeILl1E4kYSQt.png" alt="img"></p>
+<p><em>J</em>=6,<em>K</em>=7,<em>L</em>=3,<em>M</em>=3,<em>N</em>=3</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231015204.png" alt="image-20211017231015204"></p>
+<p>自由参数(free parameters)个数为: F × (1 + L × M × N)，其中，F是这一层滤波器的数量。</p>
+<p><strong>褶积层 convolution layer</strong> 尺寸为 (<em>J</em>+1−<em>M</em>)×(<em>K</em>+1−<em>N</em>)</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231322766.png" alt="image-20211017231322766"></p>
+<h3 id="池和填充-pooling-and-padding"><a class="markdownIt-Anchor" href="#池和填充-pooling-and-padding"></a> 池和填充 Pooling and Padding</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ef1gGb1c6OQtztA5qzx3poFc-20211017231356927.png" alt="img"></p>
+<h4 id="最大池-max-pooling"><a class="markdownIt-Anchor" href="#最大池-max-pooling"></a> 最大池 Max Pooling</h4>
+<p>子抽样的一种常见形式是最大池化。前一层被划分为小组单元(通常是在2×2网格中)，每个小组单元之间的最大激活被复制到随后层中的单个单元。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/QET9VLGN5Vquhz6K4apbLC4J.png" alt="img"></p>
+<h4 id="补零-zero-padding"><a class="markdownIt-Anchor" href="#补零-zero-padding"></a> 补零 Zero Padding</h4>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/Yl8uqo7XUrlwgjahjT36MiAX.png" alt="img"></p>
+<h2 id="步幅和数据增强-stride-and-data-augmentation"><a class="markdownIt-Anchor" href="#步幅和数据增强-stride-and-data-augmentation"></a> 步幅和数据增强 Stride and Data Augmentation</h2>
+<p>数据增强是指使用领域知识从最初提供的训练项目中生成额外的训练项目。</p>
+<p>例子：AlexNet</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ZAy1JlxKMOUiSOstZ2UzvaGy.png" alt="img"></p>
+<ul>
+<li>
+<p>5个卷积层加上3个完全连接层</p>
+</li>
+<li>
+<p>在输出层应用1000类的Softmax</p>
+</li>
+<li>
+<p>两个gpu，它们只在特定的层上进行交互</p>
+</li>
+<li>
+<p>大跨步汇集3×3社区</p>
+</li>
+<li>
+<p>在完全连接的层有50%的跌落</p>
+</li>
+<li>
+<p>通过随机裁剪以及在RGB空间上变换的数据增强</p>
+</li>
+</ul>
+<p>在AlexNet中，每个原始图像都以不同的方式随机裁剪，以创建224×224大小的图像。图像也可以从左到右反射，并可以对图像的RGB通道进行更改。</p>
+<h3 id="跨度-stride"><a class="markdownIt-Anchor" href="#跨度-stride"></a> 跨度 Stride</h3>
+<p>设 <strong>stride</strong> of s &gt; 1</p>
+<p>如，<em>J</em>=7,<em>K</em>=9,<em>L</em>=3,<em>M</em>=3,<em>N</em>=3,<em>s</em>=2</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/LEkFHjmTpLMEL6GAggCbqsif.png" alt="img"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017231922865.png" alt="image-20211017231922865"></p>
+<p>每个过滤器的自由参数的数量为 1+<em>L</em>×<em>M</em>×<em>N</em></p>
+<h3 id="跨维度-stride-dimensions"><a class="markdownIt-Anchor" href="#跨维度-stride-dimensions"></a> 跨维度 Stride Dimensions</h3>
+<p>j的取值为 0,<em>s</em>,2<em>s</em>,…,(<em>J</em>−<em>M</em>).</p>
+<p>k的取值为 0,<em>s</em>,2<em>s</em>,…,(<em>K</em>−<em>N</em>).</p>
+<p>下一层是 (1+(<em>J</em>−<em>M</em>)/<em>s</em>) by (1+(K−N)/s)(1+(<em>K</em>−<em>N</em>)/<em>s</em>)</p>
+<h4 id="带有零填充的步幅"><a class="markdownIt-Anchor" href="#带有零填充的步幅"></a> 带有零填充的步幅</h4>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/yj21hHxbbbgYA5ZEpFqs8spm.png" alt="img"></p>
+<p>与宽度P的零填充相结合时，</p>
+<p><em>j</em> 取值为 0, s,2s, . . . , (J+2P−M)0,<em>s</em>,2<em>s</em>,…,(<em>J</em>+2<em>P</em>−<em>M</em>).</p>
+<p>k 取值为 0, s,2s, . . . , (K+2P−N)0,<em>s</em>,2<em>s</em>,…,(<em>K</em>+2<em>P</em>−<em>N</em>)</p>
+<p>下一层的尺寸是 (1+(<em>J</em>+2<em>P</em>−<em>M</em>)/<em>s</em>) by (1+(K+2P−N)/s)</p>
+<h3 id="例如alexnet-conv-layer-1"><a class="markdownIt-Anchor" href="#例如alexnet-conv-layer-1"></a> 例如：AlexNet Conv Layer 1</h3>
+<p>J = K = 224, P = 2, M = N = 11, s = 4. 下一层的宽度为:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232605360.png" alt="image-20211017232605360"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232720341.png" alt="image-20211017232720341"></p>
+<h3 id="重叠的池-overlapping-pooling"><a class="markdownIt-Anchor" href="#重叠的池-overlapping-pooling"></a> 重叠的池 Overlapping Pooling</h3>
+<p>如果前一层为J ×K，应用max pooling, 宽度 F, 跨度 s，则下一层的尺寸为:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017232901824.png" alt="image-20211017232901824"></p>
+<h4 id="卷积过滤器-convolutional-filters"><a class="markdownIt-Anchor" href="#卷积过滤器-convolutional-filters"></a> 卷积过滤器 Convolutional Filters</h4>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/jTzOm6iay2Uryn8a8MIgZ2DX.jpeg" alt="img"></p>
+<h2 id="例题"><a class="markdownIt-Anchor" href="#例题"></a> 例题</h2>
+<p>如果 <em>J</em>=<em>K</em>=84,<em>L</em>=4,<em>M</em>=<em>N</em>=8,<em>P</em>=0,<em>s</em>=4，那么</p>
+<p><strong>第一次卷积层</strong>：</p>
+<ol>
+<li>重量过滤器WF weights per filter = 1 + M × N × L = 1 + 8 × 8 × 4=257</li>
+<li>宽度W高度H width and height = 1 + ( J - M ) / s = 1 + ( 84 - 8 ) / 4 = 20</li>
+<li>神经元数量NN number of neurons = W × H × L × s = 20 × 20 × 16 = 6400</li>
+<li>连接数CO connections = W × H × L × s × WF = NN × WF = 20 × 20 × 16 × 257 = 1644800</li>
+<li>独立参数IP independent parameters = L × s × WF = 16 × 257 = 4112</li>
+</ol>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211017233513855.png" alt="image-20211017233513855"></p>
+<p><strong>第二个卷积层</strong>：</p>
+<p><em>J</em>2=<em>K2</em>=20,<em>L2</em>=16,<em>M</em>2=<em>N2</em>=4,<em>P</em>=0,<em>s2</em>=2</p>
+<ol>
+<li>重量过滤器WF2 weights per filter = 1 + M2 × N2 × L2 = 1 + 4 × 4 × 16=257</li>
+<li>宽度W2和高度H2 width and height = 1+ ( J2 - M2 ) / s2 = 1+ (20 - 4 ) / 2 = 9</li>
+<li>神经元数量NN2 number of neurons = W2 × H2 × L2 × s2 = 9 × 9 × 32 = 2592</li>
+<li>连接数CO2 connections = W2 × H2 × L2 × s2 × WF2 = 9 × 9 × 32 × 257 = 666144</li>
+<li>独立参数IP2 independent parameters = L2 × s2 × WF2 = 32 × 257= 8224</li>
+</ol>
+<p><strong>完全连接层 fully connected layer</strong></p>
+<ol>
+<li>重量过滤器WFF weights per filter = 1 + NN2 = 1 + 2592 = 2593</li>
+<li>宽度和高度 width and height (not applicable)</li>
+<li>神经元数量NNF number of neurons = M2 × N2 × L2 = 256</li>
+<li>连接数COF connections = NNF × WFF = 256 × 2593=663808</li>
+<li>独立参数 independent parameters = NNF × WFF = 663808</li>
+</ol>
+<p><strong>输出层  the output layer</strong></p>
+<ol>
+<li>重量过滤器WFO weights per filter = 1 + NNF = 1+256 = 257</li>
+<li>宽度和高度 width and height (not applicable)</li>
+<li>神经元数量NNO number of neurons = ? =18</li>
+<li>连接数 connections = NNO × WFO = 18 × 257 = 4626</li>
+<li>独立参数 independent parameters = NNO × WFO = 4626</li>
+</ol>
+<p><strong>结果卷积层 resulting convolutional layer</strong></p>
+<p>对于<em>J</em>=<em>K</em>,<em>L</em>=?,<em>M</em>=<em>N</em>,<em>P</em>=0,<em>s</em>，有</p>
+<p>大小：( 1 + (  J+2P − M ) / s ) × ( 1 + ( K + 2P − N ) / s )</p>
+<p><strong>结果(downsampled)层</strong></p>
+<p>max pooling with filter size F<br>
+( 1 + ( J − F ) / s ) × ( 1 + ( K − F ) / s )</p>
+<h2 id="各激活函数图形"><a class="markdownIt-Anchor" href="#各激活函数图形"></a> 各激活函数图形</h2>
+<p>Sigmoid:</p>
+<p>![image-20211018111108564](/Users/yinkejian/Library/Application Support/typora-user-images/image-20211018111108564.png)</p>
+<p>Tanh:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018111133170.png" alt="image-20211018111133170"></p>
+<p>ReLU:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018111145031.png" alt="image-20211018111145031"></p>
+<h2 id="权重初始化-weight-initialization"><a class="markdownIt-Anchor" href="#权重初始化-weight-initialization"></a> 权重初始化 Weight Initialization</h2>
+<p>权值初始化的目的是在深度神经网络的每一层中选择初始权值的大小，使梯度保持在一个健康的范围内，而不是消失(vanish)或爆炸(explode)。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162028877.png" alt="image-20211018162028877"></p>
+<p>其中，g()是传递函数</p>
+<p>回顾<strong>均值(mean)</strong> 和**方差(variance)**的定义</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162447080.png" alt="image-20211018162447080"></p>
+<p>所以，如果<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162802310.png" alt="image-20211018162802310">，那么<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162822589.png" alt="image-20211018162822589"></p>
+<p><em><strong>独立的，同分布的 independent and identically distributed (i.i.d.)</strong></em></p>
+<p>更一般地，如果<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018162957127.png" alt="image-20211018162957127">，<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163019154.png" alt="image-20211018163019154">，那么<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163107521.png" alt="image-20211018163107521"></p>
+<h2 id="统计例子抛硬币"><a class="markdownIt-Anchor" href="#统计例子抛硬币"></a> 统计例子:抛硬币</h2>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018163801875.png" alt="image-20211018163801875"></p>
+<p>如果投掷100次，那么 <em>μ</em>=100×0.5=50 ，σ^2=100 × 0.25 = 25</p>
+<p>如果投掷10000次，那么 <em>μ</em>=10000×0.5=5000 ，σ^2=10000 × 0.25 = 2500</p>
+<p>我们更关注<strong>标准偏差standard deviation</strong>，n=1/100//10000时，σ=0.5/5/50</p>
+<h3 id="权重初始化-weight-initialisation"><a class="markdownIt-Anchor" href="#权重初始化-weight-initialisation"></a> 权重初始化 Weight Initialisation</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164408104.png" alt="image-20211018164408104"></p>
+<p>其中G0是一个常数，其值的估计考虑到传递函数。</p>
+<p>将所有D层从输入x=x(1)乘到输出z=x (D+1)，得到</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164552141.png" alt="image-20211018164552141"></p>
+<p>当我们通过反向传播应用梯度下降时，微分将遵循类似的模式:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018164614149.png" alt="image-20211018164614149"></p>
+<p>为了让乘积中的所有项都近似等于1，对于传递函数tanh()，使用<strong>xavier</strong>初始化：</p>
+<p>![image-20211018164833867](/Users/yinkejian/Library/Application Support/typora-user-images/image-20211018164833867.png)</p>
+<p>对于整流线性单元(ReLU)，上述分析基本上仍然有效，有<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165030004.png" alt="image-20211018165030004">，使用 <strong>kaiming</strong>初始化，权重是从均值为0和标准差的高斯分布中选择的。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165148154.png" alt="image-20211018165148154"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165216568.png" alt="image-20211018165216568"></p>
+<p>左图是22-层 ReLU 网络 ，Var[<em>w</em>]=<em>2/n</em> converges faster than Var[<em>w</em>]=1/n</p>
+<p>右图是30-层 ReLU 网络 ，Var[<em>w</em>]=<em>2/n</em> is successful 当 Var[<em>w</em>]=<em>1/n</em> fails to learn at all.</p>
+<h3 id="批量归一化-batch-normalization"><a class="markdownIt-Anchor" href="#批量归一化-batch-normalization"></a> 批量归一化 Batch Normalization</h3>
+<p>批量归一化与权重初始化的目的相似，但它适用于整个培训过程，而不仅仅是在开始。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165700104.png" alt="image-20211018165700104"></p>
+<p>然后这些激活可以被移动和重新缩放，以具有平均值mean<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165801759.png" alt="image-20211018165801759">和标准偏差<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165821689.png" alt=""><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165744918.png" alt="image-20211018165744918"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018165821689.png" alt="image-20211018165821689"></p>
+<h2 id="残差网络和密集网络-resnets-and-densenets"><a class="markdownIt-Anchor" href="#残差网络和密集网络-resnets-and-densenets"></a> 残差网络和密集网络 ResNets and DenseNets</h2>
+<h3 id="残差网络-residual-networks"><a class="markdownIt-Anchor" href="#残差网络-residual-networks"></a> 残差网络 Residual Networks</h3>
+<p>通过引入跳跃连接形成残差网络，可以成功训练深度网络(大于30层)。这个想法是在一个深度网络中取任意两个连续的堆叠层，并添加一个“跳过”连接，绕过这些层并添加到它们的输出中。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170147416.png" alt="image-20211018170147416"></p>
+<p>通过这种方式，前一层试图做“整体”工作，使x尽可能接近整个网络的目标输出。F(x)是一个残差分量，用于修正前一层的错误，或提供前一层不够强大而无法计算的额外细节。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170244455.png" alt="image-20211018170244455"></p>
+<h3 id="密集网络-dense-networks"><a class="markdownIt-Anchor" href="#密集网络-dense-networks"></a> 密集网络 Dense Networks</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170357029.png" alt="image-20211018170357029"></p>
+<p>在ImageNet上，使用紧密连接的块的网络也取得了良好的效果。在每个块内，每一层都通过快捷连接到所有前面的层。</p>
+<h2 id="神经风格转移-neural-style-transfer"><a class="markdownIt-Anchor" href="#神经风格转移-neural-style-transfer"></a> 神经风格转移 Neural Style Transfer</h2>
+<p>卷积神经网络可以用于除目标分类以外的许多任务。其中一个任务是神经风格转换(Neural Style Transfer, Gatys, 2016)，其目的是将一幅图像的内容与另一幅图像的风格相结合，如图所示。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018170933363.png" alt="image-20211018170933363"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171245915.png" alt="image-20211018171245915"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171254735.png" alt="image-20211018171254735"></p>
+<p>注意，在这种情况下，梯度下降不是应用于网络的权值(保持固定)，而是应用于图像本身像素的R,G,B值。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171457486.png" alt="image-20211018171457486"></p>
+<h2 id="例题-2"><a class="markdownIt-Anchor" href="#例题-2"></a> 例题</h2>
+<h4 id="question-1"><a class="markdownIt-Anchor" href="#question-1"></a> Question 1</h4>
+<p>描述梯度消失和爆炸的问题，以及权重初始化如何帮助防止它。</p>
+<p>Explain the problem of vanishing and exploding gradients, and how Weight Initialization can help to prevent it.</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171724954.png" alt="image-20211018171724954"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018172016107.png" alt="image-20211018172016107"></p>
+<h4 id="question-2"><a class="markdownIt-Anchor" href="#question-2"></a> Question 2</h4>
+<p>描述批处理规范化算法。Describe the Batch Normalization algorithm.</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018171955496.png" alt="image-20211018171955496"></p>
+<h4 id="question-3"><a class="markdownIt-Anchor" href="#question-3"></a> Question 3</h4>
+<p>解释残余网络和密集网络的区别。</p>
+<p>残余网络包括绕过每对连续层的“跳过”连接。因此，这些中间层计算一个残余分量，它被添加到前一层的输出中并纠正它们的错误，或者提供它们不够强大而无法计算的额外细节。</p>
+<p>一个密集网络由紧密连接的块组成，由卷积和池层分隔。在一个密集的块内，每一层都通过快捷连接到前面的所有层。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/" title="神经网络与深度学习（4）" target="_blank" rel="external">http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://szdf123.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://szdf123.github.io/" target="_blank"><span class="text-dark">本杰明</span><small class="ml-1x">Programmer &amp; Product Manager</small></a></h3>
+        <div>学习技术，热爱生活</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" title="神经网络与深度学习（5）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/10/14/ji-zhu-xue-xi/ai/numpy-shi-yong-shou-ce/" title="numpy使用手册"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/szdf123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Benjamin
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>

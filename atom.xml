@@ -6,7 +6,7 @@
   <link href="http://szdf123.github.io/atom.xml" rel="self"/>
   
   <link href="http://szdf123.github.io/"/>
-  <updated>2021-10-14T12:16:55.591Z</updated>
+  <updated>2021-10-27T15:28:31.777Z</updated>
   <id>http://szdf123.github.io/</id>
   
   <author>
@@ -15,6 +15,181 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机视觉课程笔记（7）</title>
+    <link href="http://szdf123.github.io/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/"/>
+    <id>http://szdf123.github.io/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/</id>
+    <published>2021-10-27T15:00:06.000Z</published>
+    <updated>2021-10-27T15:28:31.777Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;motion-动作&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#motion-动作&quot;&gt;&lt;/a&gt; Motion 动作&lt;/h2&gt;
+&lt;p&gt;将时间维度添加到图像形成中：&lt;/p&gt;
+&lt;p&gt;&lt;img</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9517" scheme="http://szdf123.github.io/tags/COMP9517/"/>
+    
+    <category term="计算机视觉" scheme="http://szdf123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机视觉课程笔记（5）</title>
+    <link href="http://szdf123.github.io/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/"/>
+    <id>http://szdf123.github.io/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/</id>
+    <published>2021-10-25T10:36:12.000Z</published>
+    <updated>2021-10-27T15:00:21.637Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;python skimage图像处理(三)&lt;br&gt;
+&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9517" scheme="http://szdf123.github.io/tags/COMP9517/"/>
+    
+    <category term="计算机视觉" scheme="http://szdf123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>工程决策结构（5）</title>
+    <link href="http://szdf123.github.io/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/"/>
+    <id>http://szdf123.github.io/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/</id>
+    <published>2021-10-25T02:43:06.000Z</published>
+    <updated>2021-10-25T02:59:25.702Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;EMV&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;Monotonic increasing function&lt;/strong&gt;&lt;/em&gt; 单调递增函数&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Strictly increasing function&lt;/strong&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="GSOE9210" scheme="http://szdf123.github.io/tags/GSOE9210/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络与深度学习（ass1）</title>
+    <link href="http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/"/>
+    <id>http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/</id>
+    <published>2021-10-18T14:32:48.000Z</published>
+    <updated>2021-10-20T15:11:43.607Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Due: Monday 25 October, 23:59 pm&lt;/p&gt;
+&lt;p&gt;在这篇作业中，你将执行和训练不同的神经网络模型来完成四项不同的任务，并分析结果。&lt;/p&gt;
+&lt;p&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络与深度学习（5）</title>
+    <link href="http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/"/>
+    <id>http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/</id>
+    <published>2021-10-18T13:15:05.000Z</published>
+    <updated>2021-10-20T16:43:22.051Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;总览&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#总览&quot;&gt;&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>神经网络与深度学习（4）</title>
+    <link href="http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/"/>
+    <id>http://szdf123.github.io/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/</id>
+    <published>2021-10-17T14:32:29.000Z</published>
+    <updated>2021-10-19T07:25:56.071Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;&lt;em&gt;&lt;strong&gt;convolutional neural networks&lt;/strong&gt;&lt;/em&gt; 卷积神经网络&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;progressively deeper networks&lt;/strong&gt;&lt;/em&gt; </summary>
+        
+      
+    
+    
+    
+    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
+    
+    
+    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
+    
+  </entry>
   
   <entry>
     <title>numpy使用手册</title>
@@ -77,7 +252,7 @@ a =</summary>
     <link href="http://szdf123.github.io/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/"/>
     <id>http://szdf123.github.io/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/</id>
     <published>2021-10-11T09:21:25.000Z</published>
-    <updated>2021-10-13T14:50:34.473Z</updated>
+    <updated>2021-10-15T09:20:57.428Z</updated>
     
     
       
@@ -354,14 +529,16 @@ pip</summary>
     <link href="http://szdf123.github.io/2021/09/24/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-2/"/>
     <id>http://szdf123.github.io/2021/09/24/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-2/</id>
     <published>2021-09-23T16:46:18.000Z</published>
-    <updated>2021-10-08T02:58:16.539Z</updated>
+    <updated>2021-10-18T16:55:58.034Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;review certain topics from</summary>
+    <summary type="html">&lt;h2 id=&quot;overview&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#overview&quot;&gt;&lt;/a&gt; Overview&lt;/h2&gt;
+&lt;p&gt;review certain topics from probability&lt;/p&gt;
+&lt;p&gt;the</summary>
         
       
     
@@ -381,41 +558,15 @@ pip</summary>
     <link href="http://szdf123.github.io/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-1/"/>
     <id>http://szdf123.github.io/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-1/</id>
     <published>2021-09-23T12:53:27.000Z</published>
-    <updated>2021-10-08T02:56:54.490Z</updated>
+    <updated>2021-10-15T08:53:40.814Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;h2 id=&quot;Overview&quot;&gt;&lt;a href=&quot;#Overview&quot; class=&quot;headerlink&quot; title=&quot;Overview&quot;&gt;&lt;/a&gt;Overview&lt;/h2&gt;&lt;p&gt;historical background of artificial</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>神经网络与深度学习（0）</title>
-    <link href="http://szdf123.github.io/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-0/"/>
-    <id>http://szdf123.github.io/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-0/</id>
-    <published>2021-09-22T16:30:16.000Z</published>
-    <updated>2021-09-23T12:30:11.069Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;各周授课内容&quot;&gt;&lt;a href=&quot;#各周授课内容&quot; class=&quot;headerlink&quot; title=&quot;各周授课内容&quot;&gt;&lt;/a&gt;各周授课内容&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Week 1&lt;/strong&gt;: historical background,</summary>
+    <summary type="html">&lt;h2 id=&quot;overview&quot;&gt;&lt;a class=&quot;markdownIt-Anchor&quot; href=&quot;#overview&quot;&gt;&lt;/a&gt; Overview&lt;/h2&gt;
+&lt;p&gt;historical background of artificial intelligence and</summary>
         
       
     
@@ -427,148 +578,6 @@ pip</summary>
     <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
     
     <category term="COMP9444" scheme="http://szdf123.github.io/tags/COMP9444/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>计算机视觉课程笔记（1）</title>
-    <link href="http://szdf123.github.io/2021/09/19/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-1/"/>
-    <id>http://szdf123.github.io/2021/09/19/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-1/</id>
-    <published>2021-09-19T14:28:33.000Z</published>
-    <updated>2021-10-08T02:55:10.425Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;What-is-computer-vision&quot;&gt;&lt;a href=&quot;#What-is-computer-vision&quot; class=&quot;headerlink&quot; title=&quot;What is computer vision?&quot;&gt;&lt;/a&gt;What is</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="课程笔记" scheme="http://szdf123.github.io/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/"/>
-    
-    <category term="COMP9517" scheme="http://szdf123.github.io/tags/COMP9517/"/>
-    
-    <category term="计算机视觉" scheme="http://szdf123.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用SSH配置Hexo连接Github</title>
-    <link href="http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/"/>
-    <id>http://szdf123.github.io/2021/08/30/zui-jia-shi-jian/shi-yong-ssh-pei-zhi-hexo-lian-jie-github/</id>
-    <published>2021-08-30T15:14:03.000Z</published>
-    <updated>2021-10-08T03:01:07.661Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;一、查看本地Github相关配置&quot;&gt;&lt;a href=&quot;#一、查看本地Github相关配置&quot; class=&quot;headerlink&quot; title=&quot;一、查看本地Github相关配置&quot;&gt;&lt;/a&gt;一、查看本地Github相关配置&lt;/h3&gt;&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="Hexo" scheme="http://szdf123.github.io/tags/Hexo/"/>
-    
-    <category term="实践操作" scheme="http://szdf123.github.io/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS系统搭建C语言开发环境</title>
-    <link href="http://szdf123.github.io/2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/"/>
-    <id>http://szdf123.github.io/2021/06/28/zui-jia-shi-jian/mac-xi-tong-da-jian-c-yu-yan-kai-fa-huan-jing/</id>
-    <published>2021-06-28T02:33:24.000Z</published>
-    <updated>2021-09-01T13:34:49.798Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h3 id=&quot;下载IDE&quot;&gt;&lt;a href=&quot;#下载IDE&quot; class=&quot;headerlink&quot; title=&quot;下载IDE&quot;&gt;&lt;/a&gt;下载IDE&lt;/h3&gt;&lt;p&gt;MacOS 自带C语言环境，因此可以直接执行gcc命令编译C语言文件&lt;/p&gt;
-&lt;pre</summary>
-        
-      
-    
-    
-    
-    <category term="最佳实践" scheme="http://szdf123.github.io/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/"/>
-    
-    
-    <category term="已完稿" scheme="http://szdf123.github.io/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/"/>
-    
-    <category term="MacOS" scheme="http://szdf123.github.io/tags/MacOS/"/>
-    
-    <category term="C" scheme="http://szdf123.github.io/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构与算法（3）</title>
-    <link href="http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/"/>
-    <id>http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2-copy/</id>
-    <published>2021-06-19T15:49:20.000Z</published>
-    <updated>2021-09-01T13:34:49.861Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;算法复杂度&quot;&gt;&lt;a href=&quot;#算法复杂度&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9024" scheme="http://szdf123.github.io/tags/COMP9024/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据结构与算法（2）</title>
-    <link href="http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2/"/>
-    <id>http://szdf123.github.io/2021/06/19/unsw/comp9024/shu-ju-jie-gou-yu-suan-fa-2/</id>
-    <published>2021-06-19T15:35:17.000Z</published>
-    <updated>2021-09-01T13:34:49.863Z</updated>
-    
-    
-      
-      
-        
-        
-    <summary type="html">&lt;h2 id=&quot;算法复杂度&quot;&gt;&lt;a href=&quot;#算法复杂度&quot; class=&quot;headerlink&quot; title=&quot;算法复杂度&quot;&gt;&lt;/a&gt;算法复杂度&lt;/h2&gt;&lt;h2 id=&quot;链表&quot;&gt;&lt;a href=&quot;#链表&quot; class=&quot;headerlink&quot;</summary>
-        
-      
-    
-    
-    
-    <category term="UNSW" scheme="http://szdf123.github.io/categories/UNSW/"/>
-    
-    
-    <category term="COMP9024" scheme="http://szdf123.github.io/tags/COMP9024/"/>
-    
-    <category term="编辑中" scheme="http://szdf123.github.io/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/"/>
     
   </entry>
   

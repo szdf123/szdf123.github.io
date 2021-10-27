@@ -18,12 +18,12 @@
   
   
   <title>神经网络与深度学习（1） | Hexo</title>
-  <meta name="description" content="Overviewhistorical background of artificial intelligence and deep learning History and Neuroanatomy 历史和神经解剖学Sub-Symbolic处理 Basic Neuroanatomy 基本的神经解剖学 Cerebral Cortex 大脑皮层 Brain Functions Neurons 神经 S">
+  <meta name="description" content="Overview historical background of artificial intelligence and deep learning Perceptron Heaviside step funtion learning rate  η Backpropagation  History and Neuroanatomy 历史和神经解剖学 Sub-Symbolic处理 Basic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="神经网络与深度学习（1）">
 <meta property="og:url" content="http://szdf123.github.io/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-1/index.html">
 <meta property="og:site_name" content="本杰明学习笔记">
-<meta property="og:description" content="Overviewhistorical background of artificial intelligence and deep learning History and Neuroanatomy 历史和神经解剖学Sub-Symbolic处理 Basic Neuroanatomy 基本的神经解剖学 Cerebral Cortex 大脑皮层 Brain Functions Neurons 神经 S">
+<meta property="og:description" content="Overview historical background of artificial intelligence and deep learning Perceptron Heaviside step funtion learning rate  η Backpropagation  History and Neuroanatomy 历史和神经解剖学 Sub-Symbolic处理 Basic">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210630469.png">
 <meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210717727.png">
@@ -50,7 +50,7 @@
 <meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210924000154899.png">
 <meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210924001106482.png">
 <meta property="article:published_time" content="2021-09-23T12:53:27.000Z">
-<meta property="article:modified_time" content="2021-10-08T02:56:54.490Z">
+<meta property="article:modified_time" content="2021-10-15T08:53:40.814Z">
 <meta property="article:author" content="Benjamin">
 <meta property="article:tag" content="课程笔记">
 <meta property="article:tag" content="COMP9444">
@@ -221,7 +221,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/UNSW/">UNSW</a><span class="category-list-count">42</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">实用工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/">生活纪实</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><span class="category-list-count">2</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/UNSW/">UNSW</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">实用工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/">生活纪实</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><span class="category-list-count">2</span></li></ul>
     </div>
   </div>
 
@@ -231,7 +231,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9020/" rel="tag">COMP9020</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9021/" rel="tag">COMP9021</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9024/" rel="tag">COMP9024</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9311/" rel="tag">COMP9311</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9331/" rel="tag">COMP9331</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9414/" rel="tag">COMP9414</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9444/" rel="tag">COMP9444</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9517/" rel="tag">COMP9517</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/" rel="tag">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSOE9210/" rel="tag">GSOE9210</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" rel="tag">全链路监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" rel="tag">实践操作</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" rel="tag">已完稿</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%8C/" rel="tag">手册</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" rel="tag">持续更新</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" rel="tag">监控技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" rel="tag">编辑中</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a><span class="tag-list-count">33</span></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9020/" rel="tag">COMP9020</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9021/" rel="tag">COMP9021</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9024/" rel="tag">COMP9024</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9311/" rel="tag">COMP9311</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9331/" rel="tag">COMP9331</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9414/" rel="tag">COMP9414</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9444/" rel="tag">COMP9444</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9517/" rel="tag">COMP9517</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/" rel="tag">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSOE9210/" rel="tag">GSOE9210</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" rel="tag">全链路监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" rel="tag">实践操作</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" rel="tag">已完稿</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%8C/" rel="tag">手册</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" rel="tag">持续更新</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" rel="tag">监控技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" rel="tag">编辑中</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a><span class="tag-list-count">39</span></li></ul>
     </div>
   </div>
 
@@ -241,7 +241,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/C/" style="font-size: 13px;">C</a> <a href="/tags/COMP9020/" style="font-size: 13.58px;">COMP9020</a> <a href="/tags/COMP9021/" style="font-size: 13px;">COMP9021</a> <a href="/tags/COMP9024/" style="font-size: 13.25px;">COMP9024</a> <a href="/tags/COMP9311/" style="font-size: 13.83px;">COMP9311</a> <a href="/tags/COMP9331/" style="font-size: 13px;">COMP9331</a> <a href="/tags/COMP9414/" style="font-size: 13px;">COMP9414</a> <a href="/tags/COMP9444/" style="font-size: 13.25px;">COMP9444</a> <a href="/tags/COMP9517/" style="font-size: 13.25px;">COMP9517</a> <a href="/tags/CentOS/" style="font-size: 13.17px;">CentOS</a> <a href="/tags/GSOE9210/" style="font-size: 13.25px;">GSOE9210</a> <a href="/tags/Hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.08px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.25px;">Linux</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/MacOS/" style="font-size: 13.08px;">MacOS</a> <a href="/tags/Maven/" style="font-size: 13px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/OpenCV/" style="font-size: 13px;">OpenCV</a> <a href="/tags/Python/" style="font-size: 13.33px;">Python</a> <a href="/tags/SQL/" style="font-size: 13.42px;">SQL</a> <a href="/tags/Windows/" style="font-size: 13px;">Windows</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 13px;">人工智能</a> <a href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">全链路监控</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 13px;">图像处理</a> <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" style="font-size: 13.33px;">实践操作</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13.25px;">工具</a> <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" style="font-size: 13.92px;">已完稿</a> <a href="/tags/%E6%89%8B%E5%86%8C/" style="font-size: 13.42px;">手册</a> <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" style="font-size: 13.67px;">持续更新</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.08px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.75px;">数据库</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 13px;">游戏</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13.08px;">理财</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13px;">生活</a> <a href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" style="font-size: 13.33px;">监控技术</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 13.5px;">离散数学</a> <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" style="font-size: 13.5px;">编辑中</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 13.25px;">计算机视觉</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">课程笔记</a>
+      <a href="/tags/C/" style="font-size: 13px;">C</a> <a href="/tags/COMP9020/" style="font-size: 13.62px;">COMP9020</a> <a href="/tags/COMP9021/" style="font-size: 13px;">COMP9021</a> <a href="/tags/COMP9024/" style="font-size: 13.23px;">COMP9024</a> <a href="/tags/COMP9311/" style="font-size: 13.85px;">COMP9311</a> <a href="/tags/COMP9331/" style="font-size: 13px;">COMP9331</a> <a href="/tags/COMP9414/" style="font-size: 13px;">COMP9414</a> <a href="/tags/COMP9444/" style="font-size: 13.46px;">COMP9444</a> <a href="/tags/COMP9517/" style="font-size: 13.38px;">COMP9517</a> <a href="/tags/CentOS/" style="font-size: 13.15px;">CentOS</a> <a href="/tags/GSOE9210/" style="font-size: 13.31px;">GSOE9210</a> <a href="/tags/Hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.08px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.23px;">Linux</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/MacOS/" style="font-size: 13.08px;">MacOS</a> <a href="/tags/Maven/" style="font-size: 13px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/OpenCV/" style="font-size: 13px;">OpenCV</a> <a href="/tags/Python/" style="font-size: 13.31px;">Python</a> <a href="/tags/SQL/" style="font-size: 13.38px;">SQL</a> <a href="/tags/Windows/" style="font-size: 13px;">Windows</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 13px;">人工智能</a> <a href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">全链路监控</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 13px;">图像处理</a> <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" style="font-size: 13.31px;">实践操作</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13.23px;">工具</a> <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" style="font-size: 13.92px;">已完稿</a> <a href="/tags/%E6%89%8B%E5%86%8C/" style="font-size: 13.38px;">手册</a> <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" style="font-size: 13.69px;">持续更新</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.08px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.77px;">数据库</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 13px;">游戏</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13.08px;">理财</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13px;">生活</a> <a href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" style="font-size: 13.31px;">监控技术</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 13.54px;">离散数学</a> <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" style="font-size: 13.54px;">编辑中</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 13.38px;">计算机视觉</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">课程笔记</a>
     </div>
   </div>
 
@@ -250,7 +250,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">7</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -265,32 +265,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/2021/10/14/ji-zhu-xue-xi/ai/numpy-shi-yong-shou-ce/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/10/14/ji-zhu-xue-xi/ai/numpy-shi-yong-shou-ce/" class="title">numpy使用手册</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-10-14T12:12:30.000Z" itemprop="datePublished">2021-10-14</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2021/10/14/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-3/" class="thumb">
+              <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -304,10 +279,10 @@
                 <a class="category-link" href="/categories/UNSW/">UNSW</a>
               </p>
               <p class="item-title">
-                <a href="/2021/10/14/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-3/" class="title">神经网络与深度学习（3）</a>
+                <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="title">计算机视觉课程笔记（7）</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-10-14T11:33:46.000Z" itemprop="datePublished">2021-10-14</time>
+                <time datetime="2021-10-27T15:00:06.000Z" itemprop="datePublished">2021-10-27</time>
               </p>
             </div>
           </li>
@@ -315,32 +290,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/" class="thumb">
-    
-    
-        <span class="thumb-image thumb-none"></span>
-    
-</a>
-
-            </div>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a>
-              </p>
-              <p class="item-title">
-                <a href="/2021/10/11/ji-zhu-xue-xi/jian-kong-xi-tong/quan-lian-lu-jian-kong/" class="title">全链路监控</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2021-10-11T09:21:25.000Z" itemprop="datePublished">2021-10-11</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-thumb">
-              <a href="/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-4/" class="thumb">
+              <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -354,10 +304,10 @@
                 <a class="category-link" href="/categories/UNSW/">UNSW</a>
               </p>
               <p class="item-title">
-                <a href="/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-4/" class="title">计算机视觉课程笔记（4）</a>
+                <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="title">计算机视觉课程笔记（5）</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-10-09T02:50:26.000Z" itemprop="datePublished">2021-10-09</time>
+                <time datetime="2021-10-25T10:36:12.000Z" itemprop="datePublished">2021-10-25</time>
               </p>
             </div>
           </li>
@@ -365,7 +315,7 @@
           <li>
             
             <div class="item-thumb">
-              <a href="/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-3/" class="thumb">
+              <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="thumb">
     
     
         <span class="thumb-image thumb-none"></span>
@@ -379,10 +329,60 @@
                 <a class="category-link" href="/categories/UNSW/">UNSW</a>
               </p>
               <p class="item-title">
-                <a href="/2021/10/09/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-3/" class="title">计算机视觉课程笔记（3）</a>
+                <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="title">工程决策结构（5）</a>
               </p>
               <p class="item-date">
-                <time datetime="2021-10-09T02:42:50.000Z" itemprop="datePublished">2021-10-09</time>
+                <time datetime="2021-10-25T02:43:06.000Z" itemprop="datePublished">2021-10-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="title">神经网络与深度学习（ass1）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T14:32:48.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="title">神经网络与深度学习（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T13:15:05.000Z" itemprop="datePublished">2021-10-18</time>
               </p>
             </div>
           </li>
@@ -444,7 +444,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/09/23/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-1/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 500(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 513(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
@@ -454,64 +454,90 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h2><p>historical background of artificial intelligence and deep learning</p>
-<h2 id="History-and-Neuroanatomy-历史和神经解剖学"><a href="#History-and-Neuroanatomy-历史和神经解剖学" class="headerlink" title="History and Neuroanatomy 历史和神经解剖学"></a>History and Neuroanatomy 历史和神经解剖学</h2><p>Sub-Symbolic处理</p>
+        <h2 id="overview"><a class="markdownIt-Anchor" href="#overview"></a> Overview</h2>
+<p>historical background of artificial intelligence and deep learning</p>
+<p>Perceptron</p>
+<p>Heaviside step funtion</p>
+<p>learning rate  η</p>
+<p>Backpropagation</p>
+<h2 id="history-and-neuroanatomy-历史和神经解剖学"><a class="markdownIt-Anchor" href="#history-and-neuroanatomy-历史和神经解剖学"></a> History and Neuroanatomy 历史和神经解剖学</h2>
+<p>Sub-Symbolic处理</p>
 <p>Basic Neuroanatomy 基本的神经解剖学</p>
 <p>Cerebral Cortex 大脑皮层</p>
 <p>Brain Functions</p>
 <p>Neurons 神经</p>
 <p>Synapses, Neurotransmitter and Ion Channels 突触，神经递质和离子通道</p>
-<h2 id="Biological-vs-Artificial-Neurons"><a href="#Biological-vs-Artificial-Neurons" class="headerlink" title="Biological vs Artificial Neurons"></a>Biological vs Artificial Neurons</h2><p>McCulloch and Pitts Neuron</p>
+<h2 id="biological-vs-artificial-neurons"><a class="markdownIt-Anchor" href="#biological-vs-artificial-neurons"></a> Biological vs Artificial Neurons</h2>
+<p>McCulloch and Pitts Neuron</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210630469.png" alt="image-20210923210630469"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210717727.png" alt="image-20210923210717727"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210801043.png" alt="image-20210923210801043"></p>
-<h3 id="Transfer-function-传递函数"><a href="#Transfer-function-传递函数" class="headerlink" title="Transfer function  传递函数"></a>Transfer function  传递函数</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210941590.png" alt="image-20210923210941590"></p>
-<h3 id="Linear-separability-线性可分性"><a href="#Linear-separability-线性可分性" class="headerlink" title="Linear separability 线性可分性"></a>Linear separability 线性可分性</h3><p>Linearly Separable 线性可分的</p>
+<h3 id="transfer-function-传递函数"><a class="markdownIt-Anchor" href="#transfer-function-传递函数"></a> Transfer function  传递函数</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923210941590.png" alt="image-20210923210941590"></p>
+<h3 id="linear-separability-线性可分性"><a class="markdownIt-Anchor" href="#linear-separability-线性可分性"></a> Linear separability 线性可分性</h3>
+<p>Linearly Separable 线性可分的</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923211203749.png" alt="image-20210923211203749"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923211425314.png" alt="image-20210923211425314"></p>
-<h2 id="Perceptron-Learning-Algorithm-感知器学习算法"><a href="#Perceptron-Learning-Algorithm-感知器学习算法" class="headerlink" title="Perceptron Learning Algorithm 感知器学习算法"></a>Perceptron Learning Algorithm 感知器学习算法</h2><p>Supervised Learning 监督式学习</p>
+<h2 id="perceptron-learning-algorithm-感知器学习算法"><a class="markdownIt-Anchor" href="#perceptron-learning-algorithm-感知器学习算法"></a> Perceptron Learning Algorithm 感知器学习算法</h2>
+<p>Supervised Learning 监督式学习</p>
 <p>Reinforcement Learning 强化学习</p>
 <p>Unsupervised Learning 非监督学习</p>
 <p><strong>Supervised Learning</strong>: The system is presented with training items consisting of an input and a target output. The aim is to predict the output, given the input (for the training set as well as an unseen test set).</p>
 <p><strong>Reinforcement Learning</strong>: The system chooses actions in a simulated environment, observing its state and receiving rewards along the way. The aim is to maximize the cumulative reward.</p>
 <p><strong>Unsupervised Learning</strong>: The system is presented with training items consisting of only an input (no target value). The aim is to extract hidden features or other structure from these data.</p>
-<h3 id="Rosenblatt-Perceptron-Rosenblatt感知器"><a href="#Rosenblatt-Perceptron-Rosenblatt感知器" class="headerlink" title="Rosenblatt Perceptron Rosenblatt感知器"></a>Rosenblatt Perceptron Rosenblatt感知器</h3><h3 id="Perceptron-Learning-Algorithm"><a href="#Perceptron-Learning-Algorithm" class="headerlink" title="Perceptron Learning Algorithm"></a>Perceptron Learning Algorithm</h3><p>learning rate 学习速率 η&gt;0 </p>
+<h3 id="rosenblatt-perceptron-rosenblatt感知器"><a class="markdownIt-Anchor" href="#rosenblatt-perceptron-rosenblatt感知器"></a> Rosenblatt Perceptron Rosenblatt感知器</h3>
+<h3 id="perceptron-learning-algorithm"><a class="markdownIt-Anchor" href="#perceptron-learning-algorithm"></a> Perceptron Learning Algorithm</h3>
+<p>learning rate 学习速率 η&gt;0</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923212058531.png" alt="image-20210923212058531"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923212138140.png" alt="image-20210923212138140"></p>
 <p>Rosenblatt证明，只要训练数据是线性可分的，该算法总是能够成功地对训练数据进行分类。</p>
-<h2 id="Multi-Layer-Perceptrons-MLP-多层感知器"><a href="#Multi-Layer-Perceptrons-MLP-多层感知器" class="headerlink" title="Multi Layer Perceptrons(MLP) 多层感知器"></a>Multi Layer Perceptrons(MLP) 多层感知器</h2><h3 id="Limitations-of-Perceptrons"><a href="#Limitations-of-Perceptrons" class="headerlink" title="Limitations of Perceptrons"></a>Limitations of Perceptrons</h3><p>not linearly separable</p>
-<h3 id="Multi-Layer-Perceptrons"><a href="#Multi-Layer-Perceptrons" class="headerlink" title="Multi Layer Perceptrons"></a>Multi Layer Perceptrons</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923232559332.png" alt="image-20210923232559332"></p>
-<h2 id="Gradient-Descent-梯度下降法"><a href="#Gradient-Descent-梯度下降法" class="headerlink" title="Gradient Descent 梯度下降法"></a>Gradient Descent 梯度下降法</h2><p><strong>loss</strong> function E 成本函数E</p>
+<h2 id="multi-layer-perceptronsmlp-多层感知器"><a class="markdownIt-Anchor" href="#multi-layer-perceptronsmlp-多层感知器"></a> Multi Layer Perceptrons(MLP) 多层感知器</h2>
+<h3 id="limitations-of-perceptrons"><a class="markdownIt-Anchor" href="#limitations-of-perceptrons"></a> Limitations of Perceptrons</h3>
+<p>not linearly separable</p>
+<h3 id="multi-layer-perceptrons"><a class="markdownIt-Anchor" href="#multi-layer-perceptrons"></a> Multi Layer Perceptrons</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923232559332.png" alt="image-20210923232559332"></p>
+<h2 id="gradient-descent-梯度下降法"><a class="markdownIt-Anchor" href="#gradient-descent-梯度下降法"></a> Gradient Descent 梯度下降法</h2>
+<p><strong>loss</strong> function E 成本函数E</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233556398.png" alt="image-20210923233556398"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233606928.png" alt="image-20210923233606928"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233647066.png" alt="image-20210923233647066"></p>
 <p><em>η</em> : <strong>learning rate</strong> 学习率</p>
-<h3 id="Gradient-Descent-for-Neural-Networks-神经网络的梯度下降"><a href="#Gradient-Descent-for-Neural-Networks-神经网络的梯度下降" class="headerlink" title="Gradient Descent for Neural Networks 神经网络的梯度下降"></a>Gradient Descent for Neural Networks 神经网络的梯度下降</h3><h3 id="Continuous-Activation-Functions-连续的激活函数"><a href="#Continuous-Activation-Functions-连续的激活函数" class="headerlink" title="Continuous Activation Functions 连续的激活函数"></a>Continuous Activation Functions 连续的激活函数</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233933880.png" alt="image-20210923233933880"></p>
+<h3 id="gradient-descent-for-neural-networks-神经网络的梯度下降"><a class="markdownIt-Anchor" href="#gradient-descent-for-neural-networks-神经网络的梯度下降"></a> Gradient Descent for Neural Networks 神经网络的梯度下降</h3>
+<h3 id="continuous-activation-functions-连续的激活函数"><a class="markdownIt-Anchor" href="#continuous-activation-functions-连续的激活函数"></a> Continuous Activation Functions 连续的激活函数</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233933880.png" alt="image-20210923233933880"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923233943366.png" alt="image-20210923233943366"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234041581.png" alt="image-20210923234041581"></p>
-<h3 id="Backpropagation-反向传播"><a href="#Backpropagation-反向传播" class="headerlink" title="Backpropagation 反向传播"></a>Backpropagation 反向传播</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234530342.png" alt="image-20210923234530342"></p>
-<h4 id="Chain-Rule-链式法则"><a href="#Chain-Rule-链式法则" class="headerlink" title="Chain Rule 链式法则"></a>Chain Rule 链式法则</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234623652.png" alt="image-20210923234623652"></p>
+<h3 id="backpropagation-反向传播"><a class="markdownIt-Anchor" href="#backpropagation-反向传播"></a> Backpropagation 反向传播</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234530342.png" alt="image-20210923234530342"></p>
+<h4 id="chain-rule-链式法则"><a class="markdownIt-Anchor" href="#chain-rule-链式法则"></a> Chain Rule 链式法则</h4>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234623652.png" alt="image-20210923234623652"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234657994.png" alt="image-20210923234657994"></p>
-<h4 id="Forward-Pass"><a href="#Forward-Pass" class="headerlink" title="Forward Pass"></a>Forward Pass</h4><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923235012611.png" alt="image-20210923235012611"></p>
-<h4 id="Backward-Pass-向后传递"><a href="#Backward-Pass-向后传递" class="headerlink" title="Backward Pass 向后传递"></a>Backward Pass 向后传递</h4><p>Partial Derivatives</p>
+<h4 id="forward-pass"><a class="markdownIt-Anchor" href="#forward-pass"></a> Forward Pass</h4>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923235012611.png" alt="image-20210923235012611"></p>
+<h4 id="backward-pass-向后传递"><a class="markdownIt-Anchor" href="#backward-pass-向后传递"></a> Backward Pass 向后传递</h4>
+<p>Partial Derivatives</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923234916330.png" alt="image-20210923234916330"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923235115658.png" alt="image-20210923235115658"></p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210923235122179.png" alt="image-20210923235122179"></p>
-<h2 id="Neural-Network-Training-神经网络训练"><a href="#Neural-Network-Training-神经网络训练" class="headerlink" title="Neural Network Training 神经网络训练"></a>Neural Network Training 神经网络训练</h2><h3 id="Example-Pima-Indians-Diabetes-Dataset-例如-皮马印第安人糖尿病数据集"><a href="#Example-Pima-Indians-Diabetes-Dataset-例如-皮马印第安人糖尿病数据集" class="headerlink" title="Example: Pima Indians Diabetes Dataset 例如:皮马印第安人糖尿病数据集"></a>Example: Pima Indians Diabetes Dataset 例如:皮马印第安人糖尿病数据集</h3><p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210924000154899.png" alt="image-20210924000154899"></p>
+<h2 id="neural-network-training-神经网络训练"><a class="markdownIt-Anchor" href="#neural-network-training-神经网络训练"></a> Neural Network Training 神经网络训练</h2>
+<h3 id="example-pima-indians-diabetes-dataset-例如皮马印第安人糖尿病数据集"><a class="markdownIt-Anchor" href="#example-pima-indians-diabetes-dataset-例如皮马印第安人糖尿病数据集"></a> Example: Pima Indians Diabetes Dataset 例如:皮马印第安人糖尿病数据集</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210924000154899.png" alt="image-20210924000154899"></p>
 <p><strong>Batch Learning</strong> 批处理学习</p>
 <p><strong>Online Learning</strong> 在线学习</p>
 <p><strong>Minibatch Learning</strong> Minibatch学习</p>
 <p><strong>Stochastic Gradient Descent</strong> (SGD) 随机梯度下降(SGD) 包括 Online Learning 和 Minibatch Learning</p>
 <p><strong>temporal correlations</strong> 临时相关性</p>
-<h3 id="Autonomous-Driving-and-Hinton-Diagrams-自动驾驶和欣顿图表"><a href="#Autonomous-Driving-and-Hinton-Diagrams-自动驾驶和欣顿图表" class="headerlink" title="Autonomous Driving and Hinton Diagrams 自动驾驶和欣顿图表"></a>Autonomous Driving and Hinton Diagrams 自动驾驶和欣顿图表</h3><p>ALVINN (Autonomous Land Vehicle in a Neural Network)</p>
+<h3 id="autonomous-driving-and-hinton-diagrams-自动驾驶和欣顿图表"><a class="markdownIt-Anchor" href="#autonomous-driving-and-hinton-diagrams-自动驾驶和欣顿图表"></a> Autonomous Driving and Hinton Diagrams 自动驾驶和欣顿图表</h3>
+<p>ALVINN (Autonomous Land Vehicle in a Neural Network)</p>
 <p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20210924001106482.png" alt="image-20210924001106482"></p>
-<h3 id="Behavioral-Cloning-Data-Augmentation-and-Experience-Replay-行为克隆、数据增强和经验重放"><a href="#Behavioral-Cloning-Data-Augmentation-and-Experience-Replay-行为克隆、数据增强和经验重放" class="headerlink" title="Behavioral Cloning, Data Augmentation and Experience Replay 行为克隆、数据增强和经验重放"></a>Behavioral Cloning, Data Augmentation and Experience Replay 行为克隆、数据增强和经验重放</h3><p><strong>Data Augmentation</strong> Data上升</p>
+<h3 id="behavioral-cloning-data-augmentation-and-experience-replay-行为克隆-数据增强和经验重放"><a class="markdownIt-Anchor" href="#behavioral-cloning-data-augmentation-and-experience-replay-行为克隆-数据增强和经验重放"></a> Behavioral Cloning, Data Augmentation and Experience Replay 行为克隆、数据增强和经验重放</h3>
+<p><strong>Data Augmentation</strong> Data上升</p>
 <p><strong>Experience Replay</strong> 经验重播</p>
-<p><strong><em>glia</em></strong> n. 神经胶质</p>
-<p><strong><em>Perceptron</em></strong> n. 感知器</p>
-<p><strong><em>threshold</em></strong> n. 门槛，门口；阈</p>
-<p><strong><em>analogous</em></strong> adj. 类似的</p>
-<p><strong><em>shorthand</em></strong> n. 速记 adj.速记的</p>
+<p><em><strong>glia</strong></em> n. 神经胶质</p>
+<p><em><strong>Perceptron</strong></em> n. 感知器</p>
+<p><em><strong>threshold</strong></em> n. 门槛，门口；阈</p>
+<p><em><strong>analogous</strong></em> adj. 类似的</p>
+<p><em><strong>shorthand</strong></em> n. 速记 adj.速记的</p>
 
       
     </div>

@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>神经网络与深度学习（5） | Hexo</title>
+  <meta name="description" content="总览 本周，我们将探索神经网络在序列和语言处理中的应用。简单递归网络(SRN)可以被训练来识别或预测形式语言，我们可以分析它们隐藏的单元动力学。通过使用门控机制，长短期记忆(LSTM)和门控递归网络(GRU)能够学习比SRN更长的距离依赖关系。  复发网络 Recurrent Networks  处理时间序列 Processing Temporal Sequences 有许多任务的输出依赖于一系">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络与深度学习（5）">
+<meta property="og:url" content="http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/index.html">
+<meta property="og:site_name" content="本杰明学习笔记">
+<meta property="og:description" content="总览 本周，我们将探索神经网络在序列和语言处理中的应用。简单递归网络(SRN)可以被训练来识别或预测形式语言，我们可以分析它们隐藏的单元动力学。通过使用门控机制，长短期记忆(LSTM)和门控递归网络(GRU)能够学习比SRN更长的距离依赖关系。  复发网络 Recurrent Networks  处理时间序列 Processing Temporal Sequences 有许多任务的输出依赖于一系">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/vMGAVzG42PWOjYc4yQ7azwhF.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/OtGbYVvxrNlxk6z3gVGZhr2P.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/kFliqBkm1vPl2HsPaGlREUih.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ss4MUZEJcORwv6EO4m4YzZ8D.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211020234706089.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018213756136.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/cfmvuSjh2EPshoucLBy2Ox7e.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214113514.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/s4aXj85aMZUUb2npaorJpgSa.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634-20211018214538014.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ltlnUCwdnczEGY1fNW8MGD7w.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214734497.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214745256.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/DkEv7YrsxVJ6kKDBbGcZ9Kt4.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/0ZuKWMbUhviPiva5gR6O7gfM.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215054090.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215054090.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215132594.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/QJkPsHkOJ2xKiZfZhdCWEb1f.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/EH9dQCfsCQJYONPnwb6mtaKK.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215959369.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220029031.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220044558.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220059055.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/ZHbO0G6aU8pT7MkThdOrwgHw.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/XLXmfmoAsnwF8clJh7nTdOI9.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220712136.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220734617.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220835225.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/EH9dQCfsCQJYONPnwb6mtaKK-20211018221348584.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018221406804.png">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/XLXmfmoAsnwF8clJh7nTdOI9-20211018221518877.jpeg">
+<meta property="og:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018221752890.png">
+<meta property="article:published_time" content="2021-10-18T13:15:05.000Z">
+<meta property="article:modified_time" content="2021-10-20T16:43:22.051Z">
+<meta property="article:author" content="Benjamin">
+<meta property="article:tag" content="课程笔记">
+<meta property="article:tag" content="COMP9444">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/szdf123/hexoblog/raw/master/img/vMGAVzG42PWOjYc4yQ7azwhF.jpeg">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="本杰明学习笔记" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="../favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 5.4.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+
+<body class="main-center theme-purple" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://szdf123.github.io/" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.png" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">本杰明</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Programmer &amp; Product Manager</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> 北京, 中国</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/szdf123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>学习技术，热爱生活</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/UNSW/">UNSW</a><span class="category-list-count">48</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9E%E7%94%A8%E5%B7%A5%E5%85%B7/">实用工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%AD%A6%E4%B9%A0/">技术学习</a><span class="category-list-count">14</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">最佳实践</a><span class="category-list-count">10</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%94%9F%E6%B4%BB%E7%BA%AA%E5%AE%9E/">生活纪实</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/">课程笔记</a><span class="category-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/" rel="tag">C</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9020/" rel="tag">COMP9020</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9021/" rel="tag">COMP9021</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9024/" rel="tag">COMP9024</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9311/" rel="tag">COMP9311</a><span class="tag-list-count">16</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9331/" rel="tag">COMP9331</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9414/" rel="tag">COMP9414</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9444/" rel="tag">COMP9444</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/COMP9517/" rel="tag">COMP9517</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CentOS/" rel="tag">CentOS</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GSOE9210/" rel="tag">GSOE9210</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/" rel="tag">Java</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mac/" rel="tag">Mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MacOS/" rel="tag">MacOS</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Maven/" rel="tag">Maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySQL/" rel="tag">MySQL</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/" rel="tag">Nginx</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OpenCV/" rel="tag">OpenCV</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/" rel="tag">SQL</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Windows/" rel="tag">Windows</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/" rel="tag">Zookeeper</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" rel="tag">人工智能</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" rel="tag">全链路监控</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" rel="tag">图像处理</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" rel="tag">实践操作</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag">工具</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" rel="tag">已完稿</a><span class="tag-list-count">31</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%89%8B%E5%86%8C/" rel="tag">手册</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" rel="tag">持续更新</a><span class="tag-list-count">13</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%99%E7%A8%8B/" rel="tag">教程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag">数据库</a><span class="tag-list-count">15</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B8%B8%E6%88%8F/" rel="tag">游戏</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%90%86%E8%B4%A2/" rel="tag">理财</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" rel="tag">监控技术</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" rel="tag">离散数学</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" rel="tag">编辑中</a><span class="tag-list-count">10</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%8B%B1%E8%AF%AD/" rel="tag">英语</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" rel="tag">计算机视觉</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a><span class="tag-list-count">39</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/C/" style="font-size: 13px;">C</a> <a href="/tags/COMP9020/" style="font-size: 13.62px;">COMP9020</a> <a href="/tags/COMP9021/" style="font-size: 13px;">COMP9021</a> <a href="/tags/COMP9024/" style="font-size: 13.23px;">COMP9024</a> <a href="/tags/COMP9311/" style="font-size: 13.85px;">COMP9311</a> <a href="/tags/COMP9331/" style="font-size: 13px;">COMP9331</a> <a href="/tags/COMP9414/" style="font-size: 13px;">COMP9414</a> <a href="/tags/COMP9444/" style="font-size: 13.46px;">COMP9444</a> <a href="/tags/COMP9517/" style="font-size: 13.38px;">COMP9517</a> <a href="/tags/CentOS/" style="font-size: 13.15px;">CentOS</a> <a href="/tags/GSOE9210/" style="font-size: 13.31px;">GSOE9210</a> <a href="/tags/Hexo/" style="font-size: 13.08px;">Hexo</a> <a href="/tags/Java/" style="font-size: 13.08px;">Java</a> <a href="/tags/Linux/" style="font-size: 13.23px;">Linux</a> <a href="/tags/Mac/" style="font-size: 13px;">Mac</a> <a href="/tags/MacOS/" style="font-size: 13.08px;">MacOS</a> <a href="/tags/Maven/" style="font-size: 13px;">Maven</a> <a href="/tags/MySQL/" style="font-size: 13px;">MySQL</a> <a href="/tags/Nginx/" style="font-size: 13px;">Nginx</a> <a href="/tags/OpenCV/" style="font-size: 13px;">OpenCV</a> <a href="/tags/Python/" style="font-size: 13.31px;">Python</a> <a href="/tags/SQL/" style="font-size: 13.38px;">SQL</a> <a href="/tags/Windows/" style="font-size: 13px;">Windows</a> <a href="/tags/Zookeeper/" style="font-size: 13px;">Zookeeper</a> <a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 13px;">人工智能</a> <a href="/tags/%E5%85%A8%E9%93%BE%E8%B7%AF%E7%9B%91%E6%8E%A7/" style="font-size: 13px;">全链路监控</a> <a href="/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/" style="font-size: 13px;">图像处理</a> <a href="/tags/%E5%AE%9E%E8%B7%B5%E6%93%8D%E4%BD%9C/" style="font-size: 13.31px;">实践操作</a> <a href="/tags/%E5%B7%A5%E5%85%B7/" style="font-size: 13.23px;">工具</a> <a href="/tags/%E5%B7%B2%E5%AE%8C%E7%A8%BF/" style="font-size: 13.92px;">已完稿</a> <a href="/tags/%E6%89%8B%E5%86%8C/" style="font-size: 13.38px;">手册</a> <a href="/tags/%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/" style="font-size: 13.69px;">持续更新</a> <a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 13.08px;">教程</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/" style="font-size: 13.77px;">数据库</a> <a href="/tags/%E6%B8%B8%E6%88%8F/" style="font-size: 13px;">游戏</a> <a href="/tags/%E7%90%86%E8%B4%A2/" style="font-size: 13.08px;">理财</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 13px;">生活</a> <a href="/tags/%E7%9B%91%E6%8E%A7%E6%8A%80%E6%9C%AF/" style="font-size: 13.31px;">监控技术</a> <a href="/tags/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6/" style="font-size: 13.54px;">离散数学</a> <a href="/tags/%E7%BC%96%E8%BE%91%E4%B8%AD/" style="font-size: 13.54px;">编辑中</a> <a href="/tags/%E8%8B%B1%E8%AF%AD/" style="font-size: 13px;">英语</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 13.38px;">计算机视觉</a> <a href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" style="font-size: 14px;">课程笔记</a>
+    </div>
+  </div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/10/">十月 2021</a><span class="archive-list-count">15</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/09/">九月 2021</a><span class="archive-list-count">7</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">八月 2021</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/06/">六月 2021</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/05/">五月 2021</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">四月 2021</a><span class="archive-list-count">20</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">三月 2021</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/02/">二月 2021</a><span class="archive-list-count">7</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled ">
+        
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/27/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-7/" class="title">计算机视觉课程笔记（7）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-27T15:00:06.000Z" itemprop="datePublished">2021-10-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/25/unsw/comp9517/ji-suan-ji-shi-jue-ke-cheng-bi-ji-5/" class="title">计算机视觉课程笔记（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-25T10:36:12.000Z" itemprop="datePublished">2021-10-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/25/unsw/gsoe9210/gong-cheng-jue-ce-jie-gou-5/" class="title">工程决策结构（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-25T02:43:06.000Z" itemprop="datePublished">2021-10-25</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" class="title">神经网络与深度学习（ass1）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T14:32:48.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-thumb">
+              <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="thumb">
+    
+    
+        <span class="thumb-image thumb-none"></span>
+    
+</a>
+
+            </div>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/UNSW/">UNSW</a>
+              </p>
+              <p class="item-title">
+                <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="title">神经网络与深度学习（5）</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2021-10-18T13:15:05.000Z" itemprop="datePublished">2021-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-UNSW/COMP9444/神经网络与深度学习（5）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      神经网络与深度学习（5）
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" class="article-date">
+	  <time datetime="2021-10-18T13:15:05.000Z" itemprop="datePublished">2021-10-18</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/UNSW/">UNSW</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link-link" href="/tags/COMP9444/" rel="tag">COMP9444</a>, <a class="article-tag-link-link" href="/tags/%E8%AF%BE%E7%A8%8B%E7%AC%94%E8%AE%B0/" rel="tag">课程笔记</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 2.6k(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 9(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="总览"><a class="markdownIt-Anchor" href="#总览"></a> 总览</h2>
+<p>本周，我们将探索神经网络在序列和语言处理中的应用。简单递归网络(SRN)可以被训练来识别或预测形式语言，我们可以分析它们隐藏的单元动力学。通过使用门控机制，长短期记忆(LSTM)和门控递归网络(GRU)能够学习比SRN更长的距离依赖关系。</p>
+<h2 id="复发网络-recurrent-networks"><a class="markdownIt-Anchor" href="#复发网络-recurrent-networks"></a> 复发网络 Recurrent Networks</h2>
+<h3 id="处理时间序列-processing-temporal-sequences"><a class="markdownIt-Anchor" href="#处理时间序列-processing-temporal-sequences"></a> 处理时间序列 Processing Temporal Sequences</h3>
+<p>有许多任务的输出依赖于一系列输入，而不是单个输入。例如:</p>
+<ul>
+<li>语音识别 speech recognition</li>
+<li>时间序列预测 time series prediction</li>
+<li>机器翻译 machine translation</li>
+<li>手写识别 handwriting recognition</li>
+</ul>
+<h3 id="nettalk滑动窗口方法-nettalk-sliding-window-approach"><a class="markdownIt-Anchor" href="#nettalk滑动窗口方法-nettalk-sliding-window-approach"></a> NetTalk滑动窗口方法 NetTalk sliding window approach</h3>
+<p>它的输入由七个连续的字符组成，目的是输出一组指定中间字符正确发音的语音属性。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/vMGAVzG42PWOjYc4yQ7azwhF.jpeg" alt="img"></p>
+<p>对于这7个输入字符中的每个字符，使用了一种一次性编码，使用29个单元(包括26个字母，加上标点和单词边界)，总共有203个输入。具有sigmoidal传递函数的隐藏单元有80个，26个输出编码21个发音特征以及重音和音节边界。</p>
+<h3 id="简单的复发性网络srn-simple-recurrent-network"><a class="markdownIt-Anchor" href="#简单的复发性网络srn-simple-recurrent-network"></a> 简单的复发性网络(SRN) Simple Recurrent Network</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/OtGbYVvxrNlxk6z3gVGZhr2P.jpeg" alt="img"></p>
+<p>简单递归网络(SRN)是Elman(1990)提出的。一个输入序列一次性输入到网络。在每个时间步，当前激活的隐藏层复制到一个“上下文”层。然后从当前输入和上下文层计算隐含层的新激活。因此，上下文层被用来“记住”网络需要的任何信息，以预测正确的输出。</p>
+<p>基本的SRN可以通过直接从输入到输出的“捷径”连接，或从输出到隐藏层的连接(有时称为“乔丹网络”)来增强。</p>
+<h3 id="通过时间反向传播-backpropagation-through-time"><a class="markdownIt-Anchor" href="#通过时间反向传播-backpropagation-through-time"></a> 通过时间反向传播 Backpropagation through time</h3>
+<p>对于任何给定的输入序列，我们都可以将一个循环体系结构“展开”成一个具有共享权重的等价前馈体系结构。将反向传播应用到展开的体系结构称为时间上的反向传播。我们可以回溯到一个时间步，或者固定数量的时间步，或者一直回溯到序列的开始。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/kFliqBkm1vPl2HsPaGlREUih.png" alt="img"></p>
+<h2 id="识别器和预测-recognizers-and-predictors"><a class="markdownIt-Anchor" href="#识别器和预测-recognizers-and-predictors"></a> 识别器和预测 Recognizers and Predictors</h2>
+<p>二级网络或门控网络 Second Order Network or Gated Network</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ss4MUZEJcORwv6EO4m4YzZ8D.jpeg" alt="img"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211020234706089.png" alt="image-20211020234706089"></p>
+<h3 id="动力识别器-dynamical-recognizers"><a class="markdownIt-Anchor" href="#动力识别器-dynamical-recognizers"></a> 动力识别器 Dynamical Recognizers</h3>
+<p>一种常见的序列处理任务是形式语言识别。网络每次扫描一个字符序列，然后必须输出1或0，以便分别将该序列分类为Accept或Reject。例如，考虑这组训练数据:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018213756136.png" alt="image-20211018213756136"></p>
+<p>对这些数据的自然概括是将完全由1组成的字符串分类为Accept，将任何包含0的字符串分类为Reject。这个图显示了在这些数据上训练二阶网络的结果。交叉表示初始状态，而圆点表示网络处理一组随机生成的测试字符串时发生的所有隐藏状态。分隔线显示了字符串被分类为Accept的最终状态和被分类为Reject的最终状态之间的边界。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/cfmvuSjh2EPshoucLBy2Ox7e.png" alt="img"></p>
+<p>在某些情况下，我们可以使用分析工具提取有限状态机，它可以精确地模拟网络的行为，如图所示。每个隐藏单元状态簇被转换为单个状态，簇之间的转换被转换为箭头，初始状态由一个没有来源的箭头表示。在分界线的接受一侧的状态用一个双圆表示；用一个圆圈圈住拒绝的。</p>
+<p>下面是另一个例子，在这个例子中，网络学会拒绝任何包含三个连续0的字符串，并接受其他所有字符串。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214113514.png" alt="image-20211018214113514"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/s4aXj85aMZUUb2npaorJpgSa.png" alt="img"></p>
+<h3 id="非正则语言-non-regular-languages"><a class="markdownIt-Anchor" href="#非正则语言-non-regular-languages"></a> 非正则语言 Non-Regular languages</h3>
+<p>可以用有限状态机描述的语言称为<strong>正则</strong>(<strong>Regular</strong>)语言。</p>
+<p>一个非正规语言的简单例子是<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634.png" alt="image-20211018214328634">，表示每个连续的a序列后面必须跟相同数量的连续b，如</p>
+<p><em>abaabbabaaabbbaaaabbbbabaabbaaaaabbbbb . . .</em></p>
+<p>具有2个输入、2个隐藏节点和2个输出的SRN可以被训练来预测<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634.png" alt="image-20211018214328634">。在这种情况下，网络必须一次扫描一个输入字符序列，并在每一步尝试预测序列中的下一个字符。在某些情况下，预测是有概率的。对于<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214328634-20211018214538014.png" alt="image-20211018214328634">任务，第一个b是不可预测的，但后续b和下一个子序列中的初始a是可预测的。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ltlnUCwdnczEGY1fNW8MGD7w.jpeg" alt="img"></p>
+<p>该网络没有实现有限状态机，而是利用激活空间中的两个不动点——一个吸引，另一个排斥。当它向有吸引力的不动点振荡时，网络有效地“计数”a，然后当它从有排斥的不动点振荡时，倒数相同数量的b。当在两个不动点上对循环映射进行线性化时，我们发现两个主要的特征值几乎是互相倒数的。有趣的是，网络只训练到<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214734497.png" alt="image-20211018214734497">通常可以归纳为<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018214745256.png" alt="image-20211018214745256">。</p>
+<p>用进化训练权值比用反向传播训练权值更稳定。经过进化训练的网络有时表现出单调的而不是振荡的轨迹。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/DkEv7YrsxVJ6kKDBbGcZ9Kt4.jpeg" alt="img"></p>
+<h3 id="计数的螺旋式上升-counting-by-spiralling"><a class="markdownIt-Anchor" href="#计数的螺旋式上升-counting-by-spiralling"></a> 计数的螺旋式上升 Counting by spiralling</h3>
+<p>SRN也可以训练识别平衡括号语言，将a当作左括号，将b当作右括号(Boden, 2003)。在这种情况下，线性化映射在不动点的特征值是复数，网络通过向内螺旋的方式计算a值，通过向外螺旋的方式计算b值。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/0ZuKWMbUhviPiva5gR6O7gfM.jpeg" alt="img"></p>
+<h2 id="隐单元动力学-hidden-unit-dynamics-for-image-20211018215054090"><a class="markdownIt-Anchor" href="#隐单元动力学-hidden-unit-dynamics-for-image-20211018215054090"></a> 隐单元动力学 <img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215054090.png" alt=""> Hidden unit dynamics for <img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215054090.png" alt="image-20211018215054090"></h2>
+<p>一个有三个输入、三个隐藏单元和三个输出的SRN可以用来学习语言<img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215132594.png" alt="image-20211018215132594">，被归类为轻度上下文敏感。这个网络在一个方向上计数，同时在另一个方向上计数，从而产生一个星形图案。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/QJkPsHkOJ2xKiZfZhdCWEb1f.jpeg" alt="img"></p>
+<p>用简单语言分析网络动态具有启发性。但是，最终，SRN在它们能够学习的依赖范围内是有限的，原因类似于我们在第2周前馈网络环境中讨论的消失梯度问题。在下一节中，我们将介绍长短期记忆，它能够学习更长的依赖关系，并结合单词向量、注意力和其他增强功能，能够执行严重的现实世界任务，如多语言翻译。</p>
+<h2 id="长短期记忆lstm-long-short-term-memory"><a class="markdownIt-Anchor" href="#长短期记忆lstm-long-short-term-memory"></a> 长短期记忆(LSTM) Long Short Term Memory</h2>
+<p>简单递归网络(SRNs)可以学习中等距离的依赖关系，但很难学习长距离的依赖关系。长短期记忆(LSTM)能够通过遗忘、输入和输出门的组合来学习长期依赖关系。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/EH9dQCfsCQJYONPnwb6mtaKK.jpeg" alt="img"></p>
+<p>LSTM维护一个<strong>上下文context</strong>层，它与<strong>隐藏层hidden</strong>不同，但包含相同数量的单元。LSTM在每个时间步长的完整工作由以下方程描述：</p>
+<p>Gates:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018215959369.png" alt="image-20211018215959369"></p>
+<p>候选人激活 Candidate Activation:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220029031.png" alt="image-20211018220029031"></p>
+<p>State:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220044558.png" alt="image-20211018220044558"></p>
+<p>Output:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220059055.png" alt="image-20211018220059055"></p>
+<p>首先，<strong>遗忘forget</strong>门(f)被用来确定，对于每个上下文单元，0和1之间的比率，这个上下文单元的值将乘以这个比率。如果比值接近于零，则对应上下文单元的先前值将在很大程度上被遗忘；如果它接近1，那么之前的值将大部分保留。</p>
+<p>接下来，使用tanh计算−1和+1之间的<strong>更新update</strong>值(g)，并使用<strong>输入input</strong>门(i)来确定这些更新值在被添加到当前上下文值之前所乘的比率。</p>
+<p>最后，<strong>输出output</strong>门(o)被计算并用于确定上下文单位值的tanh乘以的比率，以产生下一个<strong>隐藏hidden</strong>的单位值。</p>
+<p>通过这种方式，上下文单元能够专门化，其中一些经常改变它们的值，而另一些则在许多时间步骤中保持它们的状态，直到特殊情况导致大门被“打开”，并允许这些单位的值发生变化。</p>
+<h3 id="嵌入式reber语法-embedded-reber-grammar"><a class="markdownIt-Anchor" href="#嵌入式reber语法-embedded-reber-grammar"></a> 嵌入式Reber语法 Embedded Reber Grammar</h3>
+<p>不同的序列处理算法学习长期依赖关系的能力可以使用雷柏语法和嵌入式雷柏语法来探索。</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/ZHbO0G6aU8pT7MkThdOrwgHw.png" alt="img"></p>
+<p><strong>Reber Grammar</strong> (RG)由左边所示的有限状态机定义。当在两个转变之间有选择时，它们被理解为被选择的概率相等。嵌入的Reber语法(ERG)显示在右边，每个标记为“Reber语法”的框包含在左边的有限状态机的相同副本。困难在学习ERG是网络必须记住过渡(T和P)发生在最初的B，并保留这些信息处理与RG相关联的转换时的两个相同的盒子，为了正确地预测T和P发生前最后的E。</p>
+<p>在本周的练习中，你们将演示SRN能够学习RG，但学习ERG却很困难，而LSTM也可以学习ERG。我们可以想象其中一个上下文单元以某种方式被分配了保留关于初始T或P的知识的任务，而这些知识分别通过遗忘门和输入输出门的适当的高值和低值被保留了下来。</p>
+<h3 id="封闭的复发性单元-gated-recurrent-unit"><a class="markdownIt-Anchor" href="#封闭的复发性单元-gated-recurrent-unit"></a> 封闭的复发性单元 Gated Recurrent Unit</h3>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/XLXmfmoAsnwF8clJh7nTdOI9.jpeg" alt="img"></p>
+<p>门控循环单元(GRU)与LSTM类似，但只有两个门而不是三个。其更新方程如下：</p>
+<p>Gates:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220712136.png" alt="image-20211018220712136"></p>
+<p>候选人激活:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220734617.png" alt="image-20211018220734617"></p>
+<p>Output:</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018220835225.png" alt="image-20211018220835225"></p>
+<h2 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题</h2>
+<h4 id="question-1"><a class="markdownIt-Anchor" href="#question-1"></a> Question 1</h4>
+<p>问：解释向NetTalk系统提供输入的格式和方法，以及目标输出</p>
+<p>答：字符是使用滑动窗口的方法提供给NetTalk的。在一个7个单词的窗口中，字符被编码为1热编码，以形成大小为7×29的输入。该网络有26个输出，每个输出对应音标字母表中的一个字母。目标输出是输入中中心字符的正确发音。</p>
+<h4 id="question-2"><a class="markdownIt-Anchor" href="#question-2"></a> Question 2</h4>
+<p>问：解释上下文层在Elman网络中的作用。</p>
+<p>答：上下文层是前一个时间步的隐藏层的副本。隐藏层接受来自隐藏层和上下文层的连接。这在理论上允许网络无限期地保留“状态”信息。</p>
+<h4 id="question-3"><a class="markdownIt-Anchor" href="#question-3"></a> Question 3</h4>
+<p>画一个LSTM的图，写出它的运算方程。</p>
+<p>答：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/EH9dQCfsCQJYONPnwb6mtaKK-20211018221348584.jpeg" alt="img"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018221406804.png" alt="image-20211018221406804"></p>
+<h4 id="question-4"><a class="markdownIt-Anchor" href="#question-4"></a> Question 4</h4>
+<p>画一个门控循环单元Gated Recurrent Unit的图，并写出它的运行方程。</p>
+<p>答：</p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/XLXmfmoAsnwF8clJh7nTdOI9-20211018221518877.jpeg" alt="img"></p>
+<p><img src="https://gitee.com/szdf123/hexoblog/raw/master/img/image-20211018221752890.png" alt="image-20211018221752890"></p>
+<blockquote>
+<p>理解 LSTM 网络 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9dc9f41f0b29">https://www.jianshu.com/p/9dc9f41f0b29</a></p>
+</blockquote>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/" title="神经网络与深度学习（5）" target="_blank" rel="external">http://szdf123.github.io/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-5/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://szdf123.github.io/" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.png" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://szdf123.github.io/" target="_blank"><span class="text-dark">本杰明</span><small class="ml-1x">Programmer &amp; Product Manager</small></a></h3>
+        <div>学习技术，热爱生活</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/2021/10/18/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-ass1/" title="神经网络与深度学习（ass1）"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/2021/10/17/unsw/comp9444/shen-jing-wang-luo-yu-shen-du-xue-xi-4/" title="神经网络与深度学习（4）"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>赏</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>感谢您的支持，我会继续努力的!</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开支付宝扫一扫，即可进行扫码打赏哦</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="扫码支持" title="扫一扫" />
+              </div>
+              <p class="text-muted mv">扫码打赏，你说多少就多少</p>
+              <p class="text-grey">打开微信扫一扫，即可进行扫码打赏哦</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> 支付宝</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> 微信支付</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/szdf123" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        &copy; 2021 Benjamin
+        
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+</html>
